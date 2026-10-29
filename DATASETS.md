@@ -388,7 +388,9 @@ formula 6 or 7, computed in the page from the embedded counts and MOEs.
   means no 2025 1-year estimate; none of the gray areas were published with
   empty tables in 2025.
 - *Change, 2015 to 2025* view: a decade, in percentage points. Only changes
-  that pass the z-test (formula 3) are colored; the rest are hatched. Classes
+  that pass the z-test (formula 3) are colored; the rest are hatched. Rises
+  are blue and falls orange, except for less than high school, where falls
+  are blue and rises orange. Classes
   are symmetric around zero in steps of k and 2k points, where k is the round
   number (0.5, 1, 1.5, 2, 2.5, 3, 4 or 5) closest to a third of the 90th
   percentile of the size of the changes that pass, for each level and measure.

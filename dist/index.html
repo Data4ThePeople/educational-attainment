@@ -119,13 +119,16 @@ const LEVELS = [
   {key: "cbsa", label: "Metro and micro areas", one: "metro or micro area", by: "metro or micro area"},
 ];
 const MEASURES = [
-  {key: "baplus", label: "Bachelor's degree or more", phrase: "a bachelor's degree or more", groups: ["ba", "grad"]},
   {key: "grad", label: "Graduate or professional degree", phrase: "a graduate or professional degree", groups: ["grad"]},
+  {key: "baplus", label: "Bachelor's degree or more", phrase: "a bachelor's degree or more", groups: ["ba", "grad"]},
   {key: "scplus", label: "Some college or more", phrase: "at least some college", groups: ["somecol", "ba", "grad"], brk: true},
   {key: "hsplus", label: "High school or more", phrase: "at least a high school diploma or equivalent", groups: ["hs", "somecol", "ba", "grad"], brk: true},
-  {key: "lths", label: "Less than high school", phrase: "less than a high school education", groups: ["lths"], brk: true},
+  {key: "lths", label: "Less than high school", phrase: "less than a high school education", groups: ["lths"], brk: true, fallBlue: true},
 ];
-const DIV = ["--n3", "--n2", "--n1", "--p1", "--p2", "--p3"];   // falls, then rises
+// Change colors from largest fall to largest rise: orange, then blue. For
+// less than high school the order flips, so a fall is blue there too.
+const DIV = ["--n3", "--n2", "--n1", "--p1", "--p2", "--p3"];
+const divColor = (i, m) => DIV[m.fallBlue ? DIV.length - 1 - i : i];
 const VIEWS = [
   {key: "level", label: `Share in ${LAST}`},
   {key: "change", label: `Change, ${FIRST} to ${LAST}`},
@@ -269,8 +272,8 @@ function render() {
     const present = new Set(sig.map(d => changeClass(d, k)));
     const labels = [`Fell ${k2} or more`, `Fell ${kk} to ${k2}`, `Fell less than ${kk}`, `Rose less than ${kk}`, `Rose ${kk} to ${k2}`, `Rose ${k2} or more`];
     // Changes that do not pass the test are hatched, not colored.
-    fillOf = a => { const c = a && cs.get(a.id); return !c ? "var(--nodata)" : !c.t.sig ? "url(#hatch)" : `var(${DIV[changeClass(c.t.diff, k)]})`; };
-    legend = DIV.map((v, i) => present.has(i) ? `<span class="nd"><i style="background:var(${v})"></i>${labels[i]}</span>` : "").join("") +
+    fillOf = a => { const c = a && cs.get(a.id); return !c ? "var(--nodata)" : !c.t.sig ? "url(#hatch)" : `var(${divColor(changeClass(c.t.diff, k), m)})`; };
+    legend = DIV.map((_, i) => present.has(i) ? `<span class="nd"><i style="background:var(${divColor(i, m)})"></i>${labels[i]}</span>` : "").join("") +
       (ns ? `<span class="nd"><i class="hatch"></i>Change does not pass the test</span>` : "") +
       (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
     intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.` +
