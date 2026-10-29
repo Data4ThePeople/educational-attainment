@@ -377,19 +377,30 @@ if nothing had changed anywhere, about 894 would pass by chance. Far more than
 that pass (see FINDINGS.md), but any single small change that passes could
 still be chance.
 
-**Map** (`dist/index.html`). Shows 2025 for states, counties and metro and
-micro areas, with five measures built from the groups: bachelor's or more
+**Map** (`dist/index.html`). Shows states, counties and metro and micro
+areas, with five measures built from the groups: bachelor's or more
 (bachelor's + graduate), graduate or professional, some college or more, high
 school or more, and less than high school. Sums use formula 1 and shares use
-formula 6 or 7, computed in the page from the embedded counts and MOEs. Colors
-are six classes with about equal numbers of areas, rounded to whole percents
-and computed for each level and measure. The tooltip shows 2008 and the
-change only for areas in the ranked view's comparable set: published every
-year, and boundary changes never moved the adult population 5% or more in one
-year. Because 2025 is a break year for the three measures that include less
-than high school or some college, the page notes how far each moved beyond its
-2021–2024 trend nationally. Gray means no 2025 1-year estimate; none of the
-gray areas were published with empty tables in 2025.
+formula 6 or 7, computed in the page from the embedded counts and MOEs.
+
+- *Share in 2025* view: six color classes with about equal numbers of areas,
+  rounded to whole percents and computed for each level and measure. Gray
+  means no 2025 1-year estimate; none of the gray areas were published with
+  empty tables in 2025.
+- *Change, 2015 to 2025* view: a decade, in percentage points. Only changes
+  that pass the z-test (formula 3) are colored; the rest are hatched. Classes
+  are symmetric around zero in steps of k and 2k points, where k is the round
+  number (0.5, 1, 1.5, 2, 2.5, 3, 4 or 5) closest to a third of the 90th
+  percentile of the size of the changes that pass, for each level and measure.
+- A 2015 value and change are shown only for areas published in every year
+  from 2015 to 2025, and for metro and micro areas only where no county-makeup
+  change that took effect after 2015 (first used in 2016, 2018, 2019, 2021 or
+  2023) moved the population 25 and over by 5% or more from the prior
+  published year. Bedford County, Virginia's 2013 change is before the window,
+  so it is compared.
+- Because 2025 is a break year for the three measures that include less than
+  high school or some college, the page notes how far each moved beyond its
+  2021–2024 trend nationally.
 
 **Names.** Each area carries its name in the latest year it was published.
 

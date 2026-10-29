@@ -2,7 +2,7 @@
 
 Work in progress (Step 1, analysis). This project tracks the education of adults 25 and over, from 2008 to 2025. It covers the nation, regions, divisions, states, counties, metro and micro areas, and places in the American Community Survey (ACS) 1-year estimates, which cover areas with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.
 
-The interactive map is `dist/index.html`. It shows 2025 for states, counties, and metro and micro areas, with a choice of five education measures (bachelor's degree or more by default). Hovering over an area shows its 2008 value and the change. A second page, `dist/lines.html`, shows one area at a time from 2008 to 2025 and a ranked view of changes that pass the Census Bureau's test at 90% confidence.
+The interactive map is `dist/index.html`. It covers states, counties, and metro and micro areas, with a choice of five education measures (bachelor's degree or more by default). It shows either the 2025 share or the change from 2015 to 2025, with changes colored only where they pass the Census Bureau's test at 90% confidence. Hovering over an area shows both years and the change. A second page, `dist/lines.html`, shows one area at a time from 2008 to 2025 and a ranked view of changes that pass the Census Bureau's test at 90% confidence.
 
 ## What's in the repo
 

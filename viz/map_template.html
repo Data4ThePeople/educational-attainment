@@ -12,6 +12,7 @@
   --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
   --nodata: #e8e7e1; --edge: #fcfcfb; --stateline: #6f6d67; --accent: #2a78d6;
   --b1: #cde2fb; --b2: #9ec5f4; --b3: #6da7ec; --b4: #3987e5; --b5: #256abf; --b6: #184f95;
+  --n3: #9a4a10; --n2: #d9782d; --n1: #f4c194; --p1: #b3d1f7; --p2: #4f8fe0; --p3: #1c5cab; --ns: #dedcd5;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -20,6 +21,7 @@
     --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
     --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
     --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
+    --n3: #f4b07a; --n2: #c8692a; --n1: #6e3812; --p1: #1d4778; --p2: #3a7fd6; --p3: #a3c8f5; --ns: #45443f;
   }
 }
 :root[data-theme="dark"] {
@@ -28,6 +30,7 @@
   --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
   --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
   --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
+  --n3: #f4b07a; --n2: #c8692a; --n1: #6e3812; --p1: #1d4778; --p2: #3a7fd6; --p3: #a3c8f5; --ns: #45443f;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--page); color: var(--ink);
@@ -46,8 +49,10 @@ select { font: inherit; color: var(--ink); background: var(--surface); border: 1
 .legend .sw { display: inline-flex; flex-direction: column; align-items: flex-start; }
 .legend .sw i { display: block; width: 58px; height: 12px; }
 .legend .sw span { font-variant-numeric: tabular-nums; }
-.legend .nd { margin-left: 16px; display: inline-flex; align-items: center; gap: 6px; }
+.legend .nd { margin-right: 14px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.legend .sw + .nd { margin-left: 16px; }
 .legend .nd i { display: inline-block; width: 16px; height: 12px; background: var(--nodata); border: 1px solid var(--axis); }
+.legend .nd i.hatch { background: repeating-linear-gradient(45deg, var(--muted) 0 1.2px, var(--surface) 1.2px 4px); }
 svg.map { display: block; width: 100%; height: auto; touch-action: manipulation; }
 svg.map path.a { stroke: var(--edge); stroke-width: 0.35; vector-effect: non-scaling-stroke; }
 svg.map path.s { fill: none; stroke: var(--stateline); stroke-width: 0.7; vector-effect: non-scaling-stroke; pointer-events: none; }
@@ -76,11 +81,12 @@ table.data th { position: sticky; top: 0; background: var(--surface); }
 <body>
 <div class="app">
 <div class="card">
-  <h1>Educational attainment of adults 25 and over, 2025</h1>
+  <h1>Educational attainment of adults 25 and over, 2015 to 2025</h1>
   <p class="sub">American Community Survey 1-year estimates for states, and for counties and metro and micro areas with 65,000 or more people.</p>
   <div class="controls">
     <label>Show <select id="lvl" aria-label="Geography level"></select></label>
     <label>Education <select id="msr" aria-label="Education level"></select></label>
+    <label>View <select id="view" aria-label="View"></select></label>
   </div>
   <p id="intro"></p>
   <h2 id="title"></h2>
@@ -89,7 +95,7 @@ table.data th { position: sticky; top: 0; background: var(--surface); }
   <div id="notes"></div>
   <details id="tbl-wrap"><summary>Show the numbers</summary><div class="tbl" id="tbl"></div></details>
   <div class="foot">
-    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.</span>
+    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. No 1-year estimates were released for 2020. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.</span>
     <span>Built by Data 4 The People</span>
   </div>
 </div>
@@ -119,7 +125,13 @@ const MEASURES = [
   {key: "hsplus", label: "High school or more", phrase: "at least a high school diploma or equivalent", groups: ["hs", "somecol", "ba", "grad"], brk: true},
   {key: "lths", label: "Less than high school", phrase: "less than a high school education", groups: ["lths"], brk: true},
 ];
+const DIV = ["--n3", "--n2", "--n1", "--p1", "--p2", "--p3"];   // falls, then rises
+const VIEWS = [
+  {key: "level", label: `Share in ${LAST}`},
+  {key: "change", label: `Change, ${FIRST} to ${LAST}`},
+];
 const fmt = (x, d = 1) => x.toFixed(d);
+const signed = (x, d = 1) => (x > 0 ? "+" : x < 0 ? "−" : "") + fmt(Math.abs(x), d);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 
@@ -155,13 +167,15 @@ for (const a of DATA.areas) {
 }
 
 // ---- Controls ----
-const lvlSel = document.getElementById("lvl"), msrSel = document.getElementById("msr");
+const lvlSel = document.getElementById("lvl"), msrSel = document.getElementById("msr"), viewSel = document.getElementById("view");
+VIEWS.forEach(v => viewSel.add(new Option(v.label, v.key)));
 LEVELS.forEach(l => lvlSel.add(new Option(l.label, l.key)));
 MEASURES.forEach(m => msrSel.add(new Option(m.label, m.key)));
-lvlSel.value = "county"; msrSel.value = "baplus";
+lvlSel.value = "county"; msrSel.value = "baplus"; viewSel.value = "level";
 const h = new URLSearchParams(location.hash.slice(1));
 if (LEVELS.some(l => l.key === h.get("level"))) lvlSel.value = h.get("level");
 if (MEASURES.some(m => m.key === h.get("measure"))) msrSel.value = h.get("measure");
+if (VIEWS.some(v => v.key === h.get("view"))) viewSel.value = h.get("view");
 
 // ---- Bins: six classes with about equal counts of areas, rounded to whole percents ----
 function breaks(values) {
@@ -170,6 +184,24 @@ function breaks(values) {
   return out.filter((b, i) => i === 0 || b > out[i - 1]);
 }
 const binOf = (p, br) => { let i = 0; while (i < br.length && p >= br[i]) i++; return i; };
+
+// ---- Change classes: symmetric around zero, step k in whole or half points ----
+// k is a round number near a third of the 90th percentile of the size of the
+// changes that pass the test, so most colored areas fall in the first three steps.
+function changeStep(diffs) {
+  const v = diffs.map(Math.abs).sort((a, b) => a - b);
+  const target = v.length ? v[Math.floor(0.9 * (v.length - 1))] / 3 : 1;
+  return [0.5, 1, 1.5, 2, 2.5, 3, 4, 5].reduce((b, x) => Math.abs(x - target) < Math.abs(b - target) ? x : b);
+}
+function changeClass(d, k) {
+  if (d < 0) return d <= -2 * k ? 0 : d <= -k ? 1 : 2;
+  return d >= 2 * k ? 5 : d >= k ? 4 : 3;
+}
+function cmp(a, m) {
+  if (!a || !a.c || !a.v[LAST] || !a.v[FIRST]) return null;
+  const now = measure(a.v[LAST], m), then = measure(a.v[FIRST], m);
+  return {now, then, t: ztest(then, now)};
+}
 
 // ---- Tooltip ----
 const tip = document.getElementById("tip");
@@ -191,10 +223,11 @@ function tipHtml(feat, L, m) {
   }
   const now = measure(a.v[LAST], m);
   let html = `<b>${esc(a.n)}</b><div class="row"><span>${LAST}</span><span>${fmt(now.p)}% ± ${fmt(now.moe)}</span></div>`;
-  if (a.c && a.v[FIRST]) {
-    const then = measure(a.v[FIRST], m), t = ztest(then, now);
+  const c = cmp(a, m);
+  if (c) {
+    const {then, t} = c;
     html += `<div class="row"><span>${FIRST}</span><span>${fmt(then.p)}% ± ${fmt(then.moe)}</span></div>` +
-      `<div class="row"><span>Change</span><span>${t.diff > 0 ? "+" : t.diff < 0 ? "−" : ""}${fmt(Math.abs(t.diff))} points</span></div>` +
+      `<div class="row"><span>Change</span><span>${signed(t.diff)} points</span></div>` +
       `<div class="sm">${t.sig ? "This change passes" : "This change does not pass"} the Census Bureau's test at 90% confidence.` +
       (m.brk ? ` Part of it may come from the ${LAST} question change (see note below the map).` : "") + `</div>`;
   } else {
@@ -207,36 +240,55 @@ function tipHtml(feat, L, m) {
 let current = [];
 function render() {
   const L = LEVELS.find(l => l.key === lvlSel.value), m = MEASURES.find(x => x.key === msrSel.value);
-  try { history.replaceState(null, "", `#level=${L.key}&measure=${m.key}`); } catch (e) {}
+  const change = viewSel.value === "change";
+  try { history.replaceState(null, "", `#level=${L.key}&measure=${m.key}&view=${viewSel.value}`); } catch (e) {}
   const feats = GEO[L.key];
-  const vals = [];
-  feats.forEach(f => { const a = AREA.get(f.id); if (a && a.v[LAST]) vals.push(measure(a.v[LAST], m).p); });
-  const br = breaks(vals);
-  const gray = feats.length - vals.length;
+  let fillOf, legend, intro, title;
+  const noEst = feats.filter(f => { const a = AREA.get(f.id); return !(a && a.v[LAST]); }).length;
+  const cbsaKey = L.key === "cbsa" ? `<span class="nd"><i style="background:var(--surface)"></i>Not in a metro or micro area</span>` : "";
 
-  document.getElementById("intro").textContent =
-    `The map below shows the share of adults 25 and over with ${m.phrase} in each ${L.one} in ${LAST}.` +
-    (gray ? ` Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.` : "") +
-    ` Hover over an area to see its value, its margin of error and its change since ${FIRST}.`;
-  document.getElementById("title").textContent =
-    `Adults 25 and over with ${m.phrase}, by ${L.by}, ${LAST} (percent)`;
+  if (!change) {
+    const vals = [];
+    feats.forEach(f => { const a = AREA.get(f.id); if (a && a.v[LAST]) vals.push(measure(a.v[LAST], m).p); });
+    const br = breaks(vals), off = BINS.length - (br.length + 1);   // use the darker end if fewer classes
+    const lo = Math.floor(Math.min(...vals)), hi = Math.ceil(Math.max(...vals)), edges = [lo, ...br, hi];
+    fillOf = a => a && a.v[LAST] ? `var(${BINS[off + binOf(measure(a.v[LAST], m).p, br)]})` : "var(--nodata)";
+    // Each class holds values from its lower edge up to, not including, the next edge.
+    legend = edges.slice(0, -1).map((e, i) =>
+      `<span class="sw"><i style="background:var(${BINS[off + i]})"></i><span>${e}–${edges[i + 1]}${i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
+      (noEst ? `<span class="nd"><i></i>No ${LAST} 1-year estimate</span>` : "") + cbsaKey;
+    intro = `The map below shows the share of adults 25 and over with ${m.phrase} in each ${L.one} in ${LAST}.` +
+      (noEst ? ` Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.` : "") +
+      ` Hover over an area to see its value, its margin of error and its change since ${FIRST}.`;
+    title = `Adults 25 and over with ${m.phrase}, by ${L.by}, ${LAST} (percent)`;
+  } else {
+    const cs = new Map(), sig = [];
+    feats.forEach(f => { const c = cmp(AREA.get(f.id), m); if (c) { cs.set(f.id, c); if (c.t.sig) sig.push(c.t.diff); } });
+    const k = changeStep(sig), kk = fmt(k, k % 1 ? 1 : 0), k2 = fmt(2 * k, (2 * k) % 1 ? 1 : 0);
+    const ns = cs.size - sig.length, none = feats.length - cs.size;
+    const present = new Set(sig.map(d => changeClass(d, k)));
+    const labels = [`Fell ${k2} or more`, `Fell ${kk} to ${k2}`, `Fell less than ${kk}`, `Rose less than ${kk}`, `Rose ${kk} to ${k2}`, `Rose ${k2} or more`];
+    // Changes that do not pass the test are hatched, not colored.
+    fillOf = a => { const c = a && cs.get(a.id); return !c ? "var(--nodata)" : !c.t.sig ? "url(#hatch)" : `var(${DIV[changeClass(c.t.diff, k)]})`; };
+    legend = DIV.map((v, i) => present.has(i) ? `<span class="nd"><i style="background:var(${v})"></i>${labels[i]}</span>` : "").join("") +
+      (ns ? `<span class="nd"><i class="hatch"></i>Change does not pass the test</span>` : "") +
+      (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
+    intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.` +
+      ` Areas are colored only where the change passes the Census Bureau's test at 90% confidence` +
+      (ns ? `; the ${ns} of ${cs.size} that do not are hatched.` : `, and all ${cs.size} do.`) +
+      (none ? ` Gray areas have no comparable ${FIRST} and ${LAST} values.` : "") +
+      ` Hover over an area to see both values and the change.`;
+    title = `Change in adults 25 and over with ${m.phrase}, by ${L.by}, ${FIRST} to ${LAST} (percentage points)`;
+  }
+  document.getElementById("intro").textContent = intro;
+  document.getElementById("title").textContent = title;
+  document.getElementById("legend").innerHTML = legend;
 
-  const lo = Math.floor(Math.min(...vals)), hi = Math.ceil(Math.max(...vals));
-  const edges = [lo, ...br, hi];
-  // Each class holds values from its lower edge up to, not including, the next edge.
-  document.getElementById("legend").innerHTML = edges.slice(0, -1).map((e, i) =>
-    `<span class="sw"><i style="background:var(${BINS[i + (BINS.length - edges.length + 1)]})"></i><span>${e}–${edges[i + 1]}${i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
-    (gray ? `<span class="nd"><i></i>No ${LAST} 1-year estimate</span>` : "") +
-    (L.key === "cbsa" ? `<span class="nd"><i style="background:var(--surface)"></i>Not in a metro or micro area</span>` : "");
-
-  const off = BINS.length - (br.length + 1);   // use the darker end if fewer bins
-  let s = `<svg class="map" viewBox="0 0 ${GEO.w} ${GEO.h}" role="img" aria-label="${esc(document.getElementById("title").textContent)}">`;
+  let s = `<svg class="map" viewBox="0 0 ${GEO.w} ${GEO.h}" role="img" aria-label="${esc(title)}">` +
+    `<defs><pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">` +
+    `<rect width="5" height="5" style="fill:var(--surface)"/><line x1="0" y1="0" x2="0" y2="5" style="stroke:var(--muted);stroke-width:1.3"/></pattern></defs>`;
   current = feats;
-  feats.forEach((f, k) => {
-    const a = AREA.get(f.id), has = a && a.v[LAST];
-    const fill = has ? `var(${BINS[off + binOf(measure(a.v[LAST], m).p, br)]})` : "var(--nodata)";
-    s += `<path class="a" data-k="${k}" d="${f.d}" style="fill:${fill}"/>`;
-  });
+  feats.forEach((f, i) => { s += `<path class="a" data-k="${i}" d="${f.d}" style="fill:${fillOf(AREA.get(f.id))}"/>`; });
   if (L.key !== "state") GEO.state.forEach(f => { s += `<path class="s" d="${f.d}"/>`; });
   s += `<path class="hl" id="hl" d=""/></svg>`;
   const box = document.getElementById("map");
@@ -256,7 +308,7 @@ function render() {
   const notes = [];
   if (m.brk) notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${beyondTrend(m) < 0 ? "fell" : "rose"} ${fmt(Math.abs(beyondTrend(m)))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure include that step.`);
   if (L.key === "cbsa") notes.push(`Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.`);
-  if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and only where boundary changes moved an area's adult population by less than 5% in any one year.`);
+  if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and only where changes to the counties in a metro or micro area moved its adult population by less than 5% in any one year.`);
   if (L.key === "state") notes.push(`Puerto Rico is shown in the inset but is not part of the national figures.`);
   document.getElementById("notes").innerHTML = notes.map(n => `<div class="note">${esc(n)}</div>`).join("");
   if (document.getElementById("tbl-wrap").open) renderTable();
@@ -267,19 +319,22 @@ function renderTable() {
   const L = LEVELS.find(l => l.key === lvlSel.value), m = MEASURES.find(x => x.key === msrSel.value);
   const rows = GEO[L.key].map(f => AREA.get(f.id)).filter(a => a && a.v[LAST])
     .map(a => {
-      const now = measure(a.v[LAST], m), then = a.c && a.v[FIRST] ? measure(a.v[FIRST], m) : null;
-      return {a, now, then, t: then ? ztest(then, now) : null};
-    }).sort((x, y) => y.now.p - x.now.p);
+      const c = cmp(a, m);
+      return {a, now: measure(a.v[LAST], m), then: c && c.then, t: c && c.t};
+    }).sort(viewSel.value === "change"
+      ? (x, y) => (y.t ? y.t.diff : -Infinity) - (x.t ? x.t.diff : -Infinity) || y.now.p - x.now.p
+      : (x, y) => y.now.p - x.now.p);
   document.getElementById("tbl").innerHTML =
     `<table class="data"><thead><tr><th>${esc(L.label)}</th><th>${LAST}</th><th>${FIRST}</th><th>Change</th></tr></thead><tbody>` +
     rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${fmt(r.now.p)} ± ${fmt(r.now.moe)}</td>` +
       `<td>${r.then ? fmt(r.then.p) + " ± " + fmt(r.then.moe) : "–"}</td>` +
-      `<td>${r.t ? (r.t.diff > 0 ? "+" : r.t.diff < 0 ? "−" : "") + fmt(Math.abs(r.t.diff)) + (r.t.sig ? "" : " (not significant)") : "–"}</td></tr>`).join("") +
+      `<td>${r.t ? signed(r.t.diff) + (r.t.sig ? "" : " (does not pass the test)") : "–"}</td></tr>`).join("") +
     `</tbody></table>`;
 }
 document.getElementById("tbl-wrap").addEventListener("toggle", e => { if (e.target.open) renderTable(); });
 lvlSel.addEventListener("change", render);
 msrSel.addEventListener("change", render);
+viewSel.addEventListener("change", render);
 render();
 </script>
 </body>

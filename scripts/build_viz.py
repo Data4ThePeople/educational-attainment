@@ -1,9 +1,8 @@
 """Write the two pages, each with the panel's published counts and MOEs
 embedded. The pages compute every share, MOE and test themselves.
 
-  dist/index.html  viz/map_template.html: 2025 map by state, county or metro
-                   and micro area, with 2008 values and the change in the
-                   tooltip. Shapes from data/clean/geo_paths.json (build_geo.py).
+  dist/index.html  viz/map_template.html: map by state, county or metro and
+                   micro area of 2025 shares or of the change since 2015. Shapes from data/clean/geo_paths.json (build_geo.py).
   dist/lines.html  viz/template.html: 2008-2025 lines for any area, plus the
                    ranked view of changes.
 """
@@ -88,41 +87,59 @@ def main():
     build_map(out, areas, big)
 
 
+# The map compares the latest year with this one: a decade.
+MAP_BASE = 2015
+
+
 def build_map(lines_areas, area_info, big):
-    """The map uses the same areas and the same comparability rule as the
-    ranked view: a change since the first year is shown only for areas
-    published in every year whose boundaries did not move their adult
-    population by 5% or more in one year."""
+    """The map shows the latest year and the change since MAP_BASE. A change is
+    shown only for areas published in every year from MAP_BASE on, and, for
+    metro and micro areas, only where no county-makeup change that took effect
+    after MAP_BASE moved the population 25 and over by 5% or more from the
+    prior published year (the ranked view's rule, applied to this window)."""
     geo = json.loads((CLEAN / "geo_paths.json").read_text())
     years = sorted({y for a in lines_areas for y in a["y"]})
-    first, last = years[0], years[-1]
+    base, last = MAP_BASE, years[-1]
+    window = [y for y in years if y >= base]
+    # Population 25+ jumps in each metro's switch years inside the window.
+    cc = pd.read_csv(CLEAN / "cbsa_changes.csv")
+    tot = {a["id"]: {y: r[0] for y, r in a["y"].items()} for a in lines_areas if a["l"] == "cbsa"}
+    jump = set()
+    for gid, y in zip(cc.geoid, cc.first_year_new):
+        t = tot.get(gid, {})
+        prev = [v for v in t if v < y]
+        if y > base and y in t and prev and abs(t[y] / t[max(prev)] - 1) >= 0.05:
+            jump.add(gid)
     on_map = {f["id"] for lvl in ("state", "county", "cbsa") for f in geo[lvl]}
     areas = []
     for a in lines_areas:
         if a["id"] not in on_map or last not in a["y"]:
             continue
-        rec = {"id": a["id"], "n": a["n"], "c": a["b"] and first in a["y"],
-               "v": {y: a["y"][y] for y in (first, last) if y in a["y"]}}
+        every = all(y in a["y"] for y in window)
+        rec = {"id": a["id"], "n": a["n"], "c": every and a["id"] not in jump,
+               "v": {y: a["y"][y] for y in (base, last) if y in a["y"]}}
         if not rec["c"]:
-            if not area_info.loc[a["id"], "balanced"]:
-                why = f"It was not published in every year from {first} to {last}, so no change since {first} is shown."
+            if not every:
+                why = f"It was not published in every year from {base} to {last}, so no change since {base} is shown."
             else:
-                why = (f"Boundary changes moved its adult population by 5% or more in one year, "
-                       f"so no change since {first} is shown.")
+                why = (f"Changes to the counties in it moved its adult population by 5% or more in one year "
+                       f"after {base}, so no change since {base} is shown.")
             if a["id"].startswith("0500000US09"):
                 why += " Connecticut replaced its counties with planning regions in 2022."
             rec["why"] = why
         areas.append(rec)
     us = next(a for a in lines_areas if a["id"] == "0100000US")
-    data = {"groups": GROUPS, "first": first, "last": last, "us": us["y"], "areas": areas}
+    data = {"groups": GROUPS, "first": base, "last": last, "us": us["y"], "areas": areas}
     html = (ROOT / "viz" / "map_template.html").read_text()
     for k, v in (("DATA", data), ("GEO", geo)):
         assert f"/*{k}*/null" in html
         html = html.replace(f"/*{k}*/null", json.dumps(v, separators=(",", ":")))
     (ROOT / "dist" / "index.html").write_text(html)
-    by = {lvl: sum(f["id"] in {x["id"] for x in areas} for f in geo[lvl]) for lvl in ("state", "county", "cbsa")}
-    print(f"dist/index.html: {len(areas)} areas with {last} values on the map {by}, {len(html) / 1e6:.1f} MB")
-
+    ids = {x["id"]: x["c"] for x in areas}
+    by = {lvl: (sum(f["id"] in ids for f in geo[lvl]), sum(ids.get(f["id"], False) for f in geo[lvl]))
+          for lvl in ("state", "county", "cbsa")}
+    print(f"dist/index.html: (areas with {last} values, comparable with {base}) by level {by}; "
+          f"metros dropped by the 5% rule: {len(jump & set(ids))}; {len(html) / 1e6:.1f} MB")
 
 if __name__ == "__main__":
     main()
