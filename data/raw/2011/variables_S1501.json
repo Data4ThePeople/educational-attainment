@@ -1,0 +1,3438 @@
+{
+  "variables": {
+    "S1501_C03_019MA": {
+      "label": "Annotation of Female!!Margin of Error!!Population 35 to 44 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_007M": {
+      "label": "Male!!Margin of Error!!Less than 9th grade",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_007E": {
+      "label": "Male!!Estimate!!Less than 9th grade",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_008M": {
+      "label": "Male!!Margin of Error!!9th to 12th grade, no diploma",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_008E": {
+      "label": "Male!!Estimate!!9th to 12th grade, no diploma",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_005E": {
+      "label": "Male!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_005M": {
+      "label": "Male!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_006E": {
+      "label": "Male!!Estimate!!Population 25 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_006M": {
+      "label": "Male!!Margin of Error!!Population 25 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_003E": {
+      "label": "Male!!Estimate!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_003M": {
+      "label": "Male!!Margin of Error!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_004E": {
+      "label": "Male!!Estimate!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_004M": {
+      "label": "Male!!Margin of Error!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_001E": {
+      "label": "Male!!Estimate!!Population 18 to 24 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_001M": {
+      "label": "Male!!Margin of Error!!Population 18 to 24 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_002E": {
+      "label": "Male!!Estimate!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_002M": {
+      "label": "Male!!Margin of Error!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_018MA": {
+      "label": "Annotation of Female!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_019EA": {
+      "label": "Annotation of Female!!Estimate!!Population 35 to 44 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_009M": {
+      "label": "Male!!Margin of Error!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_009E": {
+      "label": "Male!!Estimate!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_019M": {
+      "label": "Male!!Margin of Error!!Population 35 to 44 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_019E": {
+      "label": "Male!!Estimate!!Population 35 to 44 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_017E": {
+      "label": "Male!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_017M": {
+      "label": "Male!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_018M": {
+      "label": "Male!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_018E": {
+      "label": "Male!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_015E": {
+      "label": "Male!!Estimate!!Percent bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_015M": {
+      "label": "Male!!Margin of Error!!Percent bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_016E": {
+      "label": "Male!!Estimate!!Population 25 to 34 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_016M": {
+      "label": "Male!!Margin of Error!!Population 25 to 34 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_013E": {
+      "label": "Male!!Estimate!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_013M": {
+      "label": "Male!!Margin of Error!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_019EA": {
+      "label": "Annotation of Male!!Estimate!!Population 35 to 44 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_014E": {
+      "label": "Male!!Estimate!!Percent high school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_014M": {
+      "label": "Male!!Margin of Error!!Percent high school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_011E": {
+      "label": "Male!!Estimate!!Associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_011M": {
+      "label": "Male!!Margin of Error!!Associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_017MA": {
+      "label": "Annotation of Female!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_012E": {
+      "label": "Male!!Estimate!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_012M": {
+      "label": "Male!!Margin of Error!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_010E": {
+      "label": "Male!!Estimate!!Some college, no degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_010M": {
+      "label": "Male!!Margin of Error!!Some college, no degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_019MA": {
+      "label": "Annotation of Male!!Margin of Error!!Population 35 to 44 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_018EA": {
+      "label": "Annotation of Female!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_029M": {
+      "label": "Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_029E": {
+      "label": "Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_027E": {
+      "label": "Male!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_027M": {
+      "label": "Male!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_028E": {
+      "label": "Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_028M": {
+      "label": "Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_025E": {
+      "label": "Male!!Estimate!!Population 65 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_025M": {
+      "label": "Male!!Margin of Error!!Population 65 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_016MA": {
+      "label": "Annotation of Female!!Margin of Error!!Population 25 to 34 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_026E": {
+      "label": "Male!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_026M": {
+      "label": "Male!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_023E": {
+      "label": "Male!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_023M": {
+      "label": "Male!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_024E": {
+      "label": "Male!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_024M": {
+      "label": "Male!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_021E": {
+      "label": "Male!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_021M": {
+      "label": "Male!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_020M": {
+      "label": "Male!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_022E": {
+      "label": "Male!!Estimate!!Population 45 to 64 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_022M": {
+      "label": "Male!!Margin of Error!!Population 45 to 64 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_020E": {
+      "label": "Male!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_016EA": {
+      "label": "Annotation of Female!!Estimate!!Population 25 to 34 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_017EA": {
+      "label": "Annotation of Female!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_017EA": {
+      "label": "Annotation of Male!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_037E": {
+      "label": "Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_037M": {
+      "label": "Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_038E": {
+      "label": "Male!!Estimate!!PERCENT IMPUTED!!Educational attainment",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_038M": {
+      "label": "Male!!Margin of Error!!PERCENT IMPUTED!!Educational attainment",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_035E": {
+      "label": "Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_035M": {
+      "label": "Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_036E": {
+      "label": "Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_036M": {
+      "label": "Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_033E": {
+      "label": "Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_033M": {
+      "label": "Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_017MA": {
+      "label": "Annotation of Male!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_034E": {
+      "label": "Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_034M": {
+      "label": "Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_031E": {
+      "label": "Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_030M": {
+      "label": "Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_032E": {
+      "label": "Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_032M": {
+      "label": "Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_031M": {
+      "label": "Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_030E": {
+      "label": "Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_018EA": {
+      "label": "Annotation of Male!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_018MA": {
+      "label": "Annotation of Male!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_015EA": {
+      "label": "Annotation of Male!!Estimate!!Percent bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_015MA": {
+      "label": "Annotation of Male!!Margin of Error!!Percent bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_016EA": {
+      "label": "Annotation of Male!!Estimate!!Population 25 to 34 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_016MA": {
+      "label": "Annotation of Male!!Margin of Error!!Population 25 to 34 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_015EA": {
+      "label": "Annotation of Total!!Estimate!!Percent bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_015MA": {
+      "label": "Annotation of Total!!Margin of Error!!Percent bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_014EA": {
+      "label": "Annotation of Total!!Estimate!!Percent high school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_014MA": {
+      "label": "Annotation of Total!!Margin of Error!!Percent high school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_017EA": {
+      "label": "Annotation of Total!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_017MA": {
+      "label": "Annotation of Total!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_016EA": {
+      "label": "Annotation of Total!!Estimate!!Population 25 to 34 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_016MA": {
+      "label": "Annotation of Total!!Margin of Error!!Population 25 to 34 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_019EA": {
+      "label": "Annotation of Total!!Estimate!!Population 35 to 44 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_019MA": {
+      "label": "Annotation of Total!!Margin of Error!!Population 35 to 44 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_018EA": {
+      "label": "Annotation of Total!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_018MA": {
+      "label": "Annotation of Total!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_010MA": {
+      "label": "Annotation of Total!!Margin of Error!!Some college, no degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_011EA": {
+      "label": "Annotation of Total!!Estimate!!Associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_011MA": {
+      "label": "Annotation of Total!!Margin of Error!!Associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_010EA": {
+      "label": "Annotation of Total!!Estimate!!Some college, no degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_013EA": {
+      "label": "Annotation of Total!!Estimate!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_013MA": {
+      "label": "Annotation of Total!!Margin of Error!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_012EA": {
+      "label": "Annotation of Total!!Estimate!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_012MA": {
+      "label": "Annotation of Total!!Margin of Error!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_011EA": {
+      "label": "Annotation of Female!!Estimate!!Associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_026EA": {
+      "label": "Annotation of Male!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_026MA": {
+      "label": "Annotation of Male!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_011MA": {
+      "label": "Annotation of Female!!Margin of Error!!Associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_010EA": {
+      "label": "Annotation of Female!!Estimate!!Some college, no degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_027EA": {
+      "label": "Annotation of Male!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_027MA": {
+      "label": "Annotation of Male!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_010MA": {
+      "label": "Annotation of Female!!Margin of Error!!Some college, no degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_024EA": {
+      "label": "Annotation of Male!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_024MA": {
+      "label": "Annotation of Male!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_025EA": {
+      "label": "Annotation of Male!!Estimate!!Population 65 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_025MA": {
+      "label": "Annotation of Male!!Margin of Error!!Population 65 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_015MA": {
+      "label": "Annotation of Female!!Margin of Error!!Percent bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_015EA": {
+      "label": "Annotation of Female!!Estimate!!Percent bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "NAME": {
+      "label": "Geographic Area Name",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_022EA": {
+      "label": "Annotation of Male!!Estimate!!Population 45 to 64 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_022MA": {
+      "label": "Annotation of Male!!Margin of Error!!Population 45 to 64 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_014MA": {
+      "label": "Annotation of Female!!Margin of Error!!Percent high school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_014EA": {
+      "label": "Annotation of Female!!Estimate!!Percent high school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_023EA": {
+      "label": "Annotation of Male!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_023MA": {
+      "label": "Annotation of Male!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_013MA": {
+      "label": "Annotation of Female!!Margin of Error!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_013EA": {
+      "label": "Annotation of Female!!Estimate!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_020EA": {
+      "label": "Annotation of Male!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_020MA": {
+      "label": "Annotation of Male!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_012EA": {
+      "label": "Annotation of Female!!Estimate!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_021EA": {
+      "label": "Annotation of Male!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_021MA": {
+      "label": "Annotation of Male!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_012MA": {
+      "label": "Annotation of Female!!Margin of Error!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_008EA": {
+      "label": "Annotation of Male!!Estimate!!9th to 12th grade, no diploma",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_006MA": {
+      "label": "Annotation of Female!!Margin of Error!!Population 25 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_008MA": {
+      "label": "Annotation of Male!!Margin of Error!!9th to 12th grade, no diploma",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_007EA": {
+      "label": "Annotation of Female!!Estimate!!Less than 9th grade",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_009EA": {
+      "label": "Annotation of Male!!Estimate!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_009MA": {
+      "label": "Annotation of Male!!Margin of Error!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_005MA": {
+      "label": "Annotation of Female!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_005EA": {
+      "label": "Annotation of Female!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_006EA": {
+      "label": "Annotation of Female!!Estimate!!Population 25 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_006EA": {
+      "label": "Annotation of Male!!Estimate!!Population 25 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_004MA": {
+      "label": "Annotation of Female!!Margin of Error!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_006MA": {
+      "label": "Annotation of Male!!Margin of Error!!Population 25 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_004EA": {
+      "label": "Annotation of Female!!Estimate!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_003MA": {
+      "label": "Annotation of Female!!Margin of Error!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_007EA": {
+      "label": "Annotation of Male!!Estimate!!Less than 9th grade",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_003EA": {
+      "label": "Annotation of Female!!Estimate!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_007MA": {
+      "label": "Annotation of Male!!Margin of Error!!Less than 9th grade",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_004EA": {
+      "label": "Annotation of Male!!Estimate!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_004MA": {
+      "label": "Annotation of Male!!Margin of Error!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_005EA": {
+      "label": "Annotation of Male!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_005MA": {
+      "label": "Annotation of Male!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_009MA": {
+      "label": "Annotation of Female!!Margin of Error!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_002EA": {
+      "label": "Annotation of Male!!Estimate!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_008MA": {
+      "label": "Annotation of Female!!Margin of Error!!9th to 12th grade, no diploma",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_002MA": {
+      "label": "Annotation of Male!!Margin of Error!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_009EA": {
+      "label": "Annotation of Female!!Estimate!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_007MA": {
+      "label": "Annotation of Female!!Margin of Error!!Less than 9th grade",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_003EA": {
+      "label": "Annotation of Male!!Estimate!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_008EA": {
+      "label": "Annotation of Female!!Estimate!!9th to 12th grade, no diploma",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_003MA": {
+      "label": "Annotation of Male!!Margin of Error!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_028EA": {
+      "label": "Annotation of Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_028MA": {
+      "label": "Annotation of Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_027EA": {
+      "label": "Annotation of Total!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_027MA": {
+      "label": "Annotation of Total!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_029EA": {
+      "label": "Annotation of Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_029MA": {
+      "label": "Annotation of Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_020EA": {
+      "label": "Annotation of Total!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_021MA": {
+      "label": "Annotation of Total!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_022EA": {
+      "label": "Annotation of Total!!Estimate!!Population 45 to 64 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_020MA": {
+      "label": "Annotation of Total!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_021EA": {
+      "label": "Annotation of Total!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_024EA": {
+      "label": "Annotation of Total!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_024MA": {
+      "label": "Annotation of Total!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_022MA": {
+      "label": "Annotation of Total!!Margin of Error!!Population 45 to 64 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_023EA": {
+      "label": "Annotation of Total!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_023MA": {
+      "label": "Annotation of Total!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_026EA": {
+      "label": "Annotation of Total!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_026MA": {
+      "label": "Annotation of Total!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_025EA": {
+      "label": "Annotation of Total!!Estimate!!Population 65 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_025MA": {
+      "label": "Annotation of Total!!Margin of Error!!Population 65 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_013EA": {
+      "label": "Annotation of Male!!Estimate!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_013MA": {
+      "label": "Annotation of Male!!Margin of Error!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_014EA": {
+      "label": "Annotation of Male!!Estimate!!Percent high school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_014MA": {
+      "label": "Annotation of Male!!Margin of Error!!Percent high school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_011EA": {
+      "label": "Annotation of Male!!Estimate!!Associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_011MA": {
+      "label": "Annotation of Male!!Margin of Error!!Associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_012EA": {
+      "label": "Annotation of Male!!Estimate!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_012MA": {
+      "label": "Annotation of Male!!Margin of Error!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_002MA": {
+      "label": "Annotation of Female!!Margin of Error!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_002EA": {
+      "label": "Annotation of Female!!Estimate!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_001EA": {
+      "label": "Annotation of Female!!Estimate!!Population 18 to 24 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_010EA": {
+      "label": "Annotation of Male!!Estimate!!Some college, no degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_010MA": {
+      "label": "Annotation of Male!!Margin of Error!!Some college, no degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_001MA": {
+      "label": "Annotation of Female!!Margin of Error!!Population 18 to 24 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_016M": {
+      "label": "Female!!Margin of Error!!Population 25 to 34 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_016E": {
+      "label": "Female!!Estimate!!Population 25 to 34 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_017E": {
+      "label": "Female!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_017M": {
+      "label": "Female!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_018E": {
+      "label": "Female!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_018M": {
+      "label": "Female!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_019E": {
+      "label": "Female!!Estimate!!Population 35 to 44 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_019M": {
+      "label": "Female!!Margin of Error!!Population 35 to 44 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_012M": {
+      "label": "Female!!Margin of Error!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_012E": {
+      "label": "Female!!Estimate!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_013M": {
+      "label": "Female!!Margin of Error!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_013E": {
+      "label": "Female!!Estimate!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_014M": {
+      "label": "Female!!Margin of Error!!Percent high school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_014E": {
+      "label": "Female!!Estimate!!Percent high school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_015M": {
+      "label": "Female!!Margin of Error!!Percent bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_015E": {
+      "label": "Female!!Estimate!!Percent bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_010M": {
+      "label": "Female!!Margin of Error!!Some college, no degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_010E": {
+      "label": "Female!!Estimate!!Some college, no degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_011M": {
+      "label": "Female!!Margin of Error!!Associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_011E": {
+      "label": "Female!!Estimate!!Associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_028E": {
+      "label": "Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_028M": {
+      "label": "Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_029E": {
+      "label": "Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_029M": {
+      "label": "Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_024M": {
+      "label": "Female!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_024E": {
+      "label": "Female!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_025M": {
+      "label": "Female!!Margin of Error!!Population 65 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_025E": {
+      "label": "Female!!Estimate!!Population 65 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_026M": {
+      "label": "Female!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_026E": {
+      "label": "Female!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_027M": {
+      "label": "Female!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_027E": {
+      "label": "Female!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_020M": {
+      "label": "Female!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_020E": {
+      "label": "Female!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_021M": {
+      "label": "Female!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_021E": {
+      "label": "Female!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_022M": {
+      "label": "Female!!Margin of Error!!Population 45 to 64 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_022E": {
+      "label": "Female!!Estimate!!Population 45 to 64 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_023M": {
+      "label": "Female!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_023E": {
+      "label": "Female!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_036M": {
+      "label": "Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_036E": {
+      "label": "Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_037M": {
+      "label": "Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_037E": {
+      "label": "Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_038M": {
+      "label": "Female!!Margin of Error!!PERCENT IMPUTED!!Educational attainment",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_038E": {
+      "label": "Female!!Estimate!!PERCENT IMPUTED!!Educational attainment",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_032M": {
+      "label": "Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_032E": {
+      "label": "Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_033M": {
+      "label": "Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_033E": {
+      "label": "Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_034M": {
+      "label": "Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_034E": {
+      "label": "Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_035M": {
+      "label": "Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_035E": {
+      "label": "Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_030E": {
+      "label": "Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_030M": {
+      "label": "Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_031M": {
+      "label": "Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_031E": {
+      "label": "Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_032MA": {
+      "label": "Annotation of Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_033EA": {
+      "label": "Annotation of Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_031MA": {
+      "label": "Annotation of Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_032EA": {
+      "label": "Annotation of Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_035EA": {
+      "label": "Annotation of Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_035MA": {
+      "label": "Annotation of Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_033MA": {
+      "label": "Annotation of Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_034EA": {
+      "label": "Annotation of Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_034MA": {
+      "label": "Annotation of Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_033EA": {
+      "label": "Annotation of Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_037EA": {
+      "label": "Annotation of Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_037MA": {
+      "label": "Annotation of Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_033MA": {
+      "label": "Annotation of Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_032EA": {
+      "label": "Annotation of Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_036EA": {
+      "label": "Annotation of Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_032MA": {
+      "label": "Annotation of Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_036MA": {
+      "label": "Annotation of Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_031MA": {
+      "label": "Annotation of Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_031EA": {
+      "label": "Annotation of Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_038EA": {
+      "label": "Annotation of Total!!Estimate!!PERCENT IMPUTED!!Educational attainment",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_030MA": {
+      "label": "Annotation of Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_038MA": {
+      "label": "Annotation of Total!!Margin of Error!!PERCENT IMPUTED!!Educational attainment",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_030EA": {
+      "label": "Annotation of Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_037MA": {
+      "label": "Annotation of Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_037EA": {
+      "label": "Annotation of Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_036MA": {
+      "label": "Annotation of Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_036EA": {
+      "label": "Annotation of Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_001EA": {
+      "label": "Annotation of Male!!Estimate!!Population 18 to 24 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_001MA": {
+      "label": "Annotation of Male!!Margin of Error!!Population 18 to 24 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_035EA": {
+      "label": "Annotation of Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_035MA": {
+      "label": "Annotation of Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_001E": {
+      "label": "Total!!Estimate!!Population 18 to 24 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_001M": {
+      "label": "Total!!Margin of Error!!Population 18 to 24 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_034EA": {
+      "label": "Annotation of Female!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_003E": {
+      "label": "Total!!Estimate!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_003M": {
+      "label": "Total!!Margin of Error!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_002E": {
+      "label": "Total!!Estimate!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_002M": {
+      "label": "Total!!Margin of Error!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_005E": {
+      "label": "Total!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_005M": {
+      "label": "Total!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_004E": {
+      "label": "Total!!Estimate!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_004M": {
+      "label": "Total!!Margin of Error!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_007E": {
+      "label": "Total!!Estimate!!Less than 9th grade",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_007M": {
+      "label": "Total!!Margin of Error!!Less than 9th grade",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_006E": {
+      "label": "Total!!Estimate!!Population 25 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_006M": {
+      "label": "Total!!Margin of Error!!Population 25 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_009E": {
+      "label": "Total!!Estimate!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_009M": {
+      "label": "Total!!Margin of Error!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_008E": {
+      "label": "Total!!Estimate!!9th to 12th grade, no diploma",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_008M": {
+      "label": "Total!!Margin of Error!!9th to 12th grade, no diploma",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_034MA": {
+      "label": "Annotation of Female!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_010M": {
+      "label": "Total!!Margin of Error!!Some college, no degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_011E": {
+      "label": "Total!!Estimate!!Associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_011M": {
+      "label": "Total!!Margin of Error!!Associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_010E": {
+      "label": "Total!!Estimate!!Some college, no degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_013E": {
+      "label": "Total!!Estimate!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_013M": {
+      "label": "Total!!Margin of Error!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_012E": {
+      "label": "Total!!Estimate!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_012M": {
+      "label": "Total!!Margin of Error!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_015E": {
+      "label": "Total!!Estimate!!Percent bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_015M": {
+      "label": "Total!!Margin of Error!!Percent bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_014E": {
+      "label": "Total!!Estimate!!Percent high school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_014M": {
+      "label": "Total!!Margin of Error!!Percent high school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_017E": {
+      "label": "Total!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_017M": {
+      "label": "Total!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_016E": {
+      "label": "Total!!Estimate!!Population 25 to 34 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_016M": {
+      "label": "Total!!Margin of Error!!Population 25 to 34 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_019E": {
+      "label": "Total!!Estimate!!Population 35 to 44 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_019M": {
+      "label": "Total!!Margin of Error!!Population 35 to 44 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_018E": {
+      "label": "Total!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_018M": {
+      "label": "Total!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_020M": {
+      "label": "Total!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_021E": {
+      "label": "Total!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_020E": {
+      "label": "Total!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_023E": {
+      "label": "Total!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_023M": {
+      "label": "Total!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_021M": {
+      "label": "Total!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_022E": {
+      "label": "Total!!Estimate!!Population 45 to 64 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_022M": {
+      "label": "Total!!Margin of Error!!Population 45 to 64 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_025E": {
+      "label": "Total!!Estimate!!Population 65 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_025M": {
+      "label": "Total!!Margin of Error!!Population 65 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_024E": {
+      "label": "Total!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_024M": {
+      "label": "Total!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_027E": {
+      "label": "Total!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_027M": {
+      "label": "Total!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_026E": {
+      "label": "Total!!Estimate!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_026M": {
+      "label": "Total!!Margin of Error!!High school graduate or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_029E": {
+      "label": "Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_029M": {
+      "label": "Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_028E": {
+      "label": "Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_028M": {
+      "label": "Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_030M": {
+      "label": "Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_031E": {
+      "label": "Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_030E": {
+      "label": "Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_032M": {
+      "label": "Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_033E": {
+      "label": "Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_033M": {
+      "label": "Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_031M": {
+      "label": "Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_032E": {
+      "label": "Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_035E": {
+      "label": "Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_035M": {
+      "label": "Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_034E": {
+      "label": "Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_034M": {
+      "label": "Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_037E": {
+      "label": "Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_037M": {
+      "label": "Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_036E": {
+      "label": "Total!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_036M": {
+      "label": "Total!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_038E": {
+      "label": "Total!!Estimate!!PERCENT IMPUTED!!Educational attainment",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_038M": {
+      "label": "Total!!Margin of Error!!PERCENT IMPUTED!!Educational attainment",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_030MA": {
+      "label": "Annotation of Total!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_031EA": {
+      "label": "Annotation of Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_038MA": {
+      "label": "Annotation of Female!!Margin of Error!!PERCENT IMPUTED!!Educational attainment",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_038EA": {
+      "label": "Annotation of Female!!Estimate!!PERCENT IMPUTED!!Educational attainment",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_030EA": {
+      "label": "Annotation of Total!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_009EA": {
+      "label": "Annotation of Total!!Estimate!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_009MA": {
+      "label": "Annotation of Total!!Margin of Error!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_029MA": {
+      "label": "Annotation of Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_028EA": {
+      "label": "Annotation of Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_028MA": {
+      "label": "Annotation of Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_029EA": {
+      "label": "Annotation of Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_029MA": {
+      "label": "Annotation of Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_002EA": {
+      "label": "Annotation of Total!!Estimate!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_002MA": {
+      "label": "Annotation of Total!!Margin of Error!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_001EA": {
+      "label": "Annotation of Total!!Estimate!!Population 18 to 24 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_001MA": {
+      "label": "Annotation of Total!!Margin of Error!!Population 18 to 24 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_004EA": {
+      "label": "Annotation of Total!!Estimate!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_004MA": {
+      "label": "Annotation of Total!!Margin of Error!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_003EA": {
+      "label": "Annotation of Total!!Estimate!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_003MA": {
+      "label": "Annotation of Total!!Margin of Error!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_006EA": {
+      "label": "Annotation of Total!!Estimate!!Population 25 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_006MA": {
+      "label": "Annotation of Total!!Margin of Error!!Population 25 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_005EA": {
+      "label": "Annotation of Total!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_005MA": {
+      "label": "Annotation of Total!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_008EA": {
+      "label": "Annotation of Total!!Estimate!!9th to 12th grade, no diploma",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_008MA": {
+      "label": "Annotation of Total!!Margin of Error!!9th to 12th grade, no diploma",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_007EA": {
+      "label": "Annotation of Total!!Estimate!!Less than 9th grade",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "GEO_ID": {
+      "label": "Geography",
+      "concept": "CLASS OF WORKER BY SEX AND MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) FOR THE CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;CLASS OF WORKER BY SEX AND MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;OCCUPANCY CHARACTERISTICS ;DEMOGRAPHIC CHARACTERISTICS FOR OCCUPIED HOUSING UNITS ;FINANCIAL CHARACTERISTICS ;PHYSICAL HOUSING CHARACTERISTICS FOR OCCUPIED HOUSING UNITS ;FINANCIAL CHARACTERISTICS FOR HOUSING UNITS WITH A MORTGAGE ;FINANCIAL CHARACTERISTICS FOR HOUSING UNITS WITHOUT A MORTGAGE ;CHARACTERISTICS OF THE GROUP QUARTERS POPULATION IN THE UNITED STATES ;CHARACTERISTICS OF THE GROUP QUARTERS POPULATION BY GROUP QUARTERS TYPE ;CHARACTERISTICS OF THE GROUP QUARTERS POPULATION IN THE UNITED STATES ;HEALTH INSURANCE COVERAGE STATUS ;SELECTED CHARACTERISTICS OF THE UNINSURED IN THE UNITED STATES ;SELECTED CHARACTERISTICS OF THE UNINSURED IN PUERTO RICO ;AGE AND SEX ;POPULATION 60 YEARS AND OVER IN THE UNITED STATES ;POPULATION 60 YEARS AND OVER IN PUERTO RICO ;POPULATION 65 YEARS AND OVER IN THE UNITED STATES ;POPULATION 65 YEARS AND OVER IN PUERTO RICO ;SELECTED CHARACTERISTICS OF THE NATIVE AND FOREIGN-BORN POPULATIONS ;SELECTED CHARACTERISTICS OF THE FOREIGN-BORN POPULATION BY PERIOD OF ENTRY INTO THE UNITED STATES ;SELECTED CHARACTERISTICS OF THE FOREIGN-BORN POPULATION BY PERIOD OF ENTRY INTO PUERTO RICO ;SELECTED CHARACTERISTICS OF THE FOREIGN-BORN POPULATION BY REGION OF BIRTH: EUROPE ;SELECTED CHARACTERISTICS OF THE FOREIGN-BORN POPULATION BY REGION OF BIRTH: AFRICA, NORTHERN AMERICA, AND OCEANIA ;SELECTED CHARACTERISTICS OF THE FOREIGN-BORN POPULATION BY REGION OF BIRTH: ASIA ;SELECTED CHARACTERISTICS OF THE FOREIGN-BORN POPULATION BY REGION OF BIRTH: LATIN AMERICA ;SELECTED CHARACTERISTICS OF THE TOTAL AND NATIVE POPULATIONS IN THE UNITED STATES ;SELECTED CHARACTERISTICS OF THE TOTAL AND NATIVE POPULATIONS IN PUERTO RICO ;GEOGRAPHIC MOBILITY BY SELECTED CHARACTERISTICS IN THE UNITED STATES ;GEOGRAPHIC MOBILITY BY SELECTED CHARACTERISTICS IN PUERTO RICO ;MOVERS BETWEEN REGIONS ;COMMUTING CHARACTERISTICS BY SEX ;MEANS OF TRANSPORTATION TO WORK BY SELECTED CHARACTERISTICS ;MEANS OF TRANSPORTATION TO WORK BY SELECTED CHARACTERISTICS FOR WORKPLACE GEOGRAPHY ;CHILDREN CHARACTERISTICS ;CHARACTERISTICS OF TEENAGERS 15 TO 19 YEARS OLD ;GRANDCHILDREN CHARACTERISTICS ;GRANDPARENTS ;HOUSEHOLDS AND FAMILIES ;MARITAL STATUS ;CHARACTERISTICS OF PEOPLE WITH A MARITAL EVENT IN THE LAST 12 MONTHS ;FERTILITY ;SCHOOL ENROLLMENT ;EDUCATIONAL ATTAINMENT ;LANGUAGE SPOKEN AT HOME ;NO ONE AGE 14 AND OVER SPEAKS ENGLISH ONLY OR SPEAKS ENGLISH \"VERY WELL\" ;CHARACTERISTICS OF PEOPLE BY LANGUAGE SPOKEN AT HOME ;POVERTY STATUS IN THE PAST 12 MONTHS ;POVERTY STATUS IN THE PAST 12 MONTHS OF FAMILIES ;SELECTED CHARACTERISTICS OF PEOPLE AT SPECIFIED LEVELS OF POVERTY IN THE PAST 12 MONTHS ;DISABILITY CHARACTERISTICS ;SELECTED ECONOMIC CHARACTERISTICS FOR THE CIVILIAN NONINSTITUTIONALIZED POPULATION BY DISABILITY STATUS ;INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) ;MEAN INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) ;MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) ;EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) ;MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) OF WORKERS BY SEX AND WOMEN'S EARNINGS AS A PERCENTAGE OF MEN'S EARNINGS BY SELECTED CHARACTERISTICS ;VETERAN STATUS ;FOOD STAMPS/SNAP ;EMPLOYMENT STATUS ;EMPLOYMENT CHARACTERISTICS OF FAMILIES ;WORK STATUS IN THE PAST 12 MONTHS ;OCCUPATION BY SEX AND MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) FOR THE CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;OCCUPATION BY SEX AND MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) FOR FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;INDUSTRY BY SEX AND MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) FOR THE CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;INDUSTRY BY SEX AND MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS) FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;INDUSTRY BY OCCUPATION FOR THE CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;OCCUPATION BY CLASS OF WORKER FOR THE CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER ;INDUSTRY BY CLASS OF WORKER FOR THE CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C01_007MA": {
+      "label": "Annotation of Total!!Margin of Error!!Less than 9th grade",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_030MA": {
+      "label": "Annotation of Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_031EA": {
+      "label": "Annotation of Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_031MA": {
+      "label": "Annotation of Male!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_032EA": {
+      "label": "Annotation of Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_032MA": {
+      "label": "Annotation of Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Population 25 years and over with earnings",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_030EA": {
+      "label": "Annotation of Male!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_020MA": {
+      "label": "Annotation of Female!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_020EA": {
+      "label": "Annotation of Female!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_008E": {
+      "label": "Female!!Estimate!!9th to 12th grade, no diploma",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_008M": {
+      "label": "Female!!Margin of Error!!9th to 12th grade, no diploma",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_009E": {
+      "label": "Female!!Estimate!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_009M": {
+      "label": "Female!!Margin of Error!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_004M": {
+      "label": "Female!!Margin of Error!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_004E": {
+      "label": "Female!!Estimate!!Some college or associate's degree",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_005M": {
+      "label": "Female!!Margin of Error!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_005E": {
+      "label": "Female!!Estimate!!Bachelor's degree or higher",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_006E": {
+      "label": "Female!!Estimate!!Population 25 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_006M": {
+      "label": "Female!!Margin of Error!!Population 25 years and over",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_007E": {
+      "label": "Female!!Estimate!!Less than 9th grade",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_007M": {
+      "label": "Female!!Margin of Error!!Less than 9th grade",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_001M": {
+      "label": "Female!!Margin of Error!!Population 18 to 24 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_001E": {
+      "label": "Female!!Estimate!!Population 18 to 24 years",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "int",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_002M": {
+      "label": "Female!!Margin of Error!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_002E": {
+      "label": "Female!!Estimate!!Less than high school graduate",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_003M": {
+      "label": "Female!!Margin of Error!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_003E": {
+      "label": "Female!!Estimate!!High school graduate (includes equivalency)",
+      "concept": "EDUCATIONAL ATTAINMENT",
+      "predicateType": "float",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_024EA": {
+      "label": "Annotation of Female!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_024MA": {
+      "label": "Annotation of Female!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_023EA": {
+      "label": "Annotation of Female!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_023MA": {
+      "label": "Annotation of Female!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_022EA": {
+      "label": "Annotation of Female!!Estimate!!Population 45 to 64 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_037EA": {
+      "label": "Annotation of Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_037MA": {
+      "label": "Annotation of Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Graduate or professional degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_022MA": {
+      "label": "Annotation of Female!!Margin of Error!!Population 45 to 64 years",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_021EA": {
+      "label": "Annotation of Female!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_038EA": {
+      "label": "Annotation of Male!!Estimate!!PERCENT IMPUTED!!Educational attainment",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_038MA": {
+      "label": "Annotation of Male!!Margin of Error!!PERCENT IMPUTED!!Educational attainment",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_021MA": {
+      "label": "Annotation of Female!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_028MA": {
+      "label": "Annotation of Female!!Margin of Error!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_035EA": {
+      "label": "Annotation of Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_028EA": {
+      "label": "Annotation of Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_035MA": {
+      "label": "Annotation of Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Some college or associate's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_029EA": {
+      "label": "Annotation of Female!!Estimate!!POVERTY RATE FOR THE POPULATION 25 YEARS AND OVER FOR WHOM POVERTY STATUS IS DETERMINED BY EDUCATIONAL ATTAINMENT LEVEL!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_027MA": {
+      "label": "Annotation of Female!!Margin of Error!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_036EA": {
+      "label": "Annotation of Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_027EA": {
+      "label": "Annotation of Female!!Estimate!!Bachelor's degree or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_036MA": {
+      "label": "Annotation of Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_026MA": {
+      "label": "Annotation of Female!!Margin of Error!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_026EA": {
+      "label": "Annotation of Female!!Estimate!!High school graduate or higher",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_033EA": {
+      "label": "Annotation of Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_033MA": {
+      "label": "Annotation of Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!Less than high school graduate",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_025MA": {
+      "label": "Annotation of Female!!Margin of Error!!Population 65 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C03_025EA": {
+      "label": "Annotation of Female!!Estimate!!Population 65 years and over",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_034EA": {
+      "label": "Annotation of Male!!Estimate!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "S1501_C02_034MA": {
+      "label": "Annotation of Male!!Margin of Error!!MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)!!High school graduate (includes equivalency)",
+      "predicateType": "string",
+      "group": "S1501",
+      "limit": 0,
+      "predicateOnly": true
+    }
+  }
+}

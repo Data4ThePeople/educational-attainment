@@ -1,0 +1,997 @@
+{
+  "variables": {
+    "B15002_023EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!7th and 8th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_022MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!5th and 6th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_022EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!5th and 6th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_021MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Nursery to 4th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_021EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Nursery to 4th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_020MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!No schooling completed",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_020EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!No schooling completed",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_027MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!12th grade, no diploma",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_027EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!12th grade, no diploma",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_026MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!11th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_026EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!11th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_025MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!10th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_025EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!10th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_024MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!9th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_024EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!9th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_023MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!7th and 8th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_029MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Some college, less than 1 year",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_029EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Some college, less than 1 year",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_028MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!High school graduate, GED, or alternative",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_028EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!High school graduate, GED, or alternative",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_019MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_019EA": {
+      "label": "Annotation of Estimate!!Total!!Female",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "NAME": {
+      "label": "Geographic Area Name",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_032EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_031MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Associate's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_031EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Associate's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_030MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Some college, 1 or more years, no degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_030EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Some college, 1 or more years, no degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_035MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Doctorate degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_035EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Doctorate degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_034MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Professional school degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_034EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Professional school degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_033MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Master's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_033EA": {
+      "label": "Annotation of Estimate!!Total!!Female!!Master's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_032MA": {
+      "label": "Annotation of Margin of Error!!Total!!Female!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "GEO_ID": {
+      "label": "Geography",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_014E": {
+      "label": "Estimate!!Total!!Male!!Associate's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_014M": {
+      "label": "Margin of Error!!Total!!Male!!Associate's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_013E": {
+      "label": "Estimate!!Total!!Male!!Some college, 1 or more years, no degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_013M": {
+      "label": "Margin of Error!!Total!!Male!!Some college, 1 or more years, no degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_016E": {
+      "label": "Estimate!!Total!!Male!!Master's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_016M": {
+      "label": "Margin of Error!!Total!!Male!!Master's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_015E": {
+      "label": "Estimate!!Total!!Male!!Bachelor's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_015M": {
+      "label": "Margin of Error!!Total!!Male!!Bachelor's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_018E": {
+      "label": "Estimate!!Total!!Male!!Doctorate degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_018M": {
+      "label": "Margin of Error!!Total!!Male!!Doctorate degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_017E": {
+      "label": "Estimate!!Total!!Male!!Professional school degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_017M": {
+      "label": "Margin of Error!!Total!!Male!!Professional school degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_019E": {
+      "label": "Estimate!!Total!!Female",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_019M": {
+      "label": "Margin of Error!!Total!!Female",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_010M": {
+      "label": "Margin of Error!!Total!!Male!!12th grade, no diploma",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_010E": {
+      "label": "Estimate!!Total!!Male!!12th grade, no diploma",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_012E": {
+      "label": "Estimate!!Total!!Male!!Some college, less than 1 year",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_012M": {
+      "label": "Margin of Error!!Total!!Male!!Some college, less than 1 year",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_011M": {
+      "label": "Margin of Error!!Total!!Male!!High school graduate, GED, or alternative",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_011E": {
+      "label": "Estimate!!Total!!Male!!High school graduate, GED, or alternative",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_009M": {
+      "label": "Margin of Error!!Total!!Male!!11th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_002E": {
+      "label": "Estimate!!Total!!Male",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_002M": {
+      "label": "Margin of Error!!Total!!Male",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_001E": {
+      "label": "Estimate!!Total",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_001M": {
+      "label": "Margin of Error!!Total",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_004E": {
+      "label": "Estimate!!Total!!Male!!Nursery to 4th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_004M": {
+      "label": "Margin of Error!!Total!!Male!!Nursery to 4th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_003E": {
+      "label": "Estimate!!Total!!Male!!No schooling completed",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_003M": {
+      "label": "Margin of Error!!Total!!Male!!No schooling completed",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_006E": {
+      "label": "Estimate!!Total!!Male!!7th and 8th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_006M": {
+      "label": "Margin of Error!!Total!!Male!!7th and 8th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_005E": {
+      "label": "Estimate!!Total!!Male!!5th and 6th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_005M": {
+      "label": "Margin of Error!!Total!!Male!!5th and 6th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_009E": {
+      "label": "Estimate!!Total!!Male!!11th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_008E": {
+      "label": "Estimate!!Total!!Male!!10th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_008M": {
+      "label": "Margin of Error!!Total!!Male!!10th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_007E": {
+      "label": "Estimate!!Total!!Male!!9th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_007M": {
+      "label": "Margin of Error!!Total!!Male!!9th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_030M": {
+      "label": "Margin of Error!!Total!!Female!!Some college, 1 or more years, no degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_030E": {
+      "label": "Estimate!!Total!!Female!!Some college, 1 or more years, no degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_032M": {
+      "label": "Margin of Error!!Total!!Female!!Bachelor's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_032E": {
+      "label": "Estimate!!Total!!Female!!Bachelor's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_031M": {
+      "label": "Margin of Error!!Total!!Female!!Associate's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_031E": {
+      "label": "Estimate!!Total!!Female!!Associate's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_034E": {
+      "label": "Estimate!!Total!!Female!!Professional school degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_034M": {
+      "label": "Margin of Error!!Total!!Female!!Professional school degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_033M": {
+      "label": "Margin of Error!!Total!!Female!!Master's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_033E": {
+      "label": "Estimate!!Total!!Female!!Master's degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_035E": {
+      "label": "Estimate!!Total!!Female!!Doctorate degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_035M": {
+      "label": "Margin of Error!!Total!!Female!!Doctorate degree",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_026E": {
+      "label": "Estimate!!Total!!Female!!11th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_026M": {
+      "label": "Margin of Error!!Total!!Female!!11th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_025E": {
+      "label": "Estimate!!Total!!Female!!10th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_025M": {
+      "label": "Margin of Error!!Total!!Female!!10th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_028E": {
+      "label": "Estimate!!Total!!Female!!High school graduate, GED, or alternative",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_028M": {
+      "label": "Margin of Error!!Total!!Female!!High school graduate, GED, or alternative",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_027E": {
+      "label": "Estimate!!Total!!Female!!12th grade, no diploma",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_027M": {
+      "label": "Margin of Error!!Total!!Female!!12th grade, no diploma",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_029E": {
+      "label": "Estimate!!Total!!Female!!Some college, less than 1 year",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_029M": {
+      "label": "Margin of Error!!Total!!Female!!Some college, less than 1 year",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_020M": {
+      "label": "Margin of Error!!Total!!Female!!No schooling completed",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_020E": {
+      "label": "Estimate!!Total!!Female!!No schooling completed",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_022M": {
+      "label": "Margin of Error!!Total!!Female!!5th and 6th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_022E": {
+      "label": "Estimate!!Total!!Female!!5th and 6th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_021M": {
+      "label": "Margin of Error!!Total!!Female!!Nursery to 4th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_021E": {
+      "label": "Estimate!!Total!!Female!!Nursery to 4th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_024E": {
+      "label": "Estimate!!Total!!Female!!9th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_024M": {
+      "label": "Margin of Error!!Total!!Female!!9th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_023E": {
+      "label": "Estimate!!Total!!Female!!7th and 8th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_023M": {
+      "label": "Margin of Error!!Total!!Female!!7th and 8th grade",
+      "predicateType": "int",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_001EA": {
+      "label": "Annotation of Estimate!!Total",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_005MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!5th and 6th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_005EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!5th and 6th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_004MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Nursery to 4th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_004EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Nursery to 4th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_003MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!No schooling completed",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_003EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!No schooling completed",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_002MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_002EA": {
+      "label": "Annotation of Estimate!!Total!!Male",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_001MA": {
+      "label": "Annotation of Margin of Error!!Total",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_010EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!12th grade, no diploma",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_014MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Associate's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_014EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Associate's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_013MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Some college, 1 or more years, no degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_013EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Some college, 1 or more years, no degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_012MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Some college, less than 1 year",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_012EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Some college, less than 1 year",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_011MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!High school graduate, GED, or alternative",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_011EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!High school graduate, GED, or alternative",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_010MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!12th grade, no diploma",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_018MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Doctorate degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_018EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Doctorate degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_017MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Professional school degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_017EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Professional school degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_016MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Master's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_016EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Master's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_015MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_015EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!Bachelor's degree",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_009MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!11th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_009EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!11th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_008MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!10th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_008EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!10th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_007MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!9th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_007EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!9th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_006MA": {
+      "label": "Annotation of Margin of Error!!Total!!Male!!7th and 8th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B15002_006EA": {
+      "label": "Annotation of Estimate!!Total!!Male!!7th and 8th grade",
+      "predicateType": "string",
+      "group": "B15002",
+      "limit": 0,
+      "predicateOnly": true
+    }
+  }
+}

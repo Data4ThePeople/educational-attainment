@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Educational Attainment Over Time</title>
+<meta name="description" content="Educational attainment of adults 25 and over, 2008 to 2025, for every U.S. nation, state, county, metro area and place in the American Community Survey 1-year estimates.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --muted: #77756f;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #c98500; --s5: #e87ba4;
+  --up: #2a78d6; --down: #e34948; --accent: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #9a9890;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --up: #3987e5; --down: #e66767; --accent: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #9a9890;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+  --up: #3987e5; --down: #e66767; --accent: #3987e5;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app { container-type: inline-size; overflow-x: hidden; max-width: 980px; margin: 0 auto; padding: 16px; }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 16px; }
+h1 { font-size: 20px; margin: 0 0 4px; line-height: 1.25; }
+h2 { font-size: 16px; margin: 4px 0 2px; }
+p { margin: 0 0 8px; color: var(--ink2); }
+.sub { font-size: 13px; color: var(--muted); }
+.tabs { display: flex; gap: 4px; margin: 12px 0; border-bottom: 1px solid var(--grid); }
+.tabs button { font: inherit; background: none; border: 0; padding: 8px 12px; cursor: pointer;
+  color: var(--ink2); border-bottom: 2px solid transparent; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 10px; }
+.search { position: relative; flex: 1 1 260px; }
+input, select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--axis);
+  border-radius: 6px; padding: 6px 10px; }
+.search input { width: 100%; }
+.sugg { position: absolute; z-index: 5; left: 0; right: 0; top: 100%; margin: 2px 0 0; padding: 4px 0;
+  list-style: none; background: var(--surface); border: 1px solid var(--axis); border-radius: 6px;
+  max-height: 260px; overflow-y: auto; box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+.sugg li { padding: 5px 10px; cursor: pointer; display: flex; justify-content: space-between; gap: 8px; }
+.sugg li[aria-selected="true"], .sugg li:hover { background: var(--grid); }
+.sugg .lvl { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.legend { font-size: 13px; margin: 2px 0 6px; display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.legend span { font-weight: 600; white-space: nowrap; }
+svg { display: block; overflow: visible; }
+svg text { fill: var(--muted); font-size: 12px; }
+.note { font-size: 12.5px; color: var(--ink2); background: var(--page); border-radius: 6px; padding: 6px 10px; margin: 6px 0; }
+.tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--axis); border-radius: 6px; padding: 8px 10px; font-size: 12.5px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15); display: none; min-width: 180px; }
+.tip b { display: block; margin-bottom: 4px; }
+.tip .row { display: flex; justify-content: space-between; gap: 12px; }
+.rank { max-height: 430px; overflow-y: auto; }
+.foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px;
+  font-size: 12px; color: var(--muted); }
+.hidden { display: none; }
+table.data { border-collapse: collapse; font-size: 12.5px; width: 100%; }
+table.data th, table.data td { padding: 3px 6px; text-align: right; border-bottom: 1px solid var(--grid); }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+details { margin-top: 8px; font-size: 13px; color: var(--ink2); }
+@container (max-width: 560px) {
+  h1 { font-size: 18px; }
+  .tabs button { padding: 8px 8px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="card">
+  <h1>Educational attainment of adults 25 and over, 2008 to 2025</h1>
+  <p class="sub">American Community Survey 1-year estimates for the nation, states, counties, metro areas and places with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-one" aria-selected="true">One place over time</button>
+    <button role="tab" id="tab-rank" aria-selected="false">Ranked change</button>
+  </div>
+
+  <section id="pane-one">
+    <div class="controls">
+      <div class="search">
+        <input id="q" type="search" placeholder="Search a state, county, metro area, city or town" autocomplete="off" aria-label="Search for a place">
+        <ul id="sugg" class="sugg hidden" role="listbox"></ul>
+      </div>
+    </div>
+    <p id="intro-one"></p>
+    <h2 id="title-one"></h2>
+    <div class="legend" id="legend"></div>
+    <div id="chart-one"></div>
+    <div id="notes-one"></div>
+    <details><summary>Show the numbers</summary><div id="table-one" style="overflow-x:auto"></div></details>
+  </section>
+
+  <section id="pane-rank" class="hidden">
+    <div class="controls">
+      <label>Level <select id="lvl"></select></label>
+      <label>Group <select id="grp"></select></label>
+    </div>
+    <p id="intro-rank"></p>
+    <h2 id="title-rank"></h2>
+    <div id="note-rank"></div>
+    <div class="rank" id="chart-rank"></div>
+  </section>
+
+  <div class="foot">
+    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003. B15002 fills years where B15003 was withheld. No standard 1-year estimates were released for 2020. Bands show the 90% margin of error, from the Census Bureau's formulas for derived estimates.</span>
+    <span>Built by Data 4 The People</span>
+  </div>
+</div>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+const DATA = /*DATA*/null;
+
+// When framed (Prismic embed), pin the light theme.
+if (window.self !== window.top) document.documentElement.setAttribute("data-theme", "light");
+
+const Z90 = 1.645;
+const GROUPS = DATA.groups;            // [{key, name}]
+const YEARS = DATA.years;              // published years, 2020 absent
+const FIRST = YEARS[0], LAST = YEARS[YEARS.length - 1];
+const LEVEL_NAMES = DATA.levelNames;
+const LEVEL_SINGULAR = {region: "region", division: "division", state: "state", pr: "area", cbsa: "metro or micro area", county: "county", place: "place"};
+const COLORS = ["--s1", "--s2", "--s3", "--s4", "--s5"];
+const BREAK = new Set(DATA.break2025);
+// The national 2024-to-2025 drop in "less than high school" beyond its
+// 2021-2024 average yearly change (FINDINGS.md, check 2).
+function excessDrop() {
+  const us = DATA.areas.find(a => a.l === "us"), i = GROUPS.findIndex(g => g.key === "lths");
+  const s = y => sharesFor(us, y)[i].p, base = LAST - 4;
+  return -((s(LAST) - s(LAST - 1)) - (s(LAST - 1) - s(base)) / 3);
+}
+const breakNote = () => `In ${LAST} the survey merged its three lowest answers into one. Our check finds that, nationally, the share with less than high school fell about ${fmt(excessDrop())} percentage points more than its recent trend, and the change shows up mostly in "some college." Dashed lines mark the ${LAST - 1} to ${LAST} step for those two groups.`;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt = (x, d = 1) => x.toFixed(d);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+// ---- Shares and MOEs, recomputed here from published counts ----
+// Census Bureau, "Understanding and Using ACS Data" (2020), ch. 8 formula (6),
+// with the ratio form (7) when the value under the root is negative.
+function share(x, mx, y, my) {
+  const p = x / y;
+  let rad = mx * mx - p * p * my * my;
+  if (rad < 0) rad = mx * mx + p * p * my * my;
+  return {p: 100 * p, moe: 100 * Math.sqrt(rad) / y};
+}
+// Row layout per year: [total, totalMoe, g1, g1Moe, ..., g5, g5Moe]
+function sharesFor(area, year) {
+  const r = area.y[year];
+  if (!r) return null;
+  return GROUPS.map((g, i) => share(r[2 + 2 * i], r[3 + 2 * i], r[0], r[1]));
+}
+// Chapter 7 formula (3): significant at 90% if |z| > 1.645.
+function ztest(a, b) {
+  const se = Math.sqrt((a.moe / Z90) ** 2 + (b.moe / Z90) ** 2);
+  const z = (b.p - a.p) / se;
+  return {diff: b.p - a.p, z, sig: Math.abs(z) > Z90};
+}
+
+// Duplicate keys are a hard failure.
+const BY_ID = new Map();
+for (const a of DATA.areas) {
+  if (BY_ID.has(a.id)) throw new Error("Duplicate area id " + a.id);
+  BY_ID.set(a.id, a);
+}
+
+// ---- Tooltip ----
+const tip = document.getElementById("tip");
+function showTip(html, ev) {
+  tip.innerHTML = html; tip.style.display = "block";
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + w > window.innerWidth - 8) x = ev.clientX - w - 14;
+  if (y + h > window.innerHeight - 8) y = ev.clientY - h - 14;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => tip.style.display = "none";
+
+// ---- Search ----
+const q = document.getElementById("q"), sugg = document.getElementById("sugg");
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const INDEX = DATA.areas.map(a => ({a, k: norm(a.n)}));
+let active = 0, matches = [];
+function search(text) {
+  const t = norm(text.trim());
+  if (!t) return [];
+  const starts = [], has = [];
+  for (const it of INDEX) {
+    const i = it.k.indexOf(t);
+    if (i === 0) starts.push(it.a); else if (i > 0) has.push(it.a);
+  }
+  const rank = a => DATA.levelOrder.indexOf(a.l);
+  const by = (x, y) => rank(x) - rank(y) || x.n.localeCompare(y.n);
+  return starts.sort(by).concat(has.sort(by)).slice(0, 40);
+}
+function renderSugg() {
+  if (!matches.length) { sugg.classList.add("hidden"); return; }
+  sugg.innerHTML = matches.map((a, i) =>
+    `<li role="option" data-id="${a.id}" aria-selected="${i === active}"><span>${esc(a.n)}</span><span class="lvl">${LEVEL_NAMES[a.l]}</span></li>`).join("");
+  sugg.classList.remove("hidden");
+}
+q.addEventListener("input", () => { matches = search(q.value); active = 0; renderSugg(); });
+q.addEventListener("keydown", e => {
+  if (e.key === "ArrowDown") { active = Math.min(active + 1, matches.length - 1); renderSugg(); e.preventDefault(); }
+  else if (e.key === "ArrowUp") { active = Math.max(active - 1, 0); renderSugg(); e.preventDefault(); }
+  else if (e.key === "Enter" && matches[active]) { pick(matches[active].id); }
+  else if (e.key === "Escape") sugg.classList.add("hidden");
+});
+sugg.addEventListener("mousedown", e => {
+  const li = e.target.closest("li"); if (li) pick(li.dataset.id);
+});
+document.addEventListener("click", e => { if (!e.target.closest(".search")) sugg.classList.add("hidden"); });
+function pick(id) {
+  const a = BY_ID.get(id); if (!a) return;
+  q.value = a.n; sugg.classList.add("hidden");
+  renderOne(a);
+}
+
+// ---- Chart 1: one place over time ----
+const placeName = a => a.l === "us" ? "the United States" : a.n;
+function renderOne(a) {
+  const years = YEARS.filter(y => a.y[y]);
+  const S = {}; years.forEach(y => S[y] = sharesFor(a, y));
+  const y0 = years[0], y1 = years[years.length - 1];
+  document.getElementById("intro-one").textContent =
+    `The chart below shows how the education of adults 25 and over in ${placeName(a)} has changed from ${y0} to ${y1}. Each line is the share of adults in one group. The shaded band around each line is the 90% margin of error.`;
+  document.getElementById("title-one").textContent =
+    `Share of adults 25 and over by highest education, ${a.n}, ${y0}–${y1}`;
+  document.getElementById("legend").innerHTML = GROUPS.map((g, i) =>
+    `<span style="color:var(${COLORS[i]})">${g.name}</span>`).join("");
+
+  const box = document.getElementById("chart-one");
+  const W = Math.max(300, box.clientWidth), H = W < 520 ? 280 : 320;
+  const lbl = W < 520 ? 0 : 54;
+  const m = {l: 40, r: 12 + lbl, t: 12, b: 28};
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  let hi = 0;
+  years.forEach(y => S[y].forEach(s => hi = Math.max(hi, s.p + s.moe)));
+  const top = Math.min(100, Math.ceil(hi / 10) * 10);
+  const allYears = []; for (let y = FIRST; y <= LAST; y++) allYears.push(y);
+  const x = y => m.l + (y - FIRST) / (LAST - FIRST) * iw;
+  const yy = v => m.t + ih - v / top * ih;
+
+  // Runs of consecutive published years; the line and band break at gaps (2020).
+  const runs = []; let cur = [];
+  allYears.forEach(y => {
+    if (a.y[y]) cur.push(y); else { if (cur.length) runs.push(cur); cur = []; }
+  });
+  if (cur.length) runs.push(cur);
+
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(document.getElementById("title-one").textContent)}">`;
+  for (let v = 0; v <= top; v += 10) {
+    s += `<line x1="${m.l}" x2="${m.l + iw}" y1="${yy(v)}" y2="${yy(v)}" stroke="${css("--grid")}" stroke-width="1"/>`;
+    s += `<text x="${m.l - 6}" y="${yy(v) + 4}" text-anchor="end">${v}%</text>`;
+  }
+  const step = W < 520 ? 4 : 2;
+  allYears.forEach(y => { if ((y - FIRST) % step === 0 || y === LAST)
+    s += `<text x="${x(y)}" y="${H - 8}" text-anchor="middle">${y}</text>`; });
+  // The 2020 gap.
+  if (!a.y[2020] && 2020 > FIRST && 2020 < LAST) {
+    s += `<rect x="${x(2019.5)}" y="${m.t}" width="${x(2020.5) - x(2019.5)}" height="${ih}" fill="${css("--grid")}" opacity="0.5"/>`;
+    s += `<text x="${x(2020)}" y="${m.t + 12}" text-anchor="middle" font-size="11">No 2020</text>`;
+    s += `<text x="${x(2020)}" y="${m.t + 25}" text-anchor="middle" font-size="11">release</text>`;
+  }
+  GROUPS.forEach((g, i) => {
+    const c = css(COLORS[i]);
+    runs.forEach(run => {
+      if (run.length === 1) {
+        const v = S[run[0]][i];
+        s += `<line x1="${x(run[0])}" x2="${x(run[0])}" y1="${yy(Math.min(top, v.p + v.moe))}" y2="${yy(Math.max(0, v.p - v.moe))}" stroke="${c}" stroke-opacity="0.35" stroke-width="6"/>`;
+        s += `<circle cx="${x(run[0])}" cy="${yy(v.p)}" r="3.5" fill="${c}"/>`;
+        return;
+      }
+      const upper = run.map(y => `${x(y)},${yy(Math.min(top, S[y][i].p + S[y][i].moe))}`);
+      const lower = run.slice().reverse().map(y => `${x(y)},${yy(Math.max(0, S[y][i].p - S[y][i].moe))}`);
+      s += `<polygon points="${upper.concat(lower).join(" ")}" fill="${c}" fill-opacity="0.16"/>`;
+      // Groups that carry part of the 2025 question change: dash the last segment.
+      const dash = BREAK.has(g.key) && run.includes(LAST) && run.includes(LAST - 1);
+      const solid = dash ? run.slice(0, -1) : run;
+      if (solid.length > 1)
+        s += `<polyline points="${solid.map(y => `${x(y)},${yy(S[y][i].p)}`).join(" ")}" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"/>`;
+      if (dash)
+        s += `<line x1="${x(LAST - 1)}" y1="${yy(S[LAST - 1][i].p)}" x2="${x(LAST)}" y2="${yy(S[LAST][i].p)}" stroke="${c}" stroke-width="2" stroke-dasharray="3 3"/>`;
+    });
+  });
+  // Direct labels at the last year, nudged apart.
+  if (lbl) {
+    const pos = GROUPS.map((g, i) => ({i, y: yy(S[y1][i].p)})).sort((p, q) => p.y - q.y);
+    for (let k = 1; k < pos.length; k++) if (pos[k].y - pos[k - 1].y < 13) pos[k].y = pos[k - 1].y + 13;
+    pos.forEach(p => s += `<text x="${x(y1) + 6}" y="${p.y + 4}" style="fill:var(--ink2)">${fmt(S[y1][p.i].p)}%</text>`);
+  }
+  s += `<line id="xh" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" stroke="${css("--axis")}" stroke-width="1" visibility="hidden"/>`;
+  s += `<rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" id="hit"/>`;
+  s += `</svg>`;
+  box.innerHTML = s;
+
+  const hit = box.querySelector("#hit"), xh = box.querySelector("#xh");
+  hit.addEventListener("mousemove", ev => {
+    const r = hit.getBoundingClientRect();
+    const yr = Math.round(FIRST + (ev.clientX - r.left) / r.width * (LAST - FIRST));
+    xh.setAttribute("x1", x(yr)); xh.setAttribute("x2", x(yr)); xh.setAttribute("visibility", "visible");
+    if (!S[yr]) { showTip(`<b>${yr}</b>No standard 1-year estimates were released for ${yr}.`, ev); return; }
+    showTip(`<b>${a.n}, ${yr}</b>` + GROUPS.map((g, i) =>
+      `<div class="row"><span>${g.name}</span><span>${fmt(S[yr][i].p)}% ± ${fmt(S[yr][i].moe)}</span></div>`).join(""), ev);
+  });
+  hit.addEventListener("mouseleave", () => { hideTip(); xh.setAttribute("visibility", "hidden"); });
+
+  // Notes: series breaks, and which changes pass the test.
+  const notes = [];
+  if (a.f) notes.push(a.f);
+  if (a.y[LAST]) notes.push(breakNote());
+  const tests = GROUPS.map((g, i) => ({g, t: ztest(S[y0][i], S[y1][i])}));
+  const sig = tests.filter(o => o.t.sig).map(o => `${o.g.name.toLowerCase()} (${o.t.diff > 0 ? "+" : ""}${fmt(o.t.diff)} points)`);
+  notes.push(sig.length
+    ? `From ${y0} to ${y1}, these changes pass the Census Bureau's test at 90% confidence: ${sig.join("; ")}.`
+    : `None of the changes from ${y0} to ${y1} pass the Census Bureau's test at 90% confidence.`);
+  document.getElementById("notes-one").innerHTML = notes.map(n => `<div class="note">${esc(n)}</div>`).join("");
+
+  document.getElementById("table-one").innerHTML =
+    `<table class="data"><thead><tr><th>Year</th>${GROUPS.map(g => `<th>${g.name}</th>`).join("")}</tr></thead><tbody>` +
+    years.map(y => `<tr><td>${y}</td>${S[y].map(v => `<td>${fmt(v.p)} ± ${fmt(v.moe)}</td>`).join("")}</tr>`).join("") +
+    `</tbody></table>`;
+}
+
+// ---- Chart 2: ranked change, balanced panel, significant only ----
+const lvl = document.getElementById("lvl"), grp = document.getElementById("grp");
+DATA.levelOrder.filter(l => l !== "us").forEach(l => lvl.add(new Option(LEVEL_NAMES[l], l)));
+lvl.value = "state";
+GROUPS.forEach(g => grp.add(new Option(g.name, g.key)));
+grp.value = "ba";
+
+function renderRank() {
+  const L = lvl.value, gi = GROUPS.findIndex(g => g.key === grp.value), G = GROUPS[gi];
+  const pool = DATA.areas.filter(a => a.l === L && a.b);
+  const rows = pool.map(a => {
+    const s0 = sharesFor(a, FIRST)[gi], s1 = sharesFor(a, LAST)[gi];
+    return {a, s0, s1, t: ztest(s0, s1)};
+  });
+  const sig = rows.filter(r => r.t.sig).sort((p, q) => q.t.diff - p.t.diff);
+  const up = sig.filter(r => r.t.diff > 0).length, down = sig.length - up;
+  document.getElementById("intro-rank").textContent =
+    `The chart below ranks each ${LEVEL_SINGULAR[L]} by how much the ${G.name.toLowerCase()} share changed from ${FIRST} to ${LAST}. It includes only the ${pool.length} areas published in every year, and shows only the ${sig.length} changes that pass the Census Bureau's test at 90% confidence: ${up} up and ${down} down.`;
+  document.getElementById("title-rank").textContent =
+    `Change in ${G.name.toLowerCase()} share of adults 25 and over, ${FIRST} to ${LAST}, ${LEVEL_NAMES[L].toLowerCase()} (percentage points)`;
+  const box = document.getElementById("chart-rank");
+  document.getElementById("note-rank").innerHTML = BREAK.has(G.key) ? `<div class="note">${esc(breakNote().split(" Dashed")[0])} Some of the change shown here comes from that.</div>` : "";
+  if (!sig.length) { box.innerHTML = `<p class="note">No area at this level passes the test for this group.</p>`; return; }
+  const W = Math.max(300, box.clientWidth - 4), rowH = 20;
+  const nameW = Math.min(240, W * 0.42), valW = 46;
+  const lo = Math.min(0, ...sig.map(r => r.t.diff)), hi = Math.max(0, ...sig.map(r => r.t.diff));
+  const x0 = nameW + 8, x1 = W - valW;
+  const x = v => x0 + (v - lo) / ((hi - lo) || 1) * (x1 - x0);
+  const H = sig.length * rowH + 6;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(document.getElementById("title-rank").textContent)}">`;
+  s += `<line x1="${x(0)}" x2="${x(0)}" y1="0" y2="${H}" stroke="${css("--axis")}"/>`;
+  sig.forEach((r, k) => {
+    const yv = k * rowH + 3, d = r.t.diff, c = d >= 0 ? css("--up") : css("--down");
+    const bx = Math.min(x(0), x(d)), bw = Math.max(1, Math.abs(x(d) - x(0)));
+    const name = r.a.n.length > 38 ? r.a.n.slice(0, 36) + "…" : r.a.n;
+    s += `<g class="bar" data-k="${k}"><rect x="0" y="${yv - 2}" width="${W}" height="${rowH}" fill="transparent"/>`;
+    s += `<text x="${nameW}" y="${yv + 12}" text-anchor="end" style="fill:var(--ink2)">${esc(name)}</text>`;
+    s += `<rect x="${bx}" y="${yv + 2}" width="${bw}" height="${rowH - 8}" rx="2" fill="${c}"/>`;
+    s += `<text x="${d >= 0 ? x(d) + 4 : x(0) + 4}" y="${yv + 12}">${d > 0 ? "+" : ""}${fmt(d)}</text></g>`;
+  });
+  s += `</svg>`;
+  box.innerHTML = s;
+  box.querySelectorAll(".bar").forEach(g => {
+    const r = sig[+g.dataset.k];
+    g.addEventListener("mousemove", ev => showTip(
+      `<b>${esc(r.a.n)}</b><div class="row"><span>${FIRST}</span><span>${fmt(r.s0.p)}% ± ${fmt(r.s0.moe)}</span></div>` +
+      `<div class="row"><span>${LAST}</span><span>${fmt(r.s1.p)}% ± ${fmt(r.s1.moe)}</span></div>` +
+      `<div class="row"><span>Change</span><span>${r.t.diff > 0 ? "+" : ""}${fmt(r.t.diff)} points</span></div>` +
+      (r.a.f ? `<div style="margin-top:4px;max-width:260px">${esc(r.a.f)}</div>` : ""), ev));
+    g.addEventListener("mouseleave", hideTip);
+    g.addEventListener("click", () => { pick(r.a.id); setTab("one"); });
+  });
+}
+lvl.addEventListener("change", renderRank);
+grp.addEventListener("change", renderRank);
+
+// ---- Tabs ----
+function setTab(t) {
+  document.getElementById("tab-one").setAttribute("aria-selected", t === "one");
+  document.getElementById("tab-rank").setAttribute("aria-selected", t === "rank");
+  document.getElementById("pane-one").classList.toggle("hidden", t !== "one");
+  document.getElementById("pane-rank").classList.toggle("hidden", t !== "rank");
+  if (t === "rank") renderRank();
+  else if (current) renderOne(current);
+}
+let current = BY_ID.get(DATA.defaultId);
+document.getElementById("tab-one").onclick = () => setTab("one");
+document.getElementById("tab-rank").onclick = () => setTab("rank");
+const _renderOne = renderOne;
+renderOne = a => { current = a; _renderOne(a); };
+// Deep links: #area=<id> opens one area, #rank opens the ranked view
+// (#rank=<level>,<group> picks both).
+const h = decodeURIComponent(location.hash.slice(1));
+if (h.startsWith("area=") && BY_ID.has(h.slice(5))) current = BY_ID.get(h.slice(5));
+q.value = current.n;
+renderOne(current);
+if (h.startsWith("rank")) {
+  const [l, g] = (h.split("=")[1] || "").split(",");
+  if (l && DATA.levelOrder.includes(l)) lvl.value = l;
+  if (g && GROUPS.some(x => x.key === g)) grp.value = g;
+  setTab("rank");
+}
+let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() =>
+  document.getElementById("pane-rank").classList.contains("hidden") ? renderOne(current) : renderRank(), 120); })
+  .observe(document.querySelector(".app"));
+</script>
+</body>
+</html>

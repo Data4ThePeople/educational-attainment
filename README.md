@@ -1,7 +1,40 @@
 # Educational Attainment
 
-Work in progress. This project tracks educational attainment for the population 25 and over in every area the American Community Survey publishes 1-year estimates for, on a basis that stays comparable through the 2025 change to the attainment question.
+Work in progress (Step 1, analysis). This project tracks the education of adults 25 and over, from 2008 to 2025. It covers the nation, regions, divisions, states, counties, metro and micro areas, and places in the American Community Survey (ACS) 1-year estimates, which cover areas with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.
 
-Data source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003, via the Census API.
+The interactive chart is `dist/index.html`. It shows one area at a time and a ranked view of changes from 2008 to 2025 that pass the Census Bureau's test at 90% confidence.
 
-Method notes, data sources and rebuild steps will be added here as the analysis is finished.
+## What's in the repo
+
+- `DATASETS.md`: sources, years, the label-by-label variable mapping, method, and caveats.
+- `FINDINGS.md`: the main changes, areas that stand out, and effects of the method and the data.
+- `data/raw/`: Census API responses saved as downloaded, the data.census.gov tie-out pulls, and the OMB metro delineation files.
+- `data/clean/`: the panel (`panel.csv`), area list with series breaks (`areas.csv`), change tests (`change.csv`), and check outputs.
+- `scripts/`: the pipeline.
+- `viz/template.html`: the page template; `scripts/build_viz.py` embeds the data.
+
+## Data sources
+
+U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau.
+
+## Rebuild
+
+```
+python scripts/fetch.py        # needs CENSUS_API_KEY via ~/.claude/d4tp-process/d4tp_env.py
+python scripts/build.py
+python scripts/geo_flags.py
+python scripts/findings.py
+python scripts/build_viz.py
+python scripts/tieout.py       # checks against data.census.gov
+```
+
+Python 3.9 with pandas, numpy, requests, xlrd and openpyxl.
+
+## Method notes
+
+- Shares, not counts, are the main measure, because the 2025 population controls changed.
+- Lines are mapped by label, not line number, because the 2025 table layout changed.
+- Margins of error use the formulas in the Census Bureau's *Understanding and Using American Community Survey Data* (2020), chapters 7 and 8.
+- There is no standard 2020 1-year release, so 2020 is a gap.
+- The 2025 question change also moved part of the "less than high school" and "some college" shares. The chart marks the 2024 to 2025 step for those two groups. See `DATASETS.md`.
+- Where B15003 was withheld for data quality, the same five groups come from B15002.

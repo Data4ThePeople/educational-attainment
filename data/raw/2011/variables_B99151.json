@@ -1,0 +1,59 @@
+{
+  "variables": {
+    "NAME": {
+      "label": "Geographic Area Name",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "GEO_ID": {
+      "label": "Geography",
+      "predicateType": "string",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B99151_003EA": {
+      "label": "Annotation of Estimate!!Total!!Not imputed",
+      "predicateType": "string",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B99151_002EA": {
+      "label": "Annotation of Estimate!!Total!!Imputed",
+      "predicateType": "string",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B99151_001EA": {
+      "label": "Annotation of Estimate!!Total",
+      "predicateType": "string",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B99151_002E": {
+      "label": "Estimate!!Total!!Imputed",
+      "predicateType": "int",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B99151_001E": {
+      "label": "Estimate!!Total",
+      "predicateType": "int",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    },
+    "B99151_003E": {
+      "label": "Estimate!!Total!!Not imputed",
+      "predicateType": "int",
+      "group": "B99151",
+      "limit": 0,
+      "predicateOnly": true
+    }
+  }
+}

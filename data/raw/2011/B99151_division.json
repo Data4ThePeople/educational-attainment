@@ -1,0 +1,10 @@
+[["NAME","GEO_ID","B99151_001E","B99151_002E","B99151_003E","NAME","B99151_001EA","B99151_002EA","B99151_003EA","division"],
+["New England Division","0300000US1","9950113","404740","9545373","New England Division",null,null,null,"1"],
+["Middle Atlantic Division","0300000US2","27916552","1506808","26409744","Middle Atlantic Division",null,null,null,"2"],
+["East North Central Division","0300000US3","30946086","1223294","29722792","East North Central Division",null,null,null,"3"],
+["West North Central Division","0300000US4","13630495","474646","13155849","West North Central Division",null,null,null,"4"],
+["South Atlantic Division","0300000US5","40754511","2134061","38620450","South Atlantic Division",null,null,null,"5"],
+["East South Central Division","0300000US6","12322528","518975","11803553","East South Central Division",null,null,null,"6"],
+["West South Central Division","0300000US7","23459751","1027953","22431798","West South Central Division",null,null,null,"7"],
+["Mountain Division","0300000US8","14423208","712004","13711204","Mountain Division",null,null,null,"8"],
+["Pacific Division","0300000US9","33068426","1752086","31316340","Pacific Division",null,null,null,"9"]]
