@@ -656,7 +656,7 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 
 | geoid | name | year | pop 25+ change from prior year (%) |
 |---|---|---|---|
-| 310XX00US41540 | Salisbury, MD-DE Metro Area | 2023 | -73.15 |
+| 310XX00US41540 | Salisbury, MD Metro Area | 2023 | -73.15 |
 | 310XX00US37620 | Parkersburg-Vienna, WV Metro Area | 2013 | -43.53 |
 | 310XX00US45860 | Torrington, CT Micro Area | 2023 | -38.00 |
 | 310XX00US46100 | Tullahoma-Manchester, TN Micro Area | 2023 | -37.48 |
@@ -671,15 +671,15 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US44940 | Sumter, SC Metro Area | 2023 | -24.92 |
 | 310XX00US28020 | Kalamazoo-Portage, MI Metro Area | 2019 | -23.91 |
 | 310XX00US38660 | Ponce, PR Metro Area | 2019 | -23.84 |
-| 310XX00US14100 | Bloomsburg-Berwick, PA Metro Area | 2023 | -23.03 |
+| 310XX00US14100 | Bloomsburg-Berwick, PA Micro Area | 2023 | -23.03 |
 | 310XX00US35380 | New Orleans-Metairie, LA Metro Area | 2023 | -21.98 |
 | 310XX00US49660 | Youngstown-Warren, OH Metro Area | 2023 | -19.85 |
 | 310XX00US14020 | Bloomington, IN Metro Area | 2013 | -19.25 |
 | 310XX00US47020 | Victoria, TX Metro Area | 2013 | -18.98 |
 | 310XX00US10380 | Aguadilla, PR Metro Area | 2023 | -18.77 |
-| 310XX00US21060 | Elizabethtown-Fort Knox, KY Metro Area | 2023 | -18.69 |
+| 310XX00US21060 | Elizabethtown, KY Metro Area | 2023 | -18.69 |
 | 310XX00US46180 | Tupelo, MS Micro Area | 2023 | -18.68 |
-| 310XX00US48140 | Wausau-Weston, WI Metro Area | 2023 | -17.92 |
+| 310XX00US48140 | Wausau, WI Metro Area | 2023 | -17.92 |
 | 310XX00US16620 | Charleston, WV Metro Area | 2023 | -17.55 |
 | 310XX00US45180 | Talladega-Sylacauga, AL Micro Area | 2019 | -17.02 |
 | 310XX00US38220 | Pine Bluff, AR Micro Area | 2023 | -16.49 |
@@ -697,9 +697,9 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US24780 | Greenville, NC Metro Area | 2013 | -11.51 |
 | 310XX00US37460 | Panama City-Panama City Beach, FL Metro Area | 2019 | -11.41 |
 | 310XX00US44140 | Springfield, MA Metro Area | 2013 | -11.32 |
-| 310XX00US49340 | Worcester, MA-CT Metro Area | 2023 | -11.32 |
+| 310XX00US49340 | Worcester, MA Metro Area | 2023 | -11.32 |
 | 310XX00US24260 | Grand Island, NE Metro Area | 2019 | -11.25 |
-| 310XX00US13980 | Blacksburg-Christiansburg, VA Metro Area | 2019 | -10.53 |
+| 310XX00US13980 | Blacksburg-Christiansburg-Radford, VA Metro Area | 2019 | -10.53 |
 | 310XX00US37900 | Peoria, IL Metro Area | 2023 | -9.00 |
 | 310XX00US43340 | Shreveport-Bossier City, LA Metro Area | 2019 | -8.89 |
 | 310XX00US45460 | Terre Haute, IN Metro Area | 2023 | -8.36 |
@@ -728,7 +728,7 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US16580 | Champaign-Urbana, IL Metro Area | 2019 | -5.26 |
 | 310XX00US33260 | Midland, TX Metro Area | 2013 | 5.01 |
 | 310XX00US43620 | Sioux Falls, SD-MN Metro Area | 2023 | 5.09 |
-| 310XX00US25060 | Gulfport-Biloxi-Pascagoula, MS Metro Area | 2019 | 5.36 |
+| 310XX00US25060 | Gulfport-Biloxi, MS Metro Area | 2019 | 5.36 |
 | 310XX00US20260 | Duluth, MN-WI Metro Area | 2019 | 5.41 |
 | 310XX00US18140 | Columbus, OH Metro Area | 2013 | 5.72 |
 | 310XX00US14140 | Bluefield, WV-VA Micro Area | 2019 | 5.75 |
@@ -738,7 +738,7 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US17980 | Columbus, GA-AL Metro Area | 2019 | 6.24 |
 | 310XX00US13820 | Birmingham, AL Metro Area | 2023 | 6.49 |
 | 310XX00US34980 | Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area | 2013 | 6.84 |
-| 310XX00US13980 | Blacksburg-Christiansburg, VA Metro Area | 2013 | 6.87 |
+| 310XX00US13980 | Blacksburg-Christiansburg-Radford, VA Metro Area | 2013 | 6.87 |
 | 310XX00US23060 | Fort Wayne, IN Metro Area | 2023 | 6.88 |
 | 310XX00US24340 | Grand Rapids-Wyoming-Kentwood, MI Metro Area | 2023 | 7.12 |
 | 310XX00US31540 | Madison, WI Metro Area | 2013 | 7.47 |
@@ -783,9 +783,9 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US27180 | Jackson, TN Metro Area | 2013 | 14.65 |
 | 310XX00US45180 | Talladega-Sylacauga, AL Micro Area | 2013 | 14.80 |
 | 310XX00US23540 | Gainesville, FL Metro Area | 2019 | 14.91 |
-| 310XX00US13980 | Blacksburg-Christiansburg, VA Metro Area | 2023 | 15.44 |
+| 310XX00US13980 | Blacksburg-Christiansburg-Radford, VA Metro Area | 2023 | 15.44 |
 | 310XX00US24260 | Grand Island, NE Metro Area | 2013 | 15.54 |
-| 310XX00US49340 | Worcester, MA-CT Metro Area | 2013 | 15.77 |
+| 310XX00US49340 | Worcester, MA Metro Area | 2013 | 15.77 |
 | 310XX00US37460 | Panama City-Panama City Beach, FL Metro Area | 2023 | 16.01 |
 | 310XX00US29620 | Lansing-East Lansing, MI Metro Area | 2019 | 16.06 |
 | 310XX00US40080 | Richmond-Berea, KY Micro Area | 2023 | 16.25 |
@@ -799,12 +799,12 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US28940 | Knoxville, TN Metro Area | 2013 | 20.91 |
 | 310XX00US16620 | Charleston, WV Metro Area | 2019 | 20.93 |
 | 310XX00US19660 | Deltona-Daytona Beach-Ormond Beach, FL Metro Area | 2013 | 21.75 |
-| 310XX00US48140 | Wausau-Weston, WI Metro Area | 2019 | 23.37 |
+| 310XX00US48140 | Wausau, WI Metro Area | 2019 | 23.37 |
 | 310XX00US44340 | Statesboro, GA Micro Area | 2023 | 24.02 |
 | 310XX00US29100 | La Crosse-Onalaska, WI-MN Metro Area | 2023 | 24.53 |
-| 310XX00US21060 | Elizabethtown-Fort Knox, KY Metro Area | 2013 | 25.11 |
+| 310XX00US21060 | Elizabethtown, KY Metro Area | 2013 | 25.11 |
 | 310XX00US38660 | Ponce, PR Metro Area | 2023 | 25.79 |
-| 310XX00US13460 | Bend-Redmond, OR Metro Area | 2023 | 25.83 |
+| 310XX00US13460 | Bend, OR Metro Area | 2023 | 25.83 |
 | 310XX00US47580 | Warner Robins, GA Metro Area | 2013 | 26.26 |
 | 310XX00US26580 | Huntington-Ashland, WV-KY-OH Metro Area | 2013 | 27.96 |
 | 310XX00US18260 | Cookeville, TN Micro Area | 2023 | 28.27 |
@@ -824,13 +824,13 @@ Balanced metro areas with a change: 146 of 457. Changes where the population 25 
 | 310XX00US38660 | Ponce, PR Metro Area | 2013 | 41.89 |
 | 310XX00US11180 | Ames, IA Metro Area | 2019 | 43.89 |
 | 310XX00US34820 | Myrtle Beach-Conway-North Myrtle Beach, SC Metro Area | 2013 | 48.23 |
-| 310XX00US25060 | Gulfport-Biloxi-Pascagoula, MS Metro Area | 2013 | 48.33 |
+| 310XX00US25060 | Gulfport-Biloxi, MS Metro Area | 2013 | 48.33 |
 | 310XX00US13220 | Beckley, WV Metro Area | 2013 | 56.56 |
 | 310XX00US48900 | Wilmington, NC Metro Area | 2023 | 61.57 |
-| 310XX00US41780 | Sandusky, OH Micro Area | 2023 | 62.11 |
+| 310XX00US41780 | Sandusky, OH Metro Area | 2023 | 62.11 |
 | 310XX00US29180 | Lafayette, LA Metro Area | 2013 | 72.10 |
 | 310XX00US32420 | Mayagüez, PR Metro Area | 2023 | 121.42 |
-| 310XX00US41540 | Salisbury, MD-DE Metro Area | 2013 | 229.51 |
+| 310XX00US41540 | Salisbury, MD Metro Area | 2013 | 229.51 |
 
 Metro areas left in the ranked view: 346.
 | group | areas | significant | up | down | median change |

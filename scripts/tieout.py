@@ -174,20 +174,25 @@ CLAIMS = [
     # (text that must appear on the page, status, source)
     ("Educational attainment of adults 25 and over, 2008 to 2025", "supported",
      "B15003 universe is the population 25 and over; series runs 2008-2025 (DATASETS.md)"),
-    ("for the nation, states, counties, metro areas and places with 65,000 or more people", "supported",
-     "ACS 1-year publication threshold; levels pulled (DATASETS.md, Geography)"),
+    ("for the nation, regions, divisions, states, Puerto Rico, and the counties, metro and micro areas and places with 65,000 or more people", "supported",
+     "ACS 1-year publication threshold (user note 2026-06); levels pulled (DATASETS.md, Geography)"),
     ("the three lowest answers are added together to match the 2025 question", "supported",
      "user note 2026-02; mapping in DATASETS.md"),
     ("No standard 1-year estimates were released for 2020", "supported",
-     "Census Bureau released only experimental 2020 1-year estimates"),
-    ("B15002 fills years where B15003 was withheld", "supported",
+     "user note 2021-02, https://www.census.gov/programs-surveys/acs/technical-documentation/user-notes/2021-02.html"),
+    ("B15002 fills years where B15003 was published with no values", "supported",
      "build.py fill_withheld; 851 area-years, exact match where both exist (findings_tables.md)"),
-    ("Bands show the 90% margin of error, from the Census Bureau's formulas for derived estimates", "supported",
+    ("Bands show the 90% margin of error, approximated with the Census Bureau's formulas for derived estimates", "supported",
      "ACS handbook (2020) ch. 8 formulas 1, 6, 7"),
     ("pass the Census Bureau's test at 90% confidence", "supported", "ACS handbook (2020) ch. 7 formula 3"),
-    ("In ${LAST} the survey merged its three lowest answers into one", "supported", "user note 2026-02"),
-    ("percentage points more than its recent trend, and the change shows up mostly in \"some college.\"",
-     "supported", "findings_tables.md: beyond-trend group changes; number recomputed below"),
+    ("In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base.",
+     "supported", "user notes 2026-02, 2026-04, 2026-05"),
+    ("percentage points more than its ${LAST - 4}–${LAST - 1} trend", "supported",
+     "findings_tables.md: beyond-trend group changes; numbers recomputed below"),
+    ("Changes ending in ${LAST} for this group include that step.", "supported",
+     "states the arithmetic only, no cause"),
+    ("it was under 65,000 people, or the tables were published with no values", "supported",
+     "ACS 1-year threshold; null tables in the API (withheld.csv)"),
     ("Built by Data 4 The People", "supported", "house convention"),
 ]
 
@@ -198,8 +203,11 @@ def check_words(panel, report):
         found = text in html
         report.append(f"- \"{text}\": {status if found else 'NOT FOUND ON PAGE'} ({src})")
     us = panel[panel.level == "us"].set_index("year").lths_share
+    sc = panel[panel.level == "us"].set_index("year").somecol_share
     excess = -((us[2025] - us[2024]) - (us[2024] - us[2021]) / 3)
-    report.append(f"- Break note number, recomputed here: {excess:.1f} points (the page computes it the same way at load).")
+    excess_sc = (sc[2025] - sc[2024]) - (sc[2024] - sc[2021]) / 3
+    report.append(f"- Break note numbers, recomputed here: less than high school {excess:.1f}, some college "
+                  f"{excess_sc:.1f} points (the page computes them the same way at load).")
     report.append("- Level names: \"Places (cities, towns and CDPs)\" covers census-designated places, "
                   "which are not cities; supported.")
     return sum(1 for t, _, _ in CLAIMS if t not in html)

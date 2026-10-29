@@ -282,7 +282,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US17043,county,"DuPage County, Illinois",17,2008,2025,True,False,,,
 0500000US17089,county,"Kane County, Illinois",17,2008,2025,True,False,,,
 0500000US17091,county,"Kankakee County, Illinois",17,2008,2025,True,False,,,
-0500000US17093,county,"Kendall County, Illinois",16,2008,2025,False,True,missing 2015; table withheld for data quality in 2015,2015,"2012, 2021"
+0500000US17093,county,"Kendall County, Illinois",16,2008,2025,False,True,missing 2015; table published with no values in 2015,2015,"2012, 2021"
 0500000US17097,county,"Lake County, Illinois",17,2008,2025,True,False,,,
 0500000US17099,county,"LaSalle County, Illinois",17,2008,2025,True,False,,,
 0500000US17111,county,"McHenry County, Illinois",17,2008,2025,True,False,,,
@@ -339,7 +339,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US20045,county,"Douglas County, Kansas",17,2008,2025,True,True,,,"2018, 2021"
 0500000US20091,county,"Johnson County, Kansas",17,2008,2025,True,False,,,
 0500000US20103,county,"Leavenworth County, Kansas",17,2008,2025,True,False,,,
-0500000US20161,county,"Riley County, Kansas",16,2008,2025,False,True,missing 2023; table withheld for data quality in 2023,2023,"2008, 2010, 2013, 2014, 2015, 2016, 2017, 2019, 2021, 2024, 2025"
+0500000US20161,county,"Riley County, Kansas",16,2008,2025,False,True,missing 2023; table published with no values in 2023,2023,"2008, 2010, 2013, 2014, 2015, 2016, 2017, 2019, 2021, 2024, 2025"
 0500000US20173,county,"Sedgwick County, Kansas",17,2008,2025,True,False,,,
 0500000US20177,county,"Shawnee County, Kansas",17,2008,2025,True,False,,,
 0500000US20209,county,"Wyandotte County, Kansas",17,2008,2025,True,False,,,
@@ -621,7 +621,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US38015,county,"Burleigh County, North Dakota",17,2008,2025,True,False,,,
 0500000US38017,county,"Cass County, North Dakota",17,2008,2025,True,False,,,
 0500000US38035,county,"Grand Forks County, North Dakota",17,2008,2025,True,False,,,
-0500000US38101,county,"Ward County, North Dakota",11,2013,2025,False,True,first published 2013; missing 2023; table withheld for data quality in 2023,2023,2019
+0500000US38101,county,"Ward County, North Dakota",11,2013,2025,False,True,first published 2013; missing 2023; table published with no values in 2023,2023,2019
 0500000US39003,county,"Allen County, Ohio",17,2008,2025,True,False,,,
 0500000US39007,county,"Ashtabula County, Ohio",17,2008,2025,True,False,,,
 0500000US39009,county,"Athens County, Ohio",5,2015,2019,False,False,first published 2015; last published 2019,,
@@ -755,7 +755,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US45083,county,"Spartanburg County, South Carolina",17,2008,2025,True,False,,,
 0500000US45085,county,"Sumter County, South Carolina",17,2008,2025,True,False,,,
 0500000US45091,county,"York County, South Carolina",17,2008,2025,True,False,,,
-0500000US46083,county,"Lincoln County, South Dakota",4,2022,2025,False,True,first published 2022; table withheld for data quality in 2021,2021,"2022, 2024"
+0500000US46083,county,"Lincoln County, South Dakota",4,2022,2025,False,True,first published 2022; table published with no values in 2021,2021,"2022, 2024"
 0500000US46099,county,"Minnehaha County, South Dakota",17,2008,2025,True,False,,,
 0500000US46103,county,"Pennington County, South Dakota",17,2008,2025,True,False,,,
 0500000US47001,county,"Anderson County, Tennessee",17,2008,2025,True,False,,,
@@ -822,7 +822,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US48367,county,"Parker County, Texas",17,2008,2025,True,False,,,
 0500000US48375,county,"Potter County, Texas",17,2008,2025,True,False,,,
 0500000US48381,county,"Randall County, Texas",17,2008,2025,True,False,,,
-0500000US48397,county,"Rockwall County, Texas",16,2008,2025,False,False,missing 2011; table withheld for data quality in 2011,2011,
+0500000US48397,county,"Rockwall County, Texas",16,2008,2025,False,False,missing 2011; table published with no values in 2011,2011,
 0500000US48409,county,"San Patricio County, Texas",17,2008,2025,True,False,,,
 0500000US48423,county,"Smith County, Texas",17,2008,2025,True,False,,,
 0500000US48427,county,"Starr County, Texas",5,2021,2025,False,False,first published 2021,,
@@ -843,7 +843,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US49011,county,"Davis County, Utah",17,2008,2025,True,False,,,
 0500000US49021,county,"Iron County, Utah",2,2024,2025,False,False,first published 2024,,
 0500000US49035,county,"Salt Lake County, Utah",17,2008,2025,True,False,,,
-0500000US49045,county,"Tooele County, Utah",7,2017,2025,False,True,first published 2017; missing 2019; table withheld for data quality in 2019,2019,"2017, 2018"
+0500000US49045,county,"Tooele County, Utah",7,2017,2025,False,True,first published 2017; missing 2019; table published with no values in 2019,2019,"2017, 2018"
 0500000US49049,county,"Utah County, Utah",17,2008,2025,True,False,,,
 0500000US49053,county,"Washington County, Utah",17,2008,2025,True,False,,,
 0500000US49057,county,"Weber County, Utah",17,2008,2025,True,False,,,
@@ -943,40 +943,40 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 0500000US72127,county,"San Juan Municipio, Puerto Rico",17,2008,2025,True,False,,,
 0500000US72135,county,"Toa Alta Municipio, Puerto Rico",17,2008,2025,True,False,,,
 0500000US72137,county,"Toa Baja Municipio, Puerto Rico",17,2008,2025,True,False,,,
-0500000US72139,county,"Trujillo Alto Municipio, Puerto Rico",16,2008,2025,False,False,missing 2022; table withheld for data quality in 2022,2022,
+0500000US72139,county,"Trujillo Alto Municipio, Puerto Rico",16,2008,2025,False,False,missing 2022; table published with no values in 2022,2022,
 0500000US72145,county,"Vega Baja Municipio, Puerto Rico",1,2009,2009,False,False,first published 2009; last published 2009,,
-1600000US0103076,place,"Auburn city, Alabama",4,2022,2025,False,True,"first published 2022; table withheld for data quality in 2018, 2019, 2021","2018, 2019, 2021","2022, 2023, 2024, 2025"
+1600000US0103076,place,"Auburn city, Alabama",4,2022,2025,False,True,"first published 2022; table published with no values in 2018, 2019, 2021","2018, 2019, 2021","2022, 2023, 2024, 2025"
 1600000US0107000,place,"Birmingham city, Alabama",17,2008,2025,True,False,,,
 1600000US0121184,place,"Dothan city, Alabama",17,2008,2025,True,False,,,
 1600000US0135896,place,"Hoover city, Alabama",17,2008,2025,True,True,,,"2008, 2009, 2013, 2014, 2017, 2018, 2019, 2021, 2023, 2024"
 1600000US0137000,place,"Huntsville city, Alabama",17,2008,2025,True,False,,,
-1600000US0145784,place,"Madison city, Alabama",1,2025,2025,False,False,first published 2025; table withheld for data quality in 2024,2024,
+1600000US0145784,place,"Madison city, Alabama",1,2025,2025,False,False,first published 2025; table published with no values in 2024,2024,
 1600000US0150000,place,"Mobile city, Alabama",17,2008,2025,True,False,,,
 1600000US0151000,place,"Montgomery city, Alabama",17,2008,2025,True,False,,,
 1600000US0177256,place,"Tuscaloosa city, Alabama",17,2008,2025,True,False,,,
 1600000US0203000,place,"Anchorage municipality, Alaska",17,2008,2025,True,False,,,
 1600000US0404720,place,"Avondale city, Arizona",17,2008,2025,True,False,,,
 1600000US0407940,place,"Buckeye city, Arizona",8,2017,2025,False,False,first published 2017,,
-1600000US0410530,place,"Casa Grande city, Arizona",1,2025,2025,False,False,first published 2025; table withheld for data quality in 2024,2024,
+1600000US0410530,place,"Casa Grande city, Arizona",1,2025,2025,False,False,first published 2025; table published with no values in 2024,2024,
 1600000US0410670,place,"Casas Adobes CDP, Arizona",14,2011,2025,False,True,first published 2011,,"2017, 2024"
 1600000US0412000,place,"Chandler city, Arizona",17,2008,2025,True,False,,,
 1600000US0423620,place,"Flagstaff city, Arizona",15,2010,2025,False,True,first published 2010,,"2017, 2019, 2022, 2023, 2024"
 1600000US0427400,place,"Gilbert town, Arizona",17,2008,2025,True,False,,,
 1600000US0427820,place,"Glendale city, Arizona",17,2008,2025,True,False,,,
-1600000US0428380,place,"Goodyear city, Arizona",14,2010,2025,False,True,first published 2010; missing 2011; table withheld for data quality in 2011,2011,2024
+1600000US0428380,place,"Goodyear city, Arizona",14,2010,2025,False,True,first published 2010; missing 2011; table published with no values in 2011,2011,2024
 1600000US0444270,place,"Marana town, Arizona",1,2025,2025,False,True,first published 2025,,2025
-1600000US0444410,place,"Maricopa city, Arizona",3,2022,2024,False,True,first published 2022; last published 2024; table withheld for data quality in 2025,2025,2024
+1600000US0444410,place,"Maricopa city, Arizona",3,2022,2024,False,True,first published 2022; last published 2024; table published with no values in 2025,2025,2024
 1600000US0446000,place,"Mesa city, Arizona",17,2008,2025,True,False,,,
 1600000US0454050,place,"Peoria city, Arizona",17,2008,2025,True,False,,,
 1600000US0455000,place,"Phoenix city, Arizona",17,2008,2025,True,False,,,
-1600000US0458150,place,"Queen Creek town, Arizona",4,2021,2025,False,True,first published 2021; missing 2024; table withheld for data quality in 2024,2024,"2021, 2022, 2023"
-1600000US0464210,place,"San Tan Valley CDP, Arizona",11,2012,2025,False,True,"first published 2012; missing 2016, 2021; table withheld for data quality in 2010, 2011, 2016, 2021","2010, 2011, 2016, 2021","2012, 2015, 2023"
+1600000US0458150,place,"Queen Creek town, Arizona",4,2021,2025,False,True,first published 2021; missing 2024; table published with no values in 2024,2024,"2021, 2022, 2023"
+1600000US0464210,place,"San Tan Valley CDP, Arizona",11,2012,2025,False,True,"first published 2012; missing 2016, 2021; table published with no values in 2010, 2011, 2016, 2021","2010, 2011, 2016, 2021","2012, 2015, 2023"
 1600000US0465000,place,"Scottsdale city, Arizona",17,2008,2025,True,False,,,
 1600000US0471510,place,"Surprise city, Arizona",17,2008,2025,True,True,,,2011
 1600000US0473000,place,"Tempe city, Arizona",17,2008,2025,True,False,,,
 1600000US0477000,place,"Tucson city, Arizona",17,2008,2025,True,False,,,
 1600000US0485540,place,"Yuma city, Arizona",17,2008,2025,True,False,,,
-1600000US0515190,place,"Conway city, Arkansas",8,2016,2025,False,True,first published 2016; missing 2019; table withheld for data quality in 2019,2019,2017
+1600000US0515190,place,"Conway city, Arkansas",8,2016,2025,False,True,first published 2016; missing 2019; table published with no values in 2019,2019,2017
 1600000US0523290,place,"Fayetteville city, Arkansas",17,2008,2025,True,True,,,"2017, 2018, 2019"
 1600000US0524550,place,"Fort Smith city, Arkansas",17,2008,2025,True,False,,,
 1600000US0535710,place,"Jonesboro city, Arkansas",16,2009,2025,False,False,first published 2009,,
@@ -994,7 +994,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0603666,place,"Baldwin Park city, California",17,2008,2025,True,False,,,
 1600000US0604982,place,"Bellflower city, California",17,2008,2025,True,False,,,
 1600000US0606000,place,"Berkeley city, California",17,2008,2025,True,True,,,2025
-1600000US0608142,place,"Brentwood city, California",3,2022,2024,False,True,first published 2022; last published 2024; table withheld for data quality in 2025,2025,"2022, 2023, 2024"
+1600000US0608142,place,"Brentwood city, California",3,2022,2024,False,True,first published 2022; last published 2024; table published with no values in 2025,2025,"2022, 2023, 2024"
 1600000US0608786,place,"Buena Park city, California",17,2008,2025,True,False,,,
 1600000US0608954,place,"Burbank city, California",17,2008,2025,True,False,,,
 1600000US0610046,place,"Camarillo city, California",15,2010,2025,False,True,first published 2010,,"2019, 2025"
@@ -1013,11 +1013,11 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0616350,place,"Corona city, California",17,2008,2025,True,False,,,
 1600000US0616532,place,"Costa Mesa city, California",17,2008,2025,True,False,,,
 1600000US0617918,place,"Daly City city, California",17,2008,2025,True,False,,,
-1600000US0618100,place,"Davis city, California",13,2010,2025,False,True,"first published 2010; missing 2015, 2018; table withheld for data quality in 2015, 2018","2015, 2018","2010, 2011, 2012, 2013, 2014, 2016, 2017, 2019, 2021, 2023, 2025"
+1600000US0618100,place,"Davis city, California",13,2010,2025,False,True,"first published 2010; missing 2015, 2018; table published with no values in 2015, 2018","2015, 2018","2010, 2011, 2012, 2013, 2014, 2016, 2017, 2019, 2021, 2023, 2025"
 1600000US0619766,place,"Downey city, California",17,2008,2025,True,False,,,
 1600000US0620018,place,"Dublin city, California",5,2021,2025,False,True,first published 2021,,"2023, 2024"
 1600000US0620802,place,"East Los Angeles CDP, California",17,2008,2025,True,False,,,
-1600000US0621230,place,"Eastvale city, California",4,2022,2025,False,True,first published 2022; table withheld for data quality in 2021,2021,2024
+1600000US0621230,place,"Eastvale city, California",4,2022,2025,False,True,first published 2022; table published with no values in 2021,2021,2024
 1600000US0621712,place,"El Cajon city, California",17,2008,2025,True,False,,,
 1600000US0622020,place,"Elk Grove city, California",17,2008,2025,True,False,,,
 1600000US0622230,place,"El Monte city, California",17,2008,2025,True,False,,,
@@ -1041,7 +1041,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0636770,place,"Irvine city, California",17,2008,2025,True,False,,,
 1600000US0637692,place,"Jurupa Valley city, California",13,2012,2025,False,False,first published 2012,,
 1600000US0639248,place,"Laguna Niguel city, California",6,2014,2019,False,True,first published 2014; last published 2019,,"2014, 2015, 2016, 2017, 2018, 2019"
-1600000US0639486,place,"Lake Elsinore city, California",7,2017,2024,False,False,first published 2017; last published 2024; table withheld for data quality in 2025,2025,
+1600000US0639486,place,"Lake Elsinore city, California",7,2017,2024,False,False,first published 2017; last published 2024; table published with no values in 2025,2025,
 1600000US0639496,place,"Lake Forest city, California",17,2008,2025,True,True,,,"2023, 2024, 2025"
 1600000US0639892,place,"Lakewood city, California",17,2008,2025,True,False,,,
 1600000US0640130,place,"Lancaster city, California",17,2008,2025,True,False,,,
@@ -1061,7 +1061,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0649670,place,"Mountain View city, California",17,2008,2025,True,True,,,"2014, 2019, 2021, 2023, 2024"
 1600000US0650076,place,"Murrieta city, California",17,2008,2025,True,False,,,
 1600000US0650258,place,"Napa city, California",17,2008,2025,True,False,,,
-1600000US0651182,place,"Newport Beach city, California",16,2008,2025,False,True,missing 2024; table withheld for data quality in 2024,2024,"2008, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025"
+1600000US0651182,place,"Newport Beach city, California",16,2008,2025,False,True,missing 2024; table published with no values in 2024,2024,"2008, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025"
 1600000US0652526,place,"Norwalk city, California",17,2008,2025,True,False,,,
 1600000US0653000,place,"Oakland city, California",17,2008,2025,True,False,,,
 1600000US0653322,place,"Oceanside city, California",17,2008,2025,True,False,,,
@@ -1069,11 +1069,11 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0653980,place,"Orange city, California",17,2008,2025,True,False,,,
 1600000US0654652,place,"Oxnard city, California",17,2008,2025,True,False,,,
 1600000US0655156,place,"Palmdale city, California",17,2008,2025,True,False,,,
-1600000US0655282,place,"Palo Alto city, California",12,2011,2025,False,True,"first published 2011; missing 2014, 2016; table withheld for data quality in 2014, 2016","2014, 2016","2011, 2012, 2013, 2015, 2017, 2018, 2019, 2021, 2022, 2024, 2025"
+1600000US0655282,place,"Palo Alto city, California",12,2011,2025,False,True,"first published 2011; missing 2014, 2016; table published with no values in 2014, 2016","2014, 2016","2011, 2012, 2013, 2015, 2017, 2018, 2019, 2021, 2022, 2024, 2025"
 1600000US0656000,place,"Pasadena city, California",17,2008,2025,True,False,,,
 1600000US0656700,place,"Perris city, California",15,2010,2025,False,False,first published 2010,,
 1600000US0657456,place,"Pittsburg city, California",16,2009,2025,False,False,first published 2009,,
-1600000US0657792,place,"Pleasanton city, California",16,2008,2025,False,True,missing 2011; table withheld for data quality in 2011,2011,"2008, 2009, 2012, 2016, 2017, 2018, 2019, 2022, 2023, 2025"
+1600000US0657792,place,"Pleasanton city, California",16,2008,2025,False,True,missing 2011; table published with no values in 2011,2011,"2008, 2009, 2012, 2016, 2017, 2018, 2019, 2022, 2023, 2025"
 1600000US0658072,place,"Pomona city, California",17,2008,2025,True,False,,,
 1600000US0659444,place,"Rancho Cordova city, California",14,2011,2025,False,False,first published 2011,,
 1600000US0659451,place,"Rancho Cucamonga city, California",17,2008,2025,True,False,,,
@@ -1097,7 +1097,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0668084,place,"San Leandro city, California",17,2008,2025,True,False,,,
 1600000US0668196,place,"San Marcos city, California",17,2008,2025,True,False,,,
 1600000US0668252,place,"San Mateo city, California",17,2008,2025,True,False,,,
-1600000US0668378,place,"San Ramon city, California",14,2011,2025,False,True,first published 2011; table withheld for data quality in 2010,2010,"2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024"
+1600000US0668378,place,"San Ramon city, California",14,2011,2025,False,True,first published 2011; table published with no values in 2010,2010,"2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024"
 1600000US0669000,place,"Santa Ana city, California",17,2008,2025,True,False,,,
 1600000US0669070,place,"Santa Barbara city, California",17,2008,2025,True,False,,,
 1600000US0669084,place,"Santa Clara city, California",17,2008,2025,True,True,,,2023
@@ -1136,15 +1136,15 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0804000,place,"Aurora city, Colorado",17,2008,2025,True,False,,,
 1600000US0807850,place,"Boulder city, Colorado",17,2008,2025,True,True,,,"2011, 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2021, 2024"
 1600000US0809280,place,"Broomfield city, Colorado",10,2015,2025,False,True,first published 2015,,"2015, 2016, 2018, 2019, 2022, 2024"
-1600000US0812415,place,"Castle Rock town, Colorado",3,2022,2024,False,True,"first published 2022; last published 2024; table withheld for data quality in 2019, 2021, 2025","2019, 2021, 2025","2022, 2023, 2024"
+1600000US0812415,place,"Castle Rock town, Colorado",3,2022,2024,False,True,"first published 2022; last published 2024; table published with no values in 2019, 2021, 2025","2019, 2021, 2025","2022, 2023, 2024"
 1600000US0812815,place,"Centennial city, Colorado",17,2008,2025,True,True,,,"2012, 2015, 2017"
 1600000US0816000,place,"Colorado Springs city, Colorado",17,2008,2025,True,False,,,
-1600000US0816495,place,"Commerce City city, Colorado",3,2022,2025,False,False,first published 2022; missing 2024; table withheld for data quality in 2024,2024,
+1600000US0816495,place,"Commerce City city, Colorado",3,2022,2025,False,False,first published 2022; missing 2024; table published with no values in 2024,2024,
 1600000US0820000,place,"Denver city, Colorado",17,2008,2025,True,False,,,
 1600000US0827425,place,"Fort Collins city, Colorado",17,2008,2025,True,True,,,"2023, 2024"
 1600000US0831660,place,"Grand Junction city, Colorado",5,2021,2025,False,False,first published 2021,,
 1600000US0832155,place,"Greeley city, Colorado",17,2008,2025,True,False,,,
-1600000US0836410,place,"Highlands Ranch CDP, Colorado",16,2009,2025,False,True,first published 2009; table withheld for data quality in 2008,2008,"2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025"
+1600000US0836410,place,"Highlands Ranch CDP, Colorado",16,2009,2025,False,True,first published 2009; table published with no values in 2008,2008,"2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025"
 1600000US0843000,place,"Lakewood city, Colorado",17,2008,2025,True,False,,,
 1600000US0845970,place,"Longmont city, Colorado",17,2008,2025,True,False,,,
 1600000US0846465,place,"Loveland city, Colorado",17,2008,2025,True,True,,,"2017, 2019, 2021, 2024, 2025"
@@ -1161,7 +1161,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US0980000,place,"Waterbury city, Connecticut",17,2008,2025,True,False,,,
 1600000US1077580,place,"Wilmington city, Delaware",17,2008,2025,True,False,,,
 1600000US1150000,place,"Washington city, District of Columbia",17,2008,2025,True,False,,,
-1600000US1200410,place,"Alafaya CDP, Florida",6,2012,2025,False,True,"first published 2012; missing 2013, 2014, 2015, 2016, 2018, 2019, 2021; table withheld for data quality in 2010, 2011, 2013, 2014, 2015, 2016, 2018, 2019, 2021","2010, 2011, 2013, 2014, 2015, 2016, 2018, 2019, 2021","2017, 2022, 2023, 2024, 2025"
+1600000US1200410,place,"Alafaya CDP, Florida",6,2012,2025,False,True,"first published 2012; missing 2013, 2014, 2015, 2016, 2018, 2019, 2021; table published with no values in 2010, 2011, 2013, 2014, 2015, 2016, 2018, 2019, 2021","2010, 2011, 2013, 2014, 2015, 2016, 2018, 2019, 2021","2017, 2022, 2023, 2024, 2025"
 1600000US1201700,place,"Apopka city, Florida",1,2025,2025,False,False,first published 2025,,
 1600000US1207300,place,"Boca Raton city, Florida",17,2008,2025,True,True,,,"2008, 2011, 2018, 2021, 2023"
 1600000US1207875,place,"Boynton Beach city, Florida",17,2008,2025,True,False,,,
@@ -1178,7 +1178,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US1224000,place,"Fort Lauderdale city, Florida",17,2008,2025,True,False,,,
 1600000US1224125,place,"Fort Myers city, Florida",17,2008,2025,True,False,,,
 1600000US1224562,place,"Fountainebleau CDP, Florida",1,2019,2019,False,False,first published 2019; last published 2019,,
-1600000US1224581,place,"Four Corners CDP, Florida",3,2023,2025,False,True,first published 2023; table withheld for data quality in 2022,2022,"2023, 2024"
+1600000US1224581,place,"Four Corners CDP, Florida",3,2023,2025,False,True,first published 2023; table published with no values in 2022,2022,"2023, 2024"
 1600000US1225175,place,"Gainesville city, Florida",17,2008,2025,True,True,,,2024
 1600000US1230000,place,"Hialeah city, Florida",17,2008,2025,True,False,,,
 1600000US1232000,place,"Hollywood city, Florida",17,2008,2025,True,False,,,
@@ -1196,22 +1196,22 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US1245025,place,"Miami Beach city, Florida",17,2008,2025,True,False,,,
 1600000US1245060,place,"Miami Gardens city, Florida",17,2008,2025,True,False,,,
 1600000US1245975,place,"Miramar city, Florida",17,2008,2025,True,False,,,
-1600000US1249675,place,"North Port city, Florida",6,2017,2025,False,True,"first published 2017; missing 2019, 2021; table withheld for data quality in 2019, 2021","2019, 2021","2018, 2025"
-1600000US1250750,place,"Ocala city, Florida",3,2022,2024,False,False,first published 2022; last published 2024; table withheld for data quality in 2025,2025,
+1600000US1249675,place,"North Port city, Florida",6,2017,2025,False,True,"first published 2017; missing 2019, 2021; table published with no values in 2019, 2021","2019, 2021","2018, 2025"
+1600000US1250750,place,"Ocala city, Florida",3,2022,2024,False,False,first published 2022; last published 2024; table published with no values in 2025,2025,
 1600000US1253000,place,"Orlando city, Florida",17,2008,2025,True,False,,,
 1600000US1254000,place,"Palm Bay city, Florida",17,2008,2025,True,False,,,
 1600000US1254200,place,"Palm Coast city, Florida",17,2008,2025,True,True,,,2022
-1600000US1254350,place,"Palm Harbor CDP, Florida",3,2022,2025,False,True,first published 2022; missing 2024; table withheld for data quality in 2018,2018,2022
+1600000US1254350,place,"Palm Harbor CDP, Florida",3,2022,2025,False,True,first published 2022; missing 2024; table published with no values in 2018,2018,2022
 1600000US1255775,place,"Pembroke Pines city, Florida",17,2008,2025,True,False,,,
-1600000US1256825,place,"Pine Hills CDP, Florida",12,2012,2024,False,False,first published 2012; last published 2024; table withheld for data quality in 2025,2025,
+1600000US1256825,place,"Pine Hills CDP, Florida",12,2012,2024,False,False,first published 2012; last published 2024; table published with no values in 2025,2025,
 1600000US1257425,place,"Plantation city, Florida",17,2008,2025,True,True,,,2008
-1600000US1257900,place,"Poinciana CDP, Florida",5,2017,2024,False,True,"first published 2017; last published 2024; missing 2019, 2021; table withheld for data quality in 2015, 2019, 2021, 2025","2015, 2019, 2021, 2025",2024
+1600000US1257900,place,"Poinciana CDP, Florida",5,2017,2024,False,True,"first published 2017; last published 2024; missing 2019, 2021; table published with no values in 2015, 2019, 2021, 2025","2015, 2019, 2021, 2025",2024
 1600000US1258050,place,"Pompano Beach city, Florida",17,2008,2025,True,False,,,
 1600000US1258350,place,"Port Charlotte CDP, Florida",8,2017,2025,False,True,first published 2017,,"2017, 2019"
 1600000US1258575,place,"Port Orange city, Florida",3,2023,2025,False,False,first published 2023,,
 1600000US1258715,place,"Port St. Lucie city, Florida",17,2008,2025,True,False,,,
-1600000US1260950,place,"Riverview CDP, Florida",14,2010,2025,False,False,first published 2010; missing 2011; table withheld for data quality in 2011,2011,
-1600000US1262625,place,"St. Cloud city, Florida",1,2024,2024,False,True,"first published 2024; last published 2024; table withheld for data quality in 2023, 2025","2023, 2025",2024
+1600000US1260950,place,"Riverview CDP, Florida",14,2010,2025,False,False,first published 2010; missing 2011; table published with no values in 2011,2011,
+1600000US1262625,place,"St. Cloud city, Florida",1,2024,2024,False,True,"first published 2024; last published 2024; table published with no values in 2023, 2025","2023, 2025",2024
 1600000US1263000,place,"St. Petersburg city, Florida",17,2008,2025,True,False,,,
 1600000US1263650,place,"Sanford city, Florida",3,2023,2025,False,False,first published 2023,,
 1600000US1268350,place,"Spring Hill CDP, Florida",17,2008,2025,True,False,,,
@@ -1220,40 +1220,40 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US1270675,place,"Tamarac city, Florida",9,2016,2025,False,False,first published 2016,,
 1600000US1271000,place,"Tampa city, Florida",17,2008,2025,True,False,,,
 1600000US1271569,place,"The Hammocks CDP, Florida",4,2016,2019,False,True,first published 2016; last published 2019,,2019
-1600000US1271625,place,"The Villages CDP, Florida",6,2017,2025,False,True,"first published 2017; missing 2018, 2019; table withheld for data quality in 2014, 2015, 2016, 2018, 2019","2014, 2015, 2016, 2018, 2019","2017, 2021, 2022, 2023, 2024, 2025"
+1600000US1271625,place,"The Villages CDP, Florida",6,2017,2025,False,True,"first published 2017; missing 2018, 2019; table published with no values in 2014, 2015, 2016, 2018, 2019","2014, 2015, 2016, 2018, 2019","2017, 2021, 2022, 2023, 2024, 2025"
 1600000US1272145,place,"Town 'n' Country CDP, Florida",17,2008,2025,True,False,,,
 1600000US1275812,place,"Wellington village, Florida",2,2018,2019,False,True,first published 2018; last published 2019,,"2018, 2019"
 1600000US1275875,place,"Wesley Chapel CDP, Florida",7,2018,2025,False,True,first published 2018,,"2019, 2021, 2022, 2023, 2024, 2025"
-1600000US1276582,place,"Weston city, Florida",10,2009,2025,False,True,"first published 2009; missing 2011, 2012, 2013, 2018, 2019, 2021; table withheld for data quality in 2008, 2011, 2012, 2013, 2018, 2019, 2021","2008, 2011, 2012, 2013, 2018, 2019, 2021","2009, 2010, 2014, 2015, 2016, 2017, 2022, 2023, 2024, 2025"
+1600000US1276582,place,"Weston city, Florida",10,2009,2025,False,True,"first published 2009; missing 2011, 2012, 2013, 2018, 2019, 2021; table published with no values in 2008, 2011, 2012, 2013, 2018, 2019, 2021","2008, 2011, 2012, 2013, 2018, 2019, 2021","2009, 2010, 2014, 2015, 2016, 2017, 2022, 2023, 2024, 2025"
 1600000US1276600,place,"West Palm Beach city, Florida",17,2008,2025,True,False,,,
 1600000US1301052,place,"Albany city, Georgia",17,2008,2025,True,False,,,
-1600000US1301696,place,"Alpharetta city, Georgia",6,2017,2025,False,True,"first published 2017; missing 2018, 2019; table withheld for data quality in 2016, 2018, 2019","2016, 2018, 2019","2017, 2021, 2024"
+1600000US1301696,place,"Alpharetta city, Georgia",6,2017,2025,False,True,"first published 2017; missing 2018, 2019; table published with no values in 2016, 2018, 2019","2016, 2018, 2019","2017, 2021, 2024"
 1600000US1303440,place,"Athens-Clarke County unified government (balance), Georgia",17,2008,2025,True,False,,,
 1600000US1304000,place,"Atlanta city, Georgia",17,2008,2025,True,False,,,
 1600000US1304204,place,"Augusta-Richmond County consolidated government (balance), Georgia",17,2008,2025,True,False,,,
 1600000US1319000,place,"Columbus city, Georgia",17,2008,2025,True,False,,,
-1600000US1342425,place,"Johns Creek city, Georgia",12,2010,2025,False,True,"first published 2010; missing 2011, 2013, 2014; table withheld for data quality in 2011, 2013, 2014","2011, 2013, 2014","2010, 2012, 2015, 2016, 2017, 2018, 2019, 2022, 2024, 2025"
+1600000US1342425,place,"Johns Creek city, Georgia",12,2010,2025,False,True,"first published 2010; missing 2011, 2013, 2014; table published with no values in 2011, 2013, 2014","2011, 2013, 2014","2010, 2012, 2015, 2016, 2017, 2018, 2019, 2022, 2024, 2025"
 1600000US1348288,place,"Mableton city, Georgia",2,2024,2025,False,False,first published 2024,,
 1600000US1349000,place,"Macon city, Georgia",6,2008,2013,False,False,last published 2013,,
 1600000US1349008,place,"Macon-Bibb County, Georgia",11,2014,2025,False,False,first published 2014,,
 1600000US1349756,place,"Marietta city, Georgia",2,2008,2009,False,False,last published 2009,,
-1600000US1367284,place,"Roswell city, Georgia",16,2008,2025,False,True,missing 2014; table withheld for data quality in 2014,2014,"2011, 2018, 2021, 2022, 2023, 2024, 2025"
+1600000US1367284,place,"Roswell city, Georgia",16,2008,2025,False,True,missing 2014; table published with no values in 2014,2014,"2011, 2018, 2021, 2022, 2023, 2024, 2025"
 1600000US1368516,place,"Sandy Springs city, Georgia",17,2008,2025,True,True,,,"2008, 2010, 2011, 2018, 2019, 2021, 2023, 2025"
 1600000US1369000,place,"Savannah city, Georgia",17,2008,2025,True,False,,,
 1600000US1372122,place,"South Fulton city, Georgia",7,2018,2025,False,True,first published 2018,,"2019, 2025"
-1600000US1380508,place,"Warner Robins city, Georgia",14,2010,2025,False,True,first published 2010; missing 2021; table withheld for data quality in 2021,2021,"2011, 2013, 2018"
+1600000US1380508,place,"Warner Robins city, Georgia",14,2010,2025,False,True,first published 2010; missing 2021; table published with no values in 2021,2021,"2011, 2013, 2018"
 1600000US1517000,place,"Honolulu CDP, Hawaii",2,2008,2009,False,False,last published 2009,,
 1600000US1571550,place,"Urban Honolulu CDP, Hawaii",15,2010,2025,False,False,first published 2010,,
 1600000US1608830,place,"Boise City city, Idaho",17,2008,2025,True,False,,,
 1600000US1612250,place,"Caldwell city, Idaho",4,2022,2025,False,False,first published 2022,,
 1600000US1639700,place,"Idaho Falls city, Idaho",5,2021,2025,False,False,first published 2021,,
-1600000US1652120,place,"Meridian city, Idaho",11,2008,2025,False,True,"missing 2011, 2013, 2014, 2015, 2016, 2017; table withheld for data quality in 2011, 2013, 2014, 2015, 2016, 2017","2011, 2013, 2014, 2015, 2016, 2017","2008, 2012, 2018, 2019, 2021"
+1600000US1652120,place,"Meridian city, Idaho",11,2008,2025,False,True,"missing 2011, 2013, 2014, 2015, 2016, 2017; table published with no values in 2011, 2013, 2014, 2015, 2016, 2017","2011, 2013, 2014, 2015, 2016, 2017","2008, 2012, 2018, 2019, 2021"
 1600000US1656260,place,"Nampa city, Idaho",17,2008,2025,True,False,,,
 1600000US1702154,place,"Arlington Heights village, Illinois",17,2008,2025,True,True,,,"2011, 2013, 2017, 2018, 2019, 2021, 2024"
 1600000US1703012,place,"Aurora city, Illinois",17,2008,2025,True,False,,,
 1600000US1706613,place,"Bloomington city, Illinois",17,2008,2025,True,True,,,"2017, 2022"
 1600000US1707133,place,"Bolingbrook village, Illinois",17,2008,2025,True,False,,,
-1600000US1712385,place,"Champaign city, Illinois",16,2008,2024,False,True,last published 2024; table withheld for data quality in 2025,2025,"2008, 2015, 2017, 2021, 2022, 2023"
+1600000US1712385,place,"Champaign city, Illinois",16,2008,2024,False,True,last published 2024; table published with no values in 2025,2025,"2008, 2015, 2017, 2021, 2022, 2023"
 1600000US1714000,place,"Chicago city, Illinois",17,2008,2025,True,False,,,
 1600000US1714351,place,"Cicero town, Illinois",17,2008,2025,True,False,,,
 1600000US1718823,place,"Decatur city, Illinois",17,2008,2025,True,False,,,
@@ -1269,9 +1269,9 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US1772000,place,"Springfield city, Illinois",17,2008,2025,True,False,,,
 1600000US1779293,place,"Waukegan city, Illinois",17,2008,2025,True,False,,,
 1600000US1805860,place,"Bloomington city, Indiana",17,2008,2025,True,True,,,"2018, 2022, 2025"
-1600000US1810342,place,"Carmel city, Indiana",15,2009,2025,False,True,"first published 2009; missing 2011; table withheld for data quality in 2008, 2011","2008, 2011","2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025"
+1600000US1810342,place,"Carmel city, Indiana",15,2009,2025,False,True,"first published 2009; missing 2011; table published with no values in 2008, 2011","2008, 2011","2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025"
 1600000US1822000,place,"Evansville city, Indiana",17,2008,2025,True,False,,,
-1600000US1823278,place,"Fishers city, Indiana",11,2008,2025,False,True,"missing 2009, 2011, 2013, 2014, 2019, 2021; name changed: Fishers town, Indiana -> Fishers city, Indiana; table withheld for data quality in 2009, 2011, 2013, 2014, 2019, 2021","2009, 2011, 2013, 2014, 2019, 2021","2008, 2010, 2012, 2015, 2016, 2017, 2018, 2022, 2023, 2024, 2025"
+1600000US1823278,place,"Fishers city, Indiana",11,2008,2025,False,True,"missing 2009, 2011, 2013, 2014, 2019, 2021; name changed: Fishers town, Indiana -> Fishers city, Indiana; table published with no values in 2009, 2011, 2013, 2014, 2019, 2021","2009, 2011, 2013, 2014, 2019, 2021","2008, 2010, 2012, 2015, 2016, 2017, 2018, 2022, 2023, 2024, 2025"
 1600000US1825000,place,"Fort Wayne city, Indiana",17,2008,2025,True,False,,,
 1600000US1827000,place,"Gary city, Indiana",16,2008,2025,False,False,missing 2021,,
 1600000US1829898,place,"Greenwood city, Indiana",2,2024,2025,False,False,first published 2024,,
@@ -1279,18 +1279,18 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US1836003,place,"Indianapolis city (balance), Indiana",17,2008,2025,True,False,,,
 1600000US1840788,place,"Lafayette city, Indiana",16,2009,2025,False,False,first published 2009,,
 1600000US1851876,place,"Muncie city, Indiana",16,2008,2025,False,False,missing 2021,,
-1600000US1854180,place,"Noblesville city, Indiana",4,2022,2025,False,True,"first published 2022; table withheld for data quality in 2018, 2019, 2021","2018, 2019, 2021","2022, 2024, 2025"
+1600000US1854180,place,"Noblesville city, Indiana",4,2022,2025,False,True,"first published 2022; table published with no values in 2018, 2019, 2021","2018, 2019, 2021","2022, 2024, 2025"
 1600000US1871000,place,"South Bend city, Indiana",17,2008,2025,True,False,,,
 1600000US1882700,place,"Westfield city, Indiana",1,2025,2025,False,True,first published 2025,,2025
-1600000US1901855,place,"Ames city, Iowa",5,2021,2025,False,True,"first published 2021; table withheld for data quality in 2015, 2016, 2017, 2018, 2019","2015, 2016, 2017, 2018, 2019","2021, 2022, 2023, 2024, 2025"
-1600000US1902305,place,"Ankeny city, Iowa",1,2023,2023,False,True,"first published 2023; last published 2023; table withheld for data quality in 2018, 2019, 2021, 2022, 2024, 2025","2018, 2019, 2021, 2022, 2024, 2025",2023
+1600000US1901855,place,"Ames city, Iowa",5,2021,2025,False,True,"first published 2021; table published with no values in 2015, 2016, 2017, 2018, 2019","2015, 2016, 2017, 2018, 2019","2021, 2022, 2023, 2024, 2025"
+1600000US1902305,place,"Ankeny city, Iowa",1,2023,2023,False,True,"first published 2023; last published 2023; table published with no values in 2018, 2019, 2021, 2022, 2024, 2025","2018, 2019, 2021, 2022, 2024, 2025",2023
 1600000US1912000,place,"Cedar Rapids city, Iowa",17,2008,2025,True,False,,,
 1600000US1919000,place,"Davenport city, Iowa",17,2008,2025,True,False,,,
 1600000US1921000,place,"Des Moines city, Iowa",17,2008,2025,True,False,,,
 1600000US1938595,place,"Iowa City city, Iowa",17,2008,2025,True,True,,,"2008, 2009, 2014, 2015, 2016, 2017, 2019, 2021, 2023, 2025"
 1600000US1973335,place,"Sioux City city, Iowa",17,2008,2025,True,False,,,
 1600000US1982425,place,"Waterloo city, Iowa",17,2008,2025,True,False,,,
-1600000US1983910,place,"West Des Moines city, Iowa",6,2019,2025,False,True,first published 2019; table withheld for data quality in 2018,2018,"2019, 2021, 2022, 2024"
+1600000US1983910,place,"West Des Moines city, Iowa",6,2019,2025,False,True,first published 2019; table published with no values in 2018,2018,"2019, 2021, 2022, 2024"
 1600000US2036000,place,"Kansas City city, Kansas",17,2008,2025,True,False,,,
 1600000US2038900,place,"Lawrence city, Kansas",17,2008,2025,True,True,,,"2011, 2013, 2014, 2016, 2017, 2018, 2021"
 1600000US2052575,place,"Olathe city, Kansas",17,2008,2025,True,False,,,
@@ -1312,7 +1312,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US2270000,place,"Shreveport city, Louisiana",17,2008,2025,True,False,,,
 1600000US2360545,place,"Portland city, Maine",15,2010,2025,False,True,first published 2010,,"2021, 2024, 2025"
 1600000US2404000,place,"Baltimore city, Maryland",17,2008,2025,True,False,,,
-1600000US2407125,place,"Bethesda CDP, Maryland",3,2013,2023,False,True,"first published 2013; last published 2023; missing 2014, 2015, 2016, 2018, 2019, 2021, 2022; table withheld for data quality in 2014, 2021, 2022, 2024, 2025","2014, 2021, 2022, 2024, 2025","2013, 2017, 2023"
+1600000US2407125,place,"Bethesda CDP, Maryland",3,2013,2023,False,True,"first published 2013; last published 2023; missing 2014, 2015, 2016, 2018, 2019, 2021, 2022; table published with no values in 2014, 2021, 2022, 2024, 2025","2014, 2021, 2022, 2024, 2025","2013, 2017, 2023"
 1600000US2419125,place,"Columbia CDP, Maryland",17,2008,2025,True,True,,,"2018, 2021, 2024"
 1600000US2423975,place,"Dundalk CDP, Maryland",2,2022,2025,False,False,"first published 2022; missing 2023, 2024",,
 1600000US2426000,place,"Ellicott City CDP, Maryland",17,2008,2025,True,True,,,"2008, 2010, 2011, 2014, 2016, 2018, 2019, 2021, 2023, 2024"
@@ -1322,7 +1322,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US2432650,place,"Glen Burnie CDP, Maryland",14,2011,2025,False,False,first published 2011,,
 1600000US2467675,place,"Rockville city, Maryland",11,2014,2025,False,True,first published 2014,,"2019, 2023"
 1600000US2472450,place,"Silver Spring CDP, Maryland",17,2008,2025,True,True,,,2024
-1600000US2481175,place,"Waldorf CDP, Maryland",12,2010,2024,False,True,"first published 2010; last published 2024; missing 2022, 2023; table withheld for data quality in 2022, 2023, 2025","2022, 2023, 2025",2018
+1600000US2481175,place,"Waldorf CDP, Maryland",12,2010,2024,False,True,"first published 2010; last published 2024; missing 2022, 2023; table published with no values in 2022, 2023, 2025","2022, 2023, 2025",2018
 1600000US2483837,place,"Wheaton-Glenmont CDP, Maryland",1,2009,2009,False,False,first published 2009; last published 2009,,
 1600000US2507000,place,"Boston city, Massachusetts",17,2008,2025,True,False,,,
 1600000US2509000,place,"Brockton city, Massachusetts",17,2008,2025,True,False,,,
@@ -1365,27 +1365,27 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US2685510,place,"West Bloomfield Township CDP, Michigan",2,2008,2009,False,False,last published 2009,,
 1600000US2686000,place,"Westland city, Michigan",17,2008,2025,True,False,,,
 1600000US2688940,place,"Wyoming city, Michigan",17,2008,2025,True,False,,,
-1600000US2706382,place,"Blaine city, Minnesota",6,2018,2025,False,True,first published 2018; missing 2021; table withheld for data quality in 2021,2021,2024
+1600000US2706382,place,"Blaine city, Minnesota",6,2018,2025,False,True,first published 2018; missing 2021; table published with no values in 2021,2021,2024
 1600000US2706616,place,"Bloomington city, Minnesota",17,2008,2025,True,True,,,2023
 1600000US2707966,place,"Brooklyn Park city, Minnesota",17,2008,2025,True,True,,,2024
 1600000US2708794,place,"Burnsville city, Minnesota",1,2025,2025,False,True,first published 2025,,2025
 1600000US2717000,place,"Duluth city, Minnesota",17,2008,2025,True,False,,,
 1600000US2717288,place,"Eagan city, Minnesota",12,2013,2025,False,True,first published 2013,,"2017, 2019, 2021, 2023, 2024, 2025"
 1600000US2735180,place,"Lakeville city, Minnesota",7,2018,2025,False,True,first published 2018,,"2019, 2021, 2022, 2023, 2025"
-1600000US2740166,place,"Maple Grove city, Minnesota",8,2014,2025,False,True,"first published 2014; missing 2016, 2019, 2021; table withheld for data quality in 2013, 2016, 2019, 2021","2013, 2016, 2019, 2021","2014, 2015, 2017, 2018, 2022, 2023, 2024, 2025"
+1600000US2740166,place,"Maple Grove city, Minnesota",8,2014,2025,False,True,"first published 2014; missing 2016, 2019, 2021; table published with no values in 2013, 2016, 2019, 2021","2013, 2016, 2019, 2021","2014, 2015, 2017, 2018, 2022, 2023, 2024, 2025"
 1600000US2743000,place,"Minneapolis city, Minnesota",17,2008,2025,True,False,,,
-1600000US2751730,place,"Plymouth city, Minnesota",16,2008,2025,False,True,missing 2009; table withheld for data quality in 2009,2009,"2008, 2010, 2011, 2012, 2014, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025"
+1600000US2751730,place,"Plymouth city, Minnesota",16,2008,2025,False,True,missing 2009; table published with no values in 2009,2009,"2008, 2010, 2011, 2012, 2014, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025"
 1600000US2754880,place,"Rochester city, Minnesota",17,2008,2025,True,False,,,
 1600000US2756896,place,"St. Cloud city, Minnesota",17,2008,2025,True,False,,,
 1600000US2758000,place,"St. Paul city, Minnesota",17,2008,2025,True,False,,,
-1600000US2771428,place,"Woodbury city, Minnesota",11,2013,2025,False,True,first published 2013; missing 2021; table withheld for data quality in 2021,2021,"2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025"
+1600000US2771428,place,"Woodbury city, Minnesota",11,2013,2025,False,True,first published 2013; missing 2021; table published with no values in 2021,2021,"2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025"
 1600000US2829700,place,"Gulfport city, Mississippi",17,2008,2025,True,False,,,
 1600000US2836000,place,"Jackson city, Mississippi",17,2008,2025,True,False,,,
 1600000US2915670,place,"Columbia city, Missouri",17,2008,2025,True,True,,,2021
 1600000US2935000,place,"Independence city, Missouri",17,2008,2025,True,False,,,
 1600000US2938000,place,"Kansas City city, Missouri",17,2008,2025,True,False,,,
 1600000US2941348,place,"Lee's Summit city, Missouri",17,2008,2025,True,True,,,"2009, 2011, 2016, 2018, 2019, 2021, 2022, 2023, 2025"
-1600000US2954074,place,"O'Fallon city, Missouri",16,2008,2025,False,True,missing 2014; table withheld for data quality in 2014,2014,2017
+1600000US2954074,place,"O'Fallon city, Missouri",16,2008,2025,False,True,missing 2014; table published with no values in 2014,2014,2017
 1600000US2964082,place,"St. Charles city, Missouri",16,2009,2025,False,True,first published 2009,,2021
 1600000US2964550,place,"St. Joseph city, Missouri",17,2008,2025,True,False,,,
 1600000US2965000,place,"St. Louis city, Missouri",17,2008,2025,True,False,,,
@@ -1412,7 +1412,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US3420260,place,"Edison CDP, New Jersey",2,2008,2009,False,False,last published 2009,,
 1600000US3421000,place,"Elizabeth city, New Jersey",17,2008,2025,True,False,,,
 1600000US3436000,place,"Jersey City city, New Jersey",17,2008,2025,True,False,,,
-1600000US3438580,place,"Lakewood CDP, New Jersey",1,2022,2022,False,True,"first published 2022; last published 2022; table withheld for data quality in 2021, 2023, 2024, 2025","2021, 2023, 2024, 2025",2022
+1600000US3438580,place,"Lakewood CDP, New Jersey",1,2022,2022,False,True,"first published 2022; last published 2022; table published with no values in 2021, 2023, 2024, 2025","2021, 2023, 2024, 2025",2022
 1600000US3451000,place,"Newark city, New Jersey",17,2008,2025,True,False,,,
 1600000US3456550,place,"Passaic city, New Jersey",17,2008,2025,True,False,,,
 1600000US3457000,place,"Paterson city, New Jersey",17,2008,2025,True,False,,,
@@ -1434,7 +1434,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US3665508,place,"Schenectady city, New York",15,2010,2025,False,False,first published 2010,,
 1600000US3673000,place,"Syracuse city, New York",17,2008,2025,True,False,,,
 1600000US3684000,place,"Yonkers city, New York",17,2008,2025,True,False,,,
-1600000US3701520,place,"Apex town, North Carolina",3,2023,2025,False,True,first published 2023; table withheld for data quality in 2022,2022,"2023, 2024, 2025"
+1600000US3701520,place,"Apex town, North Carolina",3,2023,2025,False,True,first published 2023; table published with no values in 2022,2022,"2023, 2024, 2025"
 1600000US3702140,place,"Asheville city, North Carolina",17,2008,2025,True,False,,,
 1600000US3710740,place,"Cary town, North Carolina",17,2008,2025,True,True,,,2024
 1600000US3712000,place,"Charlotte city, North Carolina",17,2008,2025,True,False,,,
@@ -1446,11 +1446,11 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US3728080,place,"Greenville city, North Carolina",17,2008,2025,True,True,,,2023
 1600000US3731400,place,"High Point city, North Carolina",17,2008,2025,True,False,,,
 1600000US3733120,place,"Huntersville town, North Carolina",2,2024,2025,False,True,first published 2024,,"2024, 2025"
-1600000US3734200,place,"Jacksonville city, North Carolina",8,2010,2025,False,True,"first published 2010; missing 2011, 2015, 2016, 2018, 2019, 2021, 2023; table withheld for data quality in 2008, 2009, 2011, 2015, 2016, 2018, 2019, 2021, 2023","2008, 2009, 2011, 2015, 2016, 2018, 2019, 2021, 2023",2014
+1600000US3734200,place,"Jacksonville city, North Carolina",8,2010,2025,False,True,"first published 2010; missing 2011, 2015, 2016, 2018, 2019, 2021, 2023; table published with no values in 2008, 2009, 2011, 2015, 2016, 2018, 2019, 2021, 2023","2008, 2009, 2011, 2015, 2016, 2018, 2019, 2021, 2023",2014
 1600000US3755000,place,"Raleigh city, North Carolina",17,2008,2025,True,False,,,
 1600000US3774440,place,"Wilmington city, North Carolina",17,2008,2025,True,False,,,
 1600000US3775000,place,"Winston-Salem city, North Carolina",17,2008,2025,True,False,,,
-1600000US3807200,place,"Bismarck city, North Dakota",11,2013,2024,False,False,first published 2013; last published 2024; table withheld for data quality in 2025,2025,
+1600000US3807200,place,"Bismarck city, North Dakota",11,2013,2024,False,False,first published 2013; last published 2024; table published with no values in 2025,2025,
 1600000US3825700,place,"Fargo city, North Dakota",17,2008,2025,True,False,,,
 1600000US3901000,place,"Akron city, Ohio",17,2008,2025,True,False,,,
 1600000US3912000,place,"Canton city, Ohio",17,2008,2025,True,False,,,
@@ -1490,7 +1490,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US4513330,place,"Charleston city, South Carolina",17,2008,2025,True,True,,,2024
 1600000US4516000,place,"Columbia city, South Carolina",17,2008,2025,True,False,,,
 1600000US4530850,place,"Greenville city, South Carolina",9,2016,2025,False,False,first published 2016,,
-1600000US4548535,place,"Mount Pleasant town, South Carolina",14,2008,2025,False,True,"missing 2011, 2018, 2021; table withheld for data quality in 2011, 2018, 2021","2011, 2018, 2021","2008, 2009, 2010, 2013, 2014, 2015, 2016, 2017, 2019, 2022, 2023, 2024, 2025"
+1600000US4548535,place,"Mount Pleasant town, South Carolina",14,2008,2025,False,True,"missing 2011, 2018, 2021; table published with no values in 2011, 2018, 2021","2011, 2018, 2021","2008, 2009, 2010, 2013, 2014, 2015, 2016, 2017, 2019, 2022, 2023, 2024, 2025"
 1600000US4550875,place,"North Charleston city, South Carolina",17,2008,2025,True,False,,,
 1600000US4561405,place,"Rock Hill city, South Carolina",17,2008,2025,True,False,,,
 1600000US4652980,place,"Rapid City city, South Dakota",17,2008,2025,True,False,,,
@@ -1505,7 +1505,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US4751560,place,"Murfreesboro city, Tennessee",17,2008,2025,True,False,,,
 1600000US4752006,place,"Nashville-Davidson metropolitan government (balance), Tennessee",17,2008,2025,True,False,,,
 1600000US4801000,place,"Abilene city, Texas",17,2008,2025,True,False,,,
-1600000US4801924,place,"Allen city, Texas",16,2008,2025,False,True,missing 2013; table withheld for data quality in 2013,2013,"2008, 2010, 2011, 2012, 2015, 2017, 2018, 2019, 2021, 2022, 2024"
+1600000US4801924,place,"Allen city, Texas",16,2008,2025,False,True,missing 2013; table published with no values in 2013,2013,"2008, 2010, 2011, 2012, 2015, 2017, 2018, 2019, 2021, 2022, 2024"
 1600000US4803000,place,"Amarillo city, Texas",17,2008,2025,True,False,,,
 1600000US4804000,place,"Arlington city, Texas",17,2008,2025,True,False,,,
 1600000US4804462,place,"Atascocita CDP, Texas",15,2010,2025,False,True,first published 2010,,2014
@@ -1515,7 +1515,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US4810768,place,"Brownsville city, Texas",17,2008,2025,True,False,,,
 1600000US4810912,place,"Bryan city, Texas",17,2008,2025,True,False,,,
 1600000US4813024,place,"Carrollton city, Texas",17,2008,2025,True,False,,,
-1600000US4813552,place,"Cedar Park city, Texas",7,2015,2025,False,True,"first published 2015; missing 2016, 2017, 2019; table withheld for data quality in 2016, 2017, 2019","2016, 2017, 2019","2018, 2021, 2023"
+1600000US4813552,place,"Cedar Park city, Texas",7,2015,2025,False,True,"first published 2015; missing 2016, 2017, 2019; table published with no values in 2016, 2017, 2019","2016, 2017, 2019","2018, 2021, 2023"
 1600000US4815976,place,"College Station city, Texas",17,2008,2025,True,True,,,"2009, 2010, 2013, 2016, 2018, 2019, 2021, 2022, 2023"
 1600000US4816432,place,"Conroe city, Texas",11,2014,2025,False,False,first published 2014,,
 1600000US4817000,place,"Corpus Christi city, Texas",17,2008,2025,True,False,,,
@@ -1523,54 +1523,54 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US4819972,place,"Denton city, Texas",17,2008,2025,True,False,,,
 1600000US4822660,place,"Edinburg city, Texas",17,2008,2025,True,False,,,
 1600000US4824000,place,"El Paso city, Texas",17,2008,2025,True,False,,,
-1600000US4826232,place,"Flower Mound town, Texas",12,2013,2025,False,True,"first published 2013; table withheld for data quality in 2008, 2009, 2010, 2011, 2012","2008, 2009, 2010, 2011, 2012","2013, 2014, 2016, 2018, 2019, 2021, 2022, 2024, 2025"
+1600000US4826232,place,"Flower Mound town, Texas",12,2013,2025,False,True,"first published 2013; table published with no values in 2008, 2009, 2010, 2011, 2012","2008, 2009, 2010, 2011, 2012","2013, 2014, 2016, 2018, 2019, 2021, 2022, 2024, 2025"
 1600000US4827000,place,"Fort Worth city, Texas",17,2008,2025,True,False,,,
-1600000US4827684,place,"Frisco city, Texas",15,2008,2025,False,True,"missing 2010, 2011; table withheld for data quality in 2010, 2011","2010, 2011","2009, 2022"
+1600000US4827684,place,"Frisco city, Texas",15,2008,2025,False,True,"missing 2010, 2011; table published with no values in 2010, 2011","2010, 2011","2009, 2022"
 1600000US4829000,place,"Garland city, Texas",17,2008,2025,True,False,,,
-1600000US4829336,place,"Georgetown city, Texas",8,2016,2025,False,True,first published 2016; missing 2019; table withheld for data quality in 2019,2019,"2016, 2017, 2018, 2022, 2024"
+1600000US4829336,place,"Georgetown city, Texas",8,2016,2025,False,True,first published 2016; missing 2019; table published with no values in 2019,2019,"2016, 2017, 2018, 2022, 2024"
 1600000US4830464,place,"Grand Prairie city, Texas",17,2008,2025,True,False,,,
 1600000US4832372,place,"Harlingen city, Texas",16,2009,2025,False,False,first published 2009,,
 1600000US4835000,place,"Houston city, Texas",17,2008,2025,True,False,,,
 1600000US4837000,place,"Irving city, Texas",17,2008,2025,True,False,,,
 1600000US4839148,place,"Killeen city, Texas",17,2008,2025,True,False,,,
 1600000US4841464,place,"Laredo city, Texas",17,2008,2025,True,False,,,
-1600000US4841980,place,"League City city, Texas",15,2008,2025,False,True,"missing 2015, 2019; table withheld for data quality in 2015, 2019","2015, 2019","2010, 2011, 2013, 2016, 2017, 2021"
-1600000US4842016,place,"Leander city, Texas",3,2022,2025,False,True,"first published 2022; missing 2023; table withheld for data quality in 2019, 2021, 2023","2019, 2021, 2023","2022, 2024"
+1600000US4841980,place,"League City city, Texas",15,2008,2025,False,True,"missing 2015, 2019; table published with no values in 2015, 2019","2015, 2019","2010, 2011, 2013, 2016, 2017, 2021"
+1600000US4842016,place,"Leander city, Texas",3,2022,2025,False,True,"first published 2022; missing 2023; table published with no values in 2019, 2021, 2023","2019, 2021, 2023","2022, 2024"
 1600000US4842508,place,"Lewisville city, Texas",17,2008,2025,True,False,,,
 1600000US4843888,place,"Longview city, Texas",17,2008,2025,True,False,,,
 1600000US4845000,place,"Lubbock city, Texas",17,2008,2025,True,False,,,
 1600000US4845384,place,"McAllen city, Texas",17,2008,2025,True,False,,,
 1600000US4845744,place,"McKinney city, Texas",17,2008,2025,True,False,,,
-1600000US4846452,place,"Mansfield city, Texas",8,2016,2025,False,True,first published 2016; missing 2019; table withheld for data quality in 2019,2019,"2021, 2022, 2023, 2024, 2025"
+1600000US4846452,place,"Mansfield city, Texas",8,2016,2025,False,True,first published 2016; missing 2019; table published with no values in 2019,2019,"2021, 2022, 2023, 2024, 2025"
 1600000US4847892,place,"Mesquite city, Texas",17,2008,2025,True,False,,,
 1600000US4848072,place,"Midland city, Texas",17,2008,2025,True,False,,,
 1600000US4848768,place,"Mission city, Texas",17,2008,2025,True,False,,,
 1600000US4848804,place,"Missouri City city, Texas",17,2008,2025,True,True,,,"2008, 2011, 2012, 2013, 2018, 2025"
 1600000US4850820,place,"New Braunfels city, Texas",11,2014,2025,False,False,first published 2014,,
-1600000US4852356,place,"North Richland Hills city, Texas",16,2008,2025,False,True,missing 2022; table withheld for data quality in 2022,2022,"2012, 2018, 2023"
+1600000US4852356,place,"North Richland Hills city, Texas",16,2008,2025,False,True,missing 2022; table published with no values in 2022,2022,"2012, 2018, 2023"
 1600000US4853388,place,"Odessa city, Texas",17,2008,2025,True,False,,,
 1600000US4856000,place,"Pasadena city, Texas",17,2008,2025,True,False,,,
 1600000US4856348,place,"Pearland city, Texas",17,2008,2025,True,True,,,"2016, 2017, 2018, 2019, 2021, 2022"
-1600000US4857176,place,"Pflugerville city, Texas",2,2022,2024,False,True,"first published 2022; last published 2024; missing 2023; table withheld for data quality in 2019, 2021, 2023, 2025","2019, 2021, 2023, 2025","2022, 2024"
+1600000US4857176,place,"Pflugerville city, Texas",2,2022,2024,False,True,"first published 2022; last published 2024; missing 2023; table published with no values in 2019, 2021, 2023, 2025","2019, 2021, 2023, 2025","2022, 2024"
 1600000US4857200,place,"Pharr city, Texas",17,2008,2025,True,False,,,
 1600000US4858016,place,"Plano city, Texas",17,2008,2025,True,False,,,
 1600000US4861796,place,"Richardson city, Texas",17,2008,2025,True,True,,,"2023, 2024"
 1600000US4863500,place,"Round Rock city, Texas",17,2008,2025,True,False,,,
-1600000US4863572,place,"Rowlett city, Texas",3,2018,2023,False,True,"first published 2018; last published 2023; missing 2019, 2021; table withheld for data quality in 2019, 2024, 2025","2019, 2024, 2025","2022, 2023"
+1600000US4863572,place,"Rowlett city, Texas",3,2018,2023,False,True,"first published 2018; last published 2023; missing 2019, 2021; table published with no values in 2019, 2024, 2025","2019, 2024, 2025","2022, 2023"
 1600000US4864472,place,"San Angelo city, Texas",17,2008,2025,True,False,,,
 1600000US4865000,place,"San Antonio city, Texas",17,2008,2025,True,False,,,
-1600000US4865600,place,"San Marcos city, Texas",3,2022,2024,False,True,"first published 2022; last published 2024; table withheld for data quality in 2021, 2025","2021, 2025","2022, 2024"
-1600000US4869596,place,"Spring CDP, Texas",4,2022,2025,False,True,first published 2022; table withheld for data quality in 2021,2021,"2023, 2024, 2025"
+1600000US4865600,place,"San Marcos city, Texas",3,2022,2024,False,True,"first published 2022; last published 2024; table published with no values in 2021, 2025","2021, 2025","2022, 2024"
+1600000US4869596,place,"Spring CDP, Texas",4,2022,2025,False,True,first published 2022; table published with no values in 2021,2021,"2023, 2024, 2025"
 1600000US4870808,place,"Sugar Land city, Texas",17,2008,2025,True,True,,,"2015, 2023"
 1600000US4872176,place,"Temple city, Texas",15,2010,2025,False,False,first published 2010,,
-1600000US4872656,place,"The Woodlands CDP, Texas",14,2009,2025,False,True,"first published 2009; missing 2015, 2017; table withheld for data quality in 2015, 2017","2015, 2017","2009, 2010, 2011, 2012, 2013, 2014, 2016, 2018, 2019, 2021, 2023"
+1600000US4872656,place,"The Woodlands CDP, Texas",14,2009,2025,False,True,"first published 2009; missing 2015, 2017; table published with no values in 2015, 2017","2015, 2017","2009, 2010, 2011, 2012, 2013, 2014, 2016, 2018, 2019, 2021, 2023"
 1600000US4874144,place,"Tyler city, Texas",17,2008,2025,True,False,,,
 1600000US4875428,place,"Victoria city, Texas",12,2013,2025,False,False,first published 2013,,
 1600000US4876000,place,"Waco city, Texas",17,2008,2025,True,False,,,
 1600000US4879000,place,"Wichita Falls city, Texas",17,2008,2025,True,False,,,
 1600000US4880356,place,"Wylie city, Texas",1,2025,2025,False,False,first published 2025,,
-1600000US4943660,place,"Layton city, Utah",15,2008,2025,False,True,"missing 2011, 2019; table withheld for data quality in 2011, 2019","2011, 2019","2008, 2009, 2015, 2016, 2017, 2022, 2023, 2024"
-1600000US4944320,place,"Lehi city, Utah",6,2019,2025,False,True,first published 2019; table withheld for data quality in 2018,2018,"2019, 2021, 2022, 2023, 2024"
+1600000US4943660,place,"Layton city, Utah",15,2008,2025,False,True,"missing 2011, 2019; table published with no values in 2011, 2019","2011, 2019","2008, 2009, 2015, 2016, 2017, 2022, 2023, 2024"
+1600000US4944320,place,"Lehi city, Utah",6,2019,2025,False,True,first published 2019; table published with no values in 2018,2018,"2019, 2021, 2022, 2023, 2024"
 1600000US4950150,place,"Millcreek CDP, Utah",2,2012,2014,False,True,first published 2012; last published 2014; missing 2013,,2014
 1600000US4955980,place,"Ogden city, Utah",17,2008,2025,True,False,,,
 1600000US4957300,place,"Orem city, Utah",17,2008,2025,True,False,,,
@@ -1578,12 +1578,12 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US4965330,place,"St. George city, Utah",17,2008,2025,True,False,,,
 1600000US4967000,place,"Salt Lake City city, Utah",17,2008,2025,True,False,,,
 1600000US4967440,place,"Sandy city, Utah",17,2008,2025,True,True,,,"2009, 2018, 2023, 2024"
-1600000US4970850,place,"South Jordan city, Utah",6,2015,2025,False,True,"first published 2015; missing 2016, 2019, 2022, 2024; table withheld for data quality in 2016, 2019, 2022, 2024","2016, 2019, 2022, 2024","2015, 2017, 2018, 2021, 2025"
+1600000US4970850,place,"South Jordan city, Utah",6,2015,2025,False,True,"first published 2015; missing 2016, 2019, 2022, 2024; table published with no values in 2016, 2019, 2022, 2024","2016, 2019, 2022, 2024","2015, 2017, 2018, 2021, 2025"
 1600000US4982950,place,"West Jordan city, Utah",17,2008,2025,True,False,,,
 1600000US4983470,place,"West Valley City city, Utah",17,2008,2025,True,False,,,
 1600000US5101000,place,"Alexandria city, Virginia",17,2008,2025,True,False,,,
 1600000US5103000,place,"Arlington CDP, Virginia",17,2008,2025,True,False,,,
-1600000US5114440,place,"Centreville CDP, Virginia",14,2010,2025,False,True,first published 2010; missing 2011; table withheld for data quality in 2011,2011,"2017, 2019, 2021, 2023, 2024, 2025"
+1600000US5114440,place,"Centreville CDP, Virginia",14,2010,2025,False,True,first published 2010; missing 2011; table published with no values in 2011,2011,"2017, 2019, 2021, 2023, 2024, 2025"
 1600000US5116000,place,"Chesapeake city, Virginia",17,2008,2025,True,False,,,
 1600000US5121088,place,"Dale City CDP, Virginia",16,2009,2025,False,True,first published 2009,,2021
 1600000US5135000,place,"Hampton city, Virginia",17,2008,2025,True,False,,,
@@ -1606,13 +1606,13 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 1600000US5335940,place,"Kirkland city, Washington",12,2013,2025,False,True,first published 2013,,"2016, 2017, 2021, 2022, 2024"
 1600000US5343955,place,"Marysville city, Washington",11,2014,2025,False,True,first published 2014,,"2017, 2025"
 1600000US5353545,place,"Pasco city, Washington",13,2012,2025,False,False,first published 2012,,
-1600000US5357535,place,"Redmond city, Washington",6,2018,2024,False,True,first published 2018; last published 2024; table withheld for data quality in 2025,2025,"2018, 2019, 2021, 2022"
+1600000US5357535,place,"Redmond city, Washington",6,2018,2024,False,True,first published 2018; last published 2024; table published with no values in 2025,2025,"2018, 2019, 2021, 2022"
 1600000US5357745,place,"Renton city, Washington",15,2010,2025,False,False,first published 2010,,
 1600000US5358235,place,"Richland city, Washington",1,2025,2025,False,True,first published 2025,,2025
-1600000US5361115,place,"Sammamish city, Washington",6,2019,2025,False,True,first published 2019; table withheld for data quality in 2018,2018,"2019, 2021, 2022, 2023, 2024, 2025"
+1600000US5361115,place,"Sammamish city, Washington",6,2019,2025,False,True,first published 2019; table published with no values in 2018,2018,"2019, 2021, 2022, 2023, 2024, 2025"
 1600000US5363000,place,"Seattle city, Washington",17,2008,2025,True,False,,,
 1600000US5363960,place,"Shoreline city, Washington",2,2024,2025,False,False,first published 2024,,
-1600000US5365922,place,"South Hill CDP, Washington",4,2019,2025,False,True,"first published 2019; missing 2023, 2024; table withheld for data quality in 2023, 2024","2023, 2024",2022
+1600000US5365922,place,"South Hill CDP, Washington",4,2019,2025,False,True,"first published 2019; missing 2023, 2024; table published with no values in 2023, 2024","2023, 2024",2022
 1600000US5367000,place,"Spokane city, Washington",17,2008,2025,True,False,,,
 1600000US5367167,place,"Spokane Valley city, Washington",17,2008,2025,True,False,,,
 1600000US5370000,place,"Tacoma city, Washington",17,2008,2025,True,False,,,
@@ -1643,7 +1643,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US10420,cbsa,"Akron, OH Metro Area",17,2008,2025,True,False,,,
 310XX00US10460,cbsa,"Alamogordo, NM Micro Area",14,2011,2025,False,False,first published 2011,,
 310XX00US10500,cbsa,"Albany, GA Metro Area",17,2008,2025,True,False,,,
-310XX00US10540,cbsa,"Albany-Lebanon, OR Metro Area",17,2008,2025,True,False,"name changed: Albany-Lebanon, OR Micro Area -> Albany, OR Metro Area -> Albany-Lebanon, OR Metro Area",,
+310XX00US10540,cbsa,"Albany, OR Metro Area",17,2008,2025,True,False,"name changed: Albany-Lebanon, OR Micro Area -> Albany, OR Metro Area -> Albany-Lebanon, OR Metro Area",,
 310XX00US10580,cbsa,"Albany-Schenectady-Troy, NY Metro Area",17,2008,2025,True,False,,,
 310XX00US10620,cbsa,"Albemarle, NC Micro Area",3,2023,2025,False,False,first published 2023,,
 310XX00US10700,cbsa,"Albertville, AL Micro Area",17,2008,2025,True,False,,,
@@ -1660,7 +1660,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US11340,cbsa,"Anderson, SC Metro Area",5,2008,2012,False,False,last published 2012,,
 310XX00US11360,cbsa,"Anderson Creek, NC Micro Area",3,2023,2025,False,False,first published 2023,,
 310XX00US11460,cbsa,"Ann Arbor, MI Metro Area",17,2008,2025,True,False,,,
-310XX00US11500,cbsa,"Anniston-Oxford-Jacksonville, AL Metro Area",17,2008,2025,True,False,"name changed: Anniston-Oxford, AL Metro Area -> Anniston-Oxford-Jacksonville, AL Metro Area",,
+310XX00US11500,cbsa,"Anniston-Oxford, AL Metro Area",17,2008,2025,True,False,"name changed: Anniston-Oxford, AL Metro Area -> Anniston-Oxford-Jacksonville, AL Metro Area",,
 310XX00US11540,cbsa,"Appleton, WI Metro Area",17,2008,2025,True,False,,,
 310XX00US11640,cbsa,"Arecibo, PR Metro Area",12,2013,2025,False,False,first published 2013,,
 310XX00US11700,cbsa,"Asheville, NC Metro Area",17,2008,2025,True,False,,,
@@ -1669,13 +1669,13 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US11940,cbsa,"Athens, TN Micro Area",3,2023,2025,False,False,first published 2023,,
 310XX00US11980,cbsa,"Athens, TX Micro Area",17,2008,2025,True,False,,,
 310XX00US12020,cbsa,"Athens-Clarke County, GA Metro Area",17,2008,2025,True,False,,,
-310XX00US12060,cbsa,"Atlanta-Sandy Springs-Alpharetta, GA Metro Area",17,2008,2025,True,False,"name changed: Atlanta-Sandy Springs-Marietta, GA Metro Area -> Atlanta-Sandy Springs-Roswell, GA Metro Area -> Atlanta-Sandy Springs-Alpharetta, GA Metro Area",,
+310XX00US12060,cbsa,"Atlanta-Sandy Springs-Roswell, GA Metro Area",17,2008,2025,True,False,"name changed: Atlanta-Sandy Springs-Marietta, GA Metro Area -> Atlanta-Sandy Springs-Roswell, GA Metro Area -> Atlanta-Sandy Springs-Alpharetta, GA Metro Area",,
 310XX00US12100,cbsa,"Atlantic City-Hammonton, NJ Metro Area",17,2008,2025,True,False,,,
 310XX00US12180,cbsa,"Auburn, NY Micro Area",17,2008,2025,True,False,,,
 310XX00US12220,cbsa,"Auburn-Opelika, AL Metro Area",17,2008,2025,True,False,,,
 310XX00US12260,cbsa,"Augusta-Richmond County, GA-SC Metro Area",17,2008,2025,True,False,,,
 310XX00US12300,cbsa,"Augusta-Waterville, ME Micro Area",17,2008,2025,True,False,,,
-310XX00US12420,cbsa,"Austin-Round Rock-Georgetown, TX Metro Area",17,2008,2025,True,False,"name changed: Austin-Round Rock, TX Metro Area -> Austin-Round Rock-San Marcos, TX Metro Area -> Austin-Round Rock-Georgetown, TX Metro Area",,
+310XX00US12420,cbsa,"Austin-Round Rock-San Marcos, TX Metro Area",17,2008,2025,True,False,"name changed: Austin-Round Rock, TX Metro Area -> Austin-Round Rock-San Marcos, TX Metro Area -> Austin-Round Rock-Georgetown, TX Metro Area",,
 310XX00US12540,cbsa,"Bakersfield-Delano, CA Metro Area",17,2008,2025,True,False,"name changed: Bakersfield, CA Metro Area -> Bakersfield-Delano, CA Metro Area",,
 310XX00US12580,cbsa,"Baltimore-Columbia-Towson, MD Metro Area",17,2008,2025,True,False,"name changed: Baltimore-Towson, MD Metro Area -> Baltimore-Columbia-Towson, MD Metro Area",,
 310XX00US12620,cbsa,"Bangor, ME Metro Area",17,2008,2025,True,False,,,
@@ -1688,16 +1688,16 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US13180,cbsa,"Beaver Dam, WI Micro Area",17,2008,2025,True,False,,,
 310XX00US13220,cbsa,"Beckley, WV Metro Area",17,2008,2025,True,False,"name changed: Beckley, WV Micro Area -> Beckley, WV Metro Area",,
 310XX00US13380,cbsa,"Bellingham, WA Metro Area",17,2008,2025,True,False,,,
-310XX00US13460,cbsa,"Bend-Redmond, OR Metro Area",17,2008,2025,True,False,"name changed: Bend, OR Metro Area -> Bend-Redmond, OR Metro Area",,
+310XX00US13460,cbsa,"Bend, OR Metro Area",17,2008,2025,True,False,"name changed: Bend, OR Metro Area -> Bend-Redmond, OR Metro Area",,
 310XX00US13740,cbsa,"Billings, MT Metro Area",17,2008,2025,True,False,,,
 310XX00US13780,cbsa,"Binghamton, NY Metro Area",17,2008,2025,True,False,,,
 310XX00US13820,cbsa,"Birmingham, AL Metro Area",17,2008,2025,True,False,"name changed: Birmingham-Hoover, AL Metro Area -> Birmingham, AL Metro Area",,
 310XX00US13900,cbsa,"Bismarck, ND Metro Area",17,2008,2025,True,False,,,
-310XX00US13980,cbsa,"Blacksburg-Christiansburg, VA Metro Area",17,2008,2025,True,False,"name changed: Blacksburg-Christiansburg-Radford, VA Metro Area -> Blacksburg-Christiansburg, VA Metro Area",,
+310XX00US13980,cbsa,"Blacksburg-Christiansburg-Radford, VA Metro Area",17,2008,2025,True,False,"name changed: Blacksburg-Christiansburg-Radford, VA Metro Area -> Blacksburg-Christiansburg, VA Metro Area",,
 310XX00US14010,cbsa,"Bloomington, IL Metro Area",12,2013,2025,False,False,first published 2013,,
 310XX00US14020,cbsa,"Bloomington, IN Metro Area",17,2008,2025,True,False,,,
 310XX00US14060,cbsa,"Bloomington-Normal, IL Metro Area",5,2008,2012,False,False,last published 2012,,
-310XX00US14100,cbsa,"Bloomsburg-Berwick, PA Metro Area",17,2008,2025,True,False,"name changed: Bloomsburg-Berwick, PA Micro Area -> Bloomsburg-Berwick, PA Metro Area",,
+310XX00US14100,cbsa,"Bloomsburg-Berwick, PA Micro Area",17,2008,2025,True,False,"name changed: Bloomsburg-Berwick, PA Micro Area -> Bloomsburg-Berwick, PA Metro Area",,
 310XX00US14140,cbsa,"Bluefield, WV-VA Micro Area",17,2008,2025,True,False,,,
 310XX00US14260,cbsa,"Boise City, ID Metro Area",17,2008,2025,True,False,"name changed: Boise City-Nampa, ID Metro Area -> Boise City, ID Metro Area",,
 310XX00US14460,cbsa,"Boston-Cambridge-Newton, MA-NH Metro Area",17,2008,2025,True,False,"name changed: Boston-Cambridge-Quincy, MA-NH Metro Area -> Boston-Cambridge-Newton, MA-NH Metro Area",,
@@ -1792,18 +1792,18 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US20500,cbsa,"Durham-Chapel Hill, NC Metro Area",17,2008,2025,True,False,"name changed: Durham, NC Metro Area -> Durham-Chapel Hill, NC Metro Area",,
 310XX00US20580,cbsa,"Eagle Pass, TX Metro Area",3,2023,2025,False,False,first published 2023,,
 310XX00US20620,cbsa,"East Liverpool-Salem, OH Micro Area",5,2008,2012,False,False,last published 2012,,
-310XX00US20700,cbsa,"East Stroudsburg, PA Metro Area",17,2008,2025,True,False,"name changed: East Stroudsburg, PA Micro Area -> East Stroudsburg, PA Metro Area",,
+310XX00US20700,cbsa,"East Stroudsburg, PA Micro Area",17,2008,2025,True,False,"name changed: East Stroudsburg, PA Micro Area -> East Stroudsburg, PA Metro Area",,
 310XX00US20740,cbsa,"Eau Claire, WI Metro Area",17,2008,2025,True,False,,,
 310XX00US20940,cbsa,"El Centro, CA Metro Area",17,2008,2025,True,False,,,
 310XX00US21020,cbsa,"Elizabeth City, NC Micro Area",7,2012,2018,False,False,first published 2012; last published 2018,,
-310XX00US21060,cbsa,"Elizabethtown-Fort Knox, KY Metro Area",17,2008,2025,True,False,"name changed: Elizabethtown, KY Metro Area -> Elizabethtown-Fort Knox, KY Metro Area",,
+310XX00US21060,cbsa,"Elizabethtown, KY Metro Area",17,2008,2025,True,False,"name changed: Elizabethtown, KY Metro Area -> Elizabethtown-Fort Knox, KY Metro Area",,
 310XX00US21140,cbsa,"Elkhart-Goshen, IN Metro Area",17,2008,2025,True,False,,,
 310XX00US21300,cbsa,"Elmira, NY Metro Area",17,2008,2025,True,False,,,
 310XX00US21340,cbsa,"El Paso, TX Metro Area",17,2008,2025,True,False,,,
 310XX00US21420,cbsa,"Enid, OK Metro Area",9,2016,2025,False,False,first published 2016,,
 310XX00US21460,cbsa,"Enterprise-Ozark, AL Micro Area",5,2008,2012,False,False,last published 2012,,
 310XX00US21500,cbsa,"Erie, PA Metro Area",17,2008,2025,True,False,,,
-310XX00US21660,cbsa,"Eugene, OR Metro Area",17,2008,2025,True,False,"name changed: Eugene-Springfield, OR Metro Area -> Eugene, OR Metro Area",,
+310XX00US21660,cbsa,"Eugene-Springfield, OR Metro Area",17,2008,2025,True,False,"name changed: Eugene-Springfield, OR Metro Area -> Eugene, OR Metro Area",,
 310XX00US21700,cbsa,"Eureka-Arcata, CA Micro Area",17,2008,2025,True,False,"name changed: Eureka-Arcata-Fortuna, CA Micro Area -> Eureka-Arcata, CA Micro Area",,
 310XX00US21780,cbsa,"Evansville, IN Metro Area",17,2008,2025,True,False,"name changed: Evansville, IN-KY Metro Area -> Evansville, IN Metro Area",,
 310XX00US21820,cbsa,"Fairbanks-College, AK Metro Area",17,2008,2025,True,True,"name changed: Fairbanks, AK Metro Area -> Fairbanks-College, AK Metro Area",,"2019, 2022"
@@ -1821,7 +1821,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US22520,cbsa,"Florence-Muscle Shoals, AL Metro Area",17,2008,2025,True,False,,,
 310XX00US22540,cbsa,"Fond du Lac, WI Metro Area",17,2008,2025,True,False,,,
 310XX00US22580,cbsa,"Forest City, NC Micro Area",13,2010,2025,False,False,"first published 2010; missing 2021, 2022",,
-310XX00US22660,cbsa,"Fort Collins, CO Metro Area",17,2008,2025,True,False,"name changed: Fort Collins-Loveland, CO Metro Area -> Fort Collins, CO Metro Area",,
+310XX00US22660,cbsa,"Fort Collins-Loveland, CO Metro Area",17,2008,2025,True,False,"name changed: Fort Collins-Loveland, CO Metro Area -> Fort Collins, CO Metro Area",,
 310XX00US22840,cbsa,"Fort Payne, AL Micro Area",14,2008,2025,False,False,"missing 2013, 2014, 2015",,
 310XX00US22900,cbsa,"Fort Smith, AR-OK Metro Area",17,2008,2025,True,False,,,
 310XX00US23020,cbsa,"Fort Walton Beach-Crestview-Destin, FL Metro Area",2,2008,2009,False,False,last published 2009,,
@@ -1853,13 +1853,13 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US24860,cbsa,"Greenville-Anderson-Greer, SC Metro Area",17,2008,2025,True,False,"name changed: Greenville-Mauldin-Easley, SC Metro Area -> Greenville-Anderson-Mauldin, SC Metro Area -> Greenville-Anderson, SC Metro Area -> Greenville-Anderson-Greer, SC Metro Area",,
 310XX00US24940,cbsa,"Greenwood, SC Micro Area",17,2008,2025,True,False,,,
 310XX00US25020,cbsa,"Guayama, PR Metro Area",17,2008,2025,True,False,,,
-310XX00US25060,cbsa,"Gulfport-Biloxi-Pascagoula, MS Metro Area",17,2008,2025,True,False,"name changed: Gulfport-Biloxi, MS Metro Area -> Gulfport-Biloxi-Pascagoula, MS Metro Area",,
+310XX00US25060,cbsa,"Gulfport-Biloxi, MS Metro Area",17,2008,2025,True,False,"name changed: Gulfport-Biloxi, MS Metro Area -> Gulfport-Biloxi-Pascagoula, MS Metro Area",,
 310XX00US25180,cbsa,"Hagerstown-Martinsburg, MD-WV Metro Area",17,2008,2025,True,False,,,
 310XX00US25220,cbsa,"Hammond, LA Metro Area",17,2008,2025,True,False,"name changed: Hammond, LA Micro Area -> Hammond, LA Metro Area",,
 310XX00US25260,cbsa,"Hanford-Corcoran, CA Metro Area",17,2008,2025,True,False,,,
 310XX00US25420,cbsa,"Harrisburg-Carlisle, PA Metro Area",17,2008,2025,True,False,,,
 310XX00US25500,cbsa,"Harrisonburg, VA Metro Area",17,2008,2025,True,False,,,
-310XX00US25540,cbsa,"Hartford-East Hartford-Middletown, CT Metro Area",17,2008,2025,True,False,"name changed: Hartford-West Hartford-East Hartford, CT Metro Area -> Hartford-East Hartford-Middletown, CT Metro Area",,
+310XX00US25540,cbsa,"Hartford-West Hartford-East Hartford, CT Metro Area",17,2008,2025,True,False,"name changed: Hartford-West Hartford-East Hartford, CT Metro Area -> Hartford-East Hartford-Middletown, CT Metro Area",,
 310XX00US25620,cbsa,"Hattiesburg, MS Metro Area",17,2008,2025,True,False,,,
 310XX00US25720,cbsa,"Heber, UT Micro Area",6,2019,2025,False,True,first published 2019,,2021
 310XX00US25740,cbsa,"Helena, MT Metro Area",17,2008,2025,True,False,"name changed: Helena, MT Micro Area -> Helena, MT Metro Area",,
@@ -1875,7 +1875,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US26140,cbsa,"Homosassa Springs, FL Metro Area",17,2008,2025,True,False,"name changed: Homosassa Springs, FL Micro Area -> Homosassa Springs, FL Metro Area",,
 310XX00US26180,cbsa,"Honolulu, HI Metro Area",5,2008,2012,False,False,last published 2012,,
 310XX00US26300,cbsa,"Hot Springs, AR Metro Area",17,2008,2025,True,False,,,
-310XX00US26380,cbsa,"Houma-Thibodaux, LA Metro Area",17,2008,2025,True,False,"name changed: Houma-Bayou Cane-Thibodaux, LA Metro Area -> Houma-Thibodaux, LA Metro Area",,
+310XX00US26380,cbsa,"Houma-Bayou Cane-Thibodaux, LA Metro Area",17,2008,2025,True,False,"name changed: Houma-Bayou Cane-Thibodaux, LA Metro Area -> Houma-Thibodaux, LA Metro Area",,
 310XX00US26420,cbsa,"Houston-Pasadena-The Woodlands, TX Metro Area",17,2008,2025,True,False,"name changed: Houston-Sugar Land-Baytown, TX Metro Area -> Houston-The Woodlands-Sugar Land, TX Metro Area -> Houston-Pasadena-The Woodlands, TX Metro Area",,
 310XX00US26580,cbsa,"Huntington-Ashland, WV-KY-OH Metro Area",17,2008,2025,True,False,,,
 310XX00US26620,cbsa,"Huntsville, AL Metro Area",17,2008,2025,True,False,,,
@@ -1958,7 +1958,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US31300,cbsa,"Lumberton, NC Micro Area",17,2008,2025,True,False,,,
 310XX00US31340,cbsa,"Lynchburg, VA Metro Area",17,2008,2025,True,False,,,
 310XX00US31420,cbsa,"Macon-Bibb County, GA Metro Area",17,2008,2025,True,False,"name changed: Macon, GA Metro Area -> Macon-Bibb County, GA Metro Area",,
-310XX00US31460,cbsa,"Madera-Chowchilla, CA Metro Area",14,2008,2022,False,False,"last published 2022; name changed: Madera, CA Metro Area -> Madera-Chowchilla, CA Metro Area",,
+310XX00US31460,cbsa,"Madera, CA Metro Area",14,2008,2022,False,False,"last published 2022; name changed: Madera, CA Metro Area -> Madera-Chowchilla, CA Metro Area",,
 310XX00US31540,cbsa,"Madison, WI Metro Area",17,2008,2025,True,False,,,
 310XX00US31700,cbsa,"Manchester-Nashua, NH Metro Area",17,2008,2025,True,False,,,
 310XX00US31740,cbsa,"Manhattan, KS Metro Area",17,2008,2025,True,True,"name changed: Manhattan, KS Micro Area -> Manhattan, KS Metro Area",,2021
@@ -2004,14 +2004,14 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US34580,cbsa,"Mount Vernon-Anacortes, WA Metro Area",17,2008,2025,True,False,,,
 310XX00US34620,cbsa,"Muncie, IN Metro Area",17,2008,2025,True,False,,,
 310XX00US34680,cbsa,"Murrells Inlet, SC Micro Area",3,2023,2025,False,False,first published 2023,,
-310XX00US34740,cbsa,"Muskegon, MI Metro Area",17,2008,2025,True,False,"name changed: Muskegon-Norton Shores, MI Metro Area -> Muskegon, MI Metro Area",,
+310XX00US34740,cbsa,"Muskegon-Norton Shores, MI Metro Area",17,2008,2025,True,False,"name changed: Muskegon-Norton Shores, MI Metro Area -> Muskegon, MI Metro Area",,
 310XX00US34780,cbsa,"Muskogee, OK Micro Area",17,2008,2025,True,False,,,
 310XX00US34820,cbsa,"Myrtle Beach-Conway-North Myrtle Beach, SC Metro Area",17,2008,2025,True,False,"name changed: Myrtle Beach-North Myrtle Beach-Conway, SC Metro Area -> Myrtle Beach-Conway-North Myrtle Beach, SC-NC Metro Area -> Myrtle Beach-Conway-North Myrtle Beach, SC Metro Area",,
 310XX00US34860,cbsa,"Nacogdoches, TX Micro Area",12,2011,2025,False,False,"first published 2011; missing 2021, 2022",,
 310XX00US34900,cbsa,"Napa, CA Metro Area",17,2008,2025,True,False,,,
-310XX00US34940,cbsa,"Naples-Immokalee-Marco Island, FL Metro Area",17,2008,2025,True,False,"name changed: Naples-Marco Island, FL Metro Area -> Naples-Immokalee-Marco Island, FL Metro Area",,
+310XX00US34940,cbsa,"Naples-Marco Island, FL Metro Area",17,2008,2025,True,False,"name changed: Naples-Marco Island, FL Metro Area -> Naples-Immokalee-Marco Island, FL Metro Area",,
 310XX00US34980,cbsa,"Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area",17,2008,2025,True,False,,,
-310XX00US35100,cbsa,"New Bern, NC Metro Area",17,2008,2025,True,False,"name changed: New Bern, NC Micro Area -> New Bern, NC Metro Area",,
+310XX00US35100,cbsa,"New Bern, NC Micro Area",17,2008,2025,True,False,"name changed: New Bern, NC Micro Area -> New Bern, NC Metro Area",,
 310XX00US35260,cbsa,"New Castle, PA Micro Area",14,2008,2022,False,False,last published 2022,,
 310XX00US35300,cbsa,"New Haven, CT Metro Area",17,2008,2025,True,False,"name changed: New Haven-Milford, CT Metro Area -> New Haven, CT Metro Area",,
 310XX00US35340,cbsa,"New Iberia, LA Micro Area",8,2008,2025,False,False,"missing 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022",,
@@ -2019,7 +2019,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US35420,cbsa,"New Philadelphia-Dover, OH Micro Area",17,2008,2025,True,False,,,
 310XX00US35620,cbsa,"New York-Newark-Jersey City, NY-NJ Metro Area",17,2008,2025,True,False,"name changed: New York-Northern New Jersey-Long Island, NY-NJ-PA Metro Area -> New York-Newark-Jersey City, NY-NJ-PA Metro Area -> New York-Newark-Jersey City, NY-NJ Metro Area",,
 310XX00US35660,cbsa,"Niles, MI Metro Area",17,2008,2025,True,False,"name changed: Niles-Benton Harbor, MI Metro Area -> Niles, MI Metro Area",,
-310XX00US35840,cbsa,"North Port-Sarasota-Bradenton, FL Metro Area",15,2010,2025,False,False,"first published 2010; name changed: North Port-Bradenton-Sarasota, FL Metro Area -> North Port-Sarasota-Bradenton, FL Metro Area",,
+310XX00US35840,cbsa,"North Port-Bradenton-Sarasota, FL Metro Area",15,2010,2025,False,False,"first published 2010; name changed: North Port-Bradenton-Sarasota, FL Metro Area -> North Port-Sarasota-Bradenton, FL Metro Area",,
 310XX00US35900,cbsa,"North Wilkesboro, NC Micro Area",17,2008,2025,True,False,,,
 310XX00US35980,cbsa,"Norwich-New London-Willimantic, CT Metro Area",17,2008,2025,True,False,"name changed: Norwich-New London, CT Metro Area -> Norwich-New London-Willimantic, CT Metro Area",,
 310XX00US36020,cbsa,"Oak Harbor, WA Micro Area",17,2008,2025,True,True,,,2021
@@ -2078,13 +2078,13 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US39480,cbsa,"Putnam, CT Micro Area",3,2023,2025,False,False,first published 2023,,
 310XX00US39500,cbsa,"Quincy, IL-MO Micro Area",17,2008,2025,True,False,,,
 310XX00US39540,cbsa,"Racine-Mount Pleasant, WI Metro Area",17,2008,2025,True,False,"name changed: Racine, WI Metro Area -> Racine-Mount Pleasant, WI Metro Area",,
-310XX00US39580,cbsa,"Raleigh, NC Metro Area",17,2008,2025,True,False,"name changed: Raleigh-Cary, NC Metro Area -> Raleigh, NC Metro Area",,
+310XX00US39580,cbsa,"Raleigh-Cary, NC Metro Area",17,2008,2025,True,False,"name changed: Raleigh-Cary, NC Metro Area -> Raleigh, NC Metro Area",,
 310XX00US39660,cbsa,"Rapid City, SD Metro Area",17,2008,2025,True,False,,,
 310XX00US39740,cbsa,"Reading, PA Metro Area",17,2008,2025,True,False,,,
 310XX00US39780,cbsa,"Red Bluff, CA Micro Area",3,2019,2022,False,False,first published 2019; last published 2022,,
 310XX00US39820,cbsa,"Redding, CA Metro Area",17,2008,2025,True,False,,,
 310XX00US39900,cbsa,"Reno, NV Metro Area",17,2008,2025,True,False,"name changed: Reno-Sparks, NV Metro Area -> Reno, NV Metro Area",,
-310XX00US39940,cbsa,"Rexburg, ID Micro Area",4,2021,2025,False,True,first published 2021; missing 2022; table withheld for data quality in 2022,2022,"2021, 2024"
+310XX00US39940,cbsa,"Rexburg, ID Micro Area",4,2021,2025,False,True,first published 2021; missing 2022; table published with no values in 2022,2022,"2021, 2024"
 310XX00US39980,cbsa,"Richmond, IN Micro Area",17,2008,2025,True,False,,,
 310XX00US40060,cbsa,"Richmond, VA Metro Area",17,2008,2025,True,False,,,
 310XX00US40080,cbsa,"Richmond-Berea, KY Micro Area",17,2008,2025,True,False,,,
@@ -2110,31 +2110,31 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US41400,cbsa,"Salem, OH Micro Area",12,2013,2025,False,False,first published 2013,,
 310XX00US41420,cbsa,"Salem, OR Metro Area",17,2008,2025,True,False,,,
 310XX00US41500,cbsa,"Salinas, CA Metro Area",17,2008,2025,True,False,,,
-310XX00US41540,cbsa,"Salisbury, MD-DE Metro Area",17,2008,2025,True,False,"name changed: Salisbury, MD Metro Area -> Salisbury, MD-DE Metro Area",,
+310XX00US41540,cbsa,"Salisbury, MD Metro Area",17,2008,2025,True,False,"name changed: Salisbury, MD Metro Area -> Salisbury, MD-DE Metro Area",,
 310XX00US41580,cbsa,"Salisbury, NC Micro Area",5,2008,2012,False,False,last published 2012,,
 310XX00US41620,cbsa,"Salt Lake City-Murray, UT Metro Area",17,2008,2025,True,False,"name changed: Salt Lake City, UT Metro Area -> Salt Lake City-Murray, UT Metro Area",,
 310XX00US41660,cbsa,"San Angelo, TX Metro Area",17,2008,2025,True,False,,,
 310XX00US41700,cbsa,"San Antonio-New Braunfels, TX Metro Area",17,2008,2025,True,False,"name changed: San Antonio, TX Metro Area -> San Antonio-New Braunfels, TX Metro Area",,
 310XX00US41740,cbsa,"San Diego-Chula Vista-Carlsbad, CA Metro Area",17,2008,2025,True,False,"name changed: San Diego-Carlsbad-San Marcos, CA Metro Area -> San Diego-Carlsbad, CA Metro Area -> San Diego-Chula Vista-Carlsbad, CA Metro Area",,
-310XX00US41780,cbsa,"Sandusky, OH Micro Area",17,2008,2025,True,False,"name changed: Sandusky, OH Metro Area -> Sandusky, OH Micro Area",,
+310XX00US41780,cbsa,"Sandusky, OH Metro Area",17,2008,2025,True,False,"name changed: Sandusky, OH Metro Area -> Sandusky, OH Micro Area",,
 310XX00US41820,cbsa,"Sanford, NC Micro Area",4,2022,2025,False,False,first published 2022,,
-310XX00US41860,cbsa,"San Francisco-Oakland-Berkeley, CA Metro Area",17,2008,2025,True,False,"name changed: San Francisco-Oakland-Fremont, CA Metro Area -> San Francisco-Oakland-Hayward, CA Metro Area -> San Francisco-Oakland-Berkeley, CA Metro Area",,
+310XX00US41860,cbsa,"San Francisco-Oakland-Fremont, CA Metro Area",17,2008,2025,True,False,"name changed: San Francisco-Oakland-Fremont, CA Metro Area -> San Francisco-Oakland-Hayward, CA Metro Area -> San Francisco-Oakland-Berkeley, CA Metro Area",,
 310XX00US41900,cbsa,"San Germán, PR Metro Area",14,2008,2022,False,False,"last published 2022; name changed: San Germ?n-Cabo Rojo, PR Metro Area -> San Germán-Cabo Rojo, PR Metro Area -> San Germán, PR Metro Area",,
 310XX00US41940,cbsa,"San Jose-Sunnyvale-Santa Clara, CA Metro Area",17,2008,2025,True,False,,,
 310XX00US41980,cbsa,"San Juan-Bayamón-Caguas, PR Metro Area",17,2008,2025,True,False,"name changed: San Juan-Caguas-Guaynabo, PR Metro Area -> San Juan-Carolina-Caguas, PR Metro Area -> San Juan-Bayamón-Caguas, PR Metro Area",,
-310XX00US42020,cbsa,"San Luis Obispo-Paso Robles-Arroyo Grande, CA Metro Area",17,2008,2025,True,False,"name changed: San Luis Obispo-Paso Robles, CA Metro Area -> San Luis Obispo-Paso Robles-Arroyo Grande, CA Metro Area",,
+310XX00US42020,cbsa,"San Luis Obispo-Paso Robles, CA Metro Area",17,2008,2025,True,False,"name changed: San Luis Obispo-Paso Robles, CA Metro Area -> San Luis Obispo-Paso Robles-Arroyo Grande, CA Metro Area",,
 310XX00US42060,cbsa,"Santa Barbara-Santa Maria-Goleta, CA Metro Area",5,2008,2012,False,False,last published 2012,,
 310XX00US42100,cbsa,"Santa Cruz-Watsonville, CA Metro Area",17,2008,2025,True,False,,,
 310XX00US42140,cbsa,"Santa Fe, NM Metro Area",17,2008,2025,True,False,,,
 310XX00US42200,cbsa,"Santa Maria-Santa Barbara, CA Metro Area",12,2013,2025,False,False,first published 2013,,
-310XX00US42220,cbsa,"Santa Rosa, CA Metro Area",17,2008,2025,True,False,"name changed: Santa Rosa-Petaluma, CA Metro Area -> Santa Rosa, CA Metro Area",,
+310XX00US42220,cbsa,"Santa Rosa-Petaluma, CA Metro Area",17,2008,2025,True,False,"name changed: Santa Rosa-Petaluma, CA Metro Area -> Santa Rosa, CA Metro Area",,
 310XX00US42340,cbsa,"Savannah, GA Metro Area",17,2008,2025,True,False,,,
-310XX00US42540,cbsa,"Scranton--Wilkes-Barre--Hazleton, PA Metro Area",17,2008,2025,True,False,"name changed: Scranton--Wilkes-Barre, PA Metro Area -> Scranton--Wilkes-Barre--Hazleton, PA Metro Area",,
+310XX00US42540,cbsa,"Scranton--Wilkes-Barre, PA Metro Area",17,2008,2025,True,False,"name changed: Scranton--Wilkes-Barre, PA Metro Area -> Scranton--Wilkes-Barre--Hazleton, PA Metro Area",,
 310XX00US42580,cbsa,"Seaford, DE Micro Area",8,2008,2025,False,False,"missing 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022",,
 310XX00US42620,cbsa,"Searcy, AR Micro Area",17,2008,2025,True,False,,,
 310XX00US42660,cbsa,"Seattle-Tacoma-Bellevue, WA Metro Area",17,2008,2025,True,False,,,
 310XX00US42680,cbsa,"Sebastian-Vero Beach-West Vero Corridor, FL Metro Area",17,2008,2025,True,False,"name changed: Sebastian-Vero Beach, FL Metro Area -> Sebastian-Vero Beach-West Vero Corridor, FL Metro Area",,
-310XX00US42700,cbsa,"Sebring-Avon Park, FL Metro Area",17,2008,2025,True,False,"name changed: Sebring, FL Micro Area -> Sebring, FL Metro Area -> Sebring-Avon Park, FL Metro Area",,
+310XX00US42700,cbsa,"Sebring, FL Metro Area",17,2008,2025,True,False,"name changed: Sebring, FL Micro Area -> Sebring, FL Metro Area -> Sebring-Avon Park, FL Metro Area",,
 310XX00US42860,cbsa,"Seneca, SC Micro Area",17,2008,2025,True,False,,,
 310XX00US42940,cbsa,"Sevierville, TN Micro Area",17,2008,2025,True,False,,,
 310XX00US43060,cbsa,"Shawnee, OK Micro Area",17,2008,2025,True,False,,,
@@ -2208,7 +2208,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US47940,cbsa,"Waterloo-Cedar Falls, IA Metro Area",17,2008,2025,True,False,,,
 310XX00US48020,cbsa,"Watertown-Fort Atkinson, WI Micro Area",17,2008,2025,True,False,,,
 310XX00US48060,cbsa,"Watertown-Fort Drum, NY Metro Area",17,2008,2025,True,False,"name changed: Watertown-Fort Drum, NY Micro Area -> Watertown-Fort Drum, NY Metro Area",,
-310XX00US48140,cbsa,"Wausau-Weston, WI Metro Area",17,2008,2025,True,False,"name changed: Wausau, WI Metro Area -> Wausau-Weston, WI Metro Area",,
+310XX00US48140,cbsa,"Wausau, WI Metro Area",17,2008,2025,True,False,"name changed: Wausau, WI Metro Area -> Wausau-Weston, WI Metro Area",,
 310XX00US48260,cbsa,"Weirton-Steubenville, WV-OH Metro Area",14,2008,2025,False,False,"missing 2010, 2011, 2012",,
 310XX00US48300,cbsa,"Wenatchee-East Wenatchee, WA Metro Area",17,2008,2025,True,False,"name changed: Wenatchee, WA Metro Area -> Wenatchee-East Wenatchee, WA Metro Area",,
 310XX00US48540,cbsa,"Wheeling, WV-OH Metro Area",17,2008,2025,True,False,,,
@@ -2224,7 +2224,7 @@ geoid,level,name,n_years,first,last,balanced,bad_values,reasons,withheld_years,b
 310XX00US49180,cbsa,"Winston-Salem, NC Metro Area",17,2008,2025,True,False,,,
 310XX00US49220,cbsa,"Wisconsin Rapids-Marshfield, WI Micro Area",12,2013,2025,False,False,first published 2013,,
 310XX00US49300,cbsa,"Wooster, OH Micro Area",17,2008,2025,True,False,,,
-310XX00US49340,cbsa,"Worcester, MA-CT Metro Area",17,2008,2025,True,False,"name changed: Worcester, MA Metro Area -> Worcester, MA-CT Metro Area",,
+310XX00US49340,cbsa,"Worcester, MA Metro Area",17,2008,2025,True,False,"name changed: Worcester, MA Metro Area -> Worcester, MA-CT Metro Area",,
 310XX00US49420,cbsa,"Yakima, WA Metro Area",17,2008,2025,True,False,,,
 310XX00US49500,cbsa,"Yauco, PR Metro Area",8,2008,2022,False,False,"last published 2022; missing 2013, 2014, 2015, 2016, 2017, 2018",,
 310XX00US49620,cbsa,"York-Hanover, PA Metro Area",17,2008,2025,True,False,,,

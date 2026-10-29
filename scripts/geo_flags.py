@@ -91,7 +91,8 @@ def main():
                 if ct:
                     changes.append(f"{first} (Connecticut planning regions replaced its counties)")
                 else:
-                    changes.append(f"{first} ({len(added)} counties added, {len(removed)} removed)")
+                    cnt = lambda n, w: f"{n} {'county' if n == 1 else 'counties'} {w}"
+                    changes.append(f"{first} ({cnt(len(added), 'added')}, {cnt(len(removed), 'removed')})")
         if changes:
             notes[gid] = ("Its county makeup changed with new OMB delineations, first used in "
                           + "; ".join(changes) + ".")

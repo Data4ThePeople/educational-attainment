@@ -25,6 +25,8 @@ calendar year. Pulled October 29, 2026. Years used: 2008–2019 and 2021–2025.
 - There is no standard 2020 1-year release. The Census Bureau released only
   experimental estimates for 2020, because the pandemic cut response. We leave
   2020 as a gap. We do not interpolate it or use the experimental estimates.
+  (User note 2021-02,
+  https://www.census.gov/programs-surveys/acs/technical-documentation/user-notes/2021-02.html)
 
 **Could B15002 give a longer series?** B15002 (by sex) exists from 2005, and
 summing the two sexes gives the same five groups. We do not use it to extend
@@ -99,14 +101,17 @@ So less than high school and some college carry part of the question change in
 2025, roughly half a point nationally. High school, bachelor's and graduate do
 not show it. The 2025 MOE widening, the new population controls and the
 collection lapse could also move 2025 values, and this check cannot fully
-separate them from the question change. The cross-area pattern ties the shift
-to the less-than-grade-1 drop specifically. In the viz, the 2024 to 2025 step
+separate them from the question change. The cross-area pattern links the shift
+to the less-than-grade-1 drop, but that is a pattern, not proof of cause. The
+result does not depend on the trend base: with any base year from 2008 to 2022,
+less than high school falls 0.41 to 0.57 points beyond trend and some college
+rises 0.40 to 0.59. In the viz, the 2024 to 2025 step
 for those two groups is dashed and carries a note. The less-than-grade-1 line
 itself is not charted across 2025.
 
 **Withheld tables.** The Census Bureau publishes B15003 with no values for some
-areas over 65,000 in some years, under its data-quality filtering of 1-year
-detailed tables. This happened in 1,049 area-years, mostly places, and became
+areas over 65,000 in some years. Its data-suppression page does not give the
+rule; we have not confirmed the reason. This happened in 1,049 area-years, mostly places, and became
 more common over time (25 area-years in 2008, 113 in 2024, 97 in 2025). B15002 is
 published for 851 of those. Where both tables exist, their five-group counts
 and totals match exactly in all 33,346 area-years. So we fill the 851 from
@@ -309,7 +314,12 @@ across the OMB delineation files each ACS year used (saved in
 used in 2013, 2016, 2019 or 2023). Some changes are large: Salisbury, MD-DE's
 population 25 and over rose 230% in 2013 when it added counties. We drop from
 the ranked view any metro area whose population 25 and over moved 5% or more
-in a switch year (111 metro areas), which leaves 346. The rest keep a note
+from the prior published year in a year its own county makeup changed (111
+metro areas), which leaves 346. A jump in that year is not proof the boundary
+caused it: 81 metro areas with no county change also moved 5% or more in a
+delineation year (often 2010 or 2021). Bedford County, Virginia, is dropped by
+the same rule (its adult population rose 11% from 2013 to 2014, when it took in
+Bedford city). The rest keep a note
 naming the years their makeup changed. Details are in
 `data/clean/cbsa_changes.csv`. The 5% cut is our choice, not a Census rule.
 
@@ -349,6 +359,8 @@ every-year panel has 8,940 tests across states, counties, metro areas and places
 if nothing had changed anywhere, about 894 would pass by chance. Far more than
 that pass (see FINDINGS.md), but any single small change that passes could
 still be chance.
+
+**Names.** Each area carries its name in the latest year it was published.
 
 **Build order.** `fetch.py` → `build.py` → `geo_flags.py` → `findings.py` →
 `build_viz.py`; `tieout.py` checks against data.census.gov.

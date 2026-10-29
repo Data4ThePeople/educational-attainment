@@ -118,7 +118,9 @@ def areas_table(df):
     recs = []
     for gid, g in df.groupby("geoid"):
         yrs = sorted(g.year)
-        names = g.sort_values("year").name.unique().tolist()
+        g = g.sort_values("year")
+        names = g["name"].unique().tolist()
+        latest = g["name"].iloc[-1]   # the name in the latest published year
         reasons = []
         if yrs[0] > YEARS[0]:
             reasons.append(f"first published {yrs[0]}")
@@ -130,7 +132,7 @@ def areas_table(df):
         if len(names) > 1:
             reasons.append("name changed: " + " -> ".join(names))
         recs.append({
-            "geoid": gid, "level": g.level.iloc[-1], "name": names[-1],
+            "geoid": gid, "level": g.level.iloc[-1], "name": latest,
             "n_years": len(yrs), "first": yrs[0], "last": yrs[-1],
             "balanced": set(yrs) == full,
             "bad_values": bool(g.bad_values.any()),
@@ -217,7 +219,7 @@ def main():
     # published but withheld; say which.
     has_wh = areas.withheld_years != ""
     areas.loc[has_wh, "reasons"] = (areas.loc[has_wh, "reasons"].fillna("") +
-                                    "; table withheld for data quality in " + areas.loc[has_wh, "withheld_years"]).str.lstrip("; ")
+                                    "; table published with no values in " + areas.loc[has_wh, "withheld_years"]).str.lstrip("; ")
     areas.to_csv(CLEAN / "areas.csv", index=False)
     balanced = set(areas.loc[areas.balanced, "geoid"])
     print(areas.groupby("level").balanced.agg(["sum", "count"]))

@@ -19,16 +19,21 @@ LEVEL_NAMES = {"us": "Nation", "region": "Regions", "division": "Divisions", "st
 BREAK_2025 = ["lths", "somecol"]
 
 
+def years_phrase(years):
+    n = len(str(years).split(", "))
+    return ("the year " if n == 1 else "the years ") + str(years)
+
+
 def flag_text(gid, r, flags):
     parts = []
-    if not r.balanced:
-        parts.append(f"Published in {r.n_years} of the 17 years ({r.first}–{r.last}), "
+    if not r["balanced"]:
+        parts.append(f"Has values in {r['n_years']} of the 17 years ({r['first']}–{r['last']}), "
                      "so it is left out of the ranked view.")
-    if r.b15002_years:
-        parts.append(f"Values for {r.b15002_years} come from table B15002, because B15003 was "
-                     "withheld for data quality in those years.")
-    if r.withheld_years:
-        parts.append(f"Both tables were withheld in {r.withheld_years}.")
+    if r["b15002_years"]:
+        parts.append(f"Values for {years_phrase(r['b15002_years'])} come from table B15002, because "
+                     "B15003 was published with no values.")
+    if r["withheld_years"]:
+        parts.append(f"Both tables were published with no values in {r['withheld_years']}.")
     extra = flags.get(gid)
     if isinstance(extra, str) and extra:
         parts.append(extra)
@@ -43,6 +48,9 @@ def main():
     # Metro areas whose county makeup changed enough to move their population
     # 25+ by 5% or more in a switch year leave the ranked view (findings.py).
     big = set(pd.read_csv(CLEAN / "cbsa_big_changes.csv").geoid)
+    # Bedford County, VA took in Bedford city in 2013; its adult population
+    # rose 11% from 2013 to 2014, so the same 5% rule applies.
+    big.add("0500000US51019")
     cols = ["total_est", "total_moe"] + [f"{g}_{k}" for g in GROUPS for k in ("est", "moe")]
     out = []
     for gid, g in p.groupby("geoid", sort=False):
@@ -52,8 +60,8 @@ def main():
         # in place of accented letters).
         f = flag_text(gid, a, flags)
         if gid in big and a.balanced:
-            f += (" Because a boundary change moved its adult population by 5% or more in one year, "
-                  "it is left out of the ranked view.")
+            f += (" Its adult population moved 5% or more in the year its boundary changed, "
+                  "so it is left out of the ranked view.")
         out.append({"id": gid, "n": a["name"], "l": a.level, "b": bool(a.balanced) and gid not in big,
                     "f": f.strip(), "y": y})
     data = {

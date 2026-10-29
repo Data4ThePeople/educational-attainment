@@ -64,7 +64,8 @@ in percentage points, 2008 to 2025, for areas with values in every year.
    12% to 37% in the earlier year pairs we checked. Across states, counties and
    metro areas, a bigger drop in less than grade 1 goes with a bigger unusual
    drop in less than high school. So 2008 to 2025 changes in those two groups
-   include part of the question change. The viz dashes the 2024 to 2025 step
+   may include part of the question change. The result holds for any trend
+   base from 2008 to 2022. The viz dashes the 2024 to 2025 step
    for them and says so. Bachelor's, graduate and high school look clean.
 2. **A 2021 step in the less-than-grade-1 line.** It rose from 1.51% in 2019
    to 2.00% in 2021 nationally, and rose significantly in 42 states, against
@@ -87,7 +88,8 @@ in percentage points, 2008 to 2025, for areas with values in every year.
 6. **Metro boundaries.** 146 of 457 every-year metro areas changed counties
    with new OMB delineations. 111 had a change that moved their population 25
    and over by 5% or more in one year and are left out of the ranked view.
-   That leaves 346. The 5% cut is ours.
+   That leaves 346. The 5% cut is ours, and a jump in that year is not proof
+   the boundary caused it. Bedford County, VA is dropped by the same rule.
 7. **Wider 2025 margins.** The median MOE of the bachelor's share rose 7% to
    11% from 2024 to 2025, depending on level. Tests that end in 2025 are a
    little harder to pass.

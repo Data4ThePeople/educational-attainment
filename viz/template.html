@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Educational Attainment Over Time</title>
-<meta name="description" content="Educational attainment of adults 25 and over, 2008 to 2025, for every U.S. nation, state, county, metro area and place in the American Community Survey 1-year estimates.">
+<meta name="description" content="Educational attainment of adults 25 and over, 2008 to 2025, for the U.S., regions, states, and the counties, metro and micro areas and places with 65,000 or more people, from American Community Survey 1-year estimates.">
 <style>
 :root {
   color-scheme: light;
@@ -81,7 +81,7 @@ details { margin-top: 8px; font-size: 13px; color: var(--ink2); }
 <div class="app">
 <div class="card">
   <h1>Educational attainment of adults 25 and over, 2008 to 2025</h1>
-  <p class="sub">American Community Survey 1-year estimates for the nation, states, counties, metro areas and places with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.</p>
+  <p class="sub">American Community Survey 1-year estimates for the nation, regions, divisions, states, Puerto Rico, and the counties, metro and micro areas and places with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.</p>
   <div class="tabs" role="tablist">
     <button role="tab" id="tab-one" aria-selected="true">One place over time</button>
     <button role="tab" id="tab-rank" aria-selected="false">Ranked change</button>
@@ -114,7 +114,7 @@ details { margin-top: 8px; font-size: 13px; color: var(--ink2); }
   </section>
 
   <div class="foot">
-    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003. B15002 fills years where B15003 was withheld. No standard 1-year estimates were released for 2020. Bands show the 90% margin of error, from the Census Bureau's formulas for derived estimates.</span>
+    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003. B15002 fills years where B15003 was published with no values. No standard 1-year estimates were released for 2020. Bands show the 90% margin of error, approximated with the Census Bureau's formulas for derived estimates.</span>
     <span>Built by Data 4 The People</span>
   </div>
 </div>
@@ -132,17 +132,21 @@ const GROUPS = DATA.groups;            // [{key, name}]
 const YEARS = DATA.years;              // published years, 2020 absent
 const FIRST = YEARS[0], LAST = YEARS[YEARS.length - 1];
 const LEVEL_NAMES = DATA.levelNames;
+const LEVEL_PLURAL = {region: "regions", division: "divisions", state: "states", pr: "Puerto Rico", cbsa: "metro and micro areas", county: "counties", place: "places"};
 const LEVEL_SINGULAR = {region: "region", division: "division", state: "state", pr: "area", cbsa: "metro or micro area", county: "county", place: "place"};
 const COLORS = ["--s1", "--s2", "--s3", "--s4", "--s5"];
 const BREAK = new Set(DATA.break2025);
 // The national 2024-to-2025 drop in "less than high school" beyond its
 // 2021-2024 average yearly change (FINDINGS.md, check 2).
-function excessDrop() {
-  const us = DATA.areas.find(a => a.l === "us"), i = GROUPS.findIndex(g => g.key === "lths");
+// Change from LAST-1 to LAST beyond the LAST-4..LAST-1 average yearly change,
+// national share, for one group (FINDINGS.md, side effect 1).
+function beyondTrend(key) {
+  const us = DATA.areas.find(a => a.l === "us"), i = GROUPS.findIndex(g => g.key === key);
   const s = y => sharesFor(us, y)[i].p, base = LAST - 4;
-  return -((s(LAST) - s(LAST - 1)) - (s(LAST - 1) - s(base)) / 3);
+  return (s(LAST) - s(LAST - 1)) - (s(LAST - 1) - s(base)) / 3;
 }
-const breakNote = () => `In ${LAST} the survey merged its three lowest answers into one. Our check finds that, nationally, the share with less than high school fell about ${fmt(excessDrop())} percentage points more than its recent trend, and the change shows up mostly in "some college." Dashed lines mark the ${LAST - 1} to ${LAST} step for those two groups.`;
+const breakFacts = () => `In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with less than high school fell ${fmt(-beyondTrend("lths"))} percentage points more than its ${LAST - 4}–${LAST - 1} trend, and the some college or associate's share rose ${fmt(beyondTrend("somecol"))} points more than its trend.`;
+const breakNote = () => breakFacts() + ` Dashed lines mark that step for those two groups.`;
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const fmt = (x, d = 1) => x.toFixed(d);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
@@ -311,7 +315,8 @@ function renderOne(a) {
     const r = hit.getBoundingClientRect();
     const yr = Math.round(FIRST + (ev.clientX - r.left) / r.width * (LAST - FIRST));
     xh.setAttribute("x1", x(yr)); xh.setAttribute("x2", x(yr)); xh.setAttribute("visibility", "visible");
-    if (!S[yr]) { showTip(`<b>${yr}</b>No standard 1-year estimates were released for ${yr}.`, ev); return; }
+    if (!S[yr]) { showTip(`<b>${yr}</b>` + (yr === 2020 ? "No standard 1-year estimates were released for 2020."
+      : `No values for ${esc(a.n)} in ${yr}: it was under 65,000 people, or the tables were published with no values.`), ev); return; }
     showTip(`<b>${a.n}, ${yr}</b>` + GROUPS.map((g, i) =>
       `<div class="row"><span>${g.name}</span><span>${fmt(S[yr][i].p)}% ± ${fmt(S[yr][i].moe)}</span></div>`).join(""), ev);
   });
@@ -323,7 +328,8 @@ function renderOne(a) {
   if (a.y[LAST]) notes.push(breakNote());
   const tests = GROUPS.map((g, i) => ({g, t: ztest(S[y0][i], S[y1][i])}));
   const sig = tests.filter(o => o.t.sig).map(o => `${o.g.name.toLowerCase()} (${o.t.diff > 0 ? "+" : ""}${fmt(o.t.diff)} points)`);
-  notes.push(sig.length
+  if (years.length < 2) notes.push("Only one year is published for this area, so there is no change to test.");
+  else notes.push(sig.length
     ? `From ${y0} to ${y1}, these changes pass the Census Bureau's test at 90% confidence: ${sig.join("; ")}.`
     : `None of the changes from ${y0} to ${y1} pass the Census Bureau's test at 90% confidence.`);
   document.getElementById("notes-one").innerHTML = notes.map(n => `<div class="note">${esc(n)}</div>`).join("");
@@ -344,6 +350,7 @@ grp.value = "ba";
 function renderRank() {
   const L = lvl.value, gi = GROUPS.findIndex(g => g.key === grp.value), G = GROUPS[gi];
   const pool = DATA.areas.filter(a => a.l === L && a.b);
+  const dropped = DATA.areas.filter(a => a.l === L && !a.b && YEARS.every(y => a.y[y])).length;
   const rows = pool.map(a => {
     const s0 = sharesFor(a, FIRST)[gi], s1 = sharesFor(a, LAST)[gi];
     return {a, s0, s1, t: ztest(s0, s1)};
@@ -351,11 +358,11 @@ function renderRank() {
   const sig = rows.filter(r => r.t.sig).sort((p, q) => q.t.diff - p.t.diff);
   const up = sig.filter(r => r.t.diff > 0).length, down = sig.length - up;
   document.getElementById("intro-rank").textContent =
-    `The chart below ranks each ${LEVEL_SINGULAR[L]} by how much the ${G.name.toLowerCase()} share changed from ${FIRST} to ${LAST}. It includes only the ${pool.length} areas published in every year, and shows only the ${sig.length} changes that pass the Census Bureau's test at 90% confidence: ${up} up and ${down} down.`;
+    `The chart below ranks each ${LEVEL_SINGULAR[L]} by how much the ${G.name.toLowerCase()} share changed from ${FIRST} to ${LAST}. It includes only the ${pool.length} areas published in every year${dropped ? `, leaving out ${dropped} more whose adult population moved 5% or more in a year their boundary changed` : ""}, and shows only the ${sig.length} changes that pass the Census Bureau's test at 90% confidence: ${up} up and ${down} down.`;
   document.getElementById("title-rank").textContent =
-    `Change in ${G.name.toLowerCase()} share of adults 25 and over, ${FIRST} to ${LAST}, ${LEVEL_NAMES[L].toLowerCase()} (percentage points)`;
+    `Change in ${G.name.toLowerCase()} share of adults 25 and over, ${FIRST} to ${LAST}, ${LEVEL_PLURAL[L]} (percentage points)`;
   const box = document.getElementById("chart-rank");
-  document.getElementById("note-rank").innerHTML = BREAK.has(G.key) ? `<div class="note">${esc(breakNote().split(" Dashed")[0])} Some of the change shown here comes from that.</div>` : "";
+  document.getElementById("note-rank").innerHTML = BREAK.has(G.key) ? `<div class="note">${esc(breakFacts())} Changes ending in ${LAST} for this group include that step.</div>` : "";
   if (!sig.length) { box.innerHTML = `<p class="note">No area at this level passes the test for this group.</p>`; return; }
   const W = Math.max(300, box.clientWidth - 4), rowH = 20;
   const nameW = Math.min(240, W * 0.42), valW = 46;
