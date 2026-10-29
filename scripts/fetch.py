@@ -41,6 +41,10 @@ LEVELS = {
     "place": {"for": "place:*", "in": "state:*"},
 }
 DETAIL_TABLES = ["B15003", "B15002", "B99151"]
+# Median earnings by educational attainment, for the pay views of the map.
+EARN_TABLE = "B20004"
+EARN_YEARS = [y for y in YEARS if y >= 2015]
+EARN_LEVELS = ["us", "state", "county", "cbsa"]
 
 
 def scrub(text):
@@ -72,7 +76,8 @@ def save(path, text):
 def pull_meta(year, force):
     ydir = RAW / str(year)
     base = BASE.format(year=year)
-    for table, sub in [(t, "") for t in DETAIL_TABLES] + [("S1501", "/subject")]:
+    tables = DETAIL_TABLES + ([EARN_TABLE] if year in EARN_YEARS else [])
+    for table, sub in [(t, "") for t in tables] + [("S1501", "/subject")]:
         out = ydir / f"variables_{table}.json"
         if out.exists() and not force:
             continue
@@ -120,6 +125,9 @@ def main():
         for table in DETAIL_TABLES:
             for level, spec in LEVELS.items():
                 print(year, table, level, pull_level(year, table, level, spec, force=force), flush=True)
+        if year in EARN_YEARS:
+            for level in EARN_LEVELS:
+                print(year, EARN_TABLE, level, pull_level(year, EARN_TABLE, level, LEVELS[level], force=force), flush=True)
         if year in TIEOUT_YEARS:
             for level in ("us", "state"):
                 print(year, "S1501", level,

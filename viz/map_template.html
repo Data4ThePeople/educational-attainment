@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Educational Attainment Map</title>
-<meta name="description" content="Map of the share of adults 25 and over with a bachelor's degree or more, and other education levels, in 2025 for U.S. states, and for counties and metro and micro areas with 65,000 or more people, from American Community Survey 1-year estimates.">
+<title>Education and Pay Map</title>
+<meta name="description" content="Map of educational attainment and inflation-adjusted median pay by education for adults 25 and over, 2015 and 2025, for U.S. states, and for counties and metro and micro areas with 65,000 or more people, from American Community Survey 1-year estimates.">
 <style>
 :root {
   color-scheme: light;
@@ -84,11 +84,12 @@ table.data th { position: sticky; top: 0; background: var(--surface); }
 <body>
 <div class="app">
 <div class="card">
-  <h1>Educational attainment of adults 25 and over, 2015 to 2025</h1>
+  <h1 id="h1"></h1>
   <p class="sub">American Community Survey 1-year estimates for states, and for counties and metro and micro areas with 65,000 or more people.</p>
   <div class="controls">
+    <label>Topic <select id="topic" aria-label="Topic"></select></label>
     <label>Show <select id="lvl" aria-label="Geography level"></select></label>
-    <label>Education <select id="msr" aria-label="Education level"></select></label>
+    <label><span id="msr-label">Education</span> <select id="msr" aria-label="Measure"></select></label>
     <label>View <select id="view" aria-label="View"></select></label>
   </div>
   <p id="intro"></p>
@@ -98,7 +99,7 @@ table.data th { position: sticky; top: 0; background: var(--surface); }
   <div id="notes"></div>
   <details id="tbl-wrap"><summary>Show the numbers</summary><div class="tbl" id="tbl"></div></details>
   <div class="foot">
-    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. No standard 1-year estimates were released for 2020. Changes are computed before rounding. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.</span>
+    <span id="source"></span>
     <span>Built by Data 4 The People</span>
   </div>
 </div>
@@ -114,7 +115,9 @@ if (window.self !== window.top) document.documentElement.setAttribute("data-them
 
 const Z90 = 1.645;
 const GROUPS = DATA.groups;                 // ["lths","hs","somecol","ba","grad"]
-const LAST = DATA.last, FIRST = DATA.first;
+const LAST = DATA.last, FIRST = DATA.first, NYRS = LAST - FIRST;
+// 2015 dollars to 2025 dollars with the R-CPI-U-RS annual averages.
+const CPI_F = DATA.cpi[LAST] / DATA.cpi[FIRST];
 const BINS = ["--b1", "--b2", "--b3", "--b4", "--b5", "--b6"];
 const OBINS = ["--o1", "--o2", "--o3", "--o4", "--o5", "--o6"];   // less than high school
 const LEVELS = [
@@ -122,49 +125,136 @@ const LEVELS = [
   {key: "county", label: "Counties", one: "county", by: "county"},
   {key: "cbsa", label: "Metro and micro areas", one: "metro or micro area", by: "metro or micro area"},
 ];
-const MEASURES = [
-  {key: "grad", label: "Graduate or professional degree", phrase: "a graduate or professional degree", groups: ["grad"]},
-  {key: "baplus", label: "Bachelor's degree or more", phrase: "a bachelor's degree or more", groups: ["ba", "grad"]},
-  {key: "scplus", label: "Some college or more", phrase: "at least some college", groups: ["somecol", "ba", "grad"], brk: true},
-  {key: "hsplus", label: "High school or more", phrase: "at least a high school diploma or equivalent", groups: ["hs", "somecol", "ba", "grad"], brk: true},
-  {key: "lths", label: "Less than high school", phrase: "less than a high school education", groups: ["lths"], brk: true, fallBlue: true},
+const TOPICS = [
+  {key: "edu", label: "Education", msrLabel: "Education"},
+  {key: "pay", label: "Pay", msrLabel: "Pay"},
 ];
 // Change colors from largest fall to largest rise: orange, then blue. For
 // less than high school the order flips, so a fall is blue there too.
 const DIV = ["--n3", "--n2", "--n1", "--p1", "--p2", "--p3"];
 const divColor = (i, m) => DIV[m.fallBlue ? DIV.length - 1 - i : i];
-const VIEWS = [
-  {key: "level", label: `Share in ${LAST}`},
-  {key: "change", label: `Change, ${FIRST} to ${LAST}`},
-];
 const fmt = (x, d = 1) => x.toFixed(d);
 const signed = (x, d = 1) => (x > 0 ? "+" : x < 0 ? "−" : "") + fmt(Math.abs(x), d);
+const usd = x => "$" + Math.round(x).toLocaleString("en-US");
+const kusd = x => "$" + Math.round(x / 1000) + "k";
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
-const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 
 // ---- Shares and MOEs, recomputed from published counts ----
 // Row layout: [total, totalMoe, lths, lthsMoe, hs, hsMoe, somecol, somecolMoe, ba, baMoe, grad, gradMoe]
 // Sum MOE: handbook (2020) ch. 8 formula (1). Share MOE: formula (6), or (7)
 // when the value under the root is negative.
-function measure(row, m) {
-  if (!row) return null;
+function share(row, groups) {
   let x = 0, mx2 = 0;
-  m.groups.forEach(g => { const i = GROUPS.indexOf(g); x += row[2 + 2 * i]; mx2 += row[3 + 2 * i] ** 2; });
+  groups.forEach(g => { const i = GROUPS.indexOf(g); x += row[2 + 2 * i]; mx2 += row[3 + 2 * i] ** 2; });
   const y = row[0], my = row[1], p = x / y;
   let rad = mx2 - p * p * my * my;
   if (rad < 0) rad = mx2 + p * p * my * my;
-  return {p: 100 * p, moe: 100 * Math.sqrt(rad) / y};
+  return {v: 100 * p, moe: 100 * Math.sqrt(rad) / y};
 }
 // Handbook ch. 7 formula (3).
 function ztest(a, b) {
-  const z = (b.p - a.p) / Math.sqrt((a.moe / Z90) ** 2 + (b.moe / Z90) ** 2);
-  return {diff: b.p - a.p, z, sig: Math.abs(z) > Z90};
+  const z = (b.v - a.v) / Math.sqrt((a.moe / Z90) ** 2 + (b.moe / Z90) ** 2);
+  return {z, sig: Math.abs(z) > Z90};
 }
-// National change from LAST-1 to LAST beyond its LAST-4..LAST-1 average yearly change.
-function beyondTrend(m) {
-  const s = y => measure(DATA.us[y], m).p;
+const cagr = (a, b) => 100 * ((b / a) ** (1 / NYRS) - 1);
+
+// ---- Pay, from published medians (B20004) ----
+// Pay row layout: [all, allMoe, lths, lthsMoe, hs, hsMoe, somecol, somecolMoe, ba, baMoe, grad, gradMoe],
+// each year in its own dollars. 2015 values are moved to 2025 dollars with CPI_F.
+function median(a, y, gi) {
+  const r = a.e && a.e[y];
+  if (!r) return null;
+  const f = y === FIRST ? CPI_F : 1;
+  return {v: f * r[2 * gi], moe: f * r[2 * gi + 1]};
+}
+// Each group's median weighted by an education mix (shares of adults 25 and
+// over from B15003, row w). Weights are treated as fixed. This is an index,
+// not a median. MOE of the weighted sum: formula (1) on w * MOE.
+function mixPay(a, y, w) {
+  let v = 0, m2 = 0;
+  for (let i = 0; i < GROUPS.length; i++) {
+    const md = median(a, y, i + 1);
+    if (!md) return null;
+    const wi = w[2 + 2 * i] / w[0];
+    v += wi * md.v; m2 += (wi * md.moe) ** 2;
+  }
+  return {v, moe: Math.sqrt(m2)};
+}
+// Ratio MOE: handbook ch. 8 formula (7).
+function ratio(x, y) {
+  const r = x.v / y.v;
+  return {v: r, moe: Math.sqrt(x.moe ** 2 + r * r * y.moe ** 2) / y.v};
+}
+
+// ---- Measures ----
+// Each measure gives level(a): {v, moe} in LAST, or null; and comp(a): the
+// FIRST-to-LAST comparison {then, now, d, sig}, or null. d is what the
+// change view maps; sig is null when there is no test.
+const comparable = a => a && a.c && a.v[LAST] && a.v[FIRST];
+function eduMeasure(key, label, phrase, groups, extra = {}) {
+  return Object.assign({topic: "edu", key, label, phrase, unit: "points",
+    level: a => a && a.v[LAST] ? share(a.v[LAST], groups) : null,
+    comp: a => {
+      if (!comparable(a)) return null;
+      const then = share(a.v[FIRST], groups), now = share(a.v[LAST], groups);
+      return {then, now, d: now.v - then.v, sig: ztest(then, now).sig};
+    }}, extra);
+}
+function payMeasure(key, label, phrase, gi) {
+  return {topic: "pay", key, label, phrase, unit: "pct",
+    level: a => a && a.v[LAST] ? median(a, LAST, gi) : null,
+    comp: a => {
+      if (!comparable(a)) return null;
+      const then = median(a, FIRST, gi), now = median(a, LAST, gi);
+      if (!then || !now) return null;
+      return {then, now, d: cagr(then.v, now.v), sig: ztest(then, now).sig};
+    }};
+}
+const MEASURES = [
+  eduMeasure("grad", "Graduate or professional degree", "a graduate or professional degree", ["grad"]),
+  eduMeasure("baplus", "Bachelor's degree or more", "a bachelor's degree or more", ["ba", "grad"]),
+  eduMeasure("scplus", "Some college or more", "at least some college", ["somecol", "ba", "grad"], {brk: true}),
+  eduMeasure("hsplus", "High school or more", "at least a high school diploma or equivalent", ["hs", "somecol", "ba", "grad"], {brk: true}),
+  eduMeasure("lths", "Less than high school", "less than a high school education", ["lths"], {brk: true, fallBlue: true}),
+  payMeasure("pay", "All workers", "all workers", 0),
+  {topic: "pay", key: "payfixed", label: `All workers, education held at ${FIRST} mix`, phrase: `all workers, with the education mix held at ${FIRST}`,
+    unit: "pct", changeOnly: true, level: () => null,
+    comp: a => {
+      if (!comparable(a)) return null;
+      const then = mixPay(a, FIRST, a.v[FIRST]), now = mixPay(a, LAST, a.v[FIRST]);
+      if (!then || !now) return null;
+      const r = ratio(now, then);
+      return {then, now, d: cagr(then.v, now.v), sig: Math.abs(r.v - 1) / (r.moe / Z90) > Z90, index: true};
+    }},
+  {topic: "pay", key: "paymix", label: "Education mix part of pay growth", phrase: "the education mix part of yearly pay growth",
+    unit: "ppy", changeOnly: true, level: () => null,
+    comp: a => {
+      if (!comparable(a)) return null;
+      const then = mixPay(a, FIRST, a.v[FIRST]), held = mixPay(a, LAST, a.v[FIRST]), now = mixPay(a, LAST, a.v[LAST]);
+      if (!then || !held || !now) return null;
+      return {then, now, held, d: cagr(then.v, now.v) - cagr(then.v, held.v), sig: null, index: true};
+    }},
+  payMeasure("pgrad", "Graduate or professional degree", "a graduate or professional degree", 5),
+  payMeasure("pba", "Bachelor's degree", "a bachelor's degree", 4),
+  payMeasure("psome", "Some college or associate's degree", "some college or an associate's degree", 3),
+  payMeasure("phs", "High school or equivalent", "a high school diploma or equivalent", 2),
+  payMeasure("plths", "Less than high school", "less than a high school education", 1),
+];
+const PAY_WHO = m => m.key === "pay" || m.key === "payfixed" ? "workers 25 and over" : `workers 25 and over with ${m.phrase}`;
+
+// National yearly pay change, all workers and with education held at FIRST.
+function usPay() {
+  const a = {c: true, v: DATA.us, e: DATA.usPay};
+  const get = k => MEASURES.find(m => m.key === k).comp(a);
+  const mix = get("paymix");
+  return {all: get("pay"), held: get("payfixed"), own: {d: mix.d + get("payfixed").d}};
+}
+// National share change from LAST-1 to LAST beyond its LAST-4..LAST-1 average yearly change.
+function beyondTrend(groups) {
+  const s = y => share(DATA.us[y], groups).v;
   return (s(LAST) - s(LAST - 1)) - (s(LAST - 1) - s(LAST - 4)) / 3;
 }
+const GROUPS_OF = {scplus: ["somecol", "ba", "grad"], hsplus: ["hs", "somecol", "ba", "grad"], lths: ["lths"]};
 
 // Areas by id; duplicate keys are a hard failure.
 const AREA = new Map();
@@ -174,41 +264,56 @@ for (const a of DATA.areas) {
 }
 
 // ---- Controls ----
-const lvlSel = document.getElementById("lvl"), msrSel = document.getElementById("msr"), viewSel = document.getElementById("view");
-VIEWS.forEach(v => viewSel.add(new Option(v.label, v.key)));
+const topicSel = document.getElementById("topic"), lvlSel = document.getElementById("lvl"),
+  msrSel = document.getElementById("msr"), viewSel = document.getElementById("view");
+TOPICS.forEach(t => topicSel.add(new Option(t.label, t.key)));
 LEVELS.forEach(l => lvlSel.add(new Option(l.label, l.key)));
-MEASURES.forEach(m => msrSel.add(new Option(m.label, m.key)));
-lvlSel.value = "county"; msrSel.value = "baplus"; viewSel.value = "level";
+const DEFAULT_MSR = {edu: "baplus", pay: "pay"};
+function fillMeasures() {
+  msrSel.innerHTML = "";
+  MEASURES.filter(m => m.topic === topicSel.value).forEach(m => msrSel.add(new Option(m.label, m.key)));
+  document.getElementById("msr-label").textContent = TOPICS.find(t => t.key === topicSel.value).msrLabel;
+}
+function fillViews() {
+  const m = MEASURES.find(x => x.key === msrSel.value), keep = viewSel.value;
+  viewSel.innerHTML = "";
+  const pay = m.topic === "pay";
+  if (!m.changeOnly) viewSel.add(new Option(pay ? `Median pay in ${LAST}` : `Share in ${LAST}`, "level"));
+  viewSel.add(new Option(pay ? `Yearly change, ${FIRST} to ${LAST}` : `Change, ${FIRST} to ${LAST}`, "change"));
+  viewSel.value = [...viewSel.options].some(o => o.value === keep) ? keep : viewSel.options[0].value;
+}
 const h = new URLSearchParams(location.hash.slice(1));
-if (LEVELS.some(l => l.key === h.get("level"))) lvlSel.value = h.get("level");
-if (MEASURES.some(m => m.key === h.get("measure"))) msrSel.value = h.get("measure");
-if (VIEWS.some(v => v.key === h.get("view"))) viewSel.value = h.get("view");
+topicSel.value = TOPICS.some(t => t.key === h.get("topic")) ? h.get("topic") : "edu";
+lvlSel.value = LEVELS.some(l => l.key === h.get("level")) ? h.get("level") : "county";
+fillMeasures();
+msrSel.value = MEASURES.some(m => m.topic === topicSel.value && m.key === h.get("measure")) ? h.get("measure") : DEFAULT_MSR[topicSel.value];
+viewSel.add(new Option("", h.get("view") === "change" ? "change" : "level")); viewSel.value = viewSel.options[0].value;
+fillViews();
 
-// ---- Bins: six classes with about equal counts of areas, rounded to whole percents ----
-function breaks(values) {
+// ---- Bins: six classes with about equal counts of areas, rounded to a step ----
+function breaks(values, step) {
   const v = values.slice().sort((a, b) => a - b), out = [];
-  for (let k = 1; k < BINS.length; k++) out.push(Math.round(v[Math.floor(k * v.length / BINS.length)]));
+  for (let k = 1; k < BINS.length; k++) out.push(step * Math.round(v[Math.floor(k * v.length / BINS.length)] / step));
   return out.filter((b, i) => i === 0 || b > out[i - 1]);
 }
 const binOf = (p, br) => { let i = 0; while (i < br.length && p >= br[i]) i++; return i; };
 
-// ---- Change classes: symmetric around zero, step k in whole or half points ----
-// k is a round number near a third of the 90th percentile of the size of the
-// changes that pass the test, so most colored areas fall in the first three steps.
-function changeStep(diffs) {
+// ---- Change classes: symmetric around zero, in steps of k and 2k ----
+// k is the round number nearest a third of the 90th percentile of the size of
+// the mapped changes, so most colored areas fall in the first three steps.
+const STEPS = {points: [0.5, 1, 1.5, 2, 2.5, 3, 4, 5], pct: [0.1, 0.2, 0.25, 0.5, 0.75, 1, 1.5, 2], ppy: [0.05, 0.1, 0.2, 0.25, 0.5, 0.75, 1]};
+function changeStep(diffs, unit) {
   const v = diffs.map(Math.abs).sort((a, b) => a - b);
   const target = v.length ? v[Math.floor(0.9 * (v.length - 1))] / 3 : 1;
-  return [0.5, 1, 1.5, 2, 2.5, 3, 4, 5].reduce((b, x) => Math.abs(x - target) < Math.abs(b - target) ? x : b);
+  return STEPS[unit].reduce((b, x) => Math.abs(x - target) < Math.abs(b - target) ? x : b);
 }
 function changeClass(d, k) {
   if (d < 0) return d <= -2 * k ? 0 : d <= -k ? 1 : 2;
   return d >= 2 * k ? 5 : d >= k ? 4 : 3;
 }
-function cmp(a, m) {
-  if (!a || !a.c || !a.v[LAST] || !a.v[FIRST]) return null;
-  const now = measure(a.v[LAST], m), then = measure(a.v[FIRST], m);
-  return {now, then, t: ztest(then, now)};
-}
+const num = x => String(+x.toFixed(2));
+const UNIT = {points: " points", pct: "% a year", ppy: " points a year"};
+const fmtD = (d, unit) => signed(d, unit === "points" ? 1 : 2) + UNIT[unit];
 
 // ---- Tooltip ----
 const tip = document.getElementById("tip");
@@ -221,6 +326,8 @@ function showTip(html, ev) {
   tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
 }
 const hideTip = () => { tip.style.display = "none"; };
+const row = (k, v) => `<div class="row"><span>${k}</span><span>${v}</span></div>`;
+const fmtLevel = (x, m) => m.topic === "pay" ? `${usd(x.v)} ± ${usd(x.moe)}` : `${fmt(x.v)}% ± ${fmt(x.moe)}`;
 
 function tipHtml(feat, L, m) {
   const a = AREA.get(feat.id);
@@ -228,17 +335,28 @@ function tipHtml(feat, L, m) {
     return `<b>${esc(a ? a.n : feat.n)}</b><div class="sm">No ${LAST} 1-year estimate. ` +
       (L.key === "state" ? "" : "The Census Bureau publishes 1-year estimates only for areas with 65,000 or more people.") + `</div>`;
   }
-  const now = measure(a.v[LAST], m);
-  let html = `<b>${esc(a.n)}</b><div class="row"><span>${LAST}</span><span>${fmt(now.p)}% ± ${fmt(now.moe)}</span></div>`;
-  const c = cmp(a, m);
+  let html = `<b>${esc(a.n)}</b>`;
+  const lv = m.level(a), c = m.comp(a);
+  if (m.key === "payfixed" || m.key === "paymix") {
+    if (!c) return html + `<div class="sm">${esc(a.why || `No comparable ${FIRST} and ${LAST} values.`)}</div>`;
+    const all = MEASURES.find(x => x.key === "pay").comp(a), held = MEASURES.find(x => x.key === "payfixed").comp(a);
+    const mix = MEASURES.find(x => x.key === "paymix").comp(a);
+    html += (all ? row("All workers, median", fmtD(all.d, "pct")) : "") +
+      row(`Education held at ${FIRST} mix`, fmtD(held.d, "pct")) +
+      row("Education mix part", fmtD(mix.d, "ppy")) +
+      `<div class="sm">Yearly change, ${FIRST} to ${LAST}, after inflation. ` +
+      (held.sig ? "The held-mix change passes" : "The held-mix change does not pass") + ` the Census Bureau's test at 90% confidence.</div>`;
+    return html;
+  }
+  if (lv) html += row(LAST, fmtLevel(lv, m));
+  else if (m.topic === "pay") return html + `<div class="sm">No ${LAST} median pay published for this group.</div>`;
   if (c) {
-    const {then, t} = c;
-    html += `<div class="row"><span>${FIRST}</span><span>${fmt(then.p)}% ± ${fmt(then.moe)}</span></div>` +
-      `<div class="row"><span>Change</span><span>${signed(t.diff)} points</span></div>` +
-      `<div class="sm">${t.sig ? "This change passes" : "This change does not pass"} the Census Bureau's test at 90% confidence.` +
+    html += row(m.topic === "pay" ? `${FIRST}, in ${LAST} dollars` : FIRST, fmtLevel(c.then, m)) +
+      row(m.topic === "pay" ? "Yearly change" : "Change", fmtD(c.d, m.unit)) +
+      `<div class="sm">${c.sig ? "This change passes" : "This change does not pass"} the Census Bureau's test at 90% confidence.` +
       (m.brk ? ` Part of it may come from the ${LAST} survey changes (see note below the map).` : "") + `</div>`;
   } else {
-    html += `<div class="sm">${esc(a.why || "No comparable " + FIRST + " value.")}</div>`;
+    html += `<div class="sm">${esc(a.why || `No comparable ${FIRST} value.`)}</div>`;
   }
   return html;
 }
@@ -247,50 +365,82 @@ function tipHtml(feat, L, m) {
 let current = [];
 function render() {
   const L = LEVELS.find(l => l.key === lvlSel.value), m = MEASURES.find(x => x.key === msrSel.value);
-  const change = viewSel.value === "change";
-  try { history.replaceState(null, "", `#level=${L.key}&measure=${m.key}&view=${viewSel.value}`); } catch (e) {}
+  const pay = m.topic === "pay", change = viewSel.value === "change";
+  try { history.replaceState(null, "", `#topic=${topicSel.value}&level=${L.key}&measure=${m.key}&view=${viewSel.value}`); } catch (e) {}
+  document.getElementById("h1").textContent = pay
+    ? `Median pay of workers 25 and over by education, ${FIRST} to ${LAST}`
+    : `Educational attainment of adults 25 and over, ${FIRST} to ${LAST}`;
   const feats = GEO[L.key];
   let fillOf, legend, intro, title;
   const noEst = feats.filter(f => { const a = AREA.get(f.id); return !(a && a.v[LAST]); }).length;
   const cbsaKey = L.key === "cbsa" ? `<span class="nd"><i style="background:var(--surface)"></i>Not in a metro or micro area</span>` : "";
+  const hover = ` Hover over or tap an area to see ${change ? "both years and the change" : `its value, its margin of error and its change since ${FIRST}`}.`;
 
   if (!change) {
-    const vals = [];
-    feats.forEach(f => { const a = AREA.get(f.id); if (a && a.v[LAST]) vals.push(measure(a.v[LAST], m).p); });
-    const ramp = m.fallBlue ? OBINS : BINS;
-    const br = breaks(vals), off = BINS.length - (br.length + 1);   // use the darker end if fewer classes
-    const lo = Math.floor(Math.min(...vals)), hi = Math.ceil(Math.max(...vals)), edges = [lo, ...br, hi];
-    fillOf = a => a && a.v[LAST] ? `var(${ramp[off + binOf(measure(a.v[LAST], m).p, br)]})` : "var(--nodata)";
+    const vals = new Map();
+    feats.forEach(f => { const v = m.level(AREA.get(f.id)); if (v) vals.set(f.id, v.v); });
+    const ramp = m.fallBlue ? OBINS : BINS, step = pay ? 1000 : 1;
+    const br = breaks([...vals.values()], step), off = BINS.length - (br.length + 1);   // use the darker end if fewer classes
+    const lo = step * Math.floor(Math.min(...vals.values()) / step), hi = step * Math.ceil(Math.max(...vals.values()) / step);
+    const edges = [lo, ...br, hi], lab = pay ? kusd : (x => String(x));
+    fillOf = a => vals.has(a && a.id) ? `var(${ramp[off + binOf(vals.get(a.id), br)]})` : "var(--nodata)";
     // Each class holds values from its lower edge up to, not including, the next edge.
     legend = edges.slice(0, -1).map((e, i) =>
-      `<span class="sw"><i style="background:var(${ramp[off + i]})"></i><span>${e}–${edges[i + 1]}${i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
-      (noEst ? `<span class="nd"><i></i>No ${LAST} 1-year estimate</span>` : "") + cbsaKey;
-    intro = `The map below shows the share of adults 25 and over with ${m.phrase} in each ${L.one} in ${LAST}.` +
-      (noEst ? ` Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.` : "") +
-      ` Hover over or tap an area to see its value, its margin of error and its change since ${FIRST}.`;
-    title = `Adults 25 and over with ${m.phrase}, by ${L.by}, ${LAST} (percent)`;
+      `<span class="sw"><i style="background:var(${ramp[off + i]})"></i><span>${lab(e)}–${lab(edges[i + 1])}${!pay && i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
+      (feats.length - vals.size ? `<span class="nd"><i></i>No ${LAST} 1-year estimate</span>` : "") + cbsaKey;
+    const gray = feats.length - vals.size;
+    intro = (pay
+      ? `The map below shows the ${LAST} median pay of ${PAY_WHO(m)} in each ${L.one}.`
+      : `The map below shows the share of adults 25 and over with ${m.phrase} in each ${L.one} in ${LAST}.`) +
+      (gray ? ` Gray areas have no ${LAST} 1-year estimate${pay && gray > noEst ? " for this group" : ""}` +
+              (gray === noEst ? ", because they have fewer than 65,000 people." : ".") : "") + hover;
+    title = pay ? `Median pay of ${PAY_WHO(m)}, by ${L.by}, ${LAST} (dollars)`
+      : `Adults 25 and over with ${m.phrase}, by ${L.by}, ${LAST} (percent)`;
   } else {
-    const cs = new Map(), sig = [];
-    feats.forEach(f => { const c = cmp(AREA.get(f.id), m); if (c) { cs.set(f.id, c); if (c.t.sig) sig.push(c.t.diff); } });
-    const k = changeStep(sig), kk = fmt(k, k % 1 ? 1 : 0), k2 = fmt(2 * k, (2 * k) % 1 ? 1 : 0);
-    const ns = cs.size - sig.length, none = feats.length - cs.size;
-    const present = new Set(sig.map(d => changeClass(d, k)));
-    const labels = [`Fell ${k2} or more`, `Fell ${kk} to ${k2}`, `Fell less than ${kk}`, `Rose less than ${kk}`, `Rose ${kk} to ${k2}`, `Rose ${k2} or more`];
+    const cs = new Map(), shown = [];
+    feats.forEach(f => { const c = m.comp(AREA.get(f.id)); if (c) { cs.set(f.id, c); if (c.sig !== false) shown.push(c.d); } });
+    const tested = m.key !== "paymix";
+    const k = changeStep(shown, m.unit), kk = num(k), k2 = num(2 * k);
+    const ns = cs.size - shown.length, none = feats.length - cs.size;
+    const present = new Set(shown.map(d => changeClass(d, k)));
+    const u = {points: "", pct: "% a year", ppy: " points a year"}[m.unit];
+    const labels = [`Fell ${k2}${u} or more`, `Fell ${kk} to ${k2}${u}`, `Fell less than ${kk}${u}`,
+                    `Rose less than ${kk}${u}`, `Rose ${kk} to ${k2}${u}`, `Rose ${k2}${u} or more`];
+    if (m.key === "paymix") labels.splice(0, 6, `−${k2} or less`, `−${k2} to −${kk}`, `−${kk} to 0`, `0 to +${kk}`, `+${kk} to +${k2}`, `+${k2} or more`);
     // Changes that do not pass the test are hatched, not colored.
-    fillOf = a => { const c = a && cs.get(a.id); return !c ? "var(--nodata)" : !c.t.sig ? "url(#hatch)" : `var(${divColor(changeClass(c.t.diff, k), m)})`; };
+    fillOf = a => { const c = a && cs.get(a.id); return !c ? "var(--nodata)" : c.sig === false ? "url(#hatch)" : `var(${divColor(changeClass(c.d, k), m)})`; };
     legend = DIV.map((_, i) => present.has(i) ? `<span class="nd"><i style="background:var(${divColor(i, m)})"></i>${labels[i]}</span>` : "").join("") +
       (ns ? `<span class="nd"><i class="hatch"></i>Change does not pass the test</span>` : "") +
       (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
-    intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.` +
-      ` Areas are colored only where the change passes the Census Bureau's test at 90% confidence` +
-      (ns ? `; the ${ns} of ${cs.size} that do not ${ns === 1 ? "is" : "are"} hatched.` : `, and all ${cs.size} do.`) +
-      (none ? ` Gray areas have no comparable ${FIRST} and ${LAST} values.` : "") +
-      ` Hover over or tap an area to see both values and the change.`;
-    title = `Change in adults 25 and over with ${m.phrase}, by ${L.by}, ${FIRST} to ${LAST} (percentage points)`;
+    const passText = !tested ? ` This measure is not tested for significance, so every area with values is colored.`
+      : ` Areas are colored only where the change passes the Census Bureau's test at 90% confidence` +
+        (ns ? `; the ${ns} of ${cs.size} that do not ${ns === 1 ? "is" : "are"} hatched.` : `, and all ${cs.size} do.`);
+    if (!pay) {
+      intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.`;
+      title = `Change in adults 25 and over with ${m.phrase}, by ${L.by}, ${FIRST} to ${LAST} (percentage points)`;
+    } else if (m.key === "paymix") {
+      intro = `The map below shows, for each ${L.one}, the part of yearly pay growth from ${FIRST} to ${LAST} that the shift in its education mix accounts for: the index's yearly growth with each year's own education mix, minus its yearly growth with the mix held at ${FIRST}, in percentage points.`;
+      title = `Education mix part of yearly pay growth, by ${L.by}, ${FIRST} to ${LAST} (percentage points a year)`;
+    } else if (m.key === "payfixed") {
+      intro = `The map below shows how pay changed each year from ${FIRST} to ${LAST} in each ${L.one} if its mix of education had stayed as it was in ${FIRST}, after inflation.`;
+      title = `Yearly change in pay with education held at the ${FIRST} mix, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
+    } else {
+      intro = `The map below shows the yearly change in median pay of ${PAY_WHO(m)} from ${FIRST} to ${LAST} in each ${L.one}, after inflation.`;
+      title = `Yearly change in median pay of ${PAY_WHO(m)}, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
+    }
+    intro += passText + (none ? ` Gray areas have no comparable ${FIRST} and ${LAST} values.` : "") + hover;
+  }
+  if (pay) {
+    const u = usPay();
+    intro = `Nationally, median pay for all workers 25 and over rose ${fmt(u.all.d, 2)}% a year from ${FIRST} to ${LAST} after inflation. ` +
+      `An index of each education group's median pay, weighted by the share of adults in each group, rose ${fmt(u.own.d, 2)}% a year with each year's own education mix and ${fmt(u.held.d, 2)}% a year with the mix held at ${FIRST}. ` + intro;
   }
   document.getElementById("intro").textContent = intro;
   document.getElementById("title").textContent = title;
   document.getElementById("legend").innerHTML = legend;
+  document.getElementById("source").textContent = pay
+    ? `Source: U.S. Census Bureau, American Community Survey 1-year estimates, tables B20004 (median earnings by educational attainment) and B15003 (B15002 where B15003 was published with no values); Bureau of Labor Statistics, R-CPI-U-RS. Boundaries: Census Bureau 2023 cartographic boundary files. Changes are computed before rounding. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.`
+    : `Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. No standard 1-year estimates were released for 2020. Changes are computed before rounding. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.`;
 
   let s = `<svg class="map" viewBox="0 0 ${GEO.w} ${GEO.h}" role="img" aria-label="${esc(title)}">` +
     `<defs><pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">` +
@@ -314,7 +464,16 @@ function render() {
   svg.addEventListener("pointerleave", () => { hideTip(); hl.setAttribute("d", ""); });
 
   const notes = [];
-  if (m.brk) notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${beyondTrend(m) < 0 ? "fell" : "rose"} ${fmt(Math.abs(beyondTrend(m)))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure may include that step.`);
+  if (m.brk) {
+    const bt = beyondTrend(GROUPS_OF[m.key]);
+    notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${bt < 0 ? "fell" : "rose"} ${fmt(Math.abs(bt))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure may include that step.`);
+  }
+  if (pay) {
+    notes.push(`Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers. ${FIRST} dollars are converted to ${LAST} dollars with the Bureau of Labor Statistics R-CPI-U-RS, the index the Census Bureau recommends for ACS dollar figures (${FIRST} to ${LAST}: ${fmt(100 * (CPI_F - 1))}% higher prices). Its ${LAST} average leaves out October ${LAST}, which was not collected during the federal funding lapse.`);
+    notes.push(`Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.`);
+    notes.push(`"Education held at ${FIRST} mix" weights each education group's median pay by the area's ${FIRST} share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Education mix part" is the same index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. It is not tested for significance. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
+    notes.push(`In ${LAST} the survey also collected less data during a federal funding lapse and used a new population base; both can affect ${LAST} pay estimates.`);
+  }
   if (L.key === "cbsa") notes.push(`Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.`);
   if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and, for metro and micro areas, only where the adult population moved less than 5% in each year its list of counties changed.`);
   if (L.key === "state") notes.push(`Puerto Rico is shown in the inset but is not part of the national figures.`);
@@ -325,23 +484,29 @@ function render() {
 // ---- Table view ----
 function renderTable() {
   const L = LEVELS.find(l => l.key === lvlSel.value), m = MEASURES.find(x => x.key === msrSel.value);
+  const pay = m.topic === "pay", change = viewSel.value === "change";
   const rows = GEO[L.key].map(f => AREA.get(f.id)).filter(a => a && a.v[LAST])
-    .map(a => {
-      const c = cmp(a, m);
-      return {a, now: measure(a.v[LAST], m), then: c && c.then, t: c && c.t};
-    }).sort(viewSel.value === "change"
-      ? (x, y) => (y.t ? y.t.diff : -Infinity) - (x.t ? x.t.diff : -Infinity) || y.now.p - x.now.p
-      : (x, y) => y.now.p - x.now.p);
-  document.getElementById("tbl").innerHTML =
-    `<table class="data"><thead><tr><th>${esc(L.label)}</th><th>${LAST}</th><th>${FIRST}</th><th>Change</th></tr></thead><tbody>` +
-    rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${fmt(r.now.p)} ± ${fmt(r.now.moe)}</td>` +
-      `<td>${r.then ? fmt(r.then.p) + " ± " + fmt(r.then.moe) : "–"}</td>` +
-      `<td>${r.t ? signed(r.t.diff) + (r.t.sig ? "" : " (does not pass the test)") : "–"}</td></tr>`).join("") +
-    `</tbody></table>`;
+    .map(a => ({a, lv: m.level(a), c: m.comp(a)}))
+    .filter(r => r.lv || r.c || m.changeOnly)
+    .sort(change ? (x, y) => (y.c ? y.c.d : -Infinity) - (x.c ? x.c.d : -Infinity) || x.a.n.localeCompare(y.a.n)
+                 : (x, y) => (y.lv ? y.lv.v : -Infinity) - (x.lv ? x.lv.v : -Infinity));
+  const cell = x => x ? (pay ? usd(x.v) : fmt(x.v)) + " ± " + (pay ? usd(x.moe) : fmt(x.moe)) : "–";
+  const chg = c => c ? signed(c.d, m.unit === "points" ? 1 : 2) + (c.sig === false ? " (does not pass the test)" : "") : "–";
+  let head, body;
+  if (m.changeOnly) {
+    const unitHead = m.unit === "ppy" ? "points a year" : "% a year";
+    head = `<th>${esc(L.label)}</th><th>${FIRST} index</th><th>${LAST} index</th><th>${m.key === "paymix" ? "Education mix part" : "Yearly change"} (${unitHead})</th>`;
+    body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${r.c ? usd(r.c.then.v) : "–"}</td><td>${r.c ? usd(r.c.now.v) : "–"}</td><td>${chg(r.c)}</td></tr>`);
+  } else {
+    head = `<th>${esc(L.label)}</th><th>${LAST}</th><th>${FIRST}${pay ? ` (${LAST} dollars)` : ""}</th><th>${pay ? "Yearly change (%)" : "Change (points)"}</th>`;
+    body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${cell(r.lv)}</td><td>${cell(r.c && r.c.then)}</td><td>${chg(r.c)}</td></tr>`);
+  }
+  document.getElementById("tbl").innerHTML = `<table class="data"><thead><tr>${head}</tr></thead><tbody>${body.join("")}</tbody></table>`;
 }
 document.getElementById("tbl-wrap").addEventListener("toggle", e => { if (e.target.open) renderTable(); });
+topicSel.addEventListener("change", () => { fillMeasures(); msrSel.value = DEFAULT_MSR[topicSel.value]; fillViews(); render(); });
 lvlSel.addEventListener("change", render);
-msrSel.addEventListener("change", render);
+msrSel.addEventListener("change", () => { fillViews(); render(); });
 viewSel.addEventListener("change", render);
 render();
 </script>

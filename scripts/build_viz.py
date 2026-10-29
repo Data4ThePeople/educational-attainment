@@ -89,6 +89,52 @@ def main():
 
 # The map compares the latest year with this one: a decade.
 MAP_BASE = 2015
+RAW = ROOT / "data" / "raw"
+# Median earnings by educational attainment: total, then the five groups in
+# GROUPS order (B20004 lines 001-006).
+EARN_LINES = [f"B20004_00{i}" for i in range(1, 7)]
+EARN_LABELS = ["total", "less than high school graduate", "high school graduate (includes equivalency)",
+               "some college or associate's degree", "bachelor's degree", "graduate or professional degree"]
+
+
+def earnings(year):
+    """{geoid: [est, moe, ...] for EARN_LINES} at state, county and metro level,
+    plus the nation, keyed like panel.csv. Labels are checked so a layout
+    change fails loudly."""
+    lab = json.loads((RAW / str(year) / "variables_B20004.json").read_text())["variables"]
+    for line, want in zip(EARN_LINES, EARN_LABELS):
+        got = lab[line + "E"]["label"].split("!!")[-1].rstrip(":").strip().lower()
+        assert got == want, (year, line, got)
+    out = {}
+    for level in ("us", "state", "county", "cbsa"):
+        js = json.loads((RAW / str(year) / f"B20004_{level}.json").read_text())
+        h = js[0]
+        for r in js[1:]:
+            d = dict(zip(h, r))
+            gid = "310XX00US" + d["GEO_ID"][-5:] if level == "cbsa" else d["GEO_ID"]
+            vals = []
+            for line in EARN_LINES:
+                e, m = d[line + "E"], d[line + "M"]
+                # Null or a Census annotation code (negative) means no median.
+                if e is None or m is None or int(float(e)) < 0 or int(float(m)) < 0:
+                    vals = None
+                    break
+                vals += [int(float(e)), int(float(m))]
+            assert gid not in out, f"duplicate {gid} in B20004 {year}"
+            if vals:
+                out[gid] = vals
+    return out
+
+
+def cpi_annual():
+    """R-CPI-U-RS annual averages (BLS research series, all items), from the
+    spreadsheet saved in data/raw/cpi/."""
+    df = pd.read_excel(RAW / "cpi" / "r-cpi-u-rs-allitems.xlsx", header=None)
+    hdr = df.index[df[0].astype(str).str.strip() == "YEAR"][0]
+    avg = df.columns[df.iloc[hdr].astype(str).str.strip() == "AVG"][0]
+    rows = df.iloc[hdr + 1:]
+    rows = rows[pd.to_numeric(rows[0], errors="coerce").notna()]
+    return {int(y): float(v) for y, v in zip(rows[0], rows[avg]) if pd.notna(v)}
 
 
 def build_map(lines_areas, area_info, big):
@@ -128,8 +174,16 @@ def build_map(lines_areas, area_info, big):
                 why += " Connecticut replaced its counties with planning regions in 2022."
             rec["why"] = why
         areas.append(rec)
+    earn = {y: earnings(y) for y in (base, last)}
+    for rec in areas:
+        e = {y: earn[y][rec["id"]] for y in (base, last) if rec["id"] in earn[y]}
+        if e:
+            rec["e"] = e
+    cpi = cpi_annual()
     us = next(a for a in lines_areas if a["id"] == "0100000US")
-    data = {"groups": GROUPS, "first": base, "last": last, "us": us["y"], "areas": areas}
+    data = {"groups": GROUPS, "first": base, "last": last, "us": us["y"], "areas": areas,
+            "usPay": {y: earn[y]["0100000US"] for y in (base, last)},
+            "cpi": {base: cpi[base], last: cpi[last]}}
     html = (ROOT / "viz" / "map_template.html").read_text()
     for k, v in (("DATA", data), ("GEO", geo)):
         assert f"/*{k}*/null" in html
@@ -140,6 +194,9 @@ def build_map(lines_areas, area_info, big):
           for lvl in ("state", "county", "cbsa")}
     print(f"dist/index.html: (areas with {last} values, comparable with {base}) by level {by}; "
           f"metros dropped by the 5% rule: {len(jump & set(ids))}; {len(html) / 1e6:.1f} MB")
+    print(f"pay: {sum('e' in a and last in a['e'] for a in areas)} areas with {last} medians, "
+          f"{sum('e' in a and base in a['e'] and last in a['e'] and a['c'] for a in areas)} comparable with both years; "
+          f"R-CPI-U-RS {base} {cpi[base]:.3f}, {last} {cpi[last]:.3f}")
 
 if __name__ == "__main__":
     main()

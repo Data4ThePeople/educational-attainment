@@ -272,6 +272,37 @@ from data.census.gov. Our shares match its percentages within rounding in all
 graduate), our approximated share MOEs are a median of 1.02 to 1.03 times its
 direct MOEs (10th to 90th percentile, 0.89 to 1.18).
 
+## B20004: Median Earnings in the Past 12 Months by Sex by Educational Attainment for the Population 25 Years and Over (Census Bureau, ACS 1-year)
+
+**What it is.** Median earnings for people 25 and over with earnings, in the
+survey year's dollars, overall and for the same five education groups as
+B15003 (lines 001 to 006; the sex lines are not used). Covers part-time and
+part-year workers.
+
+**Pulled.** 2015 to 2025 (no 2020), for the nation, states, counties and
+metro and micro areas, by `scripts/fetch.py`, into
+`data/raw/<year>/B20004_<level>.json`. The map uses 2015 and 2025. No value
+in those years is null or an annotation code. Labels are checked by line in
+`build_viz.py`.
+
+**Tie-out.** Nation and states, 2015 and 2025, match data.census.gov cell
+for cell (`tieout.py`, section 4).
+
+## R-CPI-U-RS (Bureau of Labor Statistics)
+
+**What it is.** The Consumer Price Index research series using current
+methods, all items, U.S. city average, annual averages. The ACS general
+handbook (2020), chapter 10, says the Census Bureau recommends factors based
+on the all-items CPI-U-RS when comparing ACS dollar figures across years.
+
+**File.** `data/raw/cpi/r-cpi-u-rs-allitems.xlsx`, from
+https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.xlsx. 2015: 348.3;
+2025: 474.994. BLS notes that October 2025 was not collected during the 2025
+lapse in appropriations; its 2025 average uses the other 11 months.
+
+**Use here.** 2015 medians times 474.994 / 348.3 (prices up 36.4%) to put
+them in 2025 dollars.
+
 ## Cartographic boundary files, 2023 (Census Bureau)
 
 **What it is.** Generalized outlines of states, counties and metro and micro
@@ -405,10 +436,29 @@ formula 6 or 7, computed in the page from the embedded counts and MOEs.
   high school or some college, the page notes how far each moved beyond its
   2021–2024 trend nationally.
 
+**Pay views of the map.** Same areas and the same 2015 comparability rule as
+the education views.
+
+- Median pay in 2025, and its yearly change from 2015, for all workers and
+  for each of the five groups. Yearly change is the compound annual growth
+  rate, ((2025 value / 2015 value in 2025 dollars)^(1/10) − 1). The test is
+  formula 3 on the dollar change, with 2015 MOEs scaled by the same price
+  factor.
+- Education held at 2015 mix: index = Σ w₂₀₁₅,g × median_g, where w is the
+  area's B15003 share of adults 25 and over in group g. MOE of the index uses
+  formula 1 on w × MOE, with weights treated as fixed; the 2015-to-2025 test
+  uses the ratio MOE (formula 7) and asks whether the ratio differs from 1.
+- Education mix part: yearly growth of the index with each year's own weights,
+  minus yearly growth with 2015 weights. Not tested.
+- Change classes use the same symmetric k and 2k rule, with k from {0.1, 0.2,
+  0.25, 0.5, 0.75, 1, 1.5, 2}% a year (or {0.05, 0.1, 0.2, 0.25, 0.5, 0.75, 1}
+  points a year for the mix part). Level classes are equal-count, rounded to
+  $1,000.
+
 **Names.** Each area carries its name in the latest year it was published.
 
 **Build order.** `fetch.py` → `build.py` → `geo_flags.py` → `findings.py` →
-`build_geo.py` → `build_viz.py`; `tieout.py` checks against data.census.gov.
+`build_geo.py` → `build_viz.py` → `pay_findings.py`; `tieout.py` checks against data.census.gov.
 
 ## Variable mapping
 

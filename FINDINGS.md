@@ -101,6 +101,50 @@ in percentage points, 2008 to 2025, for areas with values in every year.
    jump in the count that points to the new control base, but shares could
    still move a little for that reason.
 
+## Pay and the education mix, 2015 to 2025
+
+Numbers in this section come from `data/clean/pay_tables.md` (written by
+`scripts/pay_findings.py`). Pay is median earnings of people 25 and over who
+had earnings, in 2025 dollars using the R-CPI-U-RS. Yearly change is the
+compound annual growth rate over the 10 years.
+
+1. **Nationally, about half of real pay growth lines up with the shift in
+   education.** Median pay for all workers rose 0.98% a year. An index of the
+   five groups' median pay, weighted by each year's own mix of adults by
+   education, rose 0.99% a year. With the mix held at 2015 it rose 0.48% a
+   year. The education mix part is 0.51 points a year.
+2. **Within each group, pay grew more slowly than the overall median, except
+   for less than high school.** National yearly changes: less than high school
+   1.78%, high school 0.47%, some college or associate's 0.65%, bachelor's
+   0.32%, graduate or professional −0.02%.
+3. **The pattern holds across areas.** The education mix part is above zero in
+   379 of 391 comparable metro and micro areas, 780 of 805 counties, and all 52
+   states and Puerto Rico. The median mix part is 0.39 points a year for metro
+   and micro areas and 0.40 for counties.
+4. **Held-mix pay changes are smaller and less often significant.** In metro
+   and micro areas, all-worker pay rose significantly in 226 of 391 and fell
+   significantly in 1. Held-mix pay rose significantly in 147 and fell
+   significantly in 11.
+5. **Areas that stand out.** Largest mix parts among metro and micro areas
+   include Guayama, PR (1.09 points a year), Brownsville-Harlingen, TX (0.97)
+   and San Jose-Sunnyvale-Santa Clara, CA (0.96). Held-mix pay fell most in
+   Minot, ND (−1.60% a year), Trenton-Princeton, NJ (−1.06%) and Muskogee, OK
+   (−1.03%). Jackson, MS covers about 8% different land in 2025 than in 2015
+   (see the independent tie-out), so its numbers need care.
+
+Limits:
+- The weights are shares of all adults 25 and over, not of workers. Retirees
+  are a larger share of adults with less schooling, so the index puts more
+  weight on lower-paid groups than a worker-weighted index would.
+- A weighted average of medians is an index, not a median. The national index
+  growth (0.99%) is close to the median's (0.98%), which suggests the index
+  tracks the median well at that level.
+- The 2025 education mix includes the 2025 question change. Nationally less
+  than high school fell 0.53 points more than trend, which raises the 2025
+  own-mix index slightly.
+- B20004 covers part-time and part-year workers, so changes in hours worked
+  are part of these pay changes.
+
 ## Could not check
 
 - Which metro delineation the 2008 ACS used (we assume November 2007).

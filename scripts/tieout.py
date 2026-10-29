@@ -172,7 +172,7 @@ def check_s1501(year, panel, report):
 
 CLAIMS = [
     # (text that must appear on the map page, status, source)
-    ("Educational attainment of adults 25 and over, 2015 to 2025", "supported",
+    ("Educational attainment of adults 25 and over, ${FIRST} to ${LAST}", "supported",
      "B15003 universe is the population 25 and over; map compares 2015 with 2025 (build_viz.py MAP_BASE)"),
     ("Areas are colored only where the change passes the Census Bureau's test at 90% confidence", "supported",
      "map_template.html fillOf: hatched unless |z| > 1.645 (ACS handbook (2020) ch. 7 formula 3)"),
@@ -180,7 +180,7 @@ CLAIMS = [
      "user note 2021-02, https://www.census.gov/programs-surveys/acs/technical-documentation/user-notes/2021-02.html"),
     ("for states, and for counties and metro and micro areas with 65,000 or more people", "supported",
      "ACS 1-year publication threshold (user note 2026-06); levels mapped (DATASETS.md, Map)"),
-    ("Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.", "supported",
+    (", because they have fewer than 65,000 people.", "supported",
      "no mapped county or metro/micro shape without a 2025 value is in withheld.csv for 2025, so none was published empty"),
     ("table B15003 (B15002 where B15003 was published with no values)", "supported",
      "build.py fill_withheld; 851 area-years, exact match where both exist (findings_tables.md)"),
@@ -202,6 +202,20 @@ CLAIMS = [
     ("Puerto Rico is shown in the inset but is not part of the national figures.", "supported",
      "ACS nation (010) excludes Puerto Rico"),
     ("Built by Data 4 The People", "supported", "house convention"),
+    # Pay views
+    ("Median pay of workers 25 and over by education, ${FIRST} to ${LAST}", "supported",
+     "B20004 universe is the population 25 and over with earnings; 2015 and 2025"),
+    ("Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers.",
+     "supported", "B20004 universe: population 25 years and over with earnings (variables_B20004.json)"),
+    ("the index the Census Bureau recommends for ACS dollar figures", "supported",
+     "ACS general handbook (2020) ch. 10: recommends factors based on the all-items CPI-U-RS"),
+    ("Its ${LAST} average leaves out October ${LAST}, which was not collected during the federal funding lapse.", "supported",
+     "BLS R-CPI-U-RS file note: Oct 2025 values not available due to the 2025 lapse in appropriations (data/raw/cpi/)"),
+    ("Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.",
+     "supported", "definition; map_template.html cagr()"),
+    ("It is an index, not a median, and the weights cover all adults, not only workers.", "supported",
+     "weights are B15003 shares of the population 25 and over"),
+    ("both can affect ${LAST} pay estimates", "supported", "user notes 2026-04, 2026-05; states possibility only"),
 ]
 
 
@@ -220,6 +234,43 @@ def check_words(panel, report):
     return sum(1 for t, _, _ in CLAIMS if t not in html)
 
 
+def check_pay(report):
+    """B20004 medians: Census API pull vs data.census.gov for the nation and
+    states, and the national yearly changes recomputed from scratch."""
+    bad = 0
+    lines = [f"B20004_00{i}{k}" for i in range(1, 7) for k in "EM"]
+    for y in (2015, 2025):
+        web = dcg(f"ACSDT1Y{y}.B20004").set_index("GEO_ID")
+        api = []
+        for level in ("us", "state"):
+            js = json.loads((RAW / str(y) / f"B20004_{level}.json").read_text())
+            api += [dict(zip(js[0], r)) for r in js[1:]]
+        api = pd.DataFrame(api).set_index("GEO_ID")
+        diffs = [(g, c) for g in api.index for c in lines if g not in web.index or str(api.at[g, c]) != str(web.at[g, c])]
+        report.append(f"- {y}: B20004 lines 001-006 for {len(api)} areas, {len(diffs)} differing cells")
+        bad += len(diffs)
+    cpi = pd.read_excel(RAW / "cpi" / "r-cpi-u-rs-allitems.xlsx", header=None)
+    hdr = cpi.index[cpi[0].astype(str).str.strip() == "YEAR"][0]
+    cpi = cpi.iloc[hdr + 1:].set_index(0)
+    f = float(cpi.at[2025, 13]) / float(cpi.at[2015, 13])
+    p = pd.read_csv(ROOT / "data" / "clean" / "panel.csv")
+    us = p[p.level == "us"].set_index("year")
+    med = {}
+    for y in (2015, 2025):
+        js = json.loads((RAW / str(y) / "B20004_us.json").read_text())
+        d = dict(zip(js[0], js[1]))
+        med[y] = [float(d[f"B20004_00{i}E"]) * (f if y == 2015 else 1) for i in range(1, 7)]
+    cagr = lambda a, b: 100 * ((b / a) ** 0.1 - 1)
+    w = {y: [us.at[y, f"{g}_est"] / us.at[y, "total_est"] for g in GROUPS] for y in (2015, 2025)}
+    idx = lambda y, wy: sum(a * b for a, b in zip(w[wy], med[y][1:]))
+    held, own = cagr(idx(2015, 2015), idx(2025, 2015)), cagr(idx(2015, 2015), idx(2025, 2025))
+    report.append(f"- R-CPI-U-RS 2015 {float(cpi.at[2015, 13]):.3f}, 2025 {float(cpi.at[2025, 13]):.3f}: prices up {100 * (f - 1):.1f}%")
+    report.append(f"- National yearly change after inflation, recomputed here: median all workers {cagr(med[2015][0], med[2025][0]):.2f}%, "
+                  f"index with own mix {own:.2f}%, index with 2015 mix {held:.2f}%, education mix part {own - held:.2f} points; by group: " +
+                  ", ".join(f"{g} {cagr(med[2015][i + 1], med[2025][i + 1]):.2f}%" for i, g in enumerate(GROUPS)))
+    return bad
+
+
 def main():
     panel = pd.read_csv(ROOT / "data" / "clean" / "panel.csv")
     report = ["# Tie-out against data.census.gov", "",
@@ -235,9 +286,11 @@ def main():
     report += ["", "## 3. Shares vs S1501 published percentages", ""]
     for y in YEARS:
         check_s1501(y, panel, report)
-    report += ["", "## 4. Words on the built map page (dist/index.html)", ""]
+    report += ["", "## 4. Pay: B20004 vs data.census.gov, and national numbers", ""]
+    fails += check_pay(report)
+    report += ["", "## 5. Words on the built map page (dist/index.html)", ""]
     fails += check_words(panel, report)
-    report += ["", f"**Result:** {'PASS' if fails == 0 else f'FAIL ({fails} problems)'} on sections 1, 2 and 4."]
+    report += ["", f"**Result:** {'PASS' if fails == 0 else f'FAIL ({fails} problems)'} on sections 1, 2, 4 and 5."]
     OUT.write_text("\n".join(report) + "\n")
     print("\n".join(report))
     sys.exit(1 if fails else 0)

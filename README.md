@@ -2,7 +2,7 @@
 
 Work in progress (Step 1, analysis). This project tracks the education of adults 25 and over, from 2008 to 2025. It covers the nation, regions, divisions, states, counties, metro and micro areas, and places in the American Community Survey (ACS) 1-year estimates, which cover areas with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.
 
-The interactive map is `dist/index.html`. It covers states, counties, and metro and micro areas, with a choice of five education measures (bachelor's degree or more by default). It shows either the 2025 share or the change from 2015 to 2025, with changes colored only where they pass the Census Bureau's test at 90% confidence. Hovering over an area shows both years and the change. A second page, `dist/lines.html`, shows one area at a time from 2008 to 2025 and a ranked view of changes that pass the Census Bureau's test at 90% confidence.
+The interactive map is `dist/index.html`. It covers states, counties, and metro and micro areas, with a choice of five education measures (bachelor's degree or more by default). It shows either the 2025 share or the change from 2015 to 2025, with changes colored only where they pass the Census Bureau's test at 90% confidence. Hovering over an area shows both years and the change. A Pay topic shows median earnings by education, adjusted for inflation, and the yearly change from 2015 to 2025, including pay growth with each area's education mix held at its 2015 level. A second page, `dist/lines.html`, shows one area at a time from 2008 to 2025 and a ranked view of changes that pass the Census Bureau's test at 90% confidence.
 
 ## What's in the repo
 
@@ -16,7 +16,7 @@ The interactive map is `dist/index.html`. It covers states, counties, and metro 
 
 ## Data sources
 
-U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau. Map outlines come from the Census Bureau's 2023 cartographic boundary files (1:20,000,000).
+U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B20004 (median earnings by educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau. Prices: Bureau of Labor Statistics R-CPI-U-RS. Map outlines come from the Census Bureau's 2023 cartographic boundary files (1:20,000,000).
 
 ## Rebuild
 
@@ -27,6 +27,7 @@ python scripts/geo_flags.py
 python scripts/findings.py
 python scripts/build_geo.py
 python scripts/build_viz.py
+python scripts/pay_findings.py
 python scripts/tieout.py       # checks against data.census.gov
 ```
 
@@ -39,4 +40,5 @@ Python 3.9 with pandas, numpy, requests, xlrd, openpyxl, pyshp and shapely.
 - Margins of error use the formulas in the Census Bureau's *Understanding and Using American Community Survey Data* (2020), chapters 7 and 8.
 - There is no standard 2020 1-year release, so 2020 is a gap.
 - The 2025 question change also moved part of the "less than high school" and "some college" shares. The pages note the 2024 to 2025 step for the measures that include those groups. See `DATASETS.md`.
+- Pay is in 2025 dollars using the R-CPI-U-RS, which the Census Bureau recommends for ACS dollar figures. Yearly change is the compound annual growth rate. The held-mix measure is an index (a weighted average of group medians), not a median.
 - Where B15003 was published with no values, the same five groups come from B15002.
