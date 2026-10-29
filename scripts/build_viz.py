@@ -128,13 +128,26 @@ def earnings(year):
 
 def cpi_annual():
     """R-CPI-U-RS annual averages (BLS research series, all items), from the
-    spreadsheet saved in data/raw/cpi/."""
+    spreadsheet saved in data/raw/cpi/: the AVG column for full years, the
+    mean of the published months otherwise."""
     df = pd.read_excel(RAW / "cpi" / "r-cpi-u-rs-allitems.xlsx", header=None)
     hdr = df.index[df[0].astype(str).str.strip() == "YEAR"][0]
     avg = df.columns[df.iloc[hdr].astype(str).str.strip() == "AVG"][0]
     rows = df.iloc[hdr + 1:]
     rows = rows[pd.to_numeric(rows[0], errors="coerce").notna()]
-    return {int(y): float(v) for y, v in zip(rows[0], rows[avg]) if pd.notna(v)}
+    months = df.columns[1:avg]
+    out = {}
+    for _, r in rows.iterrows():
+        m = pd.to_numeric(r[months], errors="coerce")
+        # A year with a month not collected (October 2025, during the 2025
+        # lapse in appropriations) uses the mean of the published months, as
+        # BLS describes for CPI annual averages in its shutdown FAQ. The file's
+        # AVG cell for 2025 (474.994) is not that mean (474.682), so it is not used.
+        if m.count() == 12 and pd.notna(r[avg]):
+            out[int(r[0])] = float(r[avg])
+        elif m.count():
+            out[int(r[0])] = float(m.mean())
+    return out
 
 
 def build_map(lines_areas, area_info, big):

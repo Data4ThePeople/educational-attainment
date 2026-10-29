@@ -25,8 +25,8 @@
 
 - 2015: B20004 lines 001-006 for 53 areas, 0 differing cells
 - 2025: B20004 lines 001-006 for 53 areas, 0 differing cells
-- R-CPI-U-RS 2015 348.300, 2025 474.994: prices up 36.4%
-- National yearly change after inflation, recomputed here: median all workers 0.98%, index with own mix 0.99%, index with 2015 mix 0.48%, education mix part 0.51 points; by group: lths 1.78%, hs 0.47%, somecol 0.65%, ba 0.32%, grad -0.02%
+- R-CPI-U-RS 2015 348.300 (AVG), 2025 474.682 (mean of 11 published months): prices up 36.3%
+- National yearly change after inflation, recomputed here: median all workers 0.98%, index with own mix 1.00%, index with 2015 mix 0.49%, education mix part 0.51 points; by group: lths 1.78%, hs 0.48%, somecol 0.65%, ba 0.33%, grad -0.02%
 
 ## 5. Words on the built map page (dist/index.html)
 
@@ -49,10 +49,12 @@
 - "Median pay of workers 25 and over by education, ${FIRST} to ${LAST}": supported (B20004 universe is the population 25 and over with earnings; 2015 and 2025)
 - "Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers.": supported (B20004 universe: population 25 years and over with earnings (variables_B20004.json))
 - "the index the Census Bureau recommends for ACS dollar figures": supported (ACS general handbook (2020) ch. 10: recommends factors based on the all-items CPI-U-RS)
-- "Its ${LAST} average leaves out October ${LAST}, which was not collected during the federal funding lapse.": supported (BLS R-CPI-U-RS file note: Oct 2025 values not available due to the 2025 lapse in appropriations (data/raw/cpi/))
+- "is the average of the 11 months published, because October ${LAST} was not collected during the federal funding lapse.": supported (BLS R-CPI-U-RS file note (Oct 2025 not available, 2025 lapse in appropriations); build_viz.py cpi_annual uses the 11-month mean; BLS shutdown CPI FAQ)
 - "Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.": supported (definition; map_template.html cagr())
 - "It is an index, not a median, and the weights cover all adults, not only workers.": supported (weights are B15003 shares of the population 25 and over)
 - "both can affect ${LAST} pay estimates": supported (user notes 2026-04, 2026-05; states possibility only)
+- "It is not a share of median pay growth.": supported (index weights cover all adults; medians cover earners)
+- "small values may come from sampling error alone": supported (independent tie-out: rough share-error test leaves about 16% of counties not passing)
 - Break note numbers, recomputed here (beyond-trend change, points): less than high school -0.53, high school or more +0.53, some college or more +0.44 (the page computes them the same way at load).
 
 **Result:** PASS on sections 1, 2, 4 and 5.

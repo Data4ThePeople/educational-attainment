@@ -217,7 +217,7 @@ const MEASURES = [
   eduMeasure("hsplus", "High school or more", "at least a high school diploma or equivalent", ["hs", "somecol", "ba", "grad"], {brk: true}),
   eduMeasure("lths", "Less than high school", "less than a high school education", ["lths"], {brk: true, fallBlue: true}),
   payMeasure("pay", "All workers", "all workers", 0),
-  {topic: "pay", key: "payfixed", label: `All workers, education held at ${FIRST} mix`, phrase: `all workers, with the education mix held at ${FIRST}`,
+  {topic: "pay", key: "payfixed", label: `Pay index, education mix held at ${FIRST}`, phrase: `the pay index with the education mix held at ${FIRST}`,
     unit: "pct", changeOnly: true, level: () => null,
     comp: a => {
       if (!comparable(a)) return null;
@@ -226,7 +226,7 @@ const MEASURES = [
       const r = ratio(now, then);
       return {then, now, d: cagr(then.v, now.v), sig: Math.abs(r.v - 1) / (r.moe / Z90) > Z90, index: true};
     }},
-  {topic: "pay", key: "paymix", label: "Education mix part of pay growth", phrase: "the education mix part of yearly pay growth",
+  {topic: "pay", key: "paymix", label: `Pay index growth, own mix minus ${FIRST} mix`, phrase: `the pay index's growth with each year's own mix minus its growth with the ${FIRST} mix`,
     unit: "ppy", changeOnly: true, level: () => null,
     comp: a => {
       if (!comparable(a)) return null;
@@ -341,11 +341,14 @@ function tipHtml(feat, L, m) {
     if (!c) return html + `<div class="sm">${esc(a.why || `No comparable ${FIRST} and ${LAST} values.`)}</div>`;
     const all = MEASURES.find(x => x.key === "pay").comp(a), held = MEASURES.find(x => x.key === "payfixed").comp(a);
     const mix = MEASURES.find(x => x.key === "paymix").comp(a);
-    html += (all ? row("All workers, median", fmtD(all.d, "pct")) : "") +
-      row(`Education held at ${FIRST} mix`, fmtD(held.d, "pct")) +
-      row("Education mix part", fmtD(mix.d, "ppy")) +
+    const own = {d: mix.d + held.d};
+    html += (all ? row("Median pay, all workers", fmtD(all.d, "pct")) : "") +
+      row("Pay index, own mix", fmtD(own.d, "pct")) +
+      row(`Pay index, ${FIRST} mix`, fmtD(held.d, "pct")) +
+      row(`Own mix minus ${FIRST} mix`, fmtD(mix.d, "ppy")) +
       `<div class="sm">Yearly change, ${FIRST} to ${LAST}, after inflation. ` +
-      (held.sig ? "The held-mix change passes" : "The held-mix change does not pass") + ` the Census Bureau's test at 90% confidence.</div>`;
+      (all ? `The median change ${all.sig ? "passes" : "does not pass"} the test at 90% confidence. ` : "") +
+      `The ${FIRST}-mix index change ${held.sig ? "passes" : "does not pass"} a ratio test built from the Census Bureau's formulas. The difference is not tested.</div>`;
     return html;
   }
   if (lv) html += row(LAST, fmtLevel(lv, m));
@@ -374,7 +377,8 @@ function render() {
   let fillOf, legend, intro, title;
   const noEst = feats.filter(f => { const a = AREA.get(f.id); return !(a && a.v[LAST]); }).length;
   const cbsaKey = L.key === "cbsa" ? `<span class="nd"><i style="background:var(--surface)"></i>Not in a metro or micro area</span>` : "";
-  const hover = ` Hover over or tap an area to see ${change ? "both years and the change" : `its value, its margin of error and its change since ${FIRST}`}.`;
+  const hover = ` Hover over or tap an area to see ` + (m.changeOnly ? "its yearly rates."
+    : change ? "both years and the change." : `its value, its margin of error and, where comparable, its change since ${FIRST}.`);
 
   if (!change) {
     const vals = new Map();
@@ -412,18 +416,18 @@ function render() {
     legend = DIV.map((_, i) => present.has(i) ? `<span class="nd"><i style="background:var(${divColor(i, m)})"></i>${labels[i]}</span>` : "").join("") +
       (ns ? `<span class="nd"><i class="hatch"></i>Change does not pass the test</span>` : "") +
       (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
-    const passText = !tested ? ` This measure is not tested for significance, so every area with values is colored.`
+    const passText = !tested ? ` This measure has no significance test, so every area with values is colored; small values may come from sampling error alone.`
       : ` Areas are colored only where the change passes the Census Bureau's test at 90% confidence` +
         (ns ? `; the ${ns} of ${cs.size} that do not ${ns === 1 ? "is" : "are"} hatched.` : `, and all ${cs.size} do.`);
     if (!pay) {
       intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.`;
       title = `Change in adults 25 and over with ${m.phrase}, by ${L.by}, ${FIRST} to ${LAST} (percentage points)`;
     } else if (m.key === "paymix") {
-      intro = `The map below shows, for each ${L.one}, the part of yearly pay growth from ${FIRST} to ${LAST} that the shift in its education mix accounts for: the index's yearly growth with each year's own education mix, minus its yearly growth with the mix held at ${FIRST}, in percentage points.`;
-      title = `Education mix part of yearly pay growth, by ${L.by}, ${FIRST} to ${LAST} (percentage points a year)`;
+      intro = `The map below shows, for each ${L.one}, the difference between the pay index's yearly growth from ${FIRST} to ${LAST} with each year's own education mix and its yearly growth with the mix held at ${FIRST}, in percentage points. It is not a share of median pay growth.`;
+      title = `Pay index growth with own education mix minus growth with ${FIRST} mix, by ${L.by}, ${FIRST} to ${LAST} (percentage points a year)`;
     } else if (m.key === "payfixed") {
-      intro = `The map below shows how pay changed each year from ${FIRST} to ${LAST} in each ${L.one} if its mix of education had stayed as it was in ${FIRST}, after inflation.`;
-      title = `Yearly change in pay with education held at the ${FIRST} mix, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
+      intro = `The map below shows the average yearly change from ${FIRST} to ${LAST}, after inflation, in each ${L.one}'s pay index with its education mix held at ${FIRST}. The index weights each education group's median pay by the area's ${FIRST} share of adults in that group.`;
+      title = `Yearly change in pay index with education mix held at ${FIRST}, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
     } else {
       intro = `The map below shows the yearly change in median pay of ${PAY_WHO(m)} from ${FIRST} to ${LAST} in each ${L.one}, after inflation.`;
       title = `Yearly change in median pay of ${PAY_WHO(m)}, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
@@ -432,8 +436,9 @@ function render() {
   }
   if (pay) {
     const u = usPay();
-    intro = `Nationally, median pay for all workers 25 and over rose ${fmt(u.all.d, 2)}% a year from ${FIRST} to ${LAST} after inflation. ` +
-      `An index of each education group's median pay, weighted by the share of adults in each group, rose ${fmt(u.own.d, 2)}% a year with each year's own education mix and ${fmt(u.held.d, 2)}% a year with the mix held at ${FIRST}. ` + intro;
+    const rf = d => `${d < 0 ? "fell" : "rose"} ${fmt(Math.abs(d), 2)}% a year`;
+    intro = `Nationally, median pay for all workers 25 and over ${rf(u.all.d)} from ${FIRST} to ${LAST} after inflation. ` +
+      `A pay index that weights each education group's median pay by the share of adults in that group ${rf(u.own.d)} with each year's own education mix and ${rf(u.held.d)} with the mix held at ${FIRST}. ` + intro;
   }
   document.getElementById("intro").textContent = intro;
   document.getElementById("title").textContent = title;
@@ -469,10 +474,10 @@ function render() {
     notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${bt < 0 ? "fell" : "rose"} ${fmt(Math.abs(bt))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure may include that step.`);
   }
   if (pay) {
-    notes.push(`Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers. ${FIRST} dollars are converted to ${LAST} dollars with the Bureau of Labor Statistics R-CPI-U-RS, the index the Census Bureau recommends for ACS dollar figures (${FIRST} to ${LAST}: ${fmt(100 * (CPI_F - 1))}% higher prices). Its ${LAST} average leaves out October ${LAST}, which was not collected during the federal funding lapse.`);
+    notes.push(`Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers. ${FIRST} dollars are converted to ${LAST} dollars with the Bureau of Labor Statistics R-CPI-U-RS, the index the Census Bureau recommends for ACS dollar figures (${FIRST} to ${LAST}: ${fmt(100 * (CPI_F - 1))}% higher prices). Its ${LAST} value is the average of the 11 months published, because October ${LAST} was not collected during the federal funding lapse.`);
     notes.push(`Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.`);
-    notes.push(`"Education held at ${FIRST} mix" weights each education group's median pay by the area's ${FIRST} share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Education mix part" is the same index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. It is not tested for significance. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
-    notes.push(`In ${LAST} the survey also collected less data during a federal funding lapse and used a new population base; both can affect ${LAST} pay estimates.`);
+    notes.push(`The pay index weights each education group's median pay by the area's share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Own mix minus ${FIRST} mix" is the index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. It has no significance test. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
+    notes.push(`In ${LAST} the survey collected less data during a federal funding lapse and used a new population base; both can affect ${LAST} pay estimates.`);
   }
   if (L.key === "cbsa") notes.push(`Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.`);
   if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and, for metro and micro areas, only where the adult population moved less than 5% in each year its list of counties changed.`);
@@ -494,9 +499,13 @@ function renderTable() {
   const chg = c => c ? signed(c.d, m.unit === "points" ? 1 : 2) + (c.sig === false ? " (does not pass the test)" : "") : "–";
   let head, body;
   if (m.changeOnly) {
-    const unitHead = m.unit === "ppy" ? "points a year" : "% a year";
-    head = `<th>${esc(L.label)}</th><th>${FIRST} index</th><th>${LAST} index</th><th>${m.key === "paymix" ? "Education mix part" : "Yearly change"} (${unitHead})</th>`;
-    body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${r.c ? usd(r.c.then.v) : "–"}</td><td>${r.c ? usd(r.c.now.v) : "–"}</td><td>${chg(r.c)}</td></tr>`);
+    if (m.key === "paymix") {
+      head = `<th>${esc(L.label)}</th><th>${FIRST} index ($)</th><th>${LAST} index, ${FIRST} mix ($)</th><th>${LAST} index, own mix ($)</th><th>Own mix minus ${FIRST} mix (points a year)</th>`;
+      body = rows.map(r => `<tr><td>${esc(r.a.n)}</td>` + (r.c ? `<td>${usd(r.c.then.v)}</td><td>${usd(r.c.held.v)}</td><td>${usd(r.c.now.v)}</td>` : "<td>–</td><td>–</td><td>–</td>") + `<td>${chg(r.c)}</td></tr>`);
+    } else {
+      head = `<th>${esc(L.label)}</th><th>${FIRST} index, ${FIRST} mix ($)</th><th>${LAST} index, ${FIRST} mix ($)</th><th>Yearly change (%)</th>`;
+      body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${r.c ? usd(r.c.then.v) : "–"}</td><td>${r.c ? usd(r.c.now.v) : "–"}</td><td>${chg(r.c)}</td></tr>`);
+    }
   } else {
     head = `<th>${esc(L.label)}</th><th>${LAST}</th><th>${FIRST}${pay ? ` (${LAST} dollars)` : ""}</th><th>${pay ? "Yearly change (%)" : "Change (points)"}</th>`;
     body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${cell(r.lv)}</td><td>${cell(r.c && r.c.then)}</td><td>${chg(r.c)}</td></tr>`);

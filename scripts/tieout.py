@@ -209,13 +209,15 @@ CLAIMS = [
      "supported", "B20004 universe: population 25 years and over with earnings (variables_B20004.json)"),
     ("the index the Census Bureau recommends for ACS dollar figures", "supported",
      "ACS general handbook (2020) ch. 10: recommends factors based on the all-items CPI-U-RS"),
-    ("Its ${LAST} average leaves out October ${LAST}, which was not collected during the federal funding lapse.", "supported",
-     "BLS R-CPI-U-RS file note: Oct 2025 values not available due to the 2025 lapse in appropriations (data/raw/cpi/)"),
+    ("is the average of the 11 months published, because October ${LAST} was not collected during the federal funding lapse.", "supported",
+     "BLS R-CPI-U-RS file note (Oct 2025 not available, 2025 lapse in appropriations); build_viz.py cpi_annual uses the 11-month mean; BLS shutdown CPI FAQ"),
     ("Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.",
      "supported", "definition; map_template.html cagr()"),
     ("It is an index, not a median, and the weights cover all adults, not only workers.", "supported",
      "weights are B15003 shares of the population 25 and over"),
     ("both can affect ${LAST} pay estimates", "supported", "user notes 2026-04, 2026-05; states possibility only"),
+    ("It is not a share of median pay growth.", "supported", "index weights cover all adults; medians cover earners"),
+    ("small values may come from sampling error alone", "supported", "independent tie-out: rough share-error test leaves about 16% of counties not passing"),
 ]
 
 
@@ -252,7 +254,9 @@ def check_pay(report):
     cpi = pd.read_excel(RAW / "cpi" / "r-cpi-u-rs-allitems.xlsx", header=None)
     hdr = cpi.index[cpi[0].astype(str).str.strip() == "YEAR"][0]
     cpi = cpi.iloc[hdr + 1:].set_index(0)
-    f = float(cpi.at[2025, 13]) / float(cpi.at[2015, 13])
+    # 2025 is missing October; use the mean of the 11 published months.
+    c25 = pd.to_numeric(cpi.loc[2025, 1:12], errors="coerce").mean()
+    f = c25 / float(cpi.at[2015, 13])
     p = pd.read_csv(ROOT / "data" / "clean" / "panel.csv")
     us = p[p.level == "us"].set_index("year")
     med = {}
@@ -264,7 +268,7 @@ def check_pay(report):
     w = {y: [us.at[y, f"{g}_est"] / us.at[y, "total_est"] for g in GROUPS] for y in (2015, 2025)}
     idx = lambda y, wy: sum(a * b for a, b in zip(w[wy], med[y][1:]))
     held, own = cagr(idx(2015, 2015), idx(2025, 2015)), cagr(idx(2015, 2015), idx(2025, 2025))
-    report.append(f"- R-CPI-U-RS 2015 {float(cpi.at[2015, 13]):.3f}, 2025 {float(cpi.at[2025, 13]):.3f}: prices up {100 * (f - 1):.1f}%")
+    report.append(f"- R-CPI-U-RS 2015 {float(cpi.at[2015, 13]):.3f} (AVG), 2025 {c25:.3f} (mean of 11 published months): prices up {100 * (f - 1):.1f}%")
     report.append(f"- National yearly change after inflation, recomputed here: median all workers {cagr(med[2015][0], med[2025][0]):.2f}%, "
                   f"index with own mix {own:.2f}%, index with 2015 mix {held:.2f}%, education mix part {own - held:.2f} points; by group: " +
                   ", ".join(f"{g} {cagr(med[2015][i + 1], med[2025][i + 1]):.2f}%" for i, g in enumerate(GROUPS)))

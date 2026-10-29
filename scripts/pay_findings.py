@@ -75,7 +75,7 @@ def main():
         nat.append({"measure": f"Median, {GROUP_NAMES[g]}", f"{last} ($)": round(us[f"{g}_{last}"]), "yearly change (%)": us[f"{g}_cagr"]})
     nat += [{"measure": "Index, each year's own education mix", f"{last} ($)": "", "yearly change (%)": us["own_cagr"]},
             {"measure": f"Index, education held at {first} mix", f"{last} ($)": "", "yearly change (%)": us["held_cagr"]},
-            {"measure": "Education mix part (points a year)", f"{last} ($)": "", "yearly change (%)": us["mix_part"]}]
+            {"measure": "Own mix minus 2015 mix (points a year)", f"{last} ($)": "", "yearly change (%)": us["mix_part"]}]
     table(pd.DataFrame(nat))
 
     OUT.extend(["", "## By level: comparable areas", ""])
@@ -84,8 +84,8 @@ def main():
         t.append({"level": lvl, "areas": len(d),
                   "median all-worker change (%/yr)": d.all_cagr.median(),
                   "median held-mix change (%/yr)": d.held_cagr.median(),
-                  "median mix part (pts/yr)": d.mix_part.median(),
-                  "mix part above 0": int((d.mix_part > 0).sum()),
+                  "median own minus 2015 mix (pts/yr)": d.mix_part.median(),
+                  "own minus 2015 mix above 0": int((d.mix_part > 0).sum()),
                   "all-worker rise passes": int((d.all_sig & (d.all_cagr > 0)).sum()),
                   "all-worker fall passes": int((d.all_sig & (d.all_cagr < 0)).sum()),
                   "held-mix rise passes": int((d.held_sig & (d.held_cagr > 0)).sum()),
@@ -97,9 +97,9 @@ def main():
     table(pd.DataFrame(t))
 
     m = df[df.level == "cbsa"]
-    for title, d in [("Metro and micro areas: largest education mix part", m.nlargest(10, "mix_part")),
-                     ("Metro and micro areas: held-mix pay rose most (passes the test)", m[m.held_sig].nlargest(10, "held_cagr")),
-                     ("Metro and micro areas: held-mix pay fell most (passes the test)", m[m.held_sig].nsmallest(10, "held_cagr"))]:
+    for title, d in [("Metro and micro areas: largest own-mix minus 2015-mix difference", m.nlargest(10, "mix_part")),
+                     ("Metro and micro areas: 2015-mix pay index rose most (passes the test)", m[m.held_sig].nlargest(10, "held_cagr")),
+                     ("Metro and micro areas: 2015-mix pay index fell most (passes the test)", m[m.held_sig].nsmallest(10, "held_cagr"))]:
         OUT.extend(["", f"## {title}", ""])
         table(d[["name", "all_cagr", "held_cagr", "mix_part"]])
 

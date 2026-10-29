@@ -296,11 +296,15 @@ handbook (2020), chapter 10, says the Census Bureau recommends factors based
 on the all-items CPI-U-RS when comparing ACS dollar figures across years.
 
 **File.** `data/raw/cpi/r-cpi-u-rs-allitems.xlsx`, from
-https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.xlsx. 2015: 348.3;
-2025: 474.994. BLS notes that October 2025 was not collected during the 2025
-lapse in appropriations; its 2025 average uses the other 11 months.
+https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.xlsx. 2015: 348.3
+(the file's AVG). BLS notes that October 2025 was not collected during the 2025
+lapse in appropriations. The file's 2025 AVG cell (474.994) is not the mean of
+its 11 published months (474.682), and BLS does not say how it was made. We
+use the 11-month mean, which matches how BLS describes 2025 CPI annual
+averages in its shutdown FAQ
+(https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm).
 
-**Use here.** 2015 medians times 474.994 / 348.3 (prices up 36.4%) to put
+**Use here.** 2015 medians times 474.682 / 348.3 (prices up 36.3%) to put
 them in 2025 dollars.
 
 ## Cartographic boundary files, 2023 (Census Bureau)
@@ -444,12 +448,13 @@ the education views.
   rate, ((2025 value / 2015 value in 2025 dollars)^(1/10) − 1). The test is
   formula 3 on the dollar change, with 2015 MOEs scaled by the same price
   factor.
-- Education held at 2015 mix: index = Σ w₂₀₁₅,g × median_g, where w is the
+- Pay index, education mix held at 2015: index = Σ w₂₀₁₅,g × median_g, where w is the
   area's B15003 share of adults 25 and over in group g. MOE of the index uses
   formula 1 on w × MOE, with weights treated as fixed; the 2015-to-2025 test
   uses the ratio MOE (formula 7) and asks whether the ratio differs from 1.
-- Education mix part: yearly growth of the index with each year's own weights,
-  minus yearly growth with 2015 weights. Not tested.
+- Own mix minus 2015 mix: yearly growth of the index with each year's own
+  weights, minus yearly growth with 2015 weights. Not tested; small values may
+  come from sampling error alone. It is not a share of median pay growth.
 - Change classes use the same symmetric k and 2k rule, with k from {0.1, 0.2,
   0.25, 0.5, 0.75, 1, 1.5, 2}% a year (or {0.05, 0.1, 0.2, 0.25, 0.5, 0.75, 1}
   points a year for the mix part). Level classes are equal-count, rounded to
