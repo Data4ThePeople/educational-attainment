@@ -122,8 +122,8 @@ def build_map(lines_areas, area_info, big):
             if not every:
                 why = f"It was not published in every year from {base} to {last}, so no change since {base} is shown."
             else:
-                why = (f"Changes to the counties in it moved its adult population by 5% or more in one year "
-                       f"after {base}, so no change since {base} is shown.")
+                why = (f"Its adult population moved 5% or more in a year after {base} when its list of counties "
+                       f"changed, so no change since {base} is shown.")
             if a["id"].startswith("0500000US09"):
                 why += " Connecticut replaced its counties with planning regions in 2022."
             rec["why"] = why

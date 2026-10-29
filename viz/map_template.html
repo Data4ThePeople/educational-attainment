@@ -13,6 +13,7 @@
   --nodata: #e8e7e1; --edge: #fcfcfb; --stateline: #6f6d67; --accent: #2a78d6;
   --b1: #cde2fb; --b2: #9ec5f4; --b3: #6da7ec; --b4: #3987e5; --b5: #256abf; --b6: #184f95;
   --n3: #9a4a10; --n2: #d9782d; --n1: #f4c194; --p1: #b3d1f7; --p2: #4f8fe0; --p3: #1c5cab; --ns: #dedcd5;
+  --o1: #fbe2cc; --o2: #f6c393; --o3: #eea062; --o4: #e07f35; --o5: #b9601d; --o6: #8a4510;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -22,6 +23,7 @@
     --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
     --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
     --n3: #f4b07a; --n2: #c8692a; --n1: #6e3812; --p1: #1d4778; --p2: #3a7fd6; --p3: #a3c8f5; --ns: #45443f;
+  --o1: #6e3812; --o2: #8e4a17; --o3: #b45f22; --o4: #d9782d; --o5: #eea062; --o6: #f6c393;
   }
 }
 :root[data-theme="dark"] {
@@ -31,6 +33,7 @@
   --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
   --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
   --n3: #f4b07a; --n2: #c8692a; --n1: #6e3812; --p1: #1d4778; --p2: #3a7fd6; --p3: #a3c8f5; --ns: #45443f;
+  --o1: #6e3812; --o2: #8e4a17; --o3: #b45f22; --o4: #d9782d; --o5: #eea062; --o6: #f6c393;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--page); color: var(--ink);
@@ -95,7 +98,7 @@ table.data th { position: sticky; top: 0; background: var(--surface); }
   <div id="notes"></div>
   <details id="tbl-wrap"><summary>Show the numbers</summary><div class="tbl" id="tbl"></div></details>
   <div class="foot">
-    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. No 1-year estimates were released for 2020. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.</span>
+    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. No standard 1-year estimates were released for 2020. Changes are computed before rounding. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.</span>
     <span>Built by Data 4 The People</span>
   </div>
 </div>
@@ -113,6 +116,7 @@ const Z90 = 1.645;
 const GROUPS = DATA.groups;                 // ["lths","hs","somecol","ba","grad"]
 const LAST = DATA.last, FIRST = DATA.first;
 const BINS = ["--b1", "--b2", "--b3", "--b4", "--b5", "--b6"];
+const OBINS = ["--o1", "--o2", "--o3", "--o4", "--o5", "--o6"];   // less than high school
 const LEVELS = [
   {key: "state", label: "States", one: "state", by: "state"},
   {key: "county", label: "Counties", one: "county", by: "county"},
@@ -232,7 +236,7 @@ function tipHtml(feat, L, m) {
     html += `<div class="row"><span>${FIRST}</span><span>${fmt(then.p)}% ± ${fmt(then.moe)}</span></div>` +
       `<div class="row"><span>Change</span><span>${signed(t.diff)} points</span></div>` +
       `<div class="sm">${t.sig ? "This change passes" : "This change does not pass"} the Census Bureau's test at 90% confidence.` +
-      (m.brk ? ` Part of it may come from the ${LAST} question change (see note below the map).` : "") + `</div>`;
+      (m.brk ? ` Part of it may come from the ${LAST} survey changes (see note below the map).` : "") + `</div>`;
   } else {
     html += `<div class="sm">${esc(a.why || "No comparable " + FIRST + " value.")}</div>`;
   }
@@ -253,16 +257,17 @@ function render() {
   if (!change) {
     const vals = [];
     feats.forEach(f => { const a = AREA.get(f.id); if (a && a.v[LAST]) vals.push(measure(a.v[LAST], m).p); });
+    const ramp = m.fallBlue ? OBINS : BINS;
     const br = breaks(vals), off = BINS.length - (br.length + 1);   // use the darker end if fewer classes
     const lo = Math.floor(Math.min(...vals)), hi = Math.ceil(Math.max(...vals)), edges = [lo, ...br, hi];
-    fillOf = a => a && a.v[LAST] ? `var(${BINS[off + binOf(measure(a.v[LAST], m).p, br)]})` : "var(--nodata)";
+    fillOf = a => a && a.v[LAST] ? `var(${ramp[off + binOf(measure(a.v[LAST], m).p, br)]})` : "var(--nodata)";
     // Each class holds values from its lower edge up to, not including, the next edge.
     legend = edges.slice(0, -1).map((e, i) =>
-      `<span class="sw"><i style="background:var(${BINS[off + i]})"></i><span>${e}–${edges[i + 1]}${i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
+      `<span class="sw"><i style="background:var(${ramp[off + i]})"></i><span>${e}–${edges[i + 1]}${i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
       (noEst ? `<span class="nd"><i></i>No ${LAST} 1-year estimate</span>` : "") + cbsaKey;
     intro = `The map below shows the share of adults 25 and over with ${m.phrase} in each ${L.one} in ${LAST}.` +
       (noEst ? ` Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.` : "") +
-      ` Hover over an area to see its value, its margin of error and its change since ${FIRST}.`;
+      ` Hover over or tap an area to see its value, its margin of error and its change since ${FIRST}.`;
     title = `Adults 25 and over with ${m.phrase}, by ${L.by}, ${LAST} (percent)`;
   } else {
     const cs = new Map(), sig = [];
@@ -278,9 +283,9 @@ function render() {
       (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
     intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.` +
       ` Areas are colored only where the change passes the Census Bureau's test at 90% confidence` +
-      (ns ? `; the ${ns} of ${cs.size} that do not are hatched.` : `, and all ${cs.size} do.`) +
+      (ns ? `; the ${ns} of ${cs.size} that do not ${ns === 1 ? "is" : "are"} hatched.` : `, and all ${cs.size} do.`) +
       (none ? ` Gray areas have no comparable ${FIRST} and ${LAST} values.` : "") +
-      ` Hover over an area to see both values and the change.`;
+      ` Hover over or tap an area to see both values and the change.`;
     title = `Change in adults 25 and over with ${m.phrase}, by ${L.by}, ${FIRST} to ${LAST} (percentage points)`;
   }
   document.getElementById("intro").textContent = intro;
@@ -309,9 +314,9 @@ function render() {
   svg.addEventListener("pointerleave", () => { hideTip(); hl.setAttribute("d", ""); });
 
   const notes = [];
-  if (m.brk) notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${beyondTrend(m) < 0 ? "fell" : "rose"} ${fmt(Math.abs(beyondTrend(m)))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure include that step.`);
+  if (m.brk) notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${beyondTrend(m) < 0 ? "fell" : "rose"} ${fmt(Math.abs(beyondTrend(m)))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure may include that step.`);
   if (L.key === "cbsa") notes.push(`Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.`);
-  if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and only where changes to the counties in a metro or micro area moved its adult population by less than 5% in any one year.`);
+  if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and, for metro and micro areas, only where the adult population moved less than 5% in each year its list of counties changed.`);
   if (L.key === "state") notes.push(`Puerto Rico is shown in the inset but is not part of the national figures.`);
   document.getElementById("notes").innerHTML = notes.map(n => `<div class="note">${esc(n)}</div>`).join("");
   if (document.getElementById("tbl-wrap").open) renderTable();
