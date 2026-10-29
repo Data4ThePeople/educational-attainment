@@ -36,9 +36,9 @@
 - "percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest": supported (findings_tables.md: beyond-trend group changes; numbers recomputed below)
 - "Changes since ${FIRST} for this measure may include that step.": supported (states the arithmetic only, no cause)
 - "Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.": supported (ACS geography boundaries by year; geo_flags.py YEAR_VINTAGE)
-- "published in every year from ${FIRST} to ${LAST}, only where the adult population moved less than 5% in each year its list of counties changed": NOT FOUND ON PAGE (build_viz.py build_map: 5% rule on cbsa_changes.csv switch years after 2015)
+- "published in every year from ${FIRST} to ${LAST}, and, for metro and micro areas, only where the adult population moved less than 5% in each year its list of counties changed": supported (build_viz.py build_map: 5% rule on cbsa_changes.csv switch years after 2015)
 - "Puerto Rico is shown in the inset but is not part of the national figures.": supported (ACS nation (010) excludes Puerto Rico)
 - "Built by Data 4 The People": supported (house convention)
 - Break note numbers, recomputed here (beyond-trend change, points): less than high school -0.53, high school or more +0.53, some college or more +0.44 (the page computes them the same way at load).
 
-**Result:** FAIL (1 problems) on sections 1, 2 and 4.
+**Result:** PASS on sections 1, 2 and 4.
