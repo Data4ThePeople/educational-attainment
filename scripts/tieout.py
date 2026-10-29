@@ -171,28 +171,32 @@ def check_s1501(year, panel, report):
 
 
 CLAIMS = [
-    # (text that must appear on the page, status, source)
-    ("Educational attainment of adults 25 and over, 2008 to 2025", "supported",
-     "B15003 universe is the population 25 and over; series runs 2008-2025 (DATASETS.md)"),
-    ("for the nation, regions, divisions, states, Puerto Rico, and the counties, metro and micro areas and places with 65,000 or more people", "supported",
-     "ACS 1-year publication threshold (user note 2026-06); levels pulled (DATASETS.md, Geography)"),
-    ("the three lowest answers are added together to match the 2025 question", "supported",
-     "user note 2026-02; mapping in DATASETS.md"),
-    ("No standard 1-year estimates were released for 2020", "supported",
-     "user note 2021-02, https://www.census.gov/programs-surveys/acs/technical-documentation/user-notes/2021-02.html"),
-    ("B15002 fills years where B15003 was published with no values", "supported",
+    # (text that must appear on the map page, status, source)
+    ("Educational attainment of adults 25 and over, 2025", "supported",
+     "B15003 universe is the population 25 and over; latest year 2025 (DATASETS.md)"),
+    ("for states, and for counties and metro and micro areas with 65,000 or more people", "supported",
+     "ACS 1-year publication threshold (user note 2026-06); levels mapped (DATASETS.md, Map)"),
+    ("Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.", "supported",
+     "no mapped county or metro/micro shape without a 2025 value is in withheld.csv for 2025, so none was published empty"),
+    ("table B15003 (B15002 where B15003 was published with no values)", "supported",
      "build.py fill_withheld; 851 area-years, exact match where both exist (findings_tables.md)"),
-    ("Bands show the 90% margin of error, approximated with the Census Bureau's formulas for derived estimates", "supported",
+    ("Census Bureau 2023 cartographic boundary files", "supported",
+     "cb_2023_us_{state,county,cbsa}_20m, www2.census.gov/geo/tiger/GENZ2023/shp/"),
+    ("Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates", "supported",
      "ACS handbook (2020) ch. 8 formulas 1, 6, 7"),
-    ("pass the Census Bureau's test at 90% confidence", "supported", "ACS handbook (2020) ch. 7 formula 3"),
+    ("the Census Bureau's test at 90% confidence", "supported", "ACS handbook (2020) ch. 7 formula 3"),
     ("In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base.",
      "supported", "user notes 2026-02, 2026-04, 2026-05"),
-    ("percentage points more than its ${LAST - 4}–${LAST - 1} trend", "supported",
+    ("percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest", "supported",
      "findings_tables.md: beyond-trend group changes; numbers recomputed below"),
-    ("Changes ending in ${LAST} for this group include that step.", "supported",
+    ("Changes since ${FIRST} for this measure include that step.", "supported",
      "states the arithmetic only, no cause"),
-    ("it was under 65,000 people, or the tables were published with no values", "supported",
-     "ACS 1-year threshold; null tables in the API (withheld.csv)"),
+    ("Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.", "supported",
+     "ACS geography boundaries by year; geo_flags.py YEAR_VINTAGE"),
+    ("published in every year from ${FIRST} to ${LAST}, and only where boundary changes moved an area's adult population by less than 5% in any one year", "supported",
+     "build_viz.py build_map; cbsa_big_changes.csv; Bedford County, VA"),
+    ("Puerto Rico is shown in the inset but is not part of the national figures.", "supported",
+     "ACS nation (010) excludes Puerto Rico"),
     ("Built by Data 4 The People", "supported", "house convention"),
 ]
 
@@ -202,14 +206,13 @@ def check_words(panel, report):
     for text, status, src in CLAIMS:
         found = text in html
         report.append(f"- \"{text}\": {status if found else 'NOT FOUND ON PAGE'} ({src})")
-    us = panel[panel.level == "us"].set_index("year").lths_share
-    sc = panel[panel.level == "us"].set_index("year").somecol_share
-    excess = -((us[2025] - us[2024]) - (us[2024] - us[2021]) / 3)
-    excess_sc = (sc[2025] - sc[2024]) - (sc[2024] - sc[2021]) / 3
-    report.append(f"- Break note numbers, recomputed here: less than high school {excess:.1f}, some college "
-                  f"{excess_sc:.1f} points (the page computes them the same way at load).")
-    report.append("- Level names: \"Places (cities, towns and CDPs)\" covers census-designated places, "
-                  "which are not cities; supported.")
+    u = panel[panel.level == "us"].set_index("year")
+    def bt(cols):
+        s = sum(u[f"{c}_share"] for c in cols)
+        return (s[2025] - s[2024]) - (s[2024] - s[2021]) / 3
+    report.append(f"- Break note numbers, recomputed here (beyond-trend change, points): less than high school "
+                  f"{bt(['lths']):+.2f}, high school or more {bt(['hs', 'somecol', 'ba', 'grad']):+.2f}, "
+                  f"some college or more {bt(['somecol', 'ba', 'grad']):+.2f} (the page computes them the same way at load).")
     return sum(1 for t, _, _ in CLAIMS if t not in html)
 
 
@@ -228,7 +231,7 @@ def main():
     report += ["", "## 3. Shares vs S1501 published percentages", ""]
     for y in YEARS:
         check_s1501(y, panel, report)
-    report += ["", "## 4. Words on the built page (dist/index.html)", ""]
+    report += ["", "## 4. Words on the built map page (dist/index.html)", ""]
     fails += check_words(panel, report)
     report += ["", f"**Result:** {'PASS' if fails == 0 else f'FAIL ({fails} problems)'} on sections 1, 2 and 4."]
     OUT.write_text("\n".join(report) + "\n")

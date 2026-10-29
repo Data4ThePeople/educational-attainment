@@ -2,7 +2,7 @@
 
 Work in progress (Step 1, analysis). This project tracks the education of adults 25 and over, from 2008 to 2025. It covers the nation, regions, divisions, states, counties, metro and micro areas, and places in the American Community Survey (ACS) 1-year estimates, which cover areas with 65,000 or more people. For years before 2025, the three lowest answers are added together to match the 2025 question.
 
-The interactive chart is `dist/index.html`. It shows one area at a time and a ranked view of changes from 2008 to 2025 that pass the Census Bureau's test at 90% confidence.
+The interactive map is `dist/index.html`. It shows 2025 for states, counties, and metro and micro areas, with a choice of five education measures (bachelor's degree or more by default). Hovering over an area shows its 2008 value and the change. A second page, `dist/lines.html`, shows one area at a time from 2008 to 2025 and a ranked view of changes that pass the Census Bureau's test at 90% confidence.
 
 ## What's in the repo
 
@@ -11,11 +11,12 @@ The interactive chart is `dist/index.html`. It shows one area at a time and a ra
 - `data/raw/`: Census API responses saved as downloaded, the data.census.gov tie-out pulls, and the OMB metro delineation files.
 - `data/clean/`: the panel (`panel.csv`), area list with series breaks (`areas.csv`), change tests (`change.csv`), and check outputs.
 - `scripts/`: the pipeline.
-- `viz/template.html`: the page template; `scripts/build_viz.py` embeds the data.
+- `viz/map_template.html` and `viz/template.html`: the page templates; `scripts/build_viz.py` embeds the data.
+- `data/raw/boundaries/`: Census Bureau 2023 cartographic boundary files; `scripts/build_geo.py` turns them into map shapes.
 
 ## Data sources
 
-U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau.
+U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau. Map outlines come from the Census Bureau's 2023 cartographic boundary files (1:20,000,000).
 
 ## Rebuild
 
@@ -24,11 +25,12 @@ python scripts/fetch.py        # needs CENSUS_API_KEY via ~/.claude/d4tp-process
 python scripts/build.py
 python scripts/geo_flags.py
 python scripts/findings.py
+python scripts/build_geo.py
 python scripts/build_viz.py
 python scripts/tieout.py       # checks against data.census.gov
 ```
 
-Python 3.9 with pandas, numpy, requests, xlrd and openpyxl.
+Python 3.9 with pandas, numpy, requests, xlrd, openpyxl, pyshp and shapely.
 
 ## Method notes
 
@@ -36,5 +38,5 @@ Python 3.9 with pandas, numpy, requests, xlrd and openpyxl.
 - Lines are mapped by label, not line number, because the 2025 table layout changed.
 - Margins of error use the formulas in the Census Bureau's *Understanding and Using American Community Survey Data* (2020), chapters 7 and 8.
 - There is no standard 2020 1-year release, so 2020 is a gap.
-- The 2025 question change also moved part of the "less than high school" and "some college" shares. The chart marks the 2024 to 2025 step for those two groups. See `DATASETS.md`.
-- Where B15003 was withheld for data quality, the same five groups come from B15002.
+- The 2025 question change also moved part of the "less than high school" and "some college" shares. The pages note the 2024 to 2025 step for the measures that include those groups. See `DATASETS.md`.
+- Where B15003 was published with no values, the same five groups come from B15002.

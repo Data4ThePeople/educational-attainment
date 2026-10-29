@@ -272,6 +272,23 @@ from data.census.gov. Our shares match its percentages within rounding in all
 graduate), our approximated share MOEs are a median of 1.02 to 1.03 times its
 direct MOEs (10th to 90th percentile, 0.89 to 1.18).
 
+## Cartographic boundary files, 2023 (Census Bureau)
+
+**What it is.** Generalized outlines of states, counties and metro and micro
+areas at 1:20,000,000 scale: `cb_2023_us_state_20m.zip`,
+`cb_2023_us_county_20m.zip` and `cb_2023_us_cbsa_20m.zip`, from
+https://www2.census.gov/geo/tiger/GENZ2023/shp/, saved in
+`data/raw/boundaries/`.
+
+**Why 2023.** The 2025 ACS uses Connecticut's planning regions as counties and
+the July 2023 OMB metro and micro definitions; the 2023 files have both.
+
+**Use here.** Drawing the map only. `scripts/build_geo.py` projects them
+(Albers equal-area, with Alaska, Hawaii and Puerto Rico moved into insets),
+simplifies the outlines to 0.3 pixels, and writes `data/clean/geo_paths.json`
+(52 states and Puerto Rico, 3,216 counties, 935 metro and micro areas). Every
+area with a 2025 value at those three levels has a matching shape.
+
 ## Geography
 
 Levels used, by GEOID (the `GEO_ID` field, which includes the summary-level
@@ -360,10 +377,24 @@ if nothing had changed anywhere, about 894 would pass by chance. Far more than
 that pass (see FINDINGS.md), but any single small change that passes could
 still be chance.
 
+**Map** (`dist/index.html`). Shows 2025 for states, counties and metro and
+micro areas, with five measures built from the groups: bachelor's or more
+(bachelor's + graduate), graduate or professional, some college or more, high
+school or more, and less than high school. Sums use formula 1 and shares use
+formula 6 or 7, computed in the page from the embedded counts and MOEs. Colors
+are six classes with about equal numbers of areas, rounded to whole percents
+and computed for each level and measure. The tooltip shows 2008 and the
+change only for areas in the ranked view's comparable set: published every
+year, and boundary changes never moved the adult population 5% or more in one
+year. Because 2025 is a break year for the three measures that include less
+than high school or some college, the page notes how far each moved beyond its
+2021–2024 trend nationally. Gray means no 2025 1-year estimate; none of the
+gray areas were published with empty tables in 2025.
+
 **Names.** Each area carries its name in the latest year it was published.
 
 **Build order.** `fetch.py` → `build.py` → `geo_flags.py` → `findings.py` →
-`build_viz.py`; `tieout.py` checks against data.census.gov.
+`build_geo.py` → `build_viz.py`; `tieout.py` checks against data.census.gov.
 
 ## Variable mapping
 

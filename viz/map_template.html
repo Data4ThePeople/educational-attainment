@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Educational Attainment Map</title>
+<meta name="description" content="Map of the share of adults 25 and over with a bachelor's degree or more, and other education levels, in 2025 for U.S. states, and for counties and metro and micro areas with 65,000 or more people, from American Community Survey 1-year estimates.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --muted: #77756f;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --nodata: #e8e7e1; --edge: #fcfcfb; --stateline: #6f6d67; --accent: #2a78d6;
+  --b1: #cde2fb; --b2: #9ec5f4; --b3: #6da7ec; --b4: #3987e5; --b5: #256abf; --b6: #184f95;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #9a9890;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
+    --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #9a9890;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
+  --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app { container-type: inline-size; overflow-x: hidden; max-width: 980px; margin: 0 auto; padding: 16px; }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 16px; }
+h1 { font-size: 20px; margin: 0 0 4px; line-height: 1.25; }
+h2 { font-size: 16px; margin: 4px 0 6px; }
+p { margin: 0 0 8px; color: var(--ink2); }
+.sub { font-size: 13px; color: var(--muted); }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 12px 0 10px; }
+label { font-size: 14px; color: var(--ink2); }
+select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--axis);
+  border-radius: 6px; padding: 6px 10px; margin-left: 6px; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; font-size: 12.5px; color: var(--ink2); margin: 2px 0 6px; }
+.legend .sw { display: inline-flex; flex-direction: column; align-items: flex-start; }
+.legend .sw i { display: block; width: 58px; height: 12px; }
+.legend .sw span { font-variant-numeric: tabular-nums; }
+.legend .nd { margin-left: 16px; display: inline-flex; align-items: center; gap: 6px; }
+.legend .nd i { display: inline-block; width: 16px; height: 12px; background: var(--nodata); border: 1px solid var(--axis); }
+svg.map { display: block; width: 100%; height: auto; touch-action: manipulation; }
+svg.map path.a { stroke: var(--edge); stroke-width: 0.35; vector-effect: non-scaling-stroke; }
+svg.map path.s { fill: none; stroke: var(--stateline); stroke-width: 0.7; vector-effect: non-scaling-stroke; pointer-events: none; }
+svg.map path.hl { fill: none; stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.note { font-size: 12.5px; color: var(--ink2); background: var(--page); border-radius: 6px; padding: 6px 10px; margin: 6px 0; }
+.tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--axis); border-radius: 6px; padding: 8px 10px; font-size: 12.5px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15); display: none; max-width: 300px; }
+.tip b { display: block; margin-bottom: 4px; }
+.tip .row { display: flex; justify-content: space-between; gap: 12px; font-variant-numeric: tabular-nums; }
+.tip .sm { margin-top: 4px; color: var(--ink2); }
+details { margin-top: 8px; font-size: 13px; color: var(--ink2); }
+.tbl { max-height: 320px; overflow: auto; margin-top: 6px; }
+table.data { border-collapse: collapse; font-size: 12.5px; width: 100%; }
+table.data th, table.data td { padding: 3px 6px; text-align: right; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data th { position: sticky; top: 0; background: var(--surface); }
+.foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px;
+  font-size: 12px; color: var(--muted); }
+@container (max-width: 560px) {
+  h1 { font-size: 18px; }
+  .legend .sw i { width: 48px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="card">
+  <h1>Educational attainment of adults 25 and over, 2025</h1>
+  <p class="sub">American Community Survey 1-year estimates for states, and for counties and metro and micro areas with 65,000 or more people.</p>
+  <div class="controls">
+    <label>Show <select id="lvl" aria-label="Geography level"></select></label>
+    <label>Education <select id="msr" aria-label="Education level"></select></label>
+  </div>
+  <p id="intro"></p>
+  <h2 id="title"></h2>
+  <div class="legend" id="legend"></div>
+  <div id="map"></div>
+  <div id="notes"></div>
+  <details id="tbl-wrap"><summary>Show the numbers</summary><div class="tbl" id="tbl"></div></details>
+  <div class="foot">
+    <span>Source: U.S. Census Bureau, American Community Survey 1-year estimates, table B15003 (B15002 where B15003 was published with no values). Boundaries: Census Bureau 2023 cartographic boundary files. Margins of error are at 90% confidence, approximated with the Census Bureau's formulas for derived estimates.</span>
+    <span>Built by Data 4 The People</span>
+  </div>
+</div>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+const DATA = /*DATA*/null;
+const GEO = /*GEO*/null;
+
+// When framed (Prismic embed), pin the light theme.
+if (window.self !== window.top) document.documentElement.setAttribute("data-theme", "light");
+
+const Z90 = 1.645;
+const GROUPS = DATA.groups;                 // ["lths","hs","somecol","ba","grad"]
+const LAST = DATA.last, FIRST = DATA.first;
+const BINS = ["--b1", "--b2", "--b3", "--b4", "--b5", "--b6"];
+const LEVELS = [
+  {key: "state", label: "States", one: "state", by: "state"},
+  {key: "county", label: "Counties", one: "county", by: "county"},
+  {key: "cbsa", label: "Metro and micro areas", one: "metro or micro area", by: "metro or micro area"},
+];
+const MEASURES = [
+  {key: "baplus", label: "Bachelor's degree or more", phrase: "a bachelor's degree or more", groups: ["ba", "grad"]},
+  {key: "grad", label: "Graduate or professional degree", phrase: "a graduate or professional degree", groups: ["grad"]},
+  {key: "scplus", label: "Some college or more", phrase: "at least some college", groups: ["somecol", "ba", "grad"], brk: true},
+  {key: "hsplus", label: "High school or more", phrase: "at least a high school diploma or equivalent", groups: ["hs", "somecol", "ba", "grad"], brk: true},
+  {key: "lths", label: "Less than high school", phrase: "less than a high school education", groups: ["lths"], brk: true},
+];
+const fmt = (x, d = 1) => x.toFixed(d);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+// ---- Shares and MOEs, recomputed from published counts ----
+// Row layout: [total, totalMoe, lths, lthsMoe, hs, hsMoe, somecol, somecolMoe, ba, baMoe, grad, gradMoe]
+// Sum MOE: handbook (2020) ch. 8 formula (1). Share MOE: formula (6), or (7)
+// when the value under the root is negative.
+function measure(row, m) {
+  if (!row) return null;
+  let x = 0, mx2 = 0;
+  m.groups.forEach(g => { const i = GROUPS.indexOf(g); x += row[2 + 2 * i]; mx2 += row[3 + 2 * i] ** 2; });
+  const y = row[0], my = row[1], p = x / y;
+  let rad = mx2 - p * p * my * my;
+  if (rad < 0) rad = mx2 + p * p * my * my;
+  return {p: 100 * p, moe: 100 * Math.sqrt(rad) / y};
+}
+// Handbook ch. 7 formula (3).
+function ztest(a, b) {
+  const z = (b.p - a.p) / Math.sqrt((a.moe / Z90) ** 2 + (b.moe / Z90) ** 2);
+  return {diff: b.p - a.p, z, sig: Math.abs(z) > Z90};
+}
+// National change from LAST-1 to LAST beyond its LAST-4..LAST-1 average yearly change.
+function beyondTrend(m) {
+  const s = y => measure(DATA.us[y], m).p;
+  return (s(LAST) - s(LAST - 1)) - (s(LAST - 1) - s(LAST - 4)) / 3;
+}
+
+// Areas by id; duplicate keys are a hard failure.
+const AREA = new Map();
+for (const a of DATA.areas) {
+  if (AREA.has(a.id)) throw new Error("Duplicate area id " + a.id);
+  AREA.set(a.id, a);
+}
+
+// ---- Controls ----
+const lvlSel = document.getElementById("lvl"), msrSel = document.getElementById("msr");
+LEVELS.forEach(l => lvlSel.add(new Option(l.label, l.key)));
+MEASURES.forEach(m => msrSel.add(new Option(m.label, m.key)));
+lvlSel.value = "county"; msrSel.value = "baplus";
+const h = new URLSearchParams(location.hash.slice(1));
+if (LEVELS.some(l => l.key === h.get("level"))) lvlSel.value = h.get("level");
+if (MEASURES.some(m => m.key === h.get("measure"))) msrSel.value = h.get("measure");
+
+// ---- Bins: six classes with about equal counts of areas, rounded to whole percents ----
+function breaks(values) {
+  const v = values.slice().sort((a, b) => a - b), out = [];
+  for (let k = 1; k < BINS.length; k++) out.push(Math.round(v[Math.floor(k * v.length / BINS.length)]));
+  return out.filter((b, i) => i === 0 || b > out[i - 1]);
+}
+const binOf = (p, br) => { let i = 0; while (i < br.length && p >= br[i]) i++; return i; };
+
+// ---- Tooltip ----
+const tip = document.getElementById("tip");
+function showTip(html, ev) {
+  tip.innerHTML = html; tip.style.display = "block";
+  const w = tip.offsetWidth, hh = tip.offsetHeight;
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + w > window.innerWidth - 8) x = ev.clientX - w - 14;
+  if (y + hh > window.innerHeight - 8) y = ev.clientY - hh - 14;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => { tip.style.display = "none"; };
+
+function tipHtml(feat, L, m) {
+  const a = AREA.get(feat.id);
+  if (!a || !a.v[LAST]) {
+    return `<b>${esc(a ? a.n : feat.n)}</b><div class="sm">No ${LAST} 1-year estimate. ` +
+      (L.key === "state" ? "" : "The Census Bureau publishes 1-year estimates only for areas with 65,000 or more people.") + `</div>`;
+  }
+  const now = measure(a.v[LAST], m);
+  let html = `<b>${esc(a.n)}</b><div class="row"><span>${LAST}</span><span>${fmt(now.p)}% ± ${fmt(now.moe)}</span></div>`;
+  if (a.c && a.v[FIRST]) {
+    const then = measure(a.v[FIRST], m), t = ztest(then, now);
+    html += `<div class="row"><span>${FIRST}</span><span>${fmt(then.p)}% ± ${fmt(then.moe)}</span></div>` +
+      `<div class="row"><span>Change</span><span>${t.diff > 0 ? "+" : t.diff < 0 ? "−" : ""}${fmt(Math.abs(t.diff))} points</span></div>` +
+      `<div class="sm">${t.sig ? "This change passes" : "This change does not pass"} the Census Bureau's test at 90% confidence.` +
+      (m.brk ? ` Part of it may come from the ${LAST} question change (see note below the map).` : "") + `</div>`;
+  } else {
+    html += `<div class="sm">${esc(a.why || "No comparable " + FIRST + " value.")}</div>`;
+  }
+  return html;
+}
+
+// ---- Map ----
+let current = [];
+function render() {
+  const L = LEVELS.find(l => l.key === lvlSel.value), m = MEASURES.find(x => x.key === msrSel.value);
+  try { history.replaceState(null, "", `#level=${L.key}&measure=${m.key}`); } catch (e) {}
+  const feats = GEO[L.key];
+  const vals = [];
+  feats.forEach(f => { const a = AREA.get(f.id); if (a && a.v[LAST]) vals.push(measure(a.v[LAST], m).p); });
+  const br = breaks(vals);
+  const gray = feats.length - vals.length;
+
+  document.getElementById("intro").textContent =
+    `The map below shows the share of adults 25 and over with ${m.phrase} in each ${L.one} in ${LAST}.` +
+    (gray ? ` Gray areas have no ${LAST} 1-year estimate, because they have fewer than 65,000 people.` : "") +
+    ` Hover over an area to see its value, its margin of error and its change since ${FIRST}.`;
+  document.getElementById("title").textContent =
+    `Adults 25 and over with ${m.phrase}, by ${L.by}, ${LAST} (percent)`;
+
+  const lo = Math.floor(Math.min(...vals)), hi = Math.ceil(Math.max(...vals));
+  const edges = [lo, ...br, hi];
+  // Each class holds values from its lower edge up to, not including, the next edge.
+  document.getElementById("legend").innerHTML = edges.slice(0, -1).map((e, i) =>
+    `<span class="sw"><i style="background:var(${BINS[i + (BINS.length - edges.length + 1)]})"></i><span>${e}–${edges[i + 1]}${i === edges.length - 2 ? "%" : ""}</span></span>`).join("") +
+    (gray ? `<span class="nd"><i></i>No ${LAST} 1-year estimate</span>` : "") +
+    (L.key === "cbsa" ? `<span class="nd"><i style="background:var(--surface)"></i>Not in a metro or micro area</span>` : "");
+
+  const off = BINS.length - (br.length + 1);   // use the darker end if fewer bins
+  let s = `<svg class="map" viewBox="0 0 ${GEO.w} ${GEO.h}" role="img" aria-label="${esc(document.getElementById("title").textContent)}">`;
+  current = feats;
+  feats.forEach((f, k) => {
+    const a = AREA.get(f.id), has = a && a.v[LAST];
+    const fill = has ? `var(${BINS[off + binOf(measure(a.v[LAST], m).p, br)]})` : "var(--nodata)";
+    s += `<path class="a" data-k="${k}" d="${f.d}" style="fill:${fill}"/>`;
+  });
+  if (L.key !== "state") GEO.state.forEach(f => { s += `<path class="s" d="${f.d}"/>`; });
+  s += `<path class="hl" id="hl" d=""/></svg>`;
+  const box = document.getElementById("map");
+  box.innerHTML = s;
+  const svg = box.querySelector("svg"), hl = svg.querySelector("#hl");
+  const over = ev => {
+    const p = ev.target.closest("path.a");
+    if (!p) { hideTip(); hl.setAttribute("d", ""); return; }
+    const f = current[+p.dataset.k];
+    hl.setAttribute("d", f.d);
+    showTip(tipHtml(f, L, m), ev);
+  };
+  svg.addEventListener("pointermove", over);
+  svg.addEventListener("pointerdown", over);
+  svg.addEventListener("pointerleave", () => { hideTip(); hl.setAttribute("d", ""); });
+
+  const notes = [];
+  if (m.brk) notes.push(`In ${LAST} the survey merged its three lowest answers into one, collected less data during a federal funding lapse, and used a new population base. From ${LAST - 1} to ${LAST}, the national share with ${m.phrase} ${beyondTrend(m) < 0 ? "fell" : "rose"} ${fmt(Math.abs(beyondTrend(m)))} percentage points more than its ${LAST - 4}–${LAST - 1} trend would suggest. Changes since ${FIRST} for this measure include that step.`);
+  if (L.key === "cbsa") notes.push(`Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.`);
+  if (L.key !== "state") notes.push(`Changes since ${FIRST} are shown only for areas published in every year from ${FIRST} to ${LAST}, and only where boundary changes moved an area's adult population by less than 5% in any one year.`);
+  if (L.key === "state") notes.push(`Puerto Rico is shown in the inset but is not part of the national figures.`);
+  document.getElementById("notes").innerHTML = notes.map(n => `<div class="note">${esc(n)}</div>`).join("");
+  if (document.getElementById("tbl-wrap").open) renderTable();
+}
+
+// ---- Table view ----
+function renderTable() {
+  const L = LEVELS.find(l => l.key === lvlSel.value), m = MEASURES.find(x => x.key === msrSel.value);
+  const rows = GEO[L.key].map(f => AREA.get(f.id)).filter(a => a && a.v[LAST])
+    .map(a => {
+      const now = measure(a.v[LAST], m), then = a.c && a.v[FIRST] ? measure(a.v[FIRST], m) : null;
+      return {a, now, then, t: then ? ztest(then, now) : null};
+    }).sort((x, y) => y.now.p - x.now.p);
+  document.getElementById("tbl").innerHTML =
+    `<table class="data"><thead><tr><th>${esc(L.label)}</th><th>${LAST}</th><th>${FIRST}</th><th>Change</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${fmt(r.now.p)} ± ${fmt(r.now.moe)}</td>` +
+      `<td>${r.then ? fmt(r.then.p) + " ± " + fmt(r.then.moe) : "–"}</td>` +
+      `<td>${r.t ? (r.t.diff > 0 ? "+" : r.t.diff < 0 ? "−" : "") + fmt(Math.abs(r.t.diff)) + (r.t.sig ? "" : " (not significant)") : "–"}</td></tr>`).join("") +
+    `</tbody></table>`;
+}
+document.getElementById("tbl-wrap").addEventListener("toggle", e => { if (e.target.open) renderTable(); });
+lvlSel.addEventListener("change", render);
+msrSel.addEventListener("change", render);
+render();
+</script>
+</body>
+</html>
