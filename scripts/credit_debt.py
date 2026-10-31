@@ -92,6 +92,7 @@ def main():
     # within rounding.
     nat = us.set_index("year").average
     assert abs(nat[FIRST] / st.at["United States", "avg_first"] - 1) < 0.005
+    st.at["United States", "avg_first"] = nat[FIRST]
     st.at["United States", "avg_last"] = nat[LAST]
     st = st.dropna(subset=["avg_first", "avg_last"])
     st["avg_first_2025usd"] = st.avg_first * f[FIRST]

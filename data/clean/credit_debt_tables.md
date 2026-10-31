@@ -57,8 +57,8 @@
 | Mississippi | 40,364 | 39,133 | -3.0 |
 | South Dakota | 32,426 | 31,436 | -3.1 |
 | Massachusetts | 39,288 | 38,015 | -3.2 |
+| United States | 39,676 | 38,374 | -3.3 |
 | Minnesota | 35,924 | 34,741 | -3.3 |
-| United States | 39,691 | 38,374 | -3.3 |
 | Connecticut | 39,960 | 38,630 | -3.3 |
 | Utah | 36,193 | 34,925 | -3.5 |
 | Illinois | 41,844 | 40,344 | -3.6 |

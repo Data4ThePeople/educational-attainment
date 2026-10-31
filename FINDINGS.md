@@ -204,17 +204,20 @@ Numbers come from `data/clean/credit_debt_tables.md` (written by
 Equifax, in 2025 dollars. These figures cover all borrowers, with no
 breakdown by degree.
 
-1. **Nationally, student debt per borrower is about where it was in 2015,
-   after inflation.** The median balance per borrower was $20,387 in 2015
+1. **Nationally, student debt per borrower in 2024 was close to its 2015
+   level, after inflation.** The median balance per borrower was $20,387 in 2015
    and $19,627 in 2024 (−3.7%). The average was $37,935 and $38,374 (+1.2%).
-   Both peaked in 2020.
+   From 2016 to 2024 the median fell 6.6% and the average 3.3%. Both peaked
+   in 2020.
 2. **Average debt per borrower fell after inflation in most states from 2016
-   to 2024.** It fell in 49 of 52 states and areas (50 states, DC and Puerto
-   Rico); the median change was −4.1%. It rose in Puerto Rico (+20.8%),
+   to 2024.** It fell in 47 of 52 states and areas (50 states, DC and Puerto
+   Rico), and was within rounding of no change in two more (Wyoming and
+   Alaska); the median change was −4.1%. It rose in Puerto Rico (+20.8%),
    Hawaii (+2.4%) and Maine (+0.5%). The largest falls were in North Dakota
    (−9.9%) and Louisiana (−7.7%).
-3. **This matches the Survey of Consumer Finances result above:** debt per
-   borrower did not rise measurably after inflation.
+3. **This points the same way as the Survey of Consumer Finances result
+   above,** though the sources differ: credit reports cover all borrowers
+   with no breakdown by degree and publish no margins of error.
 
 Limits:
 - No margins of error are published, so none of these changes is tested.

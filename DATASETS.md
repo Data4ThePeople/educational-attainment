@@ -388,7 +388,8 @@ in 2016, 19.92% in 2025).
 
 ## Student debt from credit reports (New York Fed Consumer Credit Panel / Equifax)
 
-**What it is.** A 5% sample of U.S. credit reports. Student loans include
+**What it is.** A sample of U.S. credit reports: the national series (Page 8
+below) uses a 1% sample and the state tables a 5% sample. Student loans include
 federal and private loans. Balances are at year end, and state is the
 borrower's mailing address, not the school's location. Credit reports do not
 record education, so this source has no breakdown by degree.
@@ -410,14 +411,20 @@ record education, so this source has no breakdown by degree.
 **Method.** Average balance per borrower by state, 2016 and 2024, and the
 national median and average per borrower, 2004 to 2024, moved to 2025
 dollars with the R-CPI-U-RS. The update file has no United States row; the
-national average from Page 8 is used, which matches the older file's United
-States row for 2016. 2016 is the first year with state averages per borrower,
+national average from Page 8 is used for both years. It is within 0.1% of
+the older file's United States row in 2019 to 2021 and of total balance
+divided by total borrowers in the 2024 state table. 2016 is the first year with state averages per borrower,
 and 2024 is the latest. The New York Fed publishes no margins of error for
 these tables, so no changes are tested.
 
 **Caveats.**
-- Puerto Rico's 2016 value comes from the older file and its change (+20.8%)
-  is far from every state's; we have not confirmed it.
+- Puerto Rico's change (+20.8%) is far from every state's. Its yearly values
+  rise steadily in both files, which agree for 2019 to 2021, so it does not
+  look like a one-year error, but we have not confirmed it against another
+  source.
+- The older file rounds 2016 averages to $100, so a 2016 base can be off by
+  up to about 0.2%. Changes smaller than that (Wyoming and Alaska) cannot be
+  called a rise or a fall.
 - Balances of borrowers who move count in the state where they live at year
   end.
 
