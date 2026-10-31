@@ -386,6 +386,41 @@ in 2016, 19.92% in 2025).
   over, 247 at ages 25 to 39), so its standard errors and tests are not
   reliable and are not used.
 
+## Student debt from credit reports (New York Fed Consumer Credit Panel / Equifax)
+
+**What it is.** A 5% sample of U.S. credit reports. Student loans include
+federal and private loans. Balances are at year end, and state is the
+borrower's mailing address, not the school's location. Credit reports do not
+record education, so this source has no breakdown by degree.
+
+**Files.** From the New York Fed Center for Microeconomic Data data bank
+(https://www.newyorkfed.org/microeconomics/databank.html), saved in
+`data/raw/nyfed/`:
+- `student-loan-update-2025-mangrum.xlsx` (2024 Student Loan Debt
+  Statistics): Page 8, national median and average balance per borrower,
+  2004 to 2024; Pages 9 to 14, borrowers and average and median balance by
+  state, 2019Q4 to 2024Q4.
+- `student-loan-by-state.xlsx`: borrowers and average balance per borrower by
+  state, 2016 to 2021. Its 2019 to 2021 averages match the update file to
+  within 0.5% (checked in `scripts/credit_debt.py`), so 2016 state averages
+  come from this file.
+- `area_report_by_year.xlsx` and `hhd_c_report_2026q2.xlsx` were downloaded
+  for reference and are not used.
+
+**Method.** Average balance per borrower by state, 2016 and 2024, and the
+national median and average per borrower, 2004 to 2024, moved to 2025
+dollars with the R-CPI-U-RS. The update file has no United States row; the
+national average from Page 8 is used, which matches the older file's United
+States row for 2016. 2016 is the first year with state averages per borrower,
+and 2024 is the latest. The New York Fed publishes no margins of error for
+these tables, so no changes are tested.
+
+**Caveats.**
+- Puerto Rico's 2016 value comes from the older file and its change (+20.8%)
+  is far from every state's; we have not confirmed it.
+- Balances of borrowers who move count in the state where they live at year
+  end.
+
 ## Cartographic boundary files, 2023 (Census Bureau)
 
 **What it is.** Generalized outlines of states, counties and metro and micro

@@ -16,7 +16,7 @@ The interactive map is `dist/index.html`. It covers states, counties, and metro 
 
 ## Data sources
 
-U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B20004 (median earnings by educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau. Prices: Bureau of Labor Statistics R-CPI-U-RS. Student debt: Federal Reserve Board, Survey of Consumer Finances 2016 and 2025 (national static charts in `dist/charts/`). Map outlines come from the Census Bureau's 2023 cartographic boundary files (1:20,000,000).
+U.S. Census Bureau, American Community Survey 1-year estimates, tables B15003 and B15002 (educational attainment), B20004 (median earnings by educational attainment), B99151 (allocation of educational attainment) and S1501 (subject table, tie-out only), via the Census Data API and data.census.gov. Metro area county lists come from the OMB delineation files published by the Census Bureau. Prices: Bureau of Labor Statistics R-CPI-U-RS. Student debt: Federal Reserve Board, Survey of Consumer Finances 2016 and 2025, and New York Fed Consumer Credit Panel / Equifax student loan tables (static charts in `dist/charts/`). Map outlines come from the Census Bureau's 2023 cartographic boundary files (1:20,000,000).
 
 ## Rebuild
 
@@ -31,6 +31,7 @@ python scripts/pay_findings.py
 python scripts/fetch_scf.py    # Survey of Consumer Finances files (not committed)
 python scripts/scf_debt.py
 python scripts/debt_charts.py
+python scripts/credit_debt.py
 python scripts/tieout.py       # checks against data.census.gov
 ```
 
