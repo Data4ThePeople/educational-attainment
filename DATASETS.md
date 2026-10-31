@@ -463,7 +463,8 @@ the education views.
   T = Σ q₂₀₂₅,g × median₂₀₂₅,g − Σ q₂₀₁₅,g × median₂₀₁₅,g (2015 in 2025 dollars),
   where q is the group's share of adults 25 and over. The standard error adds,
   by root-sum-of-squares: each share's SE (formula 6, MOE/1.645) times
-  (median_g − that year's index Σ q × median), and each median's SE times its
+  (median_g − Σ q × median, using that term's shares and the same
+  medians), and each median's SE times its
   share (or, for D, times the change in share). Using median minus index
   allows for the five shares adding to 100%, so an error in one share is
   offset in the others. Shares and medians are treated as independent,

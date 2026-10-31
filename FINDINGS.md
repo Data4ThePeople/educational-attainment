@@ -124,7 +124,8 @@ area's share of adults 25 and over in that group.
    counties, and all 50 states, DC and Puerto Rico. Its median is 0.39 points a
    year for metro and micro areas and 0.40 for counties. It passes an
    approximate test (see `DATASETS.md`) in 294 of 391 metro and micro areas,
-   615 of 805 counties and 52 of 52 states, and is below zero and passing in
+   615 of 805 counties and all 52 states, DC and Puerto Rico
+   taken together, and is below zero and passing in
    none.
 4. **Pay index growth from the change in pay within education groups (the
    2015-mix index) is smaller and less often significant.**
