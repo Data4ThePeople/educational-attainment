@@ -13,7 +13,6 @@
   --nodata: #e8e7e1; --edge: #fcfcfb; --stateline: #6f6d67; --accent: #2a78d6;
   --b1: #cde2fb; --b2: #9ec5f4; --b3: #6da7ec; --b4: #3987e5; --b5: #256abf; --b6: #184f95;
   --n3: #9a4a10; --n2: #d9782d; --n1: #f4c194; --p1: #b3d1f7; --p2: #4f8fe0; --p3: #1c5cab; --ns: #dedcd5;
-  --o1: #fbe2cc; --o2: #f6c393; --o3: #eea062; --o4: #e07f35; --o5: #b9601d; --o6: #8a4510;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -23,7 +22,6 @@
     --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
     --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
     --n3: #f4b07a; --n2: #c8692a; --n1: #6e3812; --p1: #1d4778; --p2: #3a7fd6; --p3: #a3c8f5; --ns: #45443f;
-  --o1: #6e3812; --o2: #8e4a17; --o3: #b45f22; --o4: #d9782d; --o5: #eea062; --o6: #f6c393;
   }
 }
 :root[data-theme="dark"] {
@@ -33,7 +31,6 @@
   --nodata: #2c2c2a; --edge: #1a1a19; --stateline: #898781; --accent: #3987e5;
   --b1: #104281; --b2: #1c5cab; --b3: #2a78d6; --b4: #5598e7; --b5: #86b6ef; --b6: #b7d3f6;
   --n3: #f4b07a; --n2: #c8692a; --n1: #6e3812; --p1: #1d4778; --p2: #3a7fd6; --p3: #a3c8f5; --ns: #45443f;
-  --o1: #6e3812; --o2: #8e4a17; --o3: #b45f22; --o4: #d9782d; --o5: #eea062; --o6: #f6c393;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--page); color: var(--ink);
@@ -119,7 +116,6 @@ const LAST = DATA.last, FIRST = DATA.first, NYRS = LAST - FIRST;
 // 2015 dollars to 2025 dollars with the R-CPI-U-RS annual averages.
 const CPI_F = DATA.cpi[LAST] / DATA.cpi[FIRST];
 const BINS = ["--b1", "--b2", "--b3", "--b4", "--b5", "--b6"];
-const OBINS = ["--o1", "--o2", "--o3", "--o4", "--o5", "--o6"];   // less than high school
 const LEVELS = [
   {key: "state", label: "States", one: "state", by: "state"},
   {key: "county", label: "Counties", one: "county", by: "county"},
@@ -383,7 +379,7 @@ function render() {
   if (!change) {
     const vals = new Map();
     feats.forEach(f => { const v = m.level(AREA.get(f.id)); if (v) vals.set(f.id, v.v); });
-    const ramp = m.fallBlue ? OBINS : BINS, step = pay ? 1000 : 1;
+    const ramp = BINS, step = pay ? 1000 : 1;
     const br = breaks([...vals.values()], step), off = BINS.length - (br.length + 1);   // use the darker end if fewer classes
     const lo = step * Math.floor(Math.min(...vals.values()) / step), hi = step * Math.ceil(Math.max(...vals.values()) / step);
     const edges = [lo, ...br, hi], lab = pay ? kusd : (x => String(x));

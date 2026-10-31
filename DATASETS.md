@@ -420,7 +420,7 @@ formula 6 or 7, computed in the page from the embedded counts and MOEs.
 
 - *Share in 2025* view: six color classes with about equal numbers of areas,
   rounded to whole percents and computed for each level and measure, in
-  blue (orange for less than high school). Gray
+  blue. Gray
   means no 2025 1-year estimate; none of the gray areas were published with
   empty tables in 2025.
 - *Change, 2015 to 2025* view: a decade, in percentage points. Only changes
