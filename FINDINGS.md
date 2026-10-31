@@ -121,10 +121,11 @@ area's share of adults 25 and over in that group.
    bachelor's 0.33%, graduate or professional −0.02%.
 3. **The pattern holds across areas.** Pay index growth from the change in
    education mix is above zero in 379 of 391 comparable metro and micro areas, 780 of 805
-   counties, and all 52 states and Puerto Rico. Its median is 0.39 points a
+   counties, and all 50 states, DC and Puerto Rico. Its median is 0.39 points a
    year for metro and micro areas and 0.40 for counties. It has no
    significance test.
-4. **Changes in the 2015-mix index are smaller and less often significant.**
+4. **Pay index growth from the change in pay within education groups (the
+   2015-mix index) is smaller and less often significant.**
    In metro and micro areas, median pay for all workers rose significantly in
    227 of 391 and fell significantly in 1. The 2015-mix index rose
    significantly in 149 and fell significantly in 10.

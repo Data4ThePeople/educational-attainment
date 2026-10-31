@@ -217,7 +217,7 @@ const MEASURES = [
   eduMeasure("hsplus", "High school or more", "at least a high school diploma or equivalent", ["hs", "somecol", "ba", "grad"], {brk: true}),
   eduMeasure("lths", "Less than high school", "less than a high school education", ["lths"], {brk: true, fallBlue: true}),
   payMeasure("pay", "All workers", "all workers", 0),
-  {topic: "pay", key: "payfixed", label: `Pay index, education mix held at ${FIRST}`, phrase: `the pay index with the education mix held at ${FIRST}`,
+  {topic: "pay", key: "payfixed", label: "Pay index growth from the change in pay within education groups", phrase: `the pay index's growth from the change in pay within education groups`,
     unit: "pct", changeOnly: true, level: () => null,
     comp: a => {
       if (!comparable(a)) return null;
@@ -343,12 +343,12 @@ function tipHtml(feat, L, m) {
     const mix = MEASURES.find(x => x.key === "paymix").comp(a);
     const own = {d: mix.d + held.d};
     html += (all ? row("Median pay, all workers", fmtD(all.d, "pct")) : "") +
-      row("Pay index, own mix", fmtD(own.d, "pct")) +
-      row(`Pay index, ${FIRST} mix`, fmtD(held.d, "pct")) +
+      row("Pay index, total", fmtD(own.d, "pct")) +
+      row("From the change in pay within education groups", fmtD(held.d, "pct")) +
       row("From the change in education mix", fmtD(mix.d, "ppy")) +
       `<div class="sm">Yearly change, ${FIRST} to ${LAST}, after inflation. ` +
       (all ? `The median change ${all.sig ? "passes" : "does not pass"} the test at 90% confidence. ` : "") +
-      `The ${FIRST}-mix index change ${held.sig ? "passes" : "does not pass"} a ratio test built from the Census Bureau's formulas. The part from the change in education mix is not tested.</div>`;
+      `The change in pay within education groups ${held.sig ? "passes" : "does not pass"} a ratio test built from the Census Bureau's formulas. The part from the change in education mix is not tested.</div>`;
     return html;
   }
   if (lv) html += row(LAST, fmtLevel(lv, m));
@@ -426,8 +426,8 @@ function render() {
       intro = `The map below shows, for each ${L.one}, the difference between the pay index's yearly growth from ${FIRST} to ${LAST} with each year's own education mix and its yearly growth with the mix held at ${FIRST}, in percentage points. This is the part of the index's growth that comes from the change in education mix. It is not a share of median pay growth.`;
       title = `Pay index growth from the change in education mix, by ${L.by}, ${FIRST} to ${LAST} (percentage points a year)`;
     } else if (m.key === "payfixed") {
-      intro = `The map below shows the average yearly change from ${FIRST} to ${LAST}, after inflation, in each ${L.one}'s pay index with its education mix held at ${FIRST}. The index weights each education group's median pay by the area's ${FIRST} share of adults in that group.`;
-      title = `Yearly change in pay index with education mix held at ${FIRST}, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
+      intro = `The map below shows the average yearly change from ${FIRST} to ${LAST}, after inflation, in each ${L.one}'s pay index with its education mix held at ${FIRST}. This is the part of the index's growth that comes from the change in pay within education groups. The index weights each education group's median pay by the area's ${FIRST} share of adults in that group.`;
+      title = `Pay index growth from the change in pay within education groups, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
     } else {
       intro = `The map below shows the yearly change in median pay of ${PAY_WHO(m)} from ${FIRST} to ${LAST} in each ${L.one}, after inflation.`;
       title = `Yearly change in median pay of ${PAY_WHO(m)}, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;

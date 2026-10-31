@@ -321,7 +321,7 @@ the July 2023 OMB metro and micro definitions; the 2023 files have both.
 **Use here.** Drawing the map only. `scripts/build_geo.py` projects them
 (Albers equal-area, with Alaska, Hawaii and Puerto Rico moved into insets),
 simplifies the outlines to 0.3 pixels, and writes `data/clean/geo_paths.json`
-(52 states and Puerto Rico, 3,216 counties, 935 metro and micro areas). Every
+(50 states, DC and Puerto Rico, 3,216 counties, 935 metro and micro areas). Every
 area with a 2025 value at those three levels has a matching shape.
 
 ## Geography
@@ -448,7 +448,8 @@ the education views.
   rate, ((2025 value / 2015 value in 2025 dollars)^(1/10) − 1). The test is
   formula 3 on the dollar change, with 2015 MOEs scaled by the same price
   factor.
-- Pay index, education mix held at 2015: index = Σ w₂₀₁₅,g × median_g, where w is the
+- Pay index growth from the change in pay within education groups (education
+  mix held at 2015): index = Σ w₂₀₁₅,g × median_g, where w is the
   area's B15003 share of adults 25 and over in group g. MOE of the index uses
   formula 1 on w × MOE, with weights treated as fixed; the 2015-to-2025 test
   uses the ratio MOE (formula 7) and asks whether the ratio differs from 1.
