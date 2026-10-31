@@ -305,7 +305,81 @@ averages in its shutdown FAQ
 (https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm).
 
 **Use here.** 2015 medians times 474.682 / 348.3 (prices up 36.3%) to put
-them in 2025 dollars.
+them in 2025 dollars. For the student debt charts, 2016 dollars (debt from
+the Survey of Consumer Finances and B20004 medians) are multiplied by
+474.682 / 352.8 (prices up 34.5%).
+
+## Survey of Consumer Finances, 2016 and 2025 (Federal Reserve Board)
+
+**What it is.** A survey of about 4,000 to 6,000 families every three years
+on their assets, debts and income. 2016 is the survey year closest to 2015,
+and 2025 is the latest. It is national only, so student debt is shown in
+static national charts, not on the map.
+
+**Files.** Full public data and replicate weights (Stata), codebooks, the
+summary-variable macros (`bulletin.macro.txt`), the 2025 questionnaire
+changes and the standard error documentation, from
+https://www.federalreserve.gov/econres/scfindex.htm. `scripts/fetch_scf.py`
+downloads them to `data/raw/scf/`. The data files are not committed. Sample:
+6,248 families in 2016 and 4,360 in 2025, each with five implicates.
+
+**Fields.**
+- Highest degree: X5931 (reference person), X6111 (spouse or partner).
+  Groups: less than high school (codes −1 to 7), high school or equivalent
+  (8), some college or associate's (9 to 11), bachelor's (12), master's (13),
+  professional or doctorate (14; the public data combine doctorate, code 15,
+  with 14). Graduate or professional is 13 and 14.
+- Age: X14 (reference person), X19 (spouse or partner).
+- Student loans: for each of up to six loans, the amount still owed (X7824,
+  X7847, X7870, X7924, X7947, X7970) and whose education it paid for (X7978,
+  X7883, X7888, X7893, X7898, X7993: 1 reference person, 2 spouse or partner,
+  3 child or other relative, 6 multiple people in 2025 only). X7179 is the
+  total still owed on a family's seventh and later loans.
+- Weights: X42001. Replicate weights WT1B1 to WT1B999 times the multiplicity
+  factors MM1 to MM999; a missing replicate weight (a case not drawn in that
+  replicate) counts as zero.
+
+**Method.**
+- Each family's reference person and, where present, spouse or partner is a
+  person, ages 25 and over. A person's own student debt is the sum still owed
+  on loans for their own education. Loans for a child or other relative,
+  loans for multiple people, and seventh and later loans are not assigned,
+  because the 2016 survey did not ask whose education the seventh and later
+  loans paid for.
+- Measures by highest degree: percent with own student debt; median and mean
+  own debt among those with debt; mean own debt per adult.
+- Estimates are the average over the five implicates. Standard errors follow
+  the SCF codebook's MEANIT macro: sqrt(6/5 × imputation variance + replicate
+  variance), with imputation variance across the five implicates (n − 1
+  divisor) and replicate variance across the 999 replicates of the first
+  implicate (998 divisor). MOE = 1.645 × SE. A 2016-to-2025 change passes if
+  |difference| / sqrt(SE₁² + SE₂²) > 1.645.
+- Dollars are in 2025 dollars using the R-CPI-U-RS (above).
+
+**Checks.** For every family, the sum of loans 1 to 6 plus X7179 equals the
+Fed's summary variable EDN_INST in the 2025 summary extract. In 2016 it equals
+EDN_INST divided by 1.3498, the Fed's factor for putting 2016 dollars in 2025
+dollars, and the percent of families with education debt is the same (22.27%
+in 2016, 19.92% in 2025).
+
+**Caveats.**
+- The share of all student loan balances assigned to a person is 84.4% in
+  2016 and 85.6% in 2025; most of the rest is loans for a child or other
+  relative.
+- Loans of adults who are not the reference person or spouse, such as adult
+  children living with parents, are not in the family's answers.
+- The SCF total for student debt ($1.15 trillion in 2025) is below totals
+  from credit reports, so the survey may miss some borrowers.
+- In 2025 the survey changed the student loan question to exclude loans that
+  someone outside the household is repaying, added the "multiple people"
+  code, and changed who counts as a spouse or partner in the family. These
+  could move the 2016-to-2025 comparison. We cannot measure by how much.
+- Debt amounts bunch at round numbers (for example $25,000), so the replicate
+  standard errors of medians can be very small or zero. The tests of median
+  changes may overstate precision. The tests on percent with debt and on
+  means do not have this problem.
+- Samples are small for some groups: in 2025, 48 professional or doctorate
+  borrowers and 5 borrowers with less than high school.
 
 ## Cartographic boundary files, 2023 (Census Bureau)
 

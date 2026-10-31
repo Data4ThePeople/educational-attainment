@@ -160,6 +160,43 @@ Limits:
 - Each yearly change uses only the 2015 and 2025 estimates, and 2025 was
   collected with less data during the funding lapse.
 
+## Student debt by degree, 2016 to 2025 (national)
+
+Numbers in this section come from `data/clean/scf_debt_tables.md` (written by
+`scripts/scf_debt.py`), using the Survey of Consumer Finances. Own student
+debt is what is still owed on loans for a person's own education. People are
+each family's reference person and spouse or partner, ages 25 and over.
+Dollars are 2025 dollars. "Passes" means the change passes a test at 90%
+confidence. Charts are in `dist/charts/`.
+
+1. **For adults with a bachelor's or graduate degree, own student debt did
+   not rise after inflation.** Among borrowers 25 and over, the median was
+   $26,909 in 2016 and $25,000 in 2025 for bachelor's degree holders (−7.1%),
+   $49,244 and $50,000 for master's (+1.5%), and $129,703 and $101,800 for
+   professional or doctorate (−21.5%). None of these changes passes the test.
+2. **A smaller share of graduate degree holders carried student debt.** The
+   share with own student debt fell from 21.9% to 17.0% for graduate or
+   professional degree holders (passes) and from 22.7% to 17.7% for master's
+   (passes). For bachelor's it went from 18.3% to 17.0% (does not pass).
+3. **Among adults 25 to 39, the drop is larger.** The share with own student
+   debt fell from 40.9% to 34.8% for bachelor's and from 52.0% to 40.3% for
+   graduate or professional (both pass). Median debt among these borrowers
+   did not change by an amount that passes the test.
+4. **Pay over the same years (ACS, B20004, nation).** After inflation, median
+   pay rose 3.1% for bachelor's degree holders and fell 3.0% for graduate or
+   professional degree holders from 2016 to 2025.
+
+Limits:
+- The SCF is a family survey with about 4,000 to 6,000 families, so the
+  estimates for each degree group rest on a few hundred borrowers or fewer.
+- The 2025 survey changed the student loan question and who counts as a
+  spouse or partner (see `DATASETS.md`). These could move the comparison.
+- The debt figures do not say why balances changed. Repayment, loan
+  forgiveness, the payment pause and changes in who borrows are all possible,
+  and the data here cannot separate them.
+- Pay covers people with earnings, and debt covers borrowers. They are
+  different groups and come from different surveys.
+
 ## Could not check
 
 - Which metro delineation the 2008 ACS used (we assume November 2007).

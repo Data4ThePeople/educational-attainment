@@ -3,3 +3,5 @@
 __pycache__/
 .env
 .DS_Store
+data/raw/scf/x/
+data/raw/scf/*.zip
