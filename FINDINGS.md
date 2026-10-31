@@ -169,8 +169,8 @@ each family's reference person and spouse or partner, ages 25 and over.
 Dollars are 2025 dollars. "Passes" means the change passes a test at 90%
 confidence. Charts are in `dist/charts/`.
 
-1. **For adults with a bachelor's or graduate degree, own student debt did
-   not rise after inflation.** Among borrowers 25 and over, the median was
+1. **For borrowers with a bachelor's or graduate degree, median own student
+   debt showed no measurable change after inflation.** Among borrowers 25 and over, the median was
    $26,909 in 2016 and $25,000 in 2025 for bachelor's degree holders (−7.1%),
    $49,244 and $50,000 for master's (+1.5%), and $129,703 and $101,800 for
    professional or doctorate (−21.5%). None of these changes passes the test.
@@ -178,7 +178,7 @@ confidence. Charts are in `dist/charts/`.
    share with own student debt fell from 21.9% to 17.0% for graduate or
    professional degree holders (passes) and from 22.7% to 17.7% for master's
    (passes). For bachelor's it went from 18.3% to 17.0% (does not pass).
-3. **Among adults 25 to 39, the drop is larger.** The share with own student
+3. **Among adults 25 to 39, the share with own student debt also fell.** The share with own student
    debt fell from 40.9% to 34.8% for bachelor's and from 52.0% to 40.3% for
    graduate or professional (both pass). Median debt among these borrowers
    did not change by an amount that passes the test.
@@ -187,7 +187,7 @@ confidence. Charts are in `dist/charts/`.
    professional degree holders from 2016 to 2025.
 
 Limits:
-- The SCF is a family survey with about 4,000 to 6,000 families, so the
+- The SCF is a family survey (6,248 families in 2016 and 4,360 in 2025), so the
   estimates for each degree group rest on a few hundred borrowers or fewer.
 - The 2025 survey changed the student loan question and who counts as a
   spouse or partner (see `DATASETS.md`). These could move the comparison.

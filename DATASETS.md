@@ -311,7 +311,7 @@ the Survey of Consumer Finances and B20004 medians) are multiplied by
 
 ## Survey of Consumer Finances, 2016 and 2025 (Federal Reserve Board)
 
-**What it is.** A survey of about 4,000 to 6,000 families every three years
+**What it is.** A survey of several thousand families every three years
 on their assets, debts and income. 2016 is the survey year closest to 2015,
 and 2025 is the latest. It is national only, so student debt is shown in
 static national charts, not on the map.
@@ -325,7 +325,7 @@ downloads them to `data/raw/scf/`. The data files are not committed. Sample:
 
 **Fields.**
 - Highest degree: X5931 (reference person), X6111 (spouse or partner).
-  Groups: less than high school (codes −1 to 7), high school or equivalent
+  Groups: less than high school (codes −1 and 1 to 7), high school or equivalent
   (8), some college or associate's (9 to 11), bachelor's (12), master's (13),
   professional or doctorate (14; the public data combine doctorate, code 15,
   with 14). Graduate or professional is 13 and 14.
@@ -333,7 +333,8 @@ downloads them to `data/raw/scf/`. The data files are not committed. Sample:
 - Student loans: for each of up to six loans, the amount still owed (X7824,
   X7847, X7870, X7924, X7947, X7970) and whose education it paid for (X7978,
   X7883, X7888, X7893, X7898, X7993: 1 reference person, 2 spouse or partner,
-  3 child or other relative, 6 multiple people in 2025 only). X7179 is the
+  3 child or other relative; the 2025 questionnaire adds 6, multiple people,
+  but that code does not occur in the 2025 public data). X7179 is the
   total still owed on a family's seventh and later loans.
 - Weights: X42001. Replicate weights WT1B1 to WT1B999 times the multiplicity
   factors MM1 to MM999; a missing replicate weight (a case not drawn in that
@@ -341,7 +342,8 @@ downloads them to `data/raw/scf/`. The data files are not committed. Sample:
 
 **Method.**
 - Each family's reference person and, where present, spouse or partner is a
-  person, ages 25 and over. A person's own student debt is the sum still owed
+  person, ages 25 and over. A partner who is not part of the family unit
+  (X100 = 5, degree code 0) was not interviewed and is left out. A person's own student debt is the sum still owed
   on loans for their own education. Loans for a child or other relative,
   loans for multiple people, and seventh and later loans are not assigned,
   because the 2016 survey did not ask whose education the seventh and later
@@ -379,7 +381,10 @@ in 2016, 19.92% in 2025).
   changes may overstate precision. The tests on percent with debt and on
   means do not have this problem.
 - Samples are small for some groups: in 2025, 48 professional or doctorate
-  borrowers and 5 borrowers with less than high school.
+  borrowers and 5 borrowers with less than high school. For less than high
+  school, some replicates have no borrowers at all (3 of 999 at ages 25 and
+  over, 247 at ages 25 to 39), so its standard errors and tests are not
+  reliable and are not used.
 
 ## Cartographic boundary files, 2023 (Census Bureau)
 
