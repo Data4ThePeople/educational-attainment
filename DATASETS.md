@@ -452,7 +452,7 @@ the education views.
   area's B15003 share of adults 25 and over in group g. MOE of the index uses
   formula 1 on w × MOE, with weights treated as fixed; the 2015-to-2025 test
   uses the ratio MOE (formula 7) and asks whether the ratio differs from 1.
-- Own mix minus 2015 mix: yearly growth of the index with each year's own
+- Pay index growth from the change in education mix: yearly growth of the index with each year's own
   weights, minus yearly growth with 2015 weights. Not tested; small values may
   come from sampling error alone. It is not a share of median pay growth.
 - Change classes use the same symmetric k and 2k rule, with k from {0.1, 0.2,

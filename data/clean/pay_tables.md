@@ -14,11 +14,11 @@ R-CPI-U-RS 2015 to 2025: prices up 36.3%. Yearly change is the compound annual g
 | Median, Graduate or professional | 91554 | -0.02 |
 | Index, each year's own education mix |  | 1.00 |
 | Index, education held at 2015 mix |  | 0.49 |
-| Own mix minus 2015 mix (points a year) |  | 0.51 |
+| Growth from the change in education mix (points a year) |  | 0.51 |
 
 ## By level: comparable areas
 
-| level | areas | median all-worker change (%/yr) | median held-mix change (%/yr) | median own minus 2015 mix (pts/yr) | own minus 2015 mix above 0 | all-worker rise passes | all-worker fall passes | held-mix rise passes | held-mix fall passes |
+| level | areas | median all-worker change (%/yr) | median held-mix change (%/yr) | median growth from mix change (pts/yr) | growth from mix change above 0 | all-worker rise passes | all-worker fall passes | held-mix rise passes | held-mix fall passes |
 |---|---|---|---|---|---|---|---|---|---|
 | cbsa | 391 | 1.02 | 0.55 | 0.39 | 379 | 227 | 1 | 149 | 10 |
 | county | 805 | 0.88 | 0.51 | 0.40 | 780 | 408 | 7 | 235 | 32 |
@@ -32,7 +32,7 @@ R-CPI-U-RS 2015 to 2025: prices up 36.3%. Yearly change is the compound annual g
 | county | 1.63 | 0.56 | 0.55 | 0.35 | -0.20 |
 | state | 1.56 | 0.55 | 0.59 | 0.57 | -0.09 |
 
-## Metro and micro areas: largest own-mix minus 2015-mix difference
+## Metro and micro areas: largest pay index growth from the change in education mix
 
 | name | all_cagr | held_cagr | mix_part |
 |---|---|---|---|

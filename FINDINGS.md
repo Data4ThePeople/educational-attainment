@@ -113,13 +113,14 @@ area's share of adults 25 and over in that group.
 1. **Nationally, the pay index grew about half as fast with the education mix
    held at 2015.** Median pay for all workers rose 0.98% a year. The pay index
    rose 1.00% a year with each year's own education mix and 0.49% a year with
-   the mix held at 2015, a difference of 0.51 points a year.
+   the mix held at 2015. The difference, 0.51 points a year, is the pay index growth
+   from the change in education mix.
 2. **Within each group, median pay grew more slowly than the overall median,
    except for less than high school.** National yearly changes: less than high
    school 1.78%, high school 0.48%, some college or associate's 0.65%,
    bachelor's 0.33%, graduate or professional −0.02%.
-3. **The pattern holds across areas.** The own-mix minus 2015-mix difference
-   is above zero in 379 of 391 comparable metro and micro areas, 780 of 805
+3. **The pattern holds across areas.** Pay index growth from the change in
+   education mix is above zero in 379 of 391 comparable metro and micro areas, 780 of 805
    counties, and all 52 states and Puerto Rico. Its median is 0.39 points a
    year for metro and micro areas and 0.40 for counties. It has no
    significance test.
@@ -127,8 +128,8 @@ area's share of adults 25 and over in that group.
    In metro and micro areas, median pay for all workers rose significantly in
    227 of 391 and fell significantly in 1. The 2015-mix index rose
    significantly in 149 and fell significantly in 10.
-5. **Areas that stand out.** The largest own-mix minus 2015-mix differences
-   among metro and micro areas include Guayama, PR (1.09 points a year),
+5. **Areas that stand out.** The largest pay index growth from the change in
+   education mix among metro and micro areas include Guayama, PR (1.09 points a year),
    Brownsville-Harlingen, TX (0.97) and San Jose-Sunnyvale-Santa Clara, CA
    (0.96). The 2015-mix index fell most in Minot, ND (−1.59% a year),
    Trenton-Princeton, NJ (−1.05%) and Muskogee, OK (−1.03%); Houston fell
