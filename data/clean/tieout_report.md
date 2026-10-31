@@ -31,7 +31,7 @@
 ## 5. Words on the built map page (dist/index.html)
 
 - "Educational attainment of adults 25 and over, ${FIRST} to ${LAST}": supported (B15003 universe is the population 25 and over; map compares 2015 with 2025 (build_viz.py MAP_BASE))
-- "Areas are colored only where the change passes the Census Bureau's test at 90% confidence": supported (map_template.html fillOf: hatched unless |z| > 1.645 (ACS handbook (2020) ch. 7 formula 3))
+- "Areas are colored only where the change passes": supported (map_template.html fillOf: hatched unless the test passes (handbook ch. 7 formula 3; ratio test; approximate mix test in DATASETS.md))
 - "No standard 1-year estimates were released for 2020.": supported (user note 2021-02, https://www.census.gov/programs-surveys/acs/technical-documentation/user-notes/2021-02.html)
 - "for states, and for counties and metro and micro areas with 65,000 or more people": supported (ACS 1-year publication threshold (user note 2026-06); levels mapped (DATASETS.md, Map))
 - ", because they have fewer than 65,000 people.": supported (no mapped county or metro/micro shape without a 2025 value is in withheld.csv for 2025, so none was published empty)
@@ -54,7 +54,7 @@
 - "It is an index, not a median, and the weights cover all adults, not only workers.": supported (weights are B15003 shares of the population 25 and over)
 - "both can affect ${LAST} pay estimates": supported (user notes 2026-04, 2026-05; states possibility only)
 - "It is not a share of median pay growth.": supported (index weights cover all adults; medians cover earners)
-- "small values may come from sampling error alone": supported (independent tie-out: rough share-error test leaves about 16% of counties not passing)
+- "allow for the five shares adding to 100%": supported (map_template.html shareVar(): share error times (median - index); pay_findings.py recomputes the same counts)
 - Break note numbers, recomputed here (beyond-trend change, points): less than high school -0.53, high school or more +0.53, some college or more +0.44 (the page computes them the same way at load).
 
 **Result:** PASS on sections 1, 2, 4 and 5.

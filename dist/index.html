@@ -182,6 +182,42 @@ function mixPay(a, y, w) {
   }
   return {v, moe: Math.sqrt(m2)};
 }
+// Approximate tests for the two pay index measures without a published-
+// formula test. Each is a sum of share * median terms. Its standard error
+// combines share MOEs (formula 6) and median MOEs by root-sum-of-squares,
+// treating them as independent. Because the five shares add to 100%, an
+// error in one share is offset in the others, so each share's error is
+// multiplied by the group median minus that year's index, not by the median
+// itself. The same survey feeds both shares and medians, so the tests are
+// approximate.
+function parts(a, y, my) {
+  const out = [];
+  for (let i = 0; i < GROUPS.length; i++) {
+    const md = median(a, my, i + 1);
+    if (!md) return null;
+    const p = share(a.v[y], [GROUPS[i]]);
+    out.push({q: p.v / 100, qse: p.moe / 100 / Z90, m: md.v, mse: md.moe / Z90});
+  }
+  return out;
+}
+const sumQM = ps => ps.reduce((t, x) => t + x.q * x.m, 0);
+const shareVar = ps => { const c = sumQM(ps); return ps.reduce((t, x) => t + ((x.m - c) * x.qse) ** 2, 0); };
+// Education mix part: D = sum (LAST share - FIRST share) * LAST median.
+function mixTest(a) {
+  const p1 = parts(a, FIRST, LAST), p2 = parts(a, LAST, LAST);
+  if (!p1 || !p2) return null;
+  const d = sumQM(p2) - sumQM(p1);
+  const se2 = shareVar(p1) + shareVar(p2) + p2.reduce((t, x, i) => t + ((x.q - p1[i].q) * x.mse) ** 2, 0);
+  return {d, sig: Math.abs(d) / Math.sqrt(se2) > Z90};
+}
+// Pay index total: T = LAST index with LAST shares - FIRST index with FIRST shares.
+function totalTest(a) {
+  const p1 = parts(a, FIRST, FIRST), p2 = parts(a, LAST, LAST);
+  if (!p1 || !p2) return null;
+  const t = sumQM(p2) - sumQM(p1);
+  const se2 = [p1, p2].reduce((v, ps) => v + shareVar(ps) + ps.reduce((u, x) => u + (x.q * x.mse) ** 2, 0), 0);
+  return {d: t, sig: Math.abs(t) / Math.sqrt(se2) > Z90};
+}
 // Ratio MOE: handbook ch. 8 formula (7).
 function ratio(x, y) {
   const r = x.v / y.v;
@@ -234,7 +270,7 @@ const MEASURES = [
       if (!comparable(a)) return null;
       const then = mixPay(a, FIRST, a.v[FIRST]), held = mixPay(a, LAST, a.v[FIRST]), now = mixPay(a, LAST, a.v[LAST]);
       if (!then || !held || !now) return null;
-      return {then, now, held, d: cagr(then.v, now.v) - cagr(then.v, held.v), sig: null, index: true};
+      return {then, now, held, d: cagr(then.v, now.v) - cagr(then.v, held.v), sig: mixTest(a).sig, index: true, approx: true};
     }},
   payMeasure("pgrad", "Graduate or professional degree", "a graduate or professional degree", 5),
   payMeasure("pba", "Bachelor's degree", "a bachelor's degree", 4),
@@ -343,15 +379,15 @@ function tipHtml(feat, L, m) {
     if (!c) return html + `<div class="sm">${esc(a.why || `No comparable ${FIRST} and ${LAST} values.`)}</div>`;
     const all = MEASURES.find(x => x.key === "pay").comp(a), held = MEASURES.find(x => x.key === "payfixed").comp(a);
     const mix = MEASURES.find(x => x.key === "paymix").comp(a);
-    const own = {d: mix.d + held.d};
+    const own = {d: mix.d + held.d, sig: totalTest(a).sig};
     const yes = t => t ? "Yes" : "No";
     const tr = (k, d, test, sub, on) => `<tr${on ? ' class="on"' : ""}><td${sub ? ' class="ind"' : ""}>${k}</td><td>${d}</td><td>${test}</td></tr>`;
     html += `<table><tr><th></th><th>Yearly change</th><th>Passes test</th></tr>` +
       (all ? tr("Median pay, all workers", signed(all.d, 2) + "%", yes(all.sig)) : "") +
-      tr("Pay index, total", signed(own.d, 2) + "%", "Not tested") +
+      tr("Pay index, total", signed(own.d, 2) + "%", yes(own.sig) + "*") +
       tr("From pay within education groups", signed(held.d, 2) + "%", yes(held.sig), true, m.key === "payfixed") +
-      tr("From the education mix", signed(mix.d, 2) + " pts", "Not tested", true, m.key === "paymix") +
-      `</table><div class="sm">${FIRST} to ${LAST}, after inflation. Tests use 90% confidence. The test for pay within education groups is a ratio test built from the Census Bureau's formulas. "pts" means percentage points a year.</div>`;
+      tr("From the education mix", signed(mix.d, 2) + " pts", yes(mix.sig) + "*", true, m.key === "paymix") +
+      `</table><div class="sm">${FIRST} to ${LAST}, after inflation. Tests use 90% confidence. The test for pay within education groups is a ratio test built from the Census Bureau's formulas. *Approximate tests (see notes below the map). "pts" means percentage points a year.</div>`;
     return html;
   }
   if (lv) html += row(LAST, fmtLevel(lv, m));
@@ -406,7 +442,6 @@ function render() {
   } else {
     const cs = new Map(), shown = [];
     feats.forEach(f => { const c = m.comp(AREA.get(f.id)); if (c) { cs.set(f.id, c); if (c.sig !== false) shown.push(c.d); } });
-    const tested = m.key !== "paymix";
     const k = changeStep(shown, m.unit), kk = num(k), k2 = num(2 * k);
     const ns = cs.size - shown.length, none = feats.length - cs.size;
     const present = new Set(shown.map(d => changeClass(d, k)));
@@ -419,8 +454,7 @@ function render() {
     legend = DIV.map((_, i) => present.has(i) ? `<span class="nd"><i style="background:var(${divColor(i, m)})"></i>${labels[i]}</span>` : "").join("") +
       (ns ? `<span class="nd"><i class="hatch"></i>Change does not pass the test</span>` : "") +
       (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
-    const passText = !tested ? ` This measure has no significance test, so every area with values is colored; small values may come from sampling error alone.`
-      : ` Areas are colored only where the change passes the Census Bureau's test at 90% confidence` +
+    const passText = ` Areas are colored only where the change passes ${m.key === "paymix" ? "an approximate test built from the Census Bureau's formulas" : "the Census Bureau's test"} at 90% confidence` +
         (ns ? `; the ${ns} of ${cs.size} that do not ${ns === 1 ? "is" : "are"} hatched.` : `, and all ${cs.size} do.`);
     if (!pay) {
       intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.`;
@@ -479,7 +513,7 @@ function render() {
   if (pay) {
     notes.push(`Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers. ${FIRST} dollars are converted to ${LAST} dollars with the Bureau of Labor Statistics R-CPI-U-RS, the index the Census Bureau recommends for ACS dollar figures (${FIRST} to ${LAST}: ${fmt(100 * (CPI_F - 1))}% higher prices). Its ${LAST} value is the average of the 11 months published, because October ${LAST} was not collected during the federal funding lapse.`);
     notes.push(`Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.`);
-    notes.push(`The pay index weights each education group's median pay by the area's share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Pay index growth from the change in education mix" is the index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. It has no significance test. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
+    notes.push(`The pay index weights each education group's median pay by the area's share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Pay index growth from the change in education mix" is the index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. Its test, and the test of the pay index total shown on hover, are approximate. The mix test asks whether the change in each group's share of adults, times that group's ${LAST} median pay, adds up to more than sampling error. Both tests combine the margins of error of the shares and the medians, allow for the five shares adding to 100%, and treat the shares and medians as independent, although they come from the same survey. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
     notes.push(`In ${LAST} the survey collected less data during a federal funding lapse and used a new population base; both can affect ${LAST} pay estimates.`);
   }
   if (L.key === "cbsa") notes.push(`Metro and micro areas are drawn with the July 2023 definitions used for ${LAST}.`);

@@ -18,11 +18,11 @@ R-CPI-U-RS 2015 to 2025: prices up 36.3%. Yearly change is the compound annual g
 
 ## By level: comparable areas
 
-| level | areas | median all-worker change (%/yr) | median held-mix change (%/yr) | median growth from mix change (pts/yr) | growth from mix change above 0 | all-worker rise passes | all-worker fall passes | held-mix rise passes | held-mix fall passes |
-|---|---|---|---|---|---|---|---|---|---|
-| cbsa | 391 | 1.02 | 0.55 | 0.39 | 379 | 227 | 1 | 149 | 10 |
-| county | 805 | 0.88 | 0.51 | 0.40 | 780 | 408 | 7 | 235 | 32 |
-| state | 52 | 0.94 | 0.50 | 0.44 | 52 | 46 | 0 | 40 | 2 |
+| level | areas | median all-worker change (%/yr) | median held-mix change (%/yr) | median growth from mix change (pts/yr) | growth from mix change above 0 | all-worker rise passes | all-worker fall passes | held-mix rise passes | held-mix fall passes | mix rise passes (approx.) | mix fall passes (approx.) | index total rise passes (approx.) | index total fall passes (approx.) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| cbsa | 391 | 1.02 | 0.55 | 0.39 | 379 | 227 | 1 | 149 | 10 | 294 | 0 | 230 | 2 |
+| county | 805 | 0.88 | 0.51 | 0.40 | 780 | 408 | 7 | 235 | 32 | 615 | 0 | 416 | 2 |
+| state | 52 | 0.94 | 0.50 | 0.44 | 52 | 46 | 0 | 40 | 2 | 52 | 0 | 48 | 0 |
 
 ## By level: median yearly change in each group's median pay (%)
 
@@ -34,45 +34,45 @@ R-CPI-U-RS 2015 to 2025: prices up 36.3%. Yearly change is the compound annual g
 
 ## Metro and micro areas: largest pay index growth from the change in education mix
 
-| name | all_cagr | held_cagr | mix_part |
-|---|---|---|---|
-| Guayama, PR Metro Area | 0.28 | -1.92 | 1.09 |
-| Brownsville-Harlingen, TX Metro Area | 2.51 | 1.05 | 0.97 |
-| San Jose-Sunnyvale-Santa Clara, CA Metro Area | 2.26 | 0.88 | 0.96 |
-| Naples-Marco Island, FL Metro Area | 2.28 | 1.15 | 0.95 |
-| Mount Airy, NC Micro Area | 0.95 | -0.42 | 0.91 |
-| Gallup, NM Micro Area | 2.31 | 0.63 | 0.90 |
-| Fayetteville-Springdale-Rogers, AR Metro Area | 1.02 | 0.30 | 0.85 |
-| McAllen-Edinburg-Mission, TX Metro Area | 1.18 | -0.01 | 0.84 |
-| Beckley, WV Metro Area | 0.95 | -0.40 | 0.81 |
-| Arecibo, PR Metro Area | 0.45 | -0.80 | 0.81 |
+| name | all_cagr | held_cagr | mix_part | mix_sig |
+|---|---|---|---|---|
+| Guayama, PR Metro Area | 0.28 | -1.92 | 1.09 | True |
+| Brownsville-Harlingen, TX Metro Area | 2.51 | 1.05 | 0.97 | True |
+| San Jose-Sunnyvale-Santa Clara, CA Metro Area | 2.26 | 0.88 | 0.96 | True |
+| Naples-Marco Island, FL Metro Area | 2.28 | 1.15 | 0.95 | True |
+| Mount Airy, NC Micro Area | 0.95 | -0.42 | 0.91 | True |
+| Gallup, NM Micro Area | 2.31 | 0.63 | 0.90 | True |
+| Fayetteville-Springdale-Rogers, AR Metro Area | 1.02 | 0.30 | 0.85 | True |
+| McAllen-Edinburg-Mission, TX Metro Area | 1.18 | -0.01 | 0.84 | True |
+| Beckley, WV Metro Area | 0.95 | -0.40 | 0.81 | True |
+| Arecibo, PR Metro Area | 0.45 | -0.80 | 0.81 | True |
 
 ## Metro and micro areas: 2015-mix pay index rose most (passes the test)
 
-| name | all_cagr | held_cagr | mix_part |
-|---|---|---|---|
-| Twin Falls, ID Metro Area | 3.41 | 3.06 | 0.18 |
-| Palatka, FL Micro Area | 3.89 | 3.00 | 0.34 |
-| Eureka-Arcata, CA Micro Area | 3.03 | 2.89 | 0.25 |
-| Medford, OR Metro Area | 2.55 | 2.55 | 0.29 |
-| Chillicothe, OH Micro Area | 3.27 | 2.51 | 0.39 |
-| Hermiston-Pendleton, OR Micro Area | 2.55 | 2.46 | 0.15 |
-| Show Low, AZ Micro Area | 2.29 | 2.38 | 0.12 |
-| Bellingham, WA Metro Area | 3.08 | 2.30 | 0.48 |
-| Clearlake, CA Micro Area | 3.00 | 2.25 | -0.02 |
-| Santa Cruz-Watsonville, CA Metro Area | 3.53 | 2.21 | 0.70 |
+| name | all_cagr | held_cagr | mix_part | mix_sig |
+|---|---|---|---|---|
+| Twin Falls, ID Metro Area | 3.41 | 3.06 | 0.18 | True |
+| Palatka, FL Micro Area | 3.89 | 3.00 | 0.34 | False |
+| Eureka-Arcata, CA Micro Area | 3.03 | 2.89 | 0.25 | False |
+| Medford, OR Metro Area | 2.55 | 2.55 | 0.29 | True |
+| Chillicothe, OH Micro Area | 3.27 | 2.51 | 0.39 | False |
+| Hermiston-Pendleton, OR Micro Area | 2.55 | 2.46 | 0.15 | False |
+| Show Low, AZ Micro Area | 2.29 | 2.38 | 0.12 | False |
+| Bellingham, WA Metro Area | 3.08 | 2.30 | 0.48 | True |
+| Clearlake, CA Micro Area | 3.00 | 2.25 | -0.02 | False |
+| Santa Cruz-Watsonville, CA Metro Area | 3.53 | 2.21 | 0.70 | True |
 
 ## Metro and micro areas: 2015-mix pay index fell most (passes the test)
 
-| name | all_cagr | held_cagr | mix_part |
-|---|---|---|---|
-| Minot, ND Metro Area | -1.58 | -1.59 | 0.12 |
-| Trenton-Princeton, NJ Metro Area | -0.19 | -1.05 | 0.69 |
-| Muskogee, OK Micro Area | -0.29 | -1.03 | 0.20 |
-| Beaumont-Port Arthur, TX Metro Area | -0.76 | -0.97 | 0.18 |
-| El Paso, TX Metro Area | -0.11 | -0.69 | 0.70 |
-| Erie, PA Metro Area | -0.06 | -0.59 | 0.23 |
-| Houston-Pasadena-The Woodlands, TX Metro Area | -0.10 | -0.53 | 0.54 |
-| Jackson, MS Metro Area | -0.44 | -0.45 | 0.28 |
-| Bridgeport-Stamford-Danbury, CT Metro Area | 0.22 | -0.41 | 0.53 |
-| New York-Newark-Jersey City, NY-NJ Metro Area | 0.73 | -0.20 | 0.65 |
+| name | all_cagr | held_cagr | mix_part | mix_sig |
+|---|---|---|---|---|
+| Minot, ND Metro Area | -1.58 | -1.59 | 0.12 | False |
+| Trenton-Princeton, NJ Metro Area | -0.19 | -1.05 | 0.69 | True |
+| Muskogee, OK Micro Area | -0.29 | -1.03 | 0.20 | False |
+| Beaumont-Port Arthur, TX Metro Area | -0.76 | -0.97 | 0.18 | True |
+| El Paso, TX Metro Area | -0.11 | -0.69 | 0.70 | True |
+| Erie, PA Metro Area | -0.06 | -0.59 | 0.23 | True |
+| Houston-Pasadena-The Woodlands, TX Metro Area | -0.10 | -0.53 | 0.54 | True |
+| Jackson, MS Metro Area | -0.44 | -0.45 | 0.28 | True |
+| Bridgeport-Stamford-Danbury, CT Metro Area | 0.22 | -0.41 | 0.53 | True |
+| New York-Newark-Jersey City, NY-NJ Metro Area | 0.73 | -0.20 | 0.65 | True |

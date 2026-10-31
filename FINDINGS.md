@@ -122,8 +122,10 @@ area's share of adults 25 and over in that group.
 3. **The pattern holds across areas.** Pay index growth from the change in
    education mix is above zero in 379 of 391 comparable metro and micro areas, 780 of 805
    counties, and all 50 states, DC and Puerto Rico. Its median is 0.39 points a
-   year for metro and micro areas and 0.40 for counties. It has no
-   significance test.
+   year for metro and micro areas and 0.40 for counties. It passes an
+   approximate test (see `DATASETS.md`) in 294 of 391 metro and micro areas,
+   615 of 805 counties and 52 of 52 states, and is below zero and passing in
+   none.
 4. **Pay index growth from the change in pay within education groups (the
    2015-mix index) is smaller and less often significant.**
    In metro and micro areas, median pay for all workers rose significantly in

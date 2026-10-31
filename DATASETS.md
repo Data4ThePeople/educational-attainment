@@ -454,8 +454,21 @@ the education views.
   formula 1 on w × MOE, with weights treated as fixed; the 2015-to-2025 test
   uses the ratio MOE (formula 7) and asks whether the ratio differs from 1.
 - Pay index growth from the change in education mix: yearly growth of the index with each year's own
-  weights, minus yearly growth with 2015 weights. Not tested; small values may
-  come from sampling error alone. It is not a share of median pay growth.
+  weights, minus yearly growth with 2015 weights. It is not a share of median
+  pay growth.
+- Approximate tests for the education mix part and the pay index total (shown
+  on hover). Neither has a published Census formula, so each is built from
+  the handbook's pieces. The mix part has the sign of
+  D = Σ (q₂₀₂₅,g − q₂₀₁₅,g) × median₂₀₂₅,g, and the total is
+  T = Σ q₂₀₂₅,g × median₂₀₂₅,g − Σ q₂₀₁₅,g × median₂₀₁₅,g (2015 in 2025 dollars),
+  where q is the group's share of adults 25 and over. The standard error adds,
+  by root-sum-of-squares: each share's SE (formula 6, MOE/1.645) times
+  (median_g − that year's index Σ q × median), and each median's SE times its
+  share (or, for D, times the change in share). Using median minus index
+  allows for the five shares adding to 100%, so an error in one share is
+  offset in the others. Shares and medians are treated as independent,
+  although they come from the same survey. A test passes if |D| or |T| is more
+  than 1.645 times its SE.
 - Change classes use the same symmetric k and 2k rule, with k from {0.1, 0.2,
   0.25, 0.5, 0.75, 1, 1.5, 2}% a year (or {0.05, 0.1, 0.2, 0.25, 0.5, 0.75, 1}
   points a year for the mix part). Level classes are equal-count, rounded to

@@ -44,6 +44,30 @@ def main():
         m = np.sqrt(sum((w[2 + 2 * i] / w[0] * e[3 + 2 * i]) ** 2 for i in range(len(GROUPS))))
         return v, m
 
+    def share(w, i):
+        # Handbook ch. 8 formula (6), or (7) when the radicand is negative.
+        x, mx, y, my = w[2 + 2 * i], w[3 + 2 * i], w[0], w[1]
+        q = x / y
+        rad = mx ** 2 - q ** 2 * my ** 2
+        return q, np.sqrt(rad if rad >= 0 else mx ** 2 + q ** 2 * my ** 2) / y
+
+    def parts(w, e):
+        # (share, share SE, median, median SE) per group.
+        return [(*(lambda q, qm: (q, qm / Z90))(*share(w, i)), e[2 + 2 * i], e[3 + 2 * i] / Z90) for i in range(len(GROUPS))]
+
+    def share_var(ps):
+        # Shares add to 1, so each share's error moves the sum by (median - index).
+        c = sum(q * m for q, _, m, _ in ps)
+        return sum(((m - c) * qs) ** 2 for _, qs, m, _ in ps)
+
+    def approx_tests(w1, w2, e1, e2):
+        a1, a2, b1 = parts(w1, e2), parts(w2, e2), parts(w1, e1)
+        d = sum(q * m for q, _, m, _ in a2) - sum(q * m for q, _, m, _ in a1)
+        se_d = np.sqrt(share_var(a1) + share_var(a2) + sum(((x[0] - y[0]) * x[3]) ** 2 for x, y in zip(a2, a1)))
+        t = sum(q * m for q, _, m, _ in a2) - sum(q * m for q, _, m, _ in b1)
+        se_t = np.sqrt(sum(share_var(ps) + sum((q * ms) ** 2 for q, _, _, ms in ps) for ps in (b1, a2)))
+        return abs(d) / se_d > Z90, abs(t) / se_t > Z90
+
     def row(a):
         e1 = [x * f for x in a["e"][first]]
         e2 = a["e"][last]
@@ -60,6 +84,7 @@ def main():
         r["held_sig"] = abs(rr - 1) / (np.sqrt(hm2 ** 2 + rr ** 2 * hm1 ** 2) / h1 / Z90) > Z90
         r["own_cagr"] = cagr(h1, o2)
         r["mix_part"] = r["own_cagr"] - r["held_cagr"]
+        r["mix_sig"], r["own_sig"] = approx_tests(w1, w2, e1, e2)
         return r
 
     us = row({"id": "0100000US", "n": "United States", "c": True, "v": data["us"], "e": data["usPay"]})
@@ -89,7 +114,11 @@ def main():
                   "all-worker rise passes": int((d.all_sig & (d.all_cagr > 0)).sum()),
                   "all-worker fall passes": int((d.all_sig & (d.all_cagr < 0)).sum()),
                   "held-mix rise passes": int((d.held_sig & (d.held_cagr > 0)).sum()),
-                  "held-mix fall passes": int((d.held_sig & (d.held_cagr < 0)).sum())})
+                  "held-mix fall passes": int((d.held_sig & (d.held_cagr < 0)).sum()),
+                  "mix rise passes (approx.)": int((d.mix_sig & (d.mix_part > 0)).sum()),
+                  "mix fall passes (approx.)": int((d.mix_sig & (d.mix_part < 0)).sum()),
+                  "index total rise passes (approx.)": int((d.own_sig & (d.own_cagr > 0)).sum()),
+                  "index total fall passes (approx.)": int((d.own_sig & (d.own_cagr < 0)).sum())})
     table(pd.DataFrame(t))
 
     OUT.extend(["", "## By level: median yearly change in each group's median pay (%)", ""])
@@ -101,7 +130,7 @@ def main():
                      ("Metro and micro areas: 2015-mix pay index rose most (passes the test)", m[m.held_sig].nlargest(10, "held_cagr")),
                      ("Metro and micro areas: 2015-mix pay index fell most (passes the test)", m[m.held_sig].nsmallest(10, "held_cagr"))]:
         OUT.extend(["", f"## {title}", ""])
-        table(d[["name", "all_cagr", "held_cagr", "mix_part"]])
+        table(d[["name", "all_cagr", "held_cagr", "mix_part", "mix_sig"]])
 
     (CLEAN / "pay_tables.md").write_text("\n".join(OUT) + "\n")
     print("\n".join(OUT))
