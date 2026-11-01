@@ -61,14 +61,14 @@ I offer this illustration to help understand the problem with pay analysis over 
 
 And so, I added this to the visualization. Just switch the topic from Education to Pay and you can see how much of the increase in pay comes from higher pay within each education group and how much comes from the change in education mix. The following chart shows the summary of this pay and mix analysis for the nation.
 
-![Bar chart of the yearly change in U.S. median pay after inflation, 2015 to 2025, in 2025 dollars. Less than high school: $29,056 to $34,670, 1.78% a year. High school: $39,528 to $41,466, 0.48%. Some college: $46,851 to $50,003, 0.65%. Bachelor's: $69,410 to $71,709, 0.33%. Graduate: $91,701 to $91,554, flat. All workers: $50,235 to $55,391, 0.98%. Pay index: $52,033 to $57,469, 1.00%, of which 0.49 points from pay within groups and 0.51 from the education mix.](images/03-pay-mix-nation.png)
+![Bar chart of the yearly change in U.S. median pay after inflation, 2015 to 2025, in 2025 dollars. Less than high school: $29,056 to $34,670, 1.78% a year. High school: $39,528 to $41,466, 0.48%. Some college: $46,851 to $50,003, 0.65%. Bachelor's: $69,410 to $71,709, 0.33%. Graduate: $91,701 to $91,554, flat. Pay index: $52,033 to $57,469, 1.00%, of which 0.49 points from pay within groups and 0.51 from the education mix.](images/03-pay-mix-nation.png)
 *Pay is median earnings of people 25 and over who had earnings, in 2025 dollars. Yearly change is the average yearly growth rate over the 10 years, with compounding. The pay index weights each group's median pay by that group's share of all adults 25 and over.*
 
-From 2015 to 2025, median pay for all U.S. workers 25 and over rose 0.98% a year after inflation. Pay within each education group tells a different story. Median pay rose 0.33% a year for workers with a bachelor's degree and was flat for workers with a graduate or professional degree (down 0.02% a year, a change too small to pass the Census Bureau's test). Only workers without a high school diploma saw their median pay rise faster than all workers, at 1.78% a year.
+From 2015 to 2025, the pay index rose 1.00% a year after inflation. The index weights each group's median pay by that group's share of adults 25 and over. Pay within most education groups rose more slowly. Median pay rose 0.33% a year for workers with a bachelor's degree and was flat for workers with a graduate or professional degree (down 0.02% a year, a change too small to pass the Census Bureau's test). Only workers without a high school diploma saw their median pay rise faster than the index, at 1.78% a year.
 
 Over the same years, the education mix shifted. The share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4%. The share without a high school diploma fell from 12.9% to 9.4%. More adults are now in the groups with higher pay.
 
-The pay index in the map splits the change in pay into two parts. It weights each group's median pay by that group's share of adults 25 and over. From 2015 to 2025 the index rose 1.00% a year, close to the 0.98% yearly rise in median pay. With the education mix held at 2015 shares, the index would have risen 0.49% a year. The other 0.51 points a year are pay index growth from the change in education mix. In other words, about half of the rise in the pay index lines up with higher pay within education groups, and about half lines up with the shift toward more education.
+The pay index in the map splits this change into two parts. With the education mix held at 2015 shares, the index would have risen 0.49% a year. The other 0.51 points a year are pay index growth from the change in education mix. In other words, about half of the rise in the pay index lines up with higher pay within education groups, and about half lines up with the shift toward more education.
 
 The next chart shows the same split for the 129 metro and micro areas where both parts pass the test, out of 391 with comparable boundaries.
 
@@ -77,13 +77,13 @@ The next chart shows the same split for the 129 metro and micro areas where both
 
 In 121 of these 129 areas, both parts rose. In the other 8, pay within education groups fell while the education mix part rose, so all of the growth in the pay index, where there was any, came from the change in education mix. A few areas stand out.
 
-- **Houston:** Pay within education groups fell 0.53% a year, and the education mix part added 0.54 points a year. The pay index was flat (up 0.01% a year), and so was median pay for all workers (down 0.10% a year).
-- **New York:** Pay within education groups fell 0.20% a year, and the education mix part added 0.65 points a year. The pay index rose 0.46% a year, and median pay for all workers rose 0.73% a year.
+- **Houston:** Pay within education groups fell 0.53% a year, and the education mix part added 0.54 points a year. The pay index was flat (up 0.01% a year).
+- **New York:** Pay within education groups fell 0.20% a year, and the education mix part added 0.65 points a year. The pay index rose 0.46% a year.
 - **El Paso:** Pay within education groups fell 0.69% a year, and the education mix part added 0.70 points a year. The pay index was flat (up 0.01% a year).
 - **Trenton-Princeton, NJ:** Pay within education groups fell 1.05% a year, the most of these 129 areas. The education mix part added 0.69 points a year, and the pay index fell 0.36% a year.
 
 At the other end are areas where most of the growth came from pay within education groups.
 
-- **Twin Falls, ID:** Pay within education groups rose 3.06% a year, the most of these 129 areas, and the education mix part added 0.18 points a year. The pay index rose 3.24% a year, and median pay for all workers rose 3.41% a year.
+- **Twin Falls, ID:** Pay within education groups rose 3.06% a year, the most of these 129 areas, and the education mix part added 0.18 points a year. The pay index rose 3.24% a year.
 - **Medford, OR:** Pay within education groups rose 2.55% a year, and the education mix part added 0.29 points a year. The pay index rose 2.84% a year.
 - **Santa Cruz, CA:** Both parts were large. Pay within education groups rose 2.21% a year, and the education mix part added 0.70 points a year, for a pay index rise of 2.92% a year.

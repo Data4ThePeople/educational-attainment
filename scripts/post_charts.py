@@ -150,11 +150,11 @@ def pay_chart(data, first, last):
                 f"| From pay within education groups ({last} index with {first} mix ${h2:,.0f}) | {within:+.2f} | |",
                 f"| From the education mix (points a year) | {mix:+.2f} | |"])
 
-    h = 7.0
+    h = 6.6
     fig, ax = frame(f"Yearly change in median pay by education, {first} to {last}",
                     "Percent change a year after inflation, adults 25 and over with earnings, United States, in 2025 dollars", h)
     ax.set_position([0.27, 1.45 / h, 0.50, 1 - 2.95 / h])
-    labels = [n for n, _, _ in groups] + ["All workers", "Pay index"]
+    labels = [n for n, _, _ in groups] + ["Pay index"]
     n = len(labels)
     ys = list(range(n - 1, -1, -1))
     ys = [y + (0 if i < len(groups) else -0.5) for i, y in enumerate(ys)]
@@ -165,21 +165,19 @@ def pay_chart(data, first, last):
     for (name, v, s), y in zip(groups, ys):
         ax.barh(y, v, height=0.6, color=C2016 if s else NOPASS, zorder=2)
         lab(y, v, f"{v:+.2f}%".replace("-", "\u2212") + ("" if s else " (does not pass the test)"))
-    ax.barh(ys[-2], allw[0], height=0.6, color=C2025, zorder=2)
-    lab(ys[-2], allw[0], f"{allw[0]:+.2f}%")
     ax.barh(ys[-1], within, height=0.75, color=C2025, zorder=2)
     ax.barh(ys[-1], mix, left=within, height=0.75, color="#4f8fd9", zorder=2, edgecolor="white", linewidth=2)
     lab(ys[-1], total, f"{total:+.2f}%")
     ax.text(within / 2, ys[-1], f"Pay within\ngroups {within:+.2f}", ha="center", va="center", fontsize=9, color="white")
     ax.text(within + mix / 2, ys[-1], f"Education\nmix {mix:+.2f}", ha="center", va="center", fontsize=9, color="white")
-    ax.axhline((ys[len(groups) - 1] + ys[-2]) / 2, color=GRID, lw=1)
+    ax.axhline((ys[len(groups) - 1] + ys[-1]) / 2, color=GRID, lw=1)
     ax.axvline(0, color=INK2, lw=1)
     ax.set_yticks(ys)
     ax.set_yticklabels(labels)
     ax.set_xlim(-0.2, 2.4)
     # Start and end values in 2025 dollars, in a column right of the bars.
     t = ax.get_yaxis_transform()
-    dollars = [(e1[2 * (i + 1)], e2[2 * (i + 1)]) for i in range(len(GROUPS))] + [(e1[0], e2[0]), (h1, o2)]
+    dollars = [(e1[2 * (i + 1)], e2[2 * (i + 1)]) for i in range(len(GROUPS))] + [(h1, o2)]
     for xc, yr in ((1.17, first), (1.38, last)):
         ax.text(xc, max(ys) + 0.75, yr, ha="right", va="center", fontsize=10.5, color=INK2, fontweight="bold", transform=t)
     for y, (a, b) in zip(ys, dollars):
