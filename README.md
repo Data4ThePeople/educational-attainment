@@ -29,6 +29,7 @@ python scripts/build_geo.py
 python scripts/build_viz.py
 python scripts/pay_findings.py
 python scripts/post_charts.py
+python scripts/tooltip_screenshot.py   # needs Google Chrome
 python scripts/fetch_scf.py    # Survey of Consumer Finances files (not committed)
 python scripts/scf_debt.py
 python scripts/debt_charts.py
