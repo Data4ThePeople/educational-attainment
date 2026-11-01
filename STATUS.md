@@ -6,14 +6,14 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: none yet
-Step: 1
-Since: 2026-10-29
+Step: 2a (not started)
+Since: 2026-11-01
 
 ## Steps
 
 | Step | What | Confirmed | Notes |
 |---|---|---|---|
-| 1  | Exploration and analysis | | |
+| 1  | Exploration and analysis | 2026-11-01 | Eric may ask for more analysis while drafting |
 | 2a | Draft with brackets resolved | | |
 | 2b | Eric's edit, Claude's look-over | | |
 | 2c | Slice markup | | |
@@ -29,3 +29,4 @@ None.
 ## Log
 
 - 2026-10-29 Step 1 opened. Topic: educational attainment over time (ACS B15003, 1-year) for every area the ACS publishes 1-year data for, on a basis that stays comparable through the 2025 question change.
+- 2026-11-01 Step 1 confirmed by Eric. He may come back for more analysis.
