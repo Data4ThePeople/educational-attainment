@@ -69,3 +69,10 @@ From 2015 to 2025, median pay for all U.S. workers 25 and over rose 0.98% a year
 Over the same years, the education mix shifted. The share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4%. The share without a high school diploma fell from 12.9% to 9.4%. More adults are now in the groups with higher pay.
 
 The pay index in the map splits the change in pay into two parts. It weights each group's median pay by that group's share of adults 25 and over. From 2015 to 2025 the index rose 1.00% a year, close to the 0.98% yearly rise in median pay. With the education mix held at 2015 shares, the index would have risen 0.49% a year. The other 0.51 points a year are pay index growth from the change in education mix. In other words, about half of the rise in the pay index lines up with higher pay within education groups, and about half lines up with the shift toward more education.
+
+The next chart shows the same split for each of the 391 metro and micro areas.
+
+![Dot chart of 391 metro and micro areas showing the yearly change in the pay index from 2015 to 2025 and its two parts. The total rose and passed the test in 59% of areas and fell and passed in 2. The part from pay within education groups is spread widely around zero; it rose and passed in 38% and fell and passed in 10. The part from the change in education mix sits in a narrow band above zero; it rose and passed in 75% and fell and passed in none.](images/04-pay-mix-metros.png)
+*Each dot is one metro or micro area with comparable 2015 and 2025 boundaries. The two parts add up to the total. The tests for the total and the education mix part are approximate.*
+
+The part from the change in education mix is above zero in 379 of the 391 areas. It rose by enough to pass an approximate test in 294 areas (75%), and no area had a fall in this part that passed the test. Its median is 0.39 points a year. The part from pay within education groups is more spread out, with a median of 0.55% a year. It rose and passed the test in 149 areas (38%), and fell and passed the test in 10.

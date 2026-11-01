@@ -30,3 +30,13 @@ Prices up 36.3%. Yearly change is the compound annual growth rate over 10 years.
 | Pay index, total (2015 index $52,033, 2025 $57,469) | +1.00 | |
 | From pay within education groups (2025 index with 2015 mix $54,622) | +0.49 | |
 | From the education mix (points a year) | +0.51 | |
+
+## Metro and micro areas, pay index split, yearly change 2015 to 2025
+
+391 comparable areas, from data/clean/pay_change.csv.
+
+| measure | median | above 0 | rise passes | fall passes | approximate test |
+|---|---|---|---|---|---|
+| Pay index, total (% a year) | +0.93 | 356 | 230 | 2 | yes |
+| From pay within education groups (% a year) | +0.55 | 326 | 149 | 10 | no |
+| From the change in education mix (points a year) | +0.39 | 379 | 294 | 0 | yes |

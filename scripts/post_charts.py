@@ -3,7 +3,9 @@ dist/index.html with the map's own share, test and index math (so the
 charts match the map). Run after build_viz.py.
 
 Writes posts/educational-attainment/images/01-edu-rise-metros.png,
-02-coffee-bridge.png, 03-pay-mix-nation.png and data/clean/post_chart_tables.md.
+02-coffee-bridge.png, 03-pay-mix-nation.png, 04-pay-mix-metros.png and
+data/clean/post_chart_tables.md. Chart 4 reads data/clean/pay_change.csv
+(scripts/pay_findings.py), which uses the same data.
 The coffee shop chart uses the made-up numbers from the post's example.
 """
 import json
@@ -15,6 +17,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
+import pandas as pd  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parent))
 from mapping import GROUPS, GROUP_NAMES, ROOT  # noqa: E402
@@ -23,6 +26,7 @@ from debt_charts import C2016, C2025, GRID, INK2, MUTED, footer, frame  # noqa: 
 IMG = ROOT / "posts" / "educational-attainment" / "images"
 Z90 = 1.645
 NOPASS = "#cfcdc6"
+FALL = "#c2552d"
 LEVELS = [("hsplus", "High school or more", ["hs", "somecol", "ba", "grad"]),
           ("scplus", "Some college or more", ["somecol", "ba", "grad"]),
           ("baplus", "Bachelor's degree or more", ["ba", "grad"]),
@@ -224,6 +228,56 @@ def coffee_chart():
     plt.close(fig)
 
 
+def pay_metro_chart(first, last):
+    d = pd.read_csv(ROOT / "data" / "clean" / "pay_change.csv")
+    d = d[d.level == "cbsa"]
+    rows = [("own_cagr", "own_sig", "Pay index, total", "% a year", True),
+            ("held_cagr", "held_sig", "From pay within\neducation groups", "% a year", False),
+            ("mix_part", "mix_sig", "From the change in\neducation mix", "points a year", True)]
+    OUT.extend(["", f"## Metro and micro areas, pay index split, yearly change {first} to {last}", "",
+                f"{len(d)} comparable areas, from data/clean/pay_change.csv.", "",
+                "| measure | median | above 0 | rise passes | fall passes | approximate test |", "|---|---|---|---|---|---|"])
+    h = 9.0
+    fig, ax = frame(f"Pay index split in metro and micro areas, {first} to {last}",
+                    "Yearly change after inflation. Each dot is one area.", h)
+    ax.set_position([0.27, 1.75 / h, 0.58, 1 - 3.4 / h])
+    for j, (col, sig, label, unit, approx) in enumerate(rows):
+        x, ok = d[col].to_numpy(), d[sig].to_numpy(bool)
+        up, down = ok & (x > 0), ok & (x < 0)
+        OUT.append(f"| {label.replace(chr(10), ' ')} ({unit}) | {np.median(x):+.2f} | {int((x > 0).sum())} | {int(up.sum())} | "
+                   f"{int(down.sum())} | {'yes' if approx else 'no'} |")
+        y0 = len(rows) - 1 - j
+        off = swarm(x, 0.028)
+        ys = y0 + off * min(1, 0.44 / np.abs(off).max())
+        for m, c, z in ((~ok, NOPASS, 2), (up, C2025, 3), (down, FALL, 3)):
+            ax.scatter(x[m], ys[m], s=11, color=c, edgecolor="none", zorder=z)
+        t = ax.get_yaxis_transform()
+        ax.text(1.03, y0 + 0.12, f"{100 * up.sum() / len(x):.0f}%", ha="left", va="center", fontsize=16, fontweight="bold",
+                color=C2025, transform=t)
+        ax.text(1.03, y0 - 0.12, "rose and passed", ha="left", va="center", fontsize=10, color=INK2, transform=t)
+        ax.text(1.03, y0 - 0.3, f"{int(down.sum())} fell and passed", ha="left", va="center", fontsize=10, color=INK2,
+                transform=t)
+    ax.axvline(0, color=INK2, lw=1, zorder=1)
+    ax.set_yticks(range(len(rows)))
+    ax.set_yticklabels([lab for _, _, lab, _, _ in reversed(rows)])
+    ax.set_xlim(-2.1, 3.5)
+    ax.set_ylim(-0.55, len(rows) - 0.45)
+    ax.grid(axis="y", visible=False)
+    ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.0f}".replace("-", "\u2212") if v else "0"))
+    ax.set_xlabel("Yearly change (percent a year; percentage points a year for the education mix)", fontsize=11,
+                  color=INK2, labelpad=8)
+    for c, lab in ((C2025, "Rise passes the test"), (FALL, "Fall passes the test"), (NOPASS, "Does not pass the test")):
+        ax.scatter([], [], s=40, color=c, label=lab)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.4, 1.02), ncol=3, frameon=False, fontsize=10.5, handletextpad=0.2,
+              borderaxespad=0)
+    footer(fig, f"Source: U.S. Census Bureau, American Community Survey 1-year, tables B20004 and B15003. {len(d)} metro and "
+           f"micro areas with comparable {first} and {last} boundaries, {first} dollars moved to {last} dollars with the "
+           f"BLS R-CPI-U-RS. The two parts add up to the total. Tests use 90% confidence; the tests for the total and the "
+           f"education mix part are approximate.", h)
+    fig.savefig(IMG / "04-pay-mix-metros.png", facecolor="white")
+    plt.close(fig)
+
+
 def main():
     IMG.mkdir(parents=True, exist_ok=True)
     html = (ROOT / "dist" / "index.html").read_text()
@@ -234,6 +288,7 @@ def main():
     edu_chart(data, geo, first, last)
     coffee_chart()
     pay_chart(data, first, last)
+    pay_metro_chart(first, last)
     (ROOT / "data" / "clean" / "post_chart_tables.md").write_text("\n".join(OUT) + "\n")
     print("\n".join(OUT))
 
