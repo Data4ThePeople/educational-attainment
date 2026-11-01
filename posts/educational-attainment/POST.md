@@ -25,6 +25,8 @@ We started with a topic we haven’t yet explored – educational attainment. We
 <iframe src="https://data4thepeople.github.io/educational-attainment/dist/?v=20261101a#embed=1" width="100%" height="900" loading="lazy" style="border:0" title="Educational attainment and pay: interactive map by state, county and metro or micro area, 2015 to 2025"></iframe>
 ::: spacer 20px
 
+## Education is rising in most places
+
 On its own, the educational attainment data is quite encouraging. The share of America with more education is not only rising on the aggregate but is rising just about everywhere. The next chart shows how much education rose in each metro and micro area over the past decade, and the percentage of areas where the rise was statistically significant.
 
 ![Dot chart of 391 metro and micro areas showing the change from 2015 to 2025 in the share of adults 25 and over at four levels of education. Most dots sit to the right of zero at every level. The share of areas where the rise passed the Census Bureau's test was 26% for high school or more, 54% for some college or more, 78% for a bachelor's degree or more and 64% for a graduate or professional degree.](images/01-edu-rise-metros.png)
@@ -57,6 +59,8 @@ So, what explains the remaining $20,000 increase? MIX. The shop sold far more of
 
 Notice this provides the shop with different insight than just telling your friend, “Your revenue rose 31%” and letting them guess the reason why. This pinpoints that her success was due to the popularity of the TWMPSML.
 
+## Pay and the education mix
+
 I offer this illustration to help understand the problem with pay analysis over time when there are major underlying demographic (i.e., mix) changes in a community. Increased pay in a community could be driven by better educational attainment (i.e., more college grads) rather than companies increasing pay within a given level of educational attainment.
 
 And so, I added this to the visualization. Just switch the topic from Education to Pay and you can see how much of the increase in pay comes from higher pay within each education group and how much comes from the change in education mix. The following chart shows the summary of this pay and mix analysis for the nation.
@@ -69,6 +73,8 @@ From 2015 to 2025, the pay index rose 1.00% a year after inflation. The index we
 Over the same years, the education mix shifted. The share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4%. The share without a high school diploma fell from 12.9% to 9.4%. More adults are now in the groups with higher pay.
 
 The pay index in the map splits this change into two parts. With the education mix held at 2015 shares, the index would have risen 0.49% a year. The other 0.51 points a year are pay index growth from the change in education mix. In other words, about half of the rise in the pay index lines up with higher pay within education groups, and about half lines up with the shift toward more education.
+
+## Pay and the mix, area by area
 
 The next chart shows the same split for the 129 metro and micro areas where both parts pass the test, out of 391 with comparable boundaries.
 
