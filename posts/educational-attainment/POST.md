@@ -52,13 +52,16 @@ Now what about price? To calculate that, you must apply only the change in prici
 
 So, what explains the remaining $20,000 increase? MIX. The shop sold far more of the expensive items and fewer of the cheaper items.
 
+![Bridge chart of a coffee shop's revenue. Last year's revenue of $82,000 rises by $0 from volume, $5,500 from price and $20,000 from mix to reach this year's revenue of $107,500.](images/02-coffee-bridge.png)
+*Made-up numbers for the coffee shop example.*
+
 Notice this provides the shop with different insight than just telling your friend, “Your revenue rose 31%” and letting them guess the reason why. This pinpoints that her success was due to the popularity of the TWMPSML.
 
 I offer this illustration to help understand the problem with pay analysis over time when there are major underlying demographic (i.e., mix) changes in a community. Increased pay in a community could be driven by better educational attainment (i.e., more college grads) rather than companies increasing pay within a given level of educational attainment.
 
 And so, I added this to the visualization. Just switch the topic from Education to Pay and you can see how much of the increase in pay comes from higher pay within each education group and how much comes from the change in education mix. The following chart shows the summary of this pay and mix analysis for the nation.
 
-![Bar chart of the yearly change in median pay after inflation from 2015 to 2025 for U.S. workers 25 and over. Less than high school rose 1.78% a year, high school or equivalent 0.48%, some college or associate's 0.65%, bachelor's 0.33%, and graduate or professional fell 0.02%, a change too small to pass the test. All workers rose 0.98% a year. The pay index rose 1.00% a year: 0.49 points from pay within education groups and 0.51 points from the education mix.](images/02-pay-mix-nation.png)
+![Bar chart of the yearly change in median pay after inflation from 2015 to 2025 for U.S. workers 25 and over. Less than high school rose 1.78% a year, high school or equivalent 0.48%, some college or associate's 0.65%, bachelor's 0.33%, and graduate or professional fell 0.02%, a change too small to pass the test. All workers rose 0.98% a year. The pay index rose 1.00% a year: 0.49 points from pay within education groups and 0.51 points from the education mix.](images/03-pay-mix-nation.png)
 *Pay is median earnings of people 25 and over who had earnings, in 2025 dollars. Yearly change is the average yearly growth rate over the 10 years, with compounding. The pay index weights each group's median pay by that group's share of all adults 25 and over.*
 
 From 2015 to 2025, median pay for all U.S. workers 25 and over rose 0.98% a year after inflation. Pay within each education group tells a different story. Median pay rose 0.33% a year for workers with a bachelor's degree and was flat for workers with a graduate or professional degree (down 0.02% a year, a change too small to pass the Census Bureau's test). Only workers without a high school diploma saw their median pay rise faster than all workers, at 1.78% a year.

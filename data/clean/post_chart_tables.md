@@ -11,6 +11,10 @@
 | Bachelor's degree or more | +6.75 | 391 | 305 | 78.0 | 0 | 378 | +6.15 |
 | Graduate or professional degree | +3.43 | 391 | 251 | 64.2 | 0 | 367 | +2.82 |
 
+## Coffee shop example
+
+Revenue 82,000 to 107,500; volume +0; price +5,500; mix (the rest) +20,000.
+
 ## Nation, pay 2015 to 2025, yearly change after inflation (2025 dollars)
 
 Prices up 36.3%. Yearly change is the compound annual growth rate over 10 years.
