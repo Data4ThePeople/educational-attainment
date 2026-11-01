@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: educational-attainment
-Step: 2b (not started)
+Step: 2b
 Since: 2026-11-01
 
 ## Steps
@@ -32,3 +32,4 @@ None.
 - 2026-11-01 Step 1 confirmed by Eric. He may come back for more analysis.
 - 2026-11-01 Step 2a opened. Post folder posts/educational-attainment/ created.
 - 2026-11-01 Step 2a confirmed by Eric.
+- 2026-11-01 Step 2b opened. Eric edits POST.md, then Claude looks it over.
