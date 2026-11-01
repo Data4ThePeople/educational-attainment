@@ -1,6 +1,6 @@
 ---
-title:
-subtitle:
+title: Price or Mix? How Rising Education Changes the Story on Pay
+subtitle: "The share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4% between 2015 and 2025. Nationally, that shift lines up with about half of the growth in our inflation-adjusted pay index, and the split varies widely from one metro area to the next."
 slug: educational-attainment
 date:
 section: Data 4 Thought
@@ -16,7 +16,7 @@ caption_spacer: 20px
 dividers: false
 ---
 
-# Title
+# Price or Mix? How Rising Education Changes the Story on Pay
 
 Last Thursday, after a delay of about six weeks the Census Bureau finally released the results of its 1-year American Community Survey (ACS) for 2025. Over the weekend, we rolled up our sleeves and dug in, excited to see what new learnings we could find on America’s larger communities (the 1-year ACS covers only areas with 65,000 or more people).
 
