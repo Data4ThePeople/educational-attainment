@@ -77,7 +77,7 @@ The next chart shows the same split for the 129 metro and micro areas where both
 
 In 121 of these 129 areas, both parts rose. In the other 8, pay within education groups fell while the education mix part rose, so all of the growth in the pay index, where there was any, came from the change in education mix. A few areas stand out.
 
-- **Houston:** Pay within education groups fell 0.53% a year, and the education mix part added 0.54 points a year. The pay index was flat (up 0.01% a year).
+- **Houston:** Pay within education groups fell 0.53% a year, and the education mix part added 0.54 points a year. The pay index was flat (up 0.01% a year), and so was median pay for all workers (down 0.10% a year).
 - **New York:** Pay within education groups fell 0.20% a year, and the education mix part added 0.65 points a year. The pay index rose 0.46% a year.
 - **El Paso:** Pay within education groups fell 0.69% a year, and the education mix part added 0.70 points a year. The pay index was flat (up 0.01% a year).
 - **Trenton-Princeton, NJ:** Pay within education groups fell 1.05% a year, the most of these 129 areas. The education mix part added 0.69 points a year, and the pay index fell 0.36% a year.
