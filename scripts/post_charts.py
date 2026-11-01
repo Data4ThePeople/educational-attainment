@@ -152,8 +152,8 @@ def pay_chart(data, first, last):
 
     h = 7.0
     fig, ax = frame(f"Yearly change in median pay by education, {first} to {last}",
-                    "Percent change a year after inflation, adults 25 and over with earnings, United States", h)
-    ax.set_position([0.31, 1.45 / h, 0.62, 1 - 2.95 / h])
+                    "Percent change a year after inflation, adults 25 and over with earnings, United States, in 2025 dollars", h)
+    ax.set_position([0.27, 1.45 / h, 0.50, 1 - 2.95 / h])
     labels = [n for n, _, _ in groups] + ["All workers", "Pay index"]
     n = len(labels)
     ys = list(range(n - 1, -1, -1))
@@ -177,10 +177,18 @@ def pay_chart(data, first, last):
     ax.set_yticks(ys)
     ax.set_yticklabels(labels)
     ax.set_xlim(-0.2, 2.4)
-    ax.set_ylim(min(ys) - 0.6, max(ys) + 0.6)
+    # Start and end values in 2025 dollars, in a column right of the bars.
+    t = ax.get_yaxis_transform()
+    dollars = [(e1[2 * (i + 1)], e2[2 * (i + 1)]) for i in range(len(GROUPS))] + [(e1[0], e2[0]), (h1, o2)]
+    for xc, yr in ((1.17, first), (1.38, last)):
+        ax.text(xc, max(ys) + 0.75, yr, ha="right", va="center", fontsize=10.5, color=INK2, fontweight="bold", transform=t)
+    for y, (a, b) in zip(ys, dollars):
+        for xc, v in ((1.17, a), (1.38, b)):
+            ax.text(xc, y, f"\\${v:,.0f}", ha="right", va="center", fontsize=11, color=INK2, transform=t)
+    ax.set_ylim(min(ys) - 0.6, max(ys) + 0.9)
     ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.1f}%".replace("-", "\u2212") if v else "0%"))
     footer(fig, f"Source: U.S. Census Bureau, American Community Survey 1-year, tables B20004 (median earnings) and B15003 "
-           f"(education). {first} dollars moved to {last} dollars with the BLS R-CPI-U-RS. Yearly change is the compound "
+           f"(education). {first} dollars moved to {last} dollars with the BLS R-CPI-U-RS; the columns on the right show both years in {last} dollars. Yearly change is the compound "
            f"annual growth rate over {n_yrs} years. The pay index weights each group's median pay by its share of all "
            f"adults 25 and over. It is an index, not a median. The education mix part is in percentage points a year.", h)
     fig.savefig(IMG / "03-pay-mix-nation.png", facecolor="white")
