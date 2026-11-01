@@ -70,9 +70,20 @@ Over the same years, the education mix shifted. The share of adults 25 and over 
 
 The pay index in the map splits the change in pay into two parts. It weights each group's median pay by that group's share of adults 25 and over. From 2015 to 2025 the index rose 1.00% a year, close to the 0.98% yearly rise in median pay. With the education mix held at 2015 shares, the index would have risen 0.49% a year. The other 0.51 points a year are pay index growth from the change in education mix. In other words, about half of the rise in the pay index lines up with higher pay within education groups, and about half lines up with the shift toward more education.
 
-The next chart shows the same split for each of the 391 metro and micro areas.
+The next chart shows the same split for the 129 metro and micro areas where both parts pass the test, out of 391 with comparable boundaries.
 
-![Scatter plot of 391 metro and micro areas. The horizontal axis is pay index growth from pay within education groups, in percent a year, from about -2% to +3%. The vertical axis is growth from the change in education mix, in points a year, from about -0.3 to +1.1. Both parts rose in 317 areas. Pay within groups fell while the education mix part rose in 62 areas, including New York and Houston. The education mix part fell in 12 areas.](images/04-pay-mix-metros.png)
-*Each dot is one metro or micro area with comparable 2015 and 2025 boundaries. The two parts add up to the yearly change in the pay index. Dots above the dashed line have a larger education mix part than pay part.*
+![Scatter plot of 129 metro and micro areas where both parts of the pay index change pass the test. The horizontal axis is growth from pay within education groups, in percent a year; the vertical axis is growth from the change in education mix, in points a year. Both parts rose in 121 areas. In 8, including Houston, New York, El Paso and Trenton-Princeton, pay within groups fell while the mix part rose. Twin Falls, ID and Medford, OR sit far right with small mix parts.](images/04-pay-mix-metros.png)
+*Each dot is one metro or micro area. The two parts add up to the yearly change in the pay index. Dots above the dashed line have a larger education mix part than pay part. The test for the education mix part is approximate.*
 
-The education mix part is above zero in 379 of the 391 areas, and in 336 of them (86%) it is between 0.1 and 0.7 points a year. The part from pay within education groups is more spread out, from about −2% to +3% a year. In 62 areas, pay within education groups fell while the education mix part rose. That includes New York, where the pay part was −0.20% a year and the mix part was +0.65 points, and Houston, at −0.53% and +0.54 points. In 159 areas, the education mix part was larger than the pay part.
+In 121 of these 129 areas, both parts rose. In the other 8, pay within education groups fell while the education mix part rose, so all of the growth in the pay index, where there was any, came from the change in education mix. A few areas stand out.
+
+- **Houston:** Pay within education groups fell 0.53% a year, and the education mix part added 0.54 points a year. The pay index was flat (up 0.01% a year), and so was median pay for all workers (down 0.10% a year).
+- **New York:** Pay within education groups fell 0.20% a year, and the education mix part added 0.65 points a year. The pay index rose 0.46% a year, and median pay for all workers rose 0.73% a year.
+- **El Paso:** Pay within education groups fell 0.69% a year, and the education mix part added 0.70 points a year. The pay index was flat (up 0.01% a year).
+- **Trenton-Princeton, NJ:** Pay within education groups fell 1.05% a year, the most of these 129 areas. The education mix part added 0.69 points a year, and the pay index fell 0.36% a year.
+
+At the other end are areas where most of the growth came from pay within education groups.
+
+- **Twin Falls, ID:** Pay within education groups rose 3.06% a year, the most of these 129 areas, and the education mix part added 0.18 points a year. The pay index rose 3.24% a year, and median pay for all workers rose 3.41% a year.
+- **Medford, OR:** Pay within education groups rose 2.55% a year, and the education mix part added 0.29 points a year. The pay index rose 2.84% a year.
+- **Santa Cruz, CA:** Both parts were large. Pay within education groups rose 2.21% a year, and the education mix part added 0.70 points a year, for a pay index rise of 2.92% a year.

@@ -33,12 +33,144 @@ Prices up 36.3%. Yearly change is the compound annual growth rate over 10 years.
 
 ## Metro and micro areas, pay index split, yearly change 2015 to 2025
 
-391 comparable areas, from data/clean/pay_change.csv. x = from pay within education groups (% a year), y = from the change in education mix (points a year).
+129 of 391 comparable areas where both parts pass their tests, from data/clean/pay_change.csv. x = from pay within education groups (% a year), y = from the change in education mix (points a year).
 
 | quadrant | areas |
 |---|---|
-| both rose | 317 |
-| pay fell, mix rose | 62 |
-| pay rose, mix fell | 9 |
-| both fell | 3 |
-| mix part larger than pay part | 159 |
+| both rose | 121 |
+| pay fell, mix rose | 8 |
+| pay rose, mix fell | 0 |
+| both fell | 0 |
+| mix part larger than pay part | 22 |
+
+| area | median pay, all workers (%/yr) | pay index (%/yr) | from pay within groups (%/yr) | from education mix (pts/yr) |
+|---|---|---|---|---|
+| Trenton-Princeton, NJ Metro Area | -0.19 | -0.36 | -1.05 | +0.69 |
+| Beaumont-Port Arthur, TX Metro Area | -0.76 | -0.79 | -0.97 | +0.18 |
+| El Paso, TX Metro Area | -0.11 | +0.01 | -0.69 | +0.70 |
+| Erie, PA Metro Area | -0.06 | -0.37 | -0.59 | +0.23 |
+| Houston-Pasadena-The Woodlands, TX Metro Area | -0.10 | +0.01 | -0.53 | +0.54 |
+| Jackson, MS Metro Area | -0.44 | -0.17 | -0.45 | +0.28 |
+| Bridgeport-Stamford-Danbury, CT Metro Area | +0.22 | +0.12 | -0.41 | +0.53 |
+| New York-Newark-Jersey City, NY-NJ Metro Area | +0.73 | +0.46 | -0.20 | +0.65 |
+| Chicago-Naperville-Elgin, IL-IN Metro Area | +0.82 | +0.73 | +0.20 | +0.53 |
+| Pittsburgh, PA Metro Area | +0.65 | +0.74 | +0.23 | +0.51 |
+| Kansas City, MO-KS Metro Area | +0.43 | +0.65 | +0.26 | +0.39 |
+| Milwaukee-Waukesha, WI Metro Area | +0.64 | +0.76 | +0.27 | +0.49 |
+| Detroit-Warren-Dearborn, MI Metro Area | +0.63 | +0.85 | +0.30 | +0.55 |
+| Las Vegas-Henderson-North Las Vegas, NV Metro Area | +1.08 | +0.62 | +0.30 | +0.32 |
+| Cincinnati, OH-KY-IN Metro Area | +0.88 | +0.88 | +0.38 | +0.50 |
+| Minneapolis-St. Paul-Bloomington, MN-WI Metro Area | +1.05 | +0.74 | +0.39 | +0.35 |
+| Boston-Cambridge-Newton, MA-NH Metro Area | +0.94 | +0.91 | +0.39 | +0.52 |
+| Virginia Beach-Chesapeake-Norfolk, VA-NC Metro Area | +0.67 | +0.89 | +0.41 | +0.48 |
+| Columbus, OH Metro Area | +0.41 | +0.89 | +0.44 | +0.45 |
+| Richmond, VA Metro Area | +1.15 | +1.17 | +0.50 | +0.67 |
+| Urban Honolulu, HI Metro Area | +0.96 | +1.07 | +0.52 | +0.54 |
+| Indianapolis-Carmel-Greenwood, IN Metro Area | +0.97 | +1.05 | +0.53 | +0.52 |
+| Los Angeles-Long Beach-Anaheim, CA Metro Area | +1.36 | +1.16 | +0.54 | +0.62 |
+| St. Louis, MO-IL Metro Area | +1.02 | +1.02 | +0.56 | +0.46 |
+| Winston-Salem, NC Metro Area | +1.34 | +0.98 | +0.56 | +0.42 |
+| Modesto, CA Metro Area | +0.92 | +0.85 | +0.58 | +0.27 |
+| Oklahoma City, OK Metro Area | +0.46 | +0.99 | +0.58 | +0.41 |
+| Canton-Massillon, OH Metro Area | +1.09 | +0.96 | +0.61 | +0.35 |
+| Salt Lake City-Murray, UT Metro Area | +1.84 | +1.12 | +0.66 | +0.46 |
+| Phoenix-Mesa-Chandler, AZ Metro Area | +1.26 | +1.17 | +0.68 | +0.48 |
+| Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area | +1.57 | +1.33 | +0.71 | +0.62 |
+| Sacramento-Roseville-Folsom, CA Metro Area | +1.14 | +1.20 | +0.71 | +0.49 |
+| Utica-Rome, NY Metro Area | +0.84 | +1.20 | +0.72 | +0.48 |
+| Killeen-Temple, TX Metro Area | +1.29 | +0.86 | +0.73 | +0.14 |
+| Albuquerque, NM Metro Area | +1.63 | +1.17 | +0.73 | +0.45 |
+| Riverside-San Bernardino-Ontario, CA Metro Area | +1.49 | +1.19 | +0.73 | +0.46 |
+| St. Cloud, MN Metro Area | +0.86 | +1.07 | +0.74 | +0.32 |
+| Hickory-Lenoir-Morganton, NC Metro Area | +1.08 | +1.07 | +0.76 | +0.31 |
+| Chattanooga, TN-GA Metro Area | +1.27 | +1.42 | +0.76 | +0.66 |
+| Miami-Fort Lauderdale-West Palm Beach, FL Metro Area | +1.62 | +1.48 | +0.79 | +0.69 |
+| Atlanta-Sandy Springs-Roswell, GA Metro Area | +1.46 | +1.33 | +0.82 | +0.51 |
+| Madison, WI Metro Area | +1.71 | +1.43 | +0.83 | +0.60 |
+| Lancaster, PA Metro Area | +1.24 | +1.32 | +0.83 | +0.48 |
+| Tucson, AZ Metro Area | +1.55 | +1.39 | +0.84 | +0.55 |
+| North Port-Bradenton-Sarasota, FL Metro Area | +1.72 | +1.52 | +0.86 | +0.67 |
+| Burlington-South Burlington, VT Metro Area | +1.28 | +1.19 | +0.87 | +0.33 |
+| San Jose-Sunnyvale-Santa Clara, CA Metro Area | +2.26 | +1.84 | +0.88 | +0.96 |
+| Charlotte-Concord-Gastonia, NC-SC Metro Area | +1.32 | +1.51 | +0.89 | +0.63 |
+| Knoxville, TN Metro Area | +1.52 | +1.43 | +0.91 | +0.52 |
+| Huntsville, AL Metro Area | +0.70 | +1.37 | +0.91 | +0.45 |
+| Flint, MI Metro Area | +1.43 | +1.20 | +0.91 | +0.28 |
+| Jacksonville, FL Metro Area | +0.89 | +1.49 | +0.92 | +0.57 |
+| Bay City, MI Metro Area | +1.32 | +1.23 | +0.92 | +0.31 |
+| Greensboro-High Point, NC Metro Area | +1.13 | +1.20 | +0.93 | +0.27 |
+| San Diego-Chula Vista-Carlsbad, CA Metro Area | +1.79 | +1.62 | +0.93 | +0.69 |
+| Olympia-Lacey-Tumwater, WA Metro Area | +1.26 | +1.37 | +0.93 | +0.44 |
+| Charleston-North Charleston, SC Metro Area | +1.37 | +1.51 | +0.96 | +0.56 |
+| Saginaw, MI Metro Area | +2.05 | +1.61 | +0.96 | +0.65 |
+| York-Hanover, PA Metro Area | +1.89 | +1.45 | +0.96 | +0.49 |
+| Springfield, MO Metro Area | +0.89 | +1.16 | +0.97 | +0.19 |
+| Traverse City, MI Metro Area | +1.80 | +1.43 | +0.97 | +0.46 |
+| Gainesville, GA Metro Area | +2.00 | +1.51 | +0.98 | +0.53 |
+| Austin-Round Rock-San Marcos, TX Metro Area | +1.59 | +1.76 | +0.99 | +0.78 |
+| Dalton, GA Metro Area | +1.52 | +1.73 | +1.00 | +0.73 |
+| Lakeland-Winter Haven, FL Metro Area | +1.24 | +1.44 | +1.01 | +0.44 |
+| Napa, CA Metro Area | +1.06 | +1.45 | +1.03 | +0.43 |
+| Raleigh-Cary, NC Metro Area | +1.72 | +1.83 | +1.04 | +0.80 |
+| Brownsville-Harlingen, TX Metro Area | +2.51 | +2.01 | +1.05 | +0.97 |
+| Vallejo, CA Metro Area | +1.09 | +1.58 | +1.05 | +0.53 |
+| Tampa-St. Petersburg-Clearwater, FL Metro Area | +1.15 | +1.60 | +1.07 | +0.53 |
+| Colorado Springs, CO Metro Area | +1.81 | +1.52 | +1.07 | +0.45 |
+| Athens-Clarke County, GA Metro Area | +1.93 | +1.61 | +1.08 | +0.53 |
+| Pensacola-Ferry Pass-Brent, FL Metro Area | +1.45 | +1.42 | +1.09 | +0.32 |
+| Boulder, CO Metro Area | +1.39 | +1.50 | +1.10 | +0.40 |
+| San Francisco-Oakland-Fremont, CA Metro Area | +1.53 | +1.78 | +1.10 | +0.68 |
+| Seattle-Tacoma-Bellevue, WA Metro Area | +1.64 | +1.71 | +1.11 | +0.60 |
+| Lincoln, NE Metro Area | +1.20 | +1.37 | +1.11 | +0.26 |
+| Denver-Aurora-Centennial, CO Metro Area | +2.01 | +1.65 | +1.11 | +0.54 |
+| Orlando-Kissimmee-Sanford, FL Metro Area | +1.57 | +1.68 | +1.14 | +0.54 |
+| Brainerd, MN Micro Area | +1.74 | +1.52 | +1.14 | +0.37 |
+| Naples-Marco Island, FL Metro Area | +2.28 | +2.10 | +1.15 | +0.95 |
+| Eau Claire, WI Metro Area | +1.94 | +1.69 | +1.15 | +0.54 |
+| Whitewater-Elkhorn, WI Micro Area | +2.06 | +1.56 | +1.15 | +0.41 |
+| Kingsport-Bristol, TN-VA Metro Area | +1.07 | +1.63 | +1.16 | +0.47 |
+| Greeley, CO Metro Area | +1.47 | +1.57 | +1.21 | +0.36 |
+| Bangor, ME Metro Area | +1.81 | +1.91 | +1.22 | +0.69 |
+| Fort Collins-Loveland, CO Metro Area | +1.28 | +1.58 | +1.22 | +0.35 |
+| Adrian, MI Micro Area | +0.98 | +1.69 | +1.23 | +0.46 |
+| Stockton-Lodi, CA Metro Area | +1.70 | +1.78 | +1.25 | +0.54 |
+| Portland-Vancouver-Hillsboro, OR-WA Metro Area | +1.46 | +1.63 | +1.26 | +0.38 |
+| Rome, GA Metro Area | +1.67 | +1.64 | +1.26 | +0.38 |
+| Santa Fe, NM Metro Area | +1.66 | +1.64 | +1.27 | +0.36 |
+| Cape Coral-Fort Myers, FL Metro Area | +1.89 | +1.67 | +1.28 | +0.40 |
+| Santa Maria-Santa Barbara, CA Metro Area | +1.36 | +1.71 | +1.28 | +0.43 |
+| Ocala, FL Metro Area | +1.37 | +1.64 | +1.31 | +0.33 |
+| Salinas, CA Metro Area | +2.96 | +2.05 | +1.33 | +0.72 |
+| Savannah, GA Metro Area | +1.74 | +1.75 | +1.34 | +0.41 |
+| Richmond, IN Micro Area | +1.41 | +1.97 | +1.40 | +0.57 |
+| Wenatchee-East Wenatchee, WA Metro Area | +2.22 | +2.16 | +1.41 | +0.75 |
+| Provo-Orem-Lehi, UT Metro Area | +2.15 | +1.91 | +1.44 | +0.47 |
+| Visalia, CA Metro Area | +2.25 | +1.96 | +1.44 | +0.52 |
+| Lynchburg, VA Metro Area | +1.82 | +1.77 | +1.44 | +0.32 |
+| Crestview-Fort Walton Beach-Destin, FL Metro Area | +1.46 | +1.92 | +1.47 | +0.45 |
+| Yuba City, CA Metro Area | +2.19 | +1.71 | +1.47 | +0.24 |
+| Portland-South Portland, ME Metro Area | +1.91 | +1.94 | +1.48 | +0.46 |
+| Cape Girardeau, MO-IL Metro Area | +1.31 | +1.82 | +1.50 | +0.33 |
+| Glens Falls, NY Metro Area | +1.59 | +1.71 | +1.50 | +0.20 |
+| Burlington, NC Metro Area | +2.57 | +2.08 | +1.52 | +0.56 |
+| Santa Rosa-Petaluma, CA Metro Area | +1.89 | +1.87 | +1.52 | +0.36 |
+| Deltona-Daytona Beach-Ormond Beach, FL Metro Area | +1.95 | +1.96 | +1.56 | +0.39 |
+| Boise City, ID Metro Area | +2.40 | +2.09 | +1.57 | +0.52 |
+| Hot Springs, AR Metro Area | +2.40 | +2.17 | +1.63 | +0.54 |
+| Salem, OR Metro Area | +2.09 | +1.94 | +1.67 | +0.27 |
+| Bremerton-Silverdale-Port Orchard, WA Metro Area | +1.73 | +2.13 | +1.69 | +0.44 |
+| Punta Gorda, FL Metro Area | +2.61 | +2.30 | +1.71 | +0.58 |
+| Mount Vernon-Anacortes, WA Metro Area | +2.33 | +2.35 | +1.77 | +0.58 |
+| Eugene-Springfield, OR Metro Area | +1.99 | +1.96 | +1.77 | +0.19 |
+| Flagstaff, AZ Metro Area | +1.17 | +2.23 | +1.85 | +0.38 |
+| Grand Junction, CO Metro Area | +2.64 | +2.05 | +1.87 | +0.17 |
+| Port St. Lucie, FL Metro Area | +2.17 | +2.40 | +1.88 | +0.52 |
+| Spokane-Spokane Valley, WA Metro Area | +2.40 | +2.30 | +1.90 | +0.40 |
+| Parkersburg-Vienna, WV Metro Area | +1.76 | +2.49 | +1.96 | +0.53 |
+| Merced, CA Metro Area | +2.41 | +2.41 | +2.07 | +0.34 |
+| Daphne-Fairhope-Foley, AL Metro Area | +2.10 | +2.65 | +2.08 | +0.57 |
+| Coeur d'Alene, ID Metro Area | +2.71 | +2.63 | +2.13 | +0.50 |
+| Santa Cruz-Watsonville, CA Metro Area | +3.53 | +2.92 | +2.21 | +0.70 |
+| Bellingham, WA Metro Area | +3.08 | +2.78 | +2.30 | +0.48 |
+| Medford, OR Metro Area | +2.55 | +2.84 | +2.55 | +0.29 |
+| Twin Falls, ID Metro Area | +3.41 | +3.24 | +3.06 | +0.18 |
