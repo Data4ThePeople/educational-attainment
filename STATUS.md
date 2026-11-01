@@ -5,8 +5,8 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 
 ## Current
 
-Post: none yet
-Step: 2a (not started)
+Post: educational-attainment
+Step: 2a
 Since: 2026-11-01
 
 ## Steps
@@ -30,3 +30,4 @@ None.
 
 - 2026-10-29 Step 1 opened. Topic: educational attainment over time (ACS B15003, 1-year) for every area the ACS publishes 1-year data for, on a basis that stays comparable through the 2025 question change.
 - 2026-11-01 Step 1 confirmed by Eric. He may come back for more analysis.
+- 2026-11-01 Step 2a opened. Post folder posts/educational-attainment/ created.
