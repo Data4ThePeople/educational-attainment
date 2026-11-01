@@ -87,7 +87,7 @@ The dots are widely scattered. Three examples show the range.
 - **Indianapolis:** The pay index rose 1.05% a year, split about evenly: 0.53% a year from pay within education groups and 0.52 points a year from the education mix.
 - **Twin Falls, ID:** The pay index rose 3.24% a year. Almost all of it, 3.06% a year, came from pay within education groups. The education mix added 0.18 points a year.
 
-## Takeaways
+## The bottom line
 
 Here are a few takeaways.
 
