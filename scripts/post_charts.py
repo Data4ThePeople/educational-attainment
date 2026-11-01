@@ -118,28 +118,36 @@ def pay_chart(data, first, last):
     e2 = data["usPay"][last]
     w1, w2 = data["us"][first], data["us"][last]
 
+    n_yrs = int(last) - int(first)
+
+    def cagr(a, b):
+        return 100 * ((b / a) ** (1 / n_yrs) - 1)
+
     def pct(i):
         a, b, ma, mb = e1[2 * i], e2[2 * i], e1[2 * i + 1], e2[2 * i + 1]
-        return 100 * (b / a - 1), abs(b - a) / np.sqrt((ma / Z90) ** 2 + (mb / Z90) ** 2) > Z90
+        return cagr(a, b), abs(b - a) / np.sqrt((ma / Z90) ** 2 + (mb / Z90) ** 2) > Z90
 
     def index(e, w):
         return sum(w[2 + 2 * i] / w[0] * e[2 + 2 * i] for i in range(len(GROUPS)))
 
+    # Same split as the map: own-mix yearly change = held-mix yearly change + mix part (points).
     h1, h2, o2 = index(e1, w1), index(e2, w1), index(e2, w2)
-    within, mix = 100 * (h2 / h1 - 1), 100 * (o2 - h2) / h1
+    within, total = cagr(h1, h2), cagr(h1, o2)
+    mix = total - within
     groups = [(GROUP_NAMES[g], *pct(i + 1)) for i, g in enumerate(GROUPS)]
     allw = pct(0)
-    OUT.extend(["", f"## Nation, pay {first} to {last}, total change after inflation ({last} dollars)", "",
-                f"Prices up {100 * (f - 1):.1f}%.", "", "| measure | change (%) | passes |", "|---|---|---|"])
+    OUT.extend(["", f"## Nation, pay {first} to {last}, yearly change after inflation ({last} dollars)", "",
+                f"Prices up {100 * (f - 1):.1f}%. Yearly change is the compound annual growth rate over {n_yrs} years.", "",
+                "| measure | yearly change (%) | passes |", "|---|---|---|"])
     OUT.extend(f"| Median, {n} | {v:+.2f} | {s} |" for n, v, s in groups)
     OUT.extend([f"| Median, all workers | {allw[0]:+.2f} | {allw[1]} |",
-                f"| Pay index, total ({first} index ${h1:,.0f}, {last} ${o2:,.0f}) | {100 * (o2 / h1 - 1):+.2f} | |",
+                f"| Pay index, total ({first} index ${h1:,.0f}, {last} ${o2:,.0f}) | {total:+.2f} | |",
                 f"| From pay within education groups ({last} index with {first} mix ${h2:,.0f}) | {within:+.2f} | |",
-                f"| From the education mix (points) | {mix:+.2f} | |"])
+                f"| From the education mix (points a year) | {mix:+.2f} | |"])
 
     h = 7.0
-    fig, ax = frame(f"Change in median pay by education, {first} to {last}",
-                    "Percent change after inflation, adults 25 and over with earnings, United States", h)
+    fig, ax = frame(f"Yearly change in median pay by education, {first} to {last}",
+                    "Percent change a year after inflation, adults 25 and over with earnings, United States", h)
     ax.set_position([0.31, 1.45 / h, 0.62, 1 - 2.95 / h])
     labels = [n for n, _, _ in groups] + ["All workers", "Pay index"]
     n = len(labels)
@@ -147,29 +155,29 @@ def pay_chart(data, first, last):
     ys = [y + (0 if i < len(groups) else -0.5) for i, y in enumerate(ys)]
 
     def lab(y, x, text):
-        ax.text(x + 0.3 if x >= 0 else 0.3, y, text, ha="left", va="center", fontsize=11, color=INK2)
+        ax.text(x + 0.03 if x >= 0 else 0.03, y, text, ha="left", va="center", fontsize=11, color=INK2)
 
     for (name, v, s), y in zip(groups, ys):
         ax.barh(y, v, height=0.6, color=C2016 if s else NOPASS, zorder=2)
-        lab(y, v, f"{v:+.1f}%".replace("-", "−") + ("" if s else " (does not pass the test)"))
+        lab(y, v, f"{v:+.2f}%".replace("-", "\u2212") + ("" if s else " (does not pass the test)"))
     ax.barh(ys[-2], allw[0], height=0.6, color=C2025, zorder=2)
-    lab(ys[-2], allw[0], f"{allw[0]:+.1f}%")
+    lab(ys[-2], allw[0], f"{allw[0]:+.2f}%")
     ax.barh(ys[-1], within, height=0.75, color=C2025, zorder=2)
     ax.barh(ys[-1], mix, left=within, height=0.75, color="#4f8fd9", zorder=2, edgecolor="white", linewidth=2)
-    lab(ys[-1], within + mix, f"{within + mix:+.1f}%")
-    ax.text(within / 2, ys[-1], f"Pay within\ngroups {within:+.1f}", ha="center", va="center", fontsize=9, color="white")
-    ax.text(within + mix / 2, ys[-1], f"Education\nmix {mix:+.1f}", ha="center", va="center", fontsize=9, color="white")
+    lab(ys[-1], total, f"{total:+.2f}%")
+    ax.text(within / 2, ys[-1], f"Pay within\ngroups {within:+.2f}", ha="center", va="center", fontsize=9, color="white")
+    ax.text(within + mix / 2, ys[-1], f"Education\nmix {mix:+.2f}", ha="center", va="center", fontsize=9, color="white")
     ax.axhline((ys[len(groups) - 1] + ys[-2]) / 2, color=GRID, lw=1)
     ax.axvline(0, color=INK2, lw=1)
     ax.set_yticks(ys)
     ax.set_yticklabels(labels)
-    ax.set_xlim(-2, 24)
+    ax.set_xlim(-0.2, 2.4)
     ax.set_ylim(min(ys) - 0.6, max(ys) + 0.6)
-    ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.0f}%".replace("-", "−") if v else "0%"))
+    ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.1f}%".replace("-", "\u2212") if v else "0%"))
     footer(fig, f"Source: U.S. Census Bureau, American Community Survey 1-year, tables B20004 (median earnings) and B15003 "
-           f"(education). {first} dollars moved to {last} dollars with the BLS R-CPI-U-RS. The pay index weights each "
-           f"group's median pay by its share of all adults 25 and over. It is an index, not a median. The education mix "
-           f"part is in percentage points.", h)
+           f"(education). {first} dollars moved to {last} dollars with the BLS R-CPI-U-RS. Yearly change is the compound "
+           f"annual growth rate over {n_yrs} years. The pay index weights each group's median pay by its share of all "
+           f"adults 25 and over. It is an index, not a median. The education mix part is in percentage points a year.", h)
     fig.savefig(IMG / "02-pay-mix-nation.png", facecolor="white")
     plt.close(fig)
 

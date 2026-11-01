@@ -11,18 +11,18 @@
 | Bachelor's degree or more | +6.75 | 391 | 305 | 78.0 | 0 | 378 | +6.15 |
 | Graduate or professional degree | +3.43 | 391 | 251 | 64.2 | 0 | 367 | +2.82 |
 
-## Nation, pay 2015 to 2025, total change after inflation (2025 dollars)
+## Nation, pay 2015 to 2025, yearly change after inflation (2025 dollars)
 
-Prices up 36.3%.
+Prices up 36.3%. Yearly change is the compound annual growth rate over 10 years.
 
-| measure | change (%) | passes |
+| measure | yearly change (%) | passes |
 |---|---|---|
-| Median, Less than high school | +19.32 | True |
-| Median, High school or equivalent | +4.90 | True |
-| Median, Some college or associate's | +6.73 | True |
-| Median, Bachelor's | +3.31 | True |
-| Median, Graduate or professional | -0.16 | False |
-| Median, all workers | +10.26 | True |
-| Pay index, total (2015 index $52,033, 2025 $57,469) | +10.45 | |
-| From pay within education groups (2025 index with 2015 mix $54,622) | +4.98 | |
-| From the education mix (points) | +5.47 | |
+| Median, Less than high school | +1.78 | True |
+| Median, High school or equivalent | +0.48 | True |
+| Median, Some college or associate's | +0.65 | True |
+| Median, Bachelor's | +0.33 | True |
+| Median, Graduate or professional | -0.02 | False |
+| Median, all workers | +0.98 | True |
+| Pay index, total (2015 index $52,033, 2025 $57,469) | +1.00 | |
+| From pay within education groups (2025 index with 2015 mix $54,622) | +0.49 | |
+| From the education mix (points a year) | +0.51 | |
