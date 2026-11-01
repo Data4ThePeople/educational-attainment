@@ -33,10 +33,12 @@ Prices up 36.3%. Yearly change is the compound annual growth rate over 10 years.
 
 ## Metro and micro areas, pay index split, yearly change 2015 to 2025
 
-391 comparable areas, from data/clean/pay_change.csv.
+391 comparable areas, from data/clean/pay_change.csv. x = from pay within education groups (% a year), y = from the change in education mix (points a year).
 
-| measure | median | above 0 | rise passes | fall passes | approximate test |
-|---|---|---|---|---|---|
-| Pay index, total (% a year) | +0.93 | 356 | 230 | 2 | yes |
-| From pay within education groups (% a year) | +0.55 | 326 | 149 | 10 | no |
-| From the change in education mix (points a year) | +0.39 | 379 | 294 | 0 | yes |
+| quadrant | areas |
+|---|---|
+| both rose | 317 |
+| pay fell, mix rose | 62 |
+| pay rose, mix fell | 9 |
+| both fell | 3 |
+| mix part larger than pay part | 159 |

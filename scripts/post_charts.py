@@ -239,49 +239,47 @@ def coffee_chart():
 def pay_metro_chart(first, last):
     d = pd.read_csv(ROOT / "data" / "clean" / "pay_change.csv")
     d = d[d.level == "cbsa"]
-    rows = [("own_cagr", "own_sig", "Pay index, total", "% a year", True),
-            ("held_cagr", "held_sig", "From pay within\neducation groups", "% a year", False),
-            ("mix_part", "mix_sig", "From the change in\neducation mix", "points a year", True)]
+    x, y = d.held_cagr.to_numpy(), d.mix_part.to_numpy()
+    quad = {"both rose": int(((x > 0) & (y > 0)).sum()), "pay fell, mix rose": int(((x < 0) & (y > 0)).sum()),
+            "pay rose, mix fell": int(((x > 0) & (y < 0)).sum()), "both fell": int(((x < 0) & (y < 0)).sum())}
     OUT.extend(["", f"## Metro and micro areas, pay index split, yearly change {first} to {last}", "",
-                f"{len(d)} comparable areas, from data/clean/pay_change.csv.", "",
-                "| measure | median | above 0 | rise passes | fall passes | approximate test |", "|---|---|---|---|---|---|"])
-    h = 9.0
-    fig, ax = frame(f"Pay index split in metro and micro areas, {first} to {last}",
-                    "Yearly change after inflation. Each dot is one area.", h)
-    ax.set_position([0.27, 1.75 / h, 0.58, 1 - 3.4 / h])
-    for j, (col, sig, label, unit, approx) in enumerate(rows):
-        x, ok = d[col].to_numpy(), d[sig].to_numpy(bool)
-        up, down = ok & (x > 0), ok & (x < 0)
-        OUT.append(f"| {label.replace(chr(10), ' ')} ({unit}) | {np.median(x):+.2f} | {int((x > 0).sum())} | {int(up.sum())} | "
-                   f"{int(down.sum())} | {'yes' if approx else 'no'} |")
-        y0 = len(rows) - 1 - j
-        off = swarm(x, 0.028)
-        ys = y0 + off * min(1, 0.44 / np.abs(off).max())
-        for m, c, z in ((~ok, NOPASS, 2), (up, C2025, 3), (down, FALL, 3)):
-            ax.scatter(x[m], ys[m], s=11, color=c, edgecolor="none", zorder=z)
-        t = ax.get_yaxis_transform()
-        ax.text(1.03, y0 + 0.12, f"{100 * up.sum() / len(x):.0f}%", ha="left", va="center", fontsize=16, fontweight="bold",
-                color=C2025, transform=t)
-        ax.text(1.03, y0 - 0.12, "rose and passed", ha="left", va="center", fontsize=10, color=INK2, transform=t)
-        ax.text(1.03, y0 - 0.3, f"{int(down.sum())} fell and passed", ha="left", va="center", fontsize=10, color=INK2,
-                transform=t)
+                f"{len(d)} comparable areas, from data/clean/pay_change.csv. x = from pay within education groups (% a year), "
+                f"y = from the change in education mix (points a year).", "",
+                "| quadrant | areas |", "|---|---|"])
+    OUT.extend(f"| {k} | {v} |" for k, v in quad.items())
+    OUT.append(f"| mix part larger than pay part | {int((y > x).sum())} |")
+
+    h = 7.6
+    fig, ax = frame(f"Pay index growth in metro and micro areas, {first} to {last}",
+                    "Yearly change after inflation, split into its two parts. Each dot is one area.", h)
+    ax.set_position([0.11, 1.5 / h, 0.84, 1 - 3.0 / h])
+    ax.axhline(0, color=INK2, lw=1, zorder=1)
     ax.axvline(0, color=INK2, lw=1, zorder=1)
-    ax.set_yticks(range(len(rows)))
-    ax.set_yticklabels([lab for _, _, lab, _, _ in reversed(rows)])
-    ax.set_xlim(-2.1, 3.5)
-    ax.set_ylim(-0.55, len(rows) - 0.45)
-    ax.grid(axis="y", visible=False)
-    ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.0f}".replace("-", "\u2212") if v else "0"))
-    ax.set_xlabel("Yearly change (percent a year; percentage points a year for the education mix)", fontsize=11,
-                  color=INK2, labelpad=8)
-    for c, lab in ((C2025, "Rise passes the test"), (FALL, "Fall passes the test"), (NOPASS, "Does not pass the test")):
-        ax.scatter([], [], s=40, color=c, label=lab)
-    ax.legend(loc="lower left", bbox_to_anchor=(-0.4, 1.02), ncol=3, frameon=False, fontsize=10.5, handletextpad=0.2,
-              borderaxespad=0)
+    ax.plot([-0.4, 1.2], [-0.4, 1.2], color=MUTED, lw=1, ls=(0, (4, 3)), zorder=1)
+    ax.text(1.22, 1.2, "Both parts equal", ha="left", va="center", fontsize=10, color=MUTED)
+    ax.scatter(x, y, s=22, color=C2025, alpha=0.6, edgecolor="white", linewidth=0.5, zorder=2)
+    ax.grid(axis="y", color=GRID, lw=0.8)
+    for txt, (qx, qy, ha) in {f"Both parts rose: {quad['both rose']} areas": (3.3, 1.28, "right"),
+                              f"Pay within groups fell,\neducation mix rose: {quad['pay fell, mix rose']} areas": (-2.05, 1.22, "left"),
+                              f"Pay within groups rose, education mix fell: {quad['pay rose, mix fell']} areas": (3.3, -0.36, "right"),
+                              f"Both fell: {quad['both fell']} areas": (-2.05, -0.36, "left")}.items():
+        ax.text(qx, qy, txt, ha=ha, va="center", fontsize=10.5, color=INK2)
+    for name, short, dx, dy, ha in (("Houston", "Houston", 0.06, 0.05, "left"), ("New York-Newark", "New York", -0.06, 0.05, "right"),
+                                    ("San Jose", "San Jose", 0.06, 0.03, "left"), ("Twin Falls", "Twin Falls, ID", 0, -0.06, "center"),
+                                    ("Guayama", "Guayama, PR", 0.07, 0, "left"), ("Minot", "Minot, ND", 0, -0.05, "center")):
+        r = d[d.name.str.startswith(name)].iloc[0]
+        ax.text(r.held_cagr + dx, r.mix_part + dy, short, ha=ha, va="center", fontsize=10, color=INK2)
+    ax.set_xlim(-2.1, 3.4)
+    ax.set_ylim(-0.45, 1.4)
+    ax.set_yticks(np.arange(-0.4, 1.3, 0.2))
+    ax.set_xlabel("From pay within education groups (percent a year)", fontsize=11, color=INK2, labelpad=8)
+    ax.set_ylabel("From the change in education mix\n(percentage points a year)", fontsize=11, color=INK2, labelpad=8)
+    ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.0f}%".replace("-", "\u2212") if v else "0%"))
+    ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.1f}".replace("-", "\u2212") if v else "0"))
+    ax.spines["left"].set_visible(False)
     footer(fig, f"Source: U.S. Census Bureau, American Community Survey 1-year, tables B20004 and B15003. {len(d)} metro and "
            f"micro areas with comparable {first} and {last} boundaries, {first} dollars moved to {last} dollars with the "
-           f"BLS R-CPI-U-RS. The two parts add up to the total. Tests use 90% confidence; the tests for the total and the "
-           f"education mix part are approximate.", h)
+           f"BLS R-CPI-U-RS. The two parts add up to the yearly change in the pay index.", h)
     fig.savefig(IMG / "04-pay-mix-metros.png", facecolor="white")
     plt.close(fig)
 

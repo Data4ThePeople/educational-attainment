@@ -50,7 +50,7 @@ What’s the revenue impact from volume? That’s easy. It’s zero since in bot
 
 Now what about price? To calculate that, you must apply only the change in pricing to the base year’s volume. Both coffee and TWMPSML took a $0.50 price increase. Applying that to last year’s volume tells us that pricing alone explains just $5,500 of the revenue increase.
 
-So, what explains the remaining $20,000 increase? MIX. The shop sold far more of the expensive items and fewer of the cheaper items.
+So, what explains the remaining $20,000 increase? MIX. The shop sold far more of the expensive items and fewer of the cheaper items. The chart below shows all three pieces.
 
 ![Bridge chart of a coffee shop's revenue. Last year's revenue of $82,000 rises by $0 from volume, $5,500 from price and $20,000 from mix to reach this year's revenue of $107,500.](images/02-coffee-bridge.png)
 *Made-up numbers for the coffee shop example.*
@@ -72,7 +72,7 @@ The pay index in the map splits the change in pay into two parts. It weights eac
 
 The next chart shows the same split for each of the 391 metro and micro areas.
 
-![Dot chart of 391 metro and micro areas showing the yearly change in the pay index from 2015 to 2025 and its two parts. The total rose and passed the test in 59% of areas and fell and passed in 2. The part from pay within education groups is spread widely around zero; it rose and passed in 38% and fell and passed in 10. The part from the change in education mix sits in a narrow band above zero; it rose and passed in 75% and fell and passed in none.](images/04-pay-mix-metros.png)
-*Each dot is one metro or micro area with comparable 2015 and 2025 boundaries. The two parts add up to the total. The tests for the total and the education mix part are approximate.*
+![Scatter plot of 391 metro and micro areas. The horizontal axis is pay index growth from pay within education groups, in percent a year, from about -2% to +3%. The vertical axis is growth from the change in education mix, in points a year, from about -0.3 to +1.1. Both parts rose in 317 areas. Pay within groups fell while the education mix part rose in 62 areas, including New York and Houston. The education mix part fell in 12 areas.](images/04-pay-mix-metros.png)
+*Each dot is one metro or micro area with comparable 2015 and 2025 boundaries. The two parts add up to the yearly change in the pay index. Dots above the dashed line have a larger education mix part than pay part.*
 
-The part from the change in education mix is above zero in 379 of the 391 areas. It rose by enough to pass an approximate test in 294 areas (75%), and no area had a fall in this part that passed the test. Its median is 0.39 points a year. The part from pay within education groups is more spread out, with a median of 0.55% a year. It rose and passed the test in 149 areas (38%), and fell and passed the test in 10.
+The education mix part is above zero in 379 of the 391 areas, and in 336 of them (86%) it is between 0.1 and 0.7 points a year. The part from pay within education groups is more spread out, from about −2% to +3% a year. In 62 areas, pay within education groups fell while the education mix part rose. That includes New York, where the pay part was −0.20% a year and the mix part was +0.65 points, and Houston, at −0.53% and +0.54 points. In 159 areas, the education mix part was larger than the pay part.
