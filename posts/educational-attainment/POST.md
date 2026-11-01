@@ -86,3 +86,28 @@ The dots are widely scattered. Three examples show the range.
 - **New York:** The pay index rose 0.46% a year. Pay within education groups fell 0.20% a year, so all of the growth came from the change in education mix (0.65 points a year).
 - **Indianapolis:** The pay index rose 1.05% a year, split about evenly: 0.53% a year from pay within education groups and 0.52 points a year from the education mix.
 - **Twin Falls, ID:** The pay index rose 3.24% a year. Almost all of it, 3.06% a year, came from pay within education groups. The education mix added 0.18 points a year.
+
+Here’s my few takeaways:
+
+First, don’t walk away from this analysis thinking that the less than high school crowd is the big winner over the past decade because they led the pack in pay increases. In 2025, Americans without a high school degree had median earnings of just $34,670. Start adding up your expenses and see how fast you get to that income. It’s just not enough to make ends meet in America, so there is no celebrating their 1.78% annualized pay increases. Plus, this could just be supply and demand… the percent of America with less than a high school diploma dropped from XX% to YY% over the past decade, lowering the supply of people that can work the jobs serving people with higher education.
+
+But then I find it fascinating that the more education you have the lower the pay increases were over the past decade. If you had a graduate degree, your pay increases were just keeping pace with inflation and that’s it. And that’s just the national story. Use the tool and start exploring each metro area or county. It’s fascinating to see how different pay increases at different levels of educational attainment in different parts of the country.
+
+What blows my mind even more is the realization that educational attainment is just one of hundreds of variables that is part of mix. Demographics are changing across America, which is complicating pay analysis. Can we precisely isolate the pay component from the myriad demographic mix variables? No, we can’t. But at the very least, today’s analysis proves that Americans are working hard to better themselves by getting more education, and this is a major factor in why inflation-adjusted pay rates are up.
+
+::: divider
+
+## How we did this
+
+- **Data.** Education comes from the Census Bureau's American Community Survey 1-year estimates, table B15003, for adults 25 and over. Pay comes from table B20004, median earnings of people 25 and over who had earnings. We compare 2015 with 2025.
+- **Inflation.** We moved 2015 dollars to 2025 dollars with the Bureau of Labor Statistics R-CPI-U-RS price index. Prices rose 36.3% over the period.
+- **Tests.** A change counts as statistically significant when it passes the Census Bureau's test at 90% confidence. For the education mix part of the pay index, and for the pay index total, we built approximate tests from parts of the Census Bureau's formulas, because the Census Bureau has no published formula for these measures.
+- **Pay index.** The index weights each education group's median pay by that group's share of all adults 25 and over. It is an index, not a median. Its weights cover all adults, including people who do not work, while the medians cover only people with earnings.
+- **Comparable areas.** The 1-year survey covers only areas with 65,000 or more people. We left out metro and micro areas without published estimates in both years, and those whose county makeup changed in a way that moved their adult population by 5% or more.
+
+**What this does not tell you**
+
+- The pay medians include part-time and part-year workers, so changes in hours worked are part of these pay changes.
+- Education is only one part of mix. Age, industry and hours also shift over time, and the pay index does not separate them.
+- In 2025 the Census Bureau changed the education question and collected less data during the federal funding lapse. Part of the rise in "high school or more" and "some college or more" may come from these survey changes.
+- Each change compares only two years, 2015 and 2025.
