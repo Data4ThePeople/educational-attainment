@@ -87,13 +87,17 @@ The dots are widely scattered. Three examples show the range.
 - **Indianapolis:** The pay index rose 1.05% a year, split about evenly: 0.53% a year from pay within education groups and 0.52 points a year from the education mix.
 - **Twin Falls, ID:** The pay index rose 3.24% a year. Almost all of it, 3.06% a year, came from pay within education groups. The education mix added 0.18 points a year.
 
-Here’s my few takeaways:
+## Takeaways
 
-First, don’t walk away from this analysis thinking that the less than high school crowd is the big winner over the past decade because they led the pack in pay increases. In 2025, Americans without a high school degree had median earnings of just $34,670. Start adding up your expenses and see how fast you get to that income. It’s just not enough to make ends meet in America, so there is no celebrating their 1.78% annualized pay increases. Plus, this could just be supply and demand… the percent of America with less than a high school diploma dropped from XX% to YY% over the past decade, lowering the supply of people that can work the jobs serving people with higher education.
+Here are a few takeaways.
 
-But then I find it fascinating that the more education you have the lower the pay increases were over the past decade. If you had a graduate degree, your pay increases were just keeping pace with inflation and that’s it. And that’s just the national story. Use the tool and start exploring each metro area or county. It’s fascinating to see how different pay increases at different levels of educational attainment in different parts of the country.
+First, don’t walk away from this analysis thinking that the less than high school crowd is the big winner over the past decade because they led the pack in pay increases. In 2025, Americans without a high school diploma had median earnings of just $34,670. Start adding up your expenses and see how fast you get to that income. It’s just not enough to make ends meet in America, so there is no celebrating their 1.78% annualized pay increases. Plus, this could just be supply and demand… the percent of America with less than a high school diploma dropped from 12.9% to 9.4% over the past decade, lowering the supply of people that can work the jobs serving people with higher education.
 
-What blows my mind even more is the realization that educational attainment is just one of hundreds of variables that is part of mix. Demographics are changing across America, which is complicating pay analysis. Can we precisely isolate the pay component from the myriad demographic mix variables? No, we can’t. But at the very least, today’s analysis proves that Americans are working hard to better themselves by getting more education, and this is a major factor in why inflation-adjusted pay rates are up.
+But then I find it fascinating that people with more education mostly saw smaller pay increases over the past decade. If you had a graduate degree, median pay just kept pace with inflation and that’s it. And that’s just the national story. Use the tool and start exploring each metro area or county. It’s fascinating to see how different pay increases are at different levels of educational attainment in different parts of the country.
+
+What blows my mind even more is the realization that educational attainment is just one of hundreds of variables that are part of mix. Demographics are changing across America, which is complicating pay analysis. Can we precisely isolate the pay component from the myriad demographic mix variables? No, we can’t. But at the very least, today’s analysis shows that Americans are working hard to better themselves by getting more education, and nationally that shift lines up with about half of the growth in our inflation-adjusted pay index over the past decade.
+
+So the next time you see a headline that pay is up, ask the coffee shop question: was it price, or was it mix?
 
 ::: divider
 
