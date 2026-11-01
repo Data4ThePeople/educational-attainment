@@ -76,20 +76,13 @@ The pay index in the map splits this change into two parts. With the education m
 
 ## Pay and the mix, area by area
 
-The next chart shows the same split for the 129 metro and micro areas where both parts pass the test, out of 391 with comparable boundaries.
+Nationally, growth in the pay index split about evenly between the two parts. That even split does not carry over to each metro and micro area. The next chart shows the split for the 129 areas where both parts pass the test, out of 391 with comparable boundaries.
 
-![Scatter plot of 129 metro and micro areas where both parts of the pay index change pass the test. The horizontal axis is growth from pay within education groups, in percent a year; the vertical axis is growth from the change in education mix, in points a year. Both parts rose in 121 areas. In 8, including Houston, New York, El Paso and Trenton-Princeton, pay within groups fell while the mix part rose. Twin Falls, ID and Medford, OR sit far right with small mix parts.](images/04-pay-mix-metros.png)
-*Each dot is one metro or micro area. The two parts add up to the yearly change in the pay index. Dots above the dashed line have a larger education mix part than pay part. The test for the education mix part is approximate.*
+![Scatter plot of 129 metro and micro areas where both parts of the pay index change pass the test. The horizontal axis is growth from pay within education groups, in percent a year; the vertical axis is growth from the change in education mix, in points a year. The dots are widely scattered. Three are circled: New York sits left of zero on pay with a large mix part, Indianapolis near the line where both parts are equal, and Twin Falls, ID far right with a small mix part.](images/04-pay-mix-metros.png)
+*Each dot is one metro or micro area; the three examples below are circled. The two parts add up to the yearly change in the pay index. Dots above the dashed line have a larger education mix part than pay part. The test for the education mix part is approximate.*
 
-In 121 of these 129 areas, both parts rose. In the other 8, pay within education groups fell while the education mix part rose, so all of the growth in the pay index, where there was any, came from the change in education mix. A few areas stand out.
+The dots are widely scattered. Three examples show the range.
 
-- **Houston:** Pay within education groups fell 0.53% a year, and the education mix part added 0.54 points a year. The pay index was flat (up 0.01% a year).
-- **New York:** Pay within education groups fell 0.20% a year, and the education mix part added 0.65 points a year. The pay index rose 0.46% a year.
-- **El Paso:** Pay within education groups fell 0.69% a year, and the education mix part added 0.70 points a year. The pay index was flat (up 0.01% a year).
-- **Trenton-Princeton, NJ:** Pay within education groups fell 1.05% a year, the most of these 129 areas. The education mix part added 0.69 points a year, and the pay index fell 0.36% a year.
-
-At the other end are areas where most of the growth came from pay within education groups.
-
-- **Twin Falls, ID:** Pay within education groups rose 3.06% a year, the most of these 129 areas, and the education mix part added 0.18 points a year. The pay index rose 3.24% a year.
-- **Medford, OR:** Pay within education groups rose 2.55% a year, and the education mix part added 0.29 points a year. The pay index rose 2.84% a year.
-- **Santa Cruz, CA:** Both parts were large. Pay within education groups rose 2.21% a year, and the education mix part added 0.70 points a year, for a pay index rise of 2.92% a year.
+- **New York:** The pay index rose 0.46% a year. Pay within education groups fell 0.20% a year, so all of the growth came from the change in education mix (0.65 points a year).
+- **Indianapolis:** The pay index rose 1.05% a year, split about evenly: 0.53% a year from pay within education groups and 0.52 points a year from the education mix.
+- **Twin Falls, ID:** The pay index rose 3.24% a year. Almost all of it, 3.06% a year, came from pay within education groups. The education mix added 0.18 points a year.

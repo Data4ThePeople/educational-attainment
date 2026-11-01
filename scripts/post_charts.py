@@ -267,12 +267,13 @@ def pay_metro_chart(first, last):
     ax.text(3.3, 0.93, f"Both parts rose: {quad['both rose']} areas", ha="right", va="center", fontsize=10.5, color=INK2)
     ax.text(-1.25, 0.93, f"Pay within groups fell,\neducation mix rose: {quad['pay fell, mix rose']} areas", ha="left",
             va="center", fontsize=10.5, color=INK2)
-    for name, short, dx, dy, ha in (("Houston", "Houston", 0.06, -0.025, "left"), ("New York-Newark", "New York", 0.06, 0.02, "left"),
-                                    ("Trenton", "Trenton-Princeton, NJ", 0, -0.04, "center"), ("El Paso", "El Paso", 0, 0.04, "center"),
-                                    ("Twin Falls", "Twin Falls, ID", 0, -0.04, "center"), ("Medford", "Medford, OR", 0, 0.04, "center"),
-                                    ("Santa Cruz", "Santa Cruz, CA", 0, 0.04, "center"), ("Chicago", "Chicago", -0.03, 0.04, "center")):
+    for name, short, dx, dy, ha in (("New York-Newark", "New York", 0.06, 0.02, "left"),
+                                    ("Indianapolis", "Indianapolis", -0.07, 0.05, "right"),
+                                    ("Twin Falls", "Twin Falls, ID", 0, -0.04, "center")):
         r = d[d.name.str.startswith(name)].iloc[0]
-        ax.text(r.held_cagr + dx, r.mix_part + dy, short, ha=ha, va="center", fontsize=10, color=INK2)
+        ax.scatter([r.held_cagr], [r.mix_part], s=60, facecolor="none", edgecolor=INK2, linewidth=1.4, zorder=3)
+        ax.text(r.held_cagr + dx, r.mix_part + dy, short, ha=ha, va="center", fontsize=10.5, color=INK2, fontweight="bold",
+                bbox=dict(facecolor="white", edgecolor="none", alpha=0.8, pad=1), zorder=4)
     ax.set_xlim(-1.3, 3.4)
     ax.set_ylim(0, 1.0)
     ax.set_yticks(np.arange(0, 1.01, 0.2))
