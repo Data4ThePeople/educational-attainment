@@ -122,4 +122,6 @@ So the next time you see a headline that pay is up, ask the coffee shop question
 - Education is only one part of mix. Age, industry and hours also shift over time, and the pay index does not separate them.
 - In 2025 the Census Bureau changed the education question and collected less data during the federal funding lapse. Part of the rise in "high school or more" and "some college or more" may come from these survey changes.
 - Each change compares only two years, 2015 and 2025.
+
+For more on how we built this, see the project's [README](https://github.com/Data4ThePeople/educational-attainment#readme) and [DATASETS](https://github.com/Data4ThePeople/educational-attainment/blob/main/DATASETS.md) pages on GitHub.
 :::

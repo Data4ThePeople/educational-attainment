@@ -52,3 +52,4 @@ None.
 - 2026-11-02 Iframe height 1200 -> 1080, sized to the default view (Education, metro areas, notes collapsed: 1,061px at desktop width). Other views scroll inside the frame.
 - 2026-11-02 Accepted: note on why all-workers median and pay index differ, added to the map's Pay notes and the post's Pay index bullet.
 - 2026-11-02 "How we did this" (with "What this does not tell you") moved into a highlighted page blurb, below the divider.
+- 2026-11-02 Blurb ends with links to the GitHub README and DATASETS.md.
