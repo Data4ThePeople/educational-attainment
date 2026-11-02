@@ -3,7 +3,7 @@
 Post URL: https://www.data4thepeople.com/p/educational-attainment
 
 ```
-Subject:  Price or mix? A new look at pay
+Subject:  A new look at pay in America
 Preview:  The share with a bachelor's degree is up since 2015. Here's why that matters for pay.
 ```
 
