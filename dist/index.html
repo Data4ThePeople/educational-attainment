@@ -322,7 +322,7 @@ function fillViews() {
 }
 const h = new URLSearchParams(location.hash.slice(1));
 topicSel.value = TOPICS.some(t => t.key === h.get("topic")) ? h.get("topic") : "edu";
-lvlSel.value = LEVELS.some(l => l.key === h.get("level")) ? h.get("level") : "county";
+lvlSel.value = LEVELS.some(l => l.key === h.get("level")) ? h.get("level") : "cbsa";
 fillMeasures();
 msrSel.value = MEASURES.some(m => m.topic === topicSel.value && m.key === h.get("measure")) ? h.get("measure") : DEFAULT_MSR[topicSel.value];
 viewSel.add(new Option("", h.get("view") === "change" ? "change" : "level")); viewSel.value = viewSel.options[0].value;
