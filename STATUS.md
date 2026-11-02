@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: educational-attainment
-Step: 2f
+Step: 2g
 Since: 2026-11-02
 
 ## Steps
@@ -54,3 +54,4 @@ None.
 - 2026-11-02 "How we did this" (with "What this does not tell you") moved into a highlighted page blurb, below the divider.
 - 2026-11-02 Blurb ends with links to the GitHub README and DATASETS.md.
 - 2026-11-02 Step 2f confirmed by Eric.
+- 2026-11-02 Step 2g opened. EMAIL.md drafted.
