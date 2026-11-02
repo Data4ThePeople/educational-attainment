@@ -58,3 +58,4 @@ Since: 2026-11-02
 - 2026-11-02 Step 2g confirmed by Eric. Post complete: every step through 2g confirmed.
 - 2026-11-02 Back to 2b: dot chart (01) replaced by a static map of the 2015-2025 change in bachelor's degree or more by metro and micro area (scripts/map_screenshot.py). 2c to 2g stale.
 - 2026-11-02 2b item 1 accepted: sentence before the map now describes it.
+- 2026-11-02 Step 2b re-confirmed by Eric (bachelor's change map).
