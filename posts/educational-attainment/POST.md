@@ -23,7 +23,7 @@ On October 29, after a delay of about six weeks, the Census Bureau finally relea
 
 We started with a topic we haven’t yet explored – educational attainment. We created a visualization to see how educational attainment changed between 2015 and 2025 – by state, county, and metro/micro area. See how your area did below. The map is free to use.
 
-<iframe src="https://data4thepeople.github.io/educational-attainment/dist/?v=20261102b#embed=1" width="100%" height="1200" loading="lazy" style="border:0" title="Educational attainment and pay: interactive map by state, county and metro or micro area, 2015 to 2025"></iframe>
+<iframe src="https://data4thepeople.github.io/educational-attainment/dist/?v=20261102b#embed=1" width="100%" height="1080" loading="lazy" style="border:0" title="Educational attainment and pay: interactive map by state, county and metro or micro area, 2015 to 2025"></iframe>
 ::: spacer 40px
 
 ## Education is rising in most places
