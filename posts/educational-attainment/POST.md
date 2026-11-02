@@ -2,7 +2,8 @@
 title: Price or Mix? How Rising Education Changes the Story on Pay
 subtitle: "The share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4% between 2015 and 2025. Nationally, that shift lines up with about half of the growth in our inflation-adjusted pay index, and the split varies widely from one metro area to the next."
 slug: educational-attainment
-date:
+date: 2026-11-02
+time: "06:30:00-05:00"
 section: Data 4 Thought
 hero: images/educational-attainment-hero-1680x1080.png
 hero_alt: Headline: About half of the rise in the U.S. pay index lines up with more education. A bridge chart of the pay index after inflation, in 2025 dollars, starts at $52,033 in 2015. Pay within education groups adds $2,589 (48% of the rise) and the change in education mix adds $2,847 (52%), reaching $57,469 in 2025.
