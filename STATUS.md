@@ -50,3 +50,4 @@ None.
 - 2026-11-02 Map now opens on metro and micro areas; iframe height 900 -> 1140 (fits the default view at every width; Pay notes scroll).
 - 2026-11-02 Map notes collapsed under "Show notes and disclaimers"; iframe height 1200 fits every topic and view at 600px and wider.
 - 2026-11-02 Iframe height 1200 -> 1080, sized to the default view (Education, metro areas, notes collapsed: 1,061px at desktop width). Other views scroll inside the frame.
+- 2026-11-02 Accepted: note on why all-workers median and pay index differ, added to the map's Pay notes and the post's Pay index bullet.

@@ -23,7 +23,7 @@ On October 29, after a delay of about six weeks, the Census Bureau finally relea
 
 We started with a topic we haven’t yet explored – educational attainment. We created a visualization to see how educational attainment changed between 2015 and 2025 – by state, county, and metro/micro area. See how your area did below. The map is free to use.
 
-<iframe src="https://data4thepeople.github.io/educational-attainment/dist/?v=20261102b#embed=1" width="100%" height="1080" loading="lazy" style="border:0" title="Educational attainment and pay: interactive map by state, county and metro or micro area, 2015 to 2025"></iframe>
+<iframe src="https://data4thepeople.github.io/educational-attainment/dist/?v=20261102c#embed=1" width="100%" height="1080" loading="lazy" style="border:0" title="Educational attainment and pay: interactive map by state, county and metro or micro area, 2015 to 2025"></iframe>
 ::: spacer 40px
 
 ## Education is rising in most places
@@ -114,7 +114,7 @@ So the next time you see a headline that pay is up, ask the coffee shop question
 - **Data.** Education comes from the Census Bureau's American Community Survey 1-year estimates, table B15003, for adults 25 and over. Pay comes from table B20004, median earnings of people 25 and over who had earnings. We compare 2015 with 2025.
 - **Inflation.** We moved 2015 dollars to 2025 dollars with the Bureau of Labor Statistics R-CPI-U-RS price index. It is a research version of the CPI-U that applies today's methods to past years. For more on the CPI-U, see [The CPI Hot Air Balloon](https://www.data4thepeople.com/p/what-is-driving-cpi/). Prices rose 36.3% over the period.
 - **Tests.** A change counts as statistically significant when it passes the Census Bureau's test at 90% confidence. For the education mix part of the pay index, and for the pay index total, we built approximate tests from parts of the Census Bureau's formulas, because the Census Bureau has no published formula for these measures.
-- **Pay index.** The index weights each education group's median pay by that group's share of all adults 25 and over. It is an index, not a median. Its weights cover all adults, including people who do not work, while the medians cover only people with earnings.
+- **Pay index.** The index weights each education group's median pay by that group's share of all adults 25 and over. It is an index, not a median. Its weights cover all adults, including people who do not work, while the medians cover only people with earnings. Median pay for all workers and the pay index can change at different rates for two reasons. A median of all workers is not an average of the group medians. And all-workers pay follows the education mix of people with earnings, while the index uses the mix of all adults, including people who do not work.
 - **Comparable areas.** The 1-year survey covers only areas with 65,000 or more people. We compared only areas published in every year from 2015 to 2025, and left out metro and micro areas where a change in their counties after 2015 moved their adult population by 5% or more in a single year.
 
 **What this does not tell you**
