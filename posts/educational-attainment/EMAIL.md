@@ -42,7 +42,7 @@ So that's fantastic. Story over?
 
 Not so fast. If educational attainment is changing this much, can we compare pay from one decade to the next without adjusting for it? To explain why not, the report borrows a concept the corporate finance world calls "mix," using a coffee shop example.
 
-Nationally, about half of the growth in our inflation-adjusted pay index lines up with Americans having more education. But that split varies widely from one metro area to the next. In New York, pay within education groups fell, and all of the growth came from the change in education mix.
+Nationally, about half of the growth in our inflation-adjusted pay index lines up with Americans having more education. But that split varies widely from one metro area to the next. In the New York City metro area, pay within education groups fell, and all of the growth came from the change in education mix.
 
 See how your area did, and the next time you see a headline that pay is up, ask the coffee shop question: was it price, or was it mix?
 ```
