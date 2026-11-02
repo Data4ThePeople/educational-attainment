@@ -4,7 +4,7 @@ Post URL: https://www.data4thepeople.com/p/educational-attainment
 
 ```
 Subject:  Price or mix? A new look at pay
-Preview:  A bigger share of adults has a degree than in 2015. Here's why that matters for pay.
+Preview:  The share with a bachelor's degree is up since 2015. Here's why that matters for pay.
 ```
 
 ## 1. Hero
