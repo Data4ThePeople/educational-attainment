@@ -62,3 +62,4 @@ None.
 - 2026-11-02 Steps 2c-2f re-confirmed by Eric. New map uploaded; draft auhxzRIAACcAaG8R updated in the Migration Release. Step 2g reopened.
 - 2026-11-02 Eric: the map is for the email only. Post restored to the dot chart and his original sentence; Prismic draft updated. EMAIL.md keeps the map.
 - 2026-11-02 Step 2g re-confirmed by Eric (map in the email; New York City metro area). Post complete.
+- 2026-11-02 SOCIAL.md drafted (X and LinkedIn).
