@@ -24,15 +24,15 @@ Price or Mix? How Rising Education Changes the Story on Pay
 ```
 On October 29, after a delay of about six weeks, the Census Bureau finally released the results of its 1-year American Community Survey for 2025. Over the weekend, we rolled up our sleeves and dug in, starting with a topic we haven't yet explored: educational attainment.
 
-We built a map that shows how educational attainment changed between 2015 and 2025 by state, county, and metro and micro area. Nationally, the share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4%. The chart below shows how much education rose in each metro and micro area.
+We built a map that shows how educational attainment changed between 2015 and 2025 by state, county, and metro and micro area. Nationally, the share of adults 25 and over with a bachelor's degree or more rose from 30.6% to 37.4%. The map below shows how much that share changed in each metro and micro area.
 ```
 
 ## 4. Chart
 
-`images/01-edu-rise-metros.png`
+`images/01-ba-change-map.png`
 Alt:
 ```
-Dot chart of 391 metro and micro areas showing the change from 2015 to 2025 in the share of adults 25 and over at four levels of education. Most dots sit to the right of zero at every level. The share of areas where the rise passed the Census Bureau's test was 26% for high school or more, 54% for some college or more, 78% for a bachelor's degree or more and 64% for a graduate or professional degree.
+Map of the United States showing the change from 2015 to 2025 in the share of adults 25 and over with a bachelor's degree or more, by metro and micro area. Of 391 areas with comparable boundaries, 305 had a rise that passed the Census Bureau's test, shaded blue by size: 200 rose 6 points or more, 98 rose 3 to 6 points and 7 rose less than 3. No area had a fall that passed the test. Areas whose change did not pass are hatched.
 ```
 
 ## 5. Body, part two
