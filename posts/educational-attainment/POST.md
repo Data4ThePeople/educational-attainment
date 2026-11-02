@@ -109,8 +109,7 @@ So the next time you see a headline that pay is up, ask the coffee shop question
 
 ::: divider
 
-## How we did this
-
+::: blurb How we did this
 - **Data.** Education comes from the Census Bureau's American Community Survey 1-year estimates, table B15003, for adults 25 and over. Pay comes from table B20004, median earnings of people 25 and over who had earnings. We compare 2015 with 2025.
 - **Inflation.** We moved 2015 dollars to 2025 dollars with the Bureau of Labor Statistics R-CPI-U-RS price index. It is a research version of the CPI-U that applies today's methods to past years. For more on the CPI-U, see [The CPI Hot Air Balloon](https://www.data4thepeople.com/p/what-is-driving-cpi/). Prices rose 36.3% over the period.
 - **Tests.** A change counts as statistically significant when it passes the Census Bureau's test at 90% confidence. For the education mix part of the pay index, and for the pay index total, we built approximate tests from parts of the Census Bureau's formulas, because the Census Bureau has no published formula for these measures.
@@ -123,3 +122,4 @@ So the next time you see a headline that pay is up, ask the coffee shop question
 - Education is only one part of mix. Age, industry and hours also shift over time, and the pay index does not separate them.
 - In 2025 the Census Bureau changed the education question and collected less data during the federal funding lapse. Part of the rise in "high school or more" and "some college or more" may come from these survey changes.
 - Each change compares only two years, 2015 and 2025.
+:::
