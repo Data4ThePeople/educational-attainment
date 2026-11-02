@@ -450,7 +450,8 @@ function render() {
   } else {
     const cs = new Map(), shown = [];
     feats.forEach(f => { const c = m.comp(AREA.get(f.id)); if (c) { cs.set(f.id, c); if (c.sig !== false) shown.push(c.d); } });
-    const k = changeStep(shown, m.unit), kk = num(k), k2 = num(2 * k);
+    // window.STEP_OVERRIDE lets a static render (scripts/social_gif.py) put several views on one color scale.
+    const k = window.STEP_OVERRIDE || changeStep(shown, m.unit), kk = num(k), k2 = num(2 * k);
     const ns = cs.size - shown.length, none = feats.length - cs.size;
     const present = new Set(shown.map(d => changeClass(d, k)));
     const u = {points: "", pct: "% a year", ppy: " points a year"}[m.unit];

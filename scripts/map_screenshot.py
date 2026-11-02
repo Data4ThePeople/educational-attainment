@@ -38,10 +38,13 @@ def chrome(*args):
                            *args], check=True, capture_output=True, text=True).stdout
 
 
-def render(hash_, out, scale=SCALE):
-    """Render the map page's card for one view (a URL hash) to out. Returns the view's intro text."""
+def render(hash_, out, scale=SCALE, step=None):
+    """Render the map page's card for one view (a URL hash) to out. step fixes the size of the legend's color
+    steps instead of the page's own choice. Returns the view's intro text."""
     html = (ROOT / "dist" / "index.html").read_text()
-    assert html.count("</body>") == 1
+    assert html.count("</body>") == 1 and html.count("<head>") == 1
+    if step:
+        html = html.replace("<head>", f"<head><script>window.STEP_OVERRIDE = {step};</script>")
     with tempfile.TemporaryDirectory() as tmp:
         page, shot = Path(tmp) / "map.html", Path(tmp) / "full.png"
         page.write_text(html.replace("</body>", PREP))

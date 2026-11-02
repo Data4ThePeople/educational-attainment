@@ -64,3 +64,4 @@ None.
 - 2026-11-02 Step 2g re-confirmed by Eric (map in the email; New York City metro area). Post complete.
 - 2026-11-02 SOCIAL.md drafted (X and LinkedIn).
 - 2026-11-02 Map gains a "Pay index growth, total" view (approximate total test, same as the pop-up). Social animation social/pay-index-maps.gif cycles total, within groups, education mix. SOCIAL.md updated.
+- 2026-11-02 Social GIF frames share one color scale (steps 0.5 and 1) and one palette.

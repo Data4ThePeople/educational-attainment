@@ -3,7 +3,7 @@
 Drawn from the post and the email (`EMAIL.md`). Every number is in the post.
 Post URL: https://www.data4thepeople.com/p/educational-attainment
 
-Animation: `social/pay-index-maps.gif` (720x684, 0.5 MB). Three views from the map, pay index growth by metro and micro area, 2015 to 2025, shown in turn: total (3.5 seconds), from the change in pay within education groups (3.5 seconds), from the change in education mix (5 seconds), then it loops. Each frame is the map page itself, so the last frame matches the map's education mix view. Each view keeps the map's own color steps. Built by `scripts/social_gif.py`.
+Animation: `social/pay-index-maps.gif` (720x684, 0.4 MB). Three views from the map, pay index growth by metro and micro area, 2015 to 2025, shown in turn: total (3.5 seconds), from the change in pay within education groups (3.5 seconds), from the change in education mix (5 seconds), then it loops. Each frame is the map page itself. All three share one color scale, with steps at 0.5 and 1 (percent a year for the first two, percentage points a year for the mix), so a color means the same size of change in every frame; the parts add up to the total. The live map picks its own steps for each view, so the last frame matches the map's education mix view except for its color steps. Built by `scripts/social_gif.py`.
 
 ## X, thread of 6 posts
 
