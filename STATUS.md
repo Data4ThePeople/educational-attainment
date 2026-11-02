@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: educational-attainment
-Step: 2g
+Step: complete
 Since: 2026-11-02
 
 ## Steps
@@ -20,7 +20,7 @@ Since: 2026-11-02
 | 2d | Hero 1680x1080 + alt text | 2026-11-02 | National pay index bridge with takeaway headline, from post_charts.py |
 | 2e | SEO | 2026-11-02 | Meta, 6 keywords, Article schema; links to CPI Hot Air Balloon and mix post |
 | 2f | Pushed to Prismic (draft) | 2026-11-02 | Draft auhxzRIAACcAaG8R, Migration Release; publish 2026-11-02 6:30 a.m. ET; repo public, Pages on; method in a blurb |
-| 2g | Mailchimp teaser | | |
+| 2g | Mailchimp teaser | 2026-11-02 | EMAIL.md approved; subject "A new look at pay in America" |
 
 ## Stale
 
@@ -55,3 +55,4 @@ None.
 - 2026-11-02 Blurb ends with links to the GitHub README and DATASETS.md.
 - 2026-11-02 Step 2f confirmed by Eric.
 - 2026-11-02 Step 2g opened. EMAIL.md drafted.
+- 2026-11-02 Step 2g confirmed by Eric. Post complete: every step through 2g confirmed.
