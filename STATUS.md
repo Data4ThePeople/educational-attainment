@@ -43,3 +43,4 @@ None.
 - 2026-11-02 2e text items 1, 2 and 4 accepted and applied (CPI Hot Air Balloon link, mix post link, free map sentence); item 3 rejected.
 - 2026-11-02 Step 2e confirmed by Eric.
 - 2026-11-02 Step 2f opened.
+- 2026-11-02 Draft pushed to Prismic (document auhxzRIAACcAaG8R, Migration Release), 6 images uploaded. Map iframe blank until the repo is public with Pages on.
