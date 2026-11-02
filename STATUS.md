@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: educational-attainment
-Step: 2g
+Step: complete
 Since: 2026-11-02
 
 ## Steps
@@ -24,7 +24,7 @@ Since: 2026-11-02
 
 ## Stale
 
-- 2g (2026-11-02): Eric swapped the education dot chart for a map of the change in bachelor's degree or more by metro area.
+None.
 
 ## Log
 
@@ -61,3 +61,4 @@ Since: 2026-11-02
 - 2026-11-02 Step 2b re-confirmed by Eric (bachelor's change map).
 - 2026-11-02 Steps 2c-2f re-confirmed by Eric. New map uploaded; draft auhxzRIAACcAaG8R updated in the Migration Release. Step 2g reopened.
 - 2026-11-02 Eric: the map is for the email only. Post restored to the dot chart and his original sentence; Prismic draft updated. EMAIL.md keeps the map.
+- 2026-11-02 Step 2g re-confirmed by Eric (map in the email; New York City metro area). Post complete.
