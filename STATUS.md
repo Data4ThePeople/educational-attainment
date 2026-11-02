@@ -19,7 +19,7 @@ Since: 2026-11-02
 | 2c | Slice markup | 2026-11-02 | 40px spacer after map embed; 31 slices |
 | 2d | Hero 1680x1080 + alt text | 2026-11-02 | National pay index bridge with takeaway headline, from post_charts.py |
 | 2e | SEO | 2026-11-02 | Meta, 6 keywords, Article schema; links to CPI Hot Air Balloon and mix post |
-| 2f | Pushed to Prismic (draft) | | |
+| 2f | Pushed to Prismic (draft) | 2026-11-02 | Draft auhxzRIAACcAaG8R, Migration Release; publish 2026-11-02 6:30 a.m. ET; repo public, Pages on; method in a blurb |
 | 2g | Mailchimp teaser | | |
 
 ## Stale
@@ -53,3 +53,4 @@ None.
 - 2026-11-02 Accepted: note on why all-workers median and pay index differ, added to the map's Pay notes and the post's Pay index bullet.
 - 2026-11-02 "How we did this" (with "What this does not tell you") moved into a highlighted page blurb, below the divider.
 - 2026-11-02 Blurb ends with links to the GitHub README and DATASETS.md.
+- 2026-11-02 Step 2f confirmed by Eric.
