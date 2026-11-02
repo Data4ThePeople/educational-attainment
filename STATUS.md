@@ -15,7 +15,7 @@ Since: 2026-11-01
 |---|---|---|---|
 | 1  | Exploration and analysis | 2026-11-01 | Eric may ask for more analysis while drafting |
 | 2a | Draft with brackets resolved | 2026-11-01 | 4 post charts from scripts/post_charts.py |
-| 2b | Eric's edit, Claude's look-over | | |
+| 2b | Eric's edit, Claude's look-over | 2026-11-02 | 10 review items accepted; New York tooltip screenshot added |
 | 2c | Slice markup | | |
 | 2d | Hero 1680x1080 + alt text | | |
 | 2e | SEO | | |
@@ -33,3 +33,4 @@ None.
 - 2026-11-01 Step 2a opened. Post folder posts/educational-attainment/ created.
 - 2026-11-01 Step 2a confirmed by Eric.
 - 2026-11-01 Step 2b opened. Eric edits POST.md, then Claude looks it over.
+- 2026-11-02 Step 2b confirmed by Eric. The map tooltip screenshot keeps the all-workers pay row.
