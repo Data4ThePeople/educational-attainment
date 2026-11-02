@@ -31,6 +31,10 @@ Prices up 36.3%. Yearly change is the compound annual growth rate over 10 years.
 | From pay within education groups (2025 index with 2015 mix $54,622) | +0.49 | |
 | From the education mix (points a year) | +0.51 | |
 
+## Hero: national pay index bridge, 2015 to 2025 (2025 dollars)
+
+Pay index 52,033 to 57,469 (+5,436); from pay within education groups +2,589; from the education mix +2,847.
+
 ## Metro and micro areas, pay index split, yearly change 2015 to 2025
 
 129 of 391 comparable areas where both parts pass their tests, from data/clean/pay_change.csv. x = from pay within education groups (% a year), y = from the change in education mix (points a year).
