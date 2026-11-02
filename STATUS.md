@@ -48,3 +48,4 @@ None.
 - 2026-11-02 Publish date set to 2026-11-02, 6:30 a.m. Eastern (EST, -05:00); draft updated in Prismic.
 - 2026-11-02 Hero redrawn as a centered horizontal bridge so the site's narrow card crop shows the headline and bars; re-uploaded to the draft.
 - 2026-11-02 Map now opens on metro and micro areas; iframe height 900 -> 1140 (fits the default view at every width; Pay notes scroll).
+- 2026-11-02 Map notes collapsed under "Show notes and disclaimers"; iframe height 1200 fits every topic and view at 600px and wider.
