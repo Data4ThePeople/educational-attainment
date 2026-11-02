@@ -1,4 +1,4 @@
-"""Static map for the post: the map page's change in the share of adults 25
+"""Static map for the email teaser (EMAIL.md): the map page's change in the share of adults 25
 and over with a bachelor's degree or more, 2015 to 2025, by metro and micro
 area. Copies dist/index.html to a temp folder with a small script that sets
 the light theme and hides the controls, intro text and collapsed sections,

@@ -28,10 +28,10 @@ We started with a topic we haven’t yet explored – educational attainment. We
 
 ## Education is rising in most places
 
-On its own, the educational attainment data is quite encouraging. The share of America with more education is not only rising on the aggregate but is rising just about everywhere. The map below shows how much the share of adults 25 and over with a bachelor's degree or more changed in each metro and micro area from 2015 to 2025. The rise was statistically significant in 305 of the 391 areas we could compare (78%).
+On its own, the educational attainment data is quite encouraging. The share of America with more education is not only rising on the aggregate but is rising just about everywhere. The next chart shows how much education rose in each metro and micro area over the past decade, and the percentage of areas where the rise was statistically significant.
 
-![Map of the United States showing the change from 2015 to 2025 in the share of adults 25 and over with a bachelor's degree or more, by metro and micro area. Of 391 areas with comparable boundaries, 305 had a rise that passed the Census Bureau's test, shaded blue by size: 200 rose 6 points or more, 98 rose 3 to 6 points and 7 rose less than 3. No area had a fall that passed the test. Areas whose change did not pass are hatched.](images/01-ba-change-map.png)
-*Each shaded area is one of the 391 metro and micro areas with comparable 2015 and 2025 boundaries. Blue areas had a rise that passed the Census Bureau's test at 90% confidence; hatched areas did not pass.*
+![Dot chart of 391 metro and micro areas showing the change from 2015 to 2025 in the share of adults 25 and over at four levels of education. Most dots sit to the right of zero at every level. The share of areas where the rise passed the Census Bureau's test was 26% for high school or more, 54% for some college or more, 78% for a bachelor's degree or more and 64% for a graduate or professional degree.](images/01-edu-rise-metros.png)
+*Each dot is one of 391 metro and micro areas. Dark blue dots had a rise large enough to pass the Census Bureau's test at 90% confidence.*
 
 So that’s fantastic. Story over?
 

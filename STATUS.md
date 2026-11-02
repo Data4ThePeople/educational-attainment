@@ -60,3 +60,4 @@ Since: 2026-11-02
 - 2026-11-02 2b item 1 accepted: sentence before the map now describes it.
 - 2026-11-02 Step 2b re-confirmed by Eric (bachelor's change map).
 - 2026-11-02 Steps 2c-2f re-confirmed by Eric. New map uploaded; draft auhxzRIAACcAaG8R updated in the Migration Release. Step 2g reopened.
+- 2026-11-02 Eric: the map is for the email only. Post restored to the dot chart and his original sentence; Prismic draft updated. EMAIL.md keeps the map.
