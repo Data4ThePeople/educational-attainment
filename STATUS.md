@@ -39,3 +39,4 @@ None.
 - 2026-11-02 Step 2d opened.
 - 2026-11-02 Step 2d confirmed by Eric.
 - 2026-11-02 Step 2e opened.
+- 2026-11-02 Searches set (Claude's list, items 7 and 8 dropped). Meta title, description and keywords written.

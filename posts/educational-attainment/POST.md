@@ -6,9 +6,9 @@ date:
 section: Data 4 Thought
 hero: images/educational-attainment-hero-1680x1080.png
 hero_alt: Headline: About half of the rise in the U.S. pay index lines up with more education. A bridge chart of the pay index after inflation, in 2025 dollars, starts at $52,033 in 2015. Pay within education groups adds $2,589 (48% of the rise) and the change in education mix adds $2,847 (52%), reaching $57,469 in 2025.
-meta_title:
-description:
-keywords:
+meta_title: Educational Attainment and Pay by County and Metro, 2025
+description: See how education changed from 2015 to 2025 by state, county and metro area, and how about half of U.S. pay index growth lines up with that shift.
+keywords: educational attainment by county, educational attainment by metro area 2025, share of adults with a bachelor's degree by state, 2025 American Community Survey educational attainment, median earnings by education level, pay growth adjusted for inflation by education
 schema_type: article
 drop_cap: true
 heading_spacer: 20px
