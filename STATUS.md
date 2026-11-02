@@ -6,8 +6,8 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: educational-attainment
-Step: 2b
-Since: 2026-11-01
+Step: 2c
+Since: 2026-11-02
 
 ## Steps
 
@@ -34,3 +34,4 @@ None.
 - 2026-11-01 Step 2a confirmed by Eric.
 - 2026-11-01 Step 2b opened. Eric edits POST.md, then Claude looks it over.
 - 2026-11-02 Step 2b confirmed by Eric. The map tooltip screenshot keeps the all-workers pay row.
+- 2026-11-02 Step 2c opened. Spacer after the map iframe set to 40px, since a heading follows it.
