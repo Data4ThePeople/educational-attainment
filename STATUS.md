@@ -17,7 +17,7 @@ Since: 2026-11-02
 | 2a | Draft with brackets resolved | 2026-11-01 | 4 post charts from scripts/post_charts.py |
 | 2b | Eric's edit, Claude's look-over | 2026-11-02 | 10 review items accepted; New York tooltip screenshot added |
 | 2c | Slice markup | 2026-11-02 | 40px spacer after map embed; 31 slices |
-| 2d | Hero 1680x1080 + alt text | | |
+| 2d | Hero 1680x1080 + alt text | 2026-11-02 | National pay index bridge with takeaway headline, from post_charts.py |
 | 2e | SEO | | |
 | 2f | Pushed to Prismic (draft) | | |
 | 2g | Mailchimp teaser | | |
@@ -37,3 +37,4 @@ None.
 - 2026-11-02 Step 2c opened. Spacer after the map iframe set to 40px, since a heading follows it.
 - 2026-11-02 Step 2c confirmed by Eric.
 - 2026-11-02 Step 2d opened.
+- 2026-11-02 Step 2d confirmed by Eric.
