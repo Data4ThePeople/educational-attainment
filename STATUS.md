@@ -18,7 +18,7 @@ Since: 2026-11-02
 | 2b | Eric's edit, Claude's look-over | 2026-11-02 | 10 review items accepted; New York tooltip screenshot added |
 | 2c | Slice markup | 2026-11-02 | 40px spacer after map embed; 31 slices |
 | 2d | Hero 1680x1080 + alt text | 2026-11-02 | National pay index bridge with takeaway headline, from post_charts.py |
-| 2e | SEO | | |
+| 2e | SEO | 2026-11-02 | Meta, 6 keywords, Article schema; links to CPI Hot Air Balloon and mix post |
 | 2f | Pushed to Prismic (draft) | | |
 | 2g | Mailchimp teaser | | |
 
@@ -41,3 +41,4 @@ None.
 - 2026-11-02 Step 2e opened.
 - 2026-11-02 Searches set (Claude's list, items 7 and 8 dropped). Meta title, description and keywords written.
 - 2026-11-02 2e text items 1, 2 and 4 accepted and applied (CPI Hot Air Balloon link, mix post link, free map sentence); item 3 rejected.
+- 2026-11-02 Step 2e confirmed by Eric.
