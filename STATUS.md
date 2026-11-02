@@ -6,7 +6,7 @@ Process: ~/.claude/d4tp-process/PROCESS.md
 ## Current
 
 Post: educational-attainment
-Step: complete
+Step: 2b
 Since: 2026-11-02
 
 ## Steps
@@ -24,7 +24,7 @@ Since: 2026-11-02
 
 ## Stale
 
-None.
+- 2c, 2d, 2e, 2f, 2g (2026-11-02): Eric swapped the education dot chart for a map of the change in bachelor's degree or more by metro area.
 
 ## Log
 
@@ -56,3 +56,4 @@ None.
 - 2026-11-02 Step 2f confirmed by Eric.
 - 2026-11-02 Step 2g opened. EMAIL.md drafted.
 - 2026-11-02 Step 2g confirmed by Eric. Post complete: every step through 2g confirmed.
+- 2026-11-02 Back to 2b: dot chart (01) replaced by a static map of the 2015-2025 change in bachelor's degree or more by metro and micro area (scripts/map_screenshot.py). 2c to 2g stale.
