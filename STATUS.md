@@ -40,3 +40,4 @@ None.
 - 2026-11-02 Step 2d confirmed by Eric.
 - 2026-11-02 Step 2e opened.
 - 2026-11-02 Searches set (Claude's list, items 7 and 8 dropped). Meta title, description and keywords written.
+- 2026-11-02 2e text items 1, 2 and 4 accepted and applied (CPI Hot Air Balloon link, mix post link, free map sentence); item 3 rejected.

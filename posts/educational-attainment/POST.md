@@ -20,7 +20,7 @@ dividers: false
 
 On October 29, after a delay of about six weeks, the Census Bureau finally released the results of its 1-year American Community Survey (ACS) for 2025. Over the weekend, we rolled up our sleeves and dug in, excited to see what new learnings we could find on America’s larger communities (the 1-year ACS covers only areas with 65,000 or more people).
 
-We started with a topic we haven’t yet explored – educational attainment. We created a visualization to see how educational attainment changed between 2015 and 2025 – by state, county, and metro/micro area. See how your area did below.
+We started with a topic we haven’t yet explored – educational attainment. We created a visualization to see how educational attainment changed between 2015 and 2025 – by state, county, and metro/micro area. See how your area did below. The map is free to use.
 
 <iframe src="https://data4thepeople.github.io/educational-attainment/dist/?v=20261101a#embed=1" width="100%" height="900" loading="lazy" style="border:0" title="Educational attainment and pay: interactive map by state, county and metro or micro area, 2015 to 2025"></iframe>
 ::: spacer 40px
@@ -102,7 +102,7 @@ To see the split for your area, set Topic to Pay and Show to the level you want 
 
 It’s fascinating to see how different pay increases are at different levels of educational attainment in different parts of the country.
 
-What blows my mind even more is the realization that educational attainment is just one of hundreds of variables that are part of mix. Demographics are changing across America, which is complicating pay analysis. Can we precisely isolate the pay component from the myriad demographic mix variables? No, we can’t. But at the very least, today’s analysis shows that Americans are working hard to better themselves by getting more education, and nationally that shift lines up with about half of the growth in our inflation-adjusted pay index over the past decade.
+What blows my mind even more is the realization that educational attainment is just one of hundreds of variables that are part of mix. [Demographics are changing across America](https://www.data4thepeople.com/p/america-has-a-mix-problem/), which is complicating pay analysis. Can we precisely isolate the pay component from the myriad demographic mix variables? No, we can’t. But at the very least, today’s analysis shows that Americans are working hard to better themselves by getting more education, and nationally that shift lines up with about half of the growth in our inflation-adjusted pay index over the past decade.
 
 So the next time you see a headline that pay is up, ask the coffee shop question: was it price, or was it mix?
 
@@ -111,7 +111,7 @@ So the next time you see a headline that pay is up, ask the coffee shop question
 ## How we did this
 
 - **Data.** Education comes from the Census Bureau's American Community Survey 1-year estimates, table B15003, for adults 25 and over. Pay comes from table B20004, median earnings of people 25 and over who had earnings. We compare 2015 with 2025.
-- **Inflation.** We moved 2015 dollars to 2025 dollars with the Bureau of Labor Statistics R-CPI-U-RS price index. Prices rose 36.3% over the period.
+- **Inflation.** We moved 2015 dollars to 2025 dollars with the Bureau of Labor Statistics R-CPI-U-RS price index. It is a research version of the CPI-U that applies today's methods to past years. For more on the CPI-U, see [The CPI Hot Air Balloon](https://www.data4thepeople.com/p/what-is-driving-cpi/). Prices rose 36.3% over the period.
 - **Tests.** A change counts as statistically significant when it passes the Census Bureau's test at 90% confidence. For the education mix part of the pay index, and for the pay index total, we built approximate tests from parts of the Census Bureau's formulas, because the Census Bureau has no published formula for these measures.
 - **Pay index.** The index weights each education group's median pay by that group's share of all adults 25 and over. It is an index, not a median. Its weights cover all adults, including people who do not work, while the medians cover only people with earnings.
 - **Comparable areas.** The 1-year survey covers only areas with 65,000 or more people. We compared only areas published in every year from 2015 to 2025, and left out metro and micro areas where a change in their counties after 2015 moved their adult population by 5% or more in a single year.
