@@ -32,7 +32,7 @@ We built a map that shows how educational attainment changed between 2015 and 20
 `images/01-ba-change-map.png`
 Alt:
 ```
-Map of the United States showing the change from 2015 to 2025 in the share of adults 25 and over with a bachelor's degree or more, by metro and micro area. Of 391 areas with comparable boundaries, 305 had a rise that passed the Census Bureau's test, shaded blue by size: 200 rose 6 points or more, 98 rose 3 to 6 points and 7 rose less than 3. No area had a fall that passed the test. Areas whose change did not pass are hatched.
+Map of the United States showing the change from 2015 to 2025 in the share of adults 25 and over with a bachelor's degree or more, by metro and micro area. Areas where the rise passed the Census Bureau's test are shaded blue, darker for bigger rises. The rise passed the test in 78% of the 391 areas with comparable boundaries, and no area had a fall that passed. Areas whose change did not pass are hatched.
 ```
 
 ## 5. Body, part two
