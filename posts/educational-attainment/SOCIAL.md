@@ -3,6 +3,8 @@
 Drawn from the post and the email (`EMAIL.md`). Every number is in the post.
 Post URL: https://www.data4thepeople.com/p/educational-attainment
 
+Animation: `social/pay-index-maps.gif` (720x684, 0.5 MB). Three views from the map, pay index growth by metro and micro area, 2015 to 2025, shown in turn: total (3.5 seconds), from the change in pay within education groups (3.5 seconds), from the change in education mix (5 seconds), then it loops. Each frame is the map page itself, so the last frame matches the map's education mix view. Each view keeps the map's own color steps. Built by `scripts/social_gif.py`.
+
 ## X, thread of 6 posts
 
 Each post is under 280 characters (X counts the link as 23). The link is in the last post.
@@ -43,7 +45,7 @@ Same idea for pay. From 2015 to 2025, our inflation-adjusted pay index rose 1.00
 0.49 points a year came from pay within education groups. The other 0.51 came from the change in education mix. About half and half.
 ```
 
-### 5 of 6 (191 characters). Image: `images/05-map-tooltip-new-york.png`
+### 5 of 6 (191 characters). Image: `social/pay-index-maps.gif`
 
 ```
 The split varies widely by place.
@@ -62,7 +64,7 @@ https://www.data4thepeople.com/p/educational-attainment
 
 ## LinkedIn
 
-Media: `images/01-ba-change-map.png`. The text is Eric's, from the post and the email, shortened, with the last line pointing to the first comment.
+Media: `social/pay-index-maps.gif`. If LinkedIn shows it as a still, use `images/01-ba-change-map.png` instead. The text is Eric's, from the post and the email, shortened, with the last line pointing to the first comment.
 
 ```
 On October 29, after a delay of about six weeks, the Census Bureau finally released the results of its 1-year American Community Survey for 2025. Over the weekend, we rolled up our sleeves and dug in, starting with a topic we haven't yet explored: educational attainment.
@@ -102,7 +104,7 @@ Bridge chart of a coffee shop's revenue. Last year's revenue of $82,000 rises by
 Headline: About half of the rise in the U.S. pay index lines up with more education. A bridge chart of the pay index after inflation, in 2025 dollars, starts at $52,033 in 2015. Pay within education groups adds $2,589 (48% of the rise) and the change in education mix adds $2,847 (52%), reaching $57,469 in 2025.
 ```
 
-`images/05-map-tooltip-new-york.png`:
+`social/pay-index-maps.gif`:
 ```
-Screenshot of the interactive map with the New York-Newark-Jersey City metro area highlighted and its pop-up box open. The box shows median pay for all workers up 0.73% a year, the pay index up 0.46% a year, pay within education groups down 0.20% a year, and the education mix part up 0.65 points a year, with each change passing the test.
+Animated map of U.S. metro and micro areas showing yearly pay index growth after inflation from 2015 to 2025, in three views shown in turn: total growth, growth from the change in pay within education groups, and growth from the change in education mix. Areas are colored only where the change passes the test. In the second view some areas, including the New York City metro area, are shaded orange because pay within education groups fell.
 ```

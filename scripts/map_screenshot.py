@@ -19,6 +19,7 @@ from mapping import ROOT  # noqa: E402
 
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 HASH = "topic=edu&level=cbsa&measure=baplus&view=change"
+OUT = ROOT / "posts" / "educational-attainment" / "images" / "01-ba-change-map.png"
 WIDTH, SCALE = 780, 2
 PREP = """<style>#h1, .sub, .controls, #intro, details { display: none !important; }</style>
 <script>
@@ -26,7 +27,7 @@ document.documentElement.setAttribute("data-theme", "light");
 window.addEventListener("load", () => setTimeout(() => {
   const r = document.querySelector(".card").getBoundingClientRect();
   const d = document.createElement("pre"); d.id = "rect"; d.style.display = "none";
-  d.textContent = `RECT ${r.left} ${r.top} ${r.right} ${r.bottom}`;
+  d.textContent = `RECT ${r.left} ${r.top} ${r.right} ${r.bottom} INTRO ${document.getElementById("intro").textContent}`;
   document.body.appendChild(d);
 }, 300));
 </script></body>"""
@@ -37,20 +38,26 @@ def chrome(*args):
                            *args], check=True, capture_output=True, text=True).stdout
 
 
-def main():
+def render(hash_, out, scale=SCALE):
+    """Render the map page's card for one view (a URL hash) to out. Returns the view's intro text."""
     html = (ROOT / "dist" / "index.html").read_text()
     assert html.count("</body>") == 1
     with tempfile.TemporaryDirectory() as tmp:
         page, shot = Path(tmp) / "map.html", Path(tmp) / "full.png"
         page.write_text(html.replace("</body>", PREP))
-        url = f"file://{page}#{HASH}"
+        url = f"file://{page}#{hash_}"
         dom = chrome(f"--window-size={WIDTH},1600", "--dump-dom", url)
-        left, top, right, bottom = (float(v) for v in re.search(r"RECT ([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+)", dom).groups())
-        chrome(f"--window-size={WIDTH},{int(bottom) + 40}", f"--force-device-scale-factor={SCALE}", f"--screenshot={shot}", url)
-        out = ROOT / "posts" / "educational-attainment" / "images" / "01-ba-change-map.png"
-        box = tuple(round(v * SCALE) for v in (left, top, right, bottom))
+        m = re.search(r"RECT ([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+) INTRO ([^<]*)", dom)
+        left, top, right, bottom = (float(v) for v in m.groups()[:4])
+        chrome(f"--window-size={WIDTH},{int(bottom) + 40}", f"--force-device-scale-factor={scale}", f"--screenshot={shot}", url)
+        box = tuple(round(v * scale) for v in (left, top, right, bottom))
         Image.open(shot).crop(box).save(out)
-    print("wrote", out, box)
+    return m.group(5)
+
+
+def main():
+    render(HASH, OUT)
+    print("wrote", OUT)
 
 
 if __name__ == "__main__":

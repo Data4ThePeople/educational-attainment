@@ -63,3 +63,4 @@ None.
 - 2026-11-02 Eric: the map is for the email only. Post restored to the dot chart and his original sentence; Prismic draft updated. EMAIL.md keeps the map.
 - 2026-11-02 Step 2g re-confirmed by Eric (map in the email; New York City metro area). Post complete.
 - 2026-11-02 SOCIAL.md drafted (X and LinkedIn).
+- 2026-11-02 Map gains a "Pay index growth, total" view (approximate total test, same as the pop-up). Social animation social/pay-index-maps.gif cycles total, within groups, education mix. SOCIAL.md updated.

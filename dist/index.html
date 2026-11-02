@@ -255,6 +255,14 @@ const MEASURES = [
   eduMeasure("hsplus", "High school or more", "at least a high school diploma or equivalent", ["hs", "somecol", "ba", "grad"], {brk: true}),
   eduMeasure("lths", "Less than high school", "less than a high school education", ["lths"], {brk: true, fallBlue: true}),
   payMeasure("pay", "All workers", "all workers", 0),
+  {topic: "pay", key: "paytotal", label: "Pay index growth, total", phrase: `the pay index's total growth`,
+    unit: "pct", changeOnly: true, level: () => null,
+    comp: a => {
+      if (!comparable(a)) return null;
+      const then = mixPay(a, FIRST, a.v[FIRST]), now = mixPay(a, LAST, a.v[LAST]), t = totalTest(a);
+      if (!then || !now || !t) return null;
+      return {then, now, d: cagr(then.v, now.v), sig: t.sig, index: true, approx: true};
+    }},
   {topic: "pay", key: "payfixed", label: "Pay index growth from the change in pay within education groups", phrase: `the pay index's growth from the change in pay within education groups`,
     unit: "pct", changeOnly: true, level: () => null,
     comp: a => {
@@ -375,7 +383,7 @@ function tipHtml(feat, L, m) {
   }
   let html = `<b>${esc(a.n)}</b>`;
   const lv = m.level(a), c = m.comp(a);
-  if (m.key === "payfixed" || m.key === "paymix") {
+  if (m.key === "paytotal" || m.key === "payfixed" || m.key === "paymix") {
     if (!c) return html + `<div class="sm">${esc(a.why || `No comparable ${FIRST} and ${LAST} values.`)}</div>`;
     const all = MEASURES.find(x => x.key === "pay").comp(a), held = MEASURES.find(x => x.key === "payfixed").comp(a);
     const mix = MEASURES.find(x => x.key === "paymix").comp(a);
@@ -384,7 +392,7 @@ function tipHtml(feat, L, m) {
     const tr = (k, d, test, sub, on) => `<tr${on ? ' class="on"' : ""}><td${sub ? ' class="ind"' : ""}>${k}</td><td>${d}</td><td>${test}</td></tr>`;
     html += `<table><tr><th></th><th>Yearly change</th><th>Passes test</th></tr>` +
       (all ? tr("Median pay, all workers", signed(all.d, 2) + "%", yes(all.sig)) : "") +
-      tr("Pay index, total", signed(own.d, 2) + "%", yes(own.sig) + "*") +
+      tr("Pay index, total", signed(own.d, 2) + "%", yes(own.sig) + "*", false, m.key === "paytotal") +
       tr("From pay within education groups", signed(held.d, 2) + "%", yes(held.sig), true, m.key === "payfixed") +
       tr("From the education mix", signed(mix.d, 2) + " pts", yes(mix.sig) + "*", true, m.key === "paymix") +
       `</table><div class="sm">${FIRST} to ${LAST}, after inflation. Tests use 90% confidence. The test for pay within education groups is a ratio test built from the Census Bureau's formulas. *Approximate tests (see notes below the map). "pts" means percentage points a year.</div>`;
@@ -454,7 +462,7 @@ function render() {
     legend = DIV.map((_, i) => present.has(i) ? `<span class="nd"><i style="background:var(${divColor(i, m)})"></i>${labels[i]}</span>` : "").join("") +
       (ns ? `<span class="nd"><i class="hatch"></i>Change does not pass the test</span>` : "") +
       (none ? `<span class="nd"><i></i>No comparable ${FIRST} and ${LAST} values</span>` : "") + cbsaKey;
-    const passText = ` Areas are colored only where the change passes ${m.key === "paymix" ? "an approximate test that uses parts of the Census Bureau's formulas" : "the Census Bureau's test"} at 90% confidence` +
+    const passText = ` Areas are colored only where the change passes ${m.key === "paymix" || m.key === "paytotal" ? "an approximate test that uses parts of the Census Bureau's formulas" : "the Census Bureau's test"} at 90% confidence` +
         (ns ? `; the ${ns} of ${cs.size} that do not ${ns === 1 ? "is" : "are"} hatched.` : `, and all ${cs.size} do.`);
     if (!pay) {
       intro = `The map below shows how the share of adults 25 and over with ${m.phrase} changed from ${FIRST} to ${LAST} in each ${L.one}, in percentage points.`;
@@ -462,6 +470,9 @@ function render() {
     } else if (m.key === "paymix") {
       intro = `The map below shows, for each ${L.one}, the difference between the pay index's yearly growth from ${FIRST} to ${LAST} with each year's own education mix and its yearly growth with the mix held at ${FIRST}, in percentage points. It is not a share of median pay growth.`;
       title = `Pay index growth from the change in education mix, by ${L.by}, ${FIRST} to ${LAST} (percentage points a year)`;
+    } else if (m.key === "paytotal") {
+      intro = `The map below shows the average yearly change from ${FIRST} to ${LAST}, after inflation, in each ${L.one}'s pay index, using each year's own education mix. It is the sum of the two parts in this menu: growth from the change in pay within education groups and growth from the change in education mix.`;
+      title = `Pay index growth, total, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
     } else if (m.key === "payfixed") {
       intro = `The map below shows the average yearly change from ${FIRST} to ${LAST}, after inflation, in each ${L.one}'s pay index with its education mix held at ${FIRST}. The index weights each education group's median pay by the area's ${FIRST} share of adults in that group.`;
       title = `Pay index growth from the change in pay within education groups, by ${L.by}, ${FIRST} to ${LAST} (percent a year)`;
@@ -513,7 +524,7 @@ function render() {
   if (pay) {
     notes.push(`Pay is median earnings in the past 12 months for people 25 and over who had earnings, including part-time and part-year workers. ${FIRST} dollars are converted to ${LAST} dollars with the Bureau of Labor Statistics R-CPI-U-RS, the index the Census Bureau recommends for ACS dollar figures (${FIRST} to ${LAST}: ${fmt(100 * (CPI_F - 1))}% higher prices). Its ${LAST} value is the average of the 11 months published, because October ${LAST} was not collected during the federal funding lapse.`);
     notes.push(`Yearly change is the compound annual growth rate: the steady yearly rate that turns the ${FIRST} value into the ${LAST} value.`);
-    notes.push(`The pay index weights each education group's median pay by the area's share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Pay index growth from the change in education mix" is the index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. Its test, and the test of the pay index total shown on hover, are approximate. The mix test asks whether the change in each group's share of adults, times that group's ${LAST} median pay, is larger than sampling error would likely explain, at 90% confidence. Both tests combine the margins of error of the shares and the medians, allow for the five shares adding to 100%, and treat the shares and medians as independent, although they come from the same survey. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
+    notes.push(`The pay index weights each education group's median pay by the area's share of adults 25 and over in that group. It is an index, not a median, and the weights cover all adults, not only workers. "Pay index growth from the change in education mix" is the index's yearly growth using each year's own mix, minus its growth with the mix held at ${FIRST}. Its test, and the test of the pay index total, are approximate. The mix test asks whether the change in each group's share of adults, times that group's ${LAST} median pay, is larger than sampling error would likely explain, at 90% confidence. Both tests combine the margins of error of the shares and the medians, allow for the five shares adding to 100%, and treat the shares and medians as independent, although they come from the same survey. The ${LAST} mix includes the ${LAST} survey changes to the education question.`);
     notes.push(`Median pay for all workers and the pay index can change at different rates for two reasons. A median of all workers is not an average of the group medians. And all-workers pay follows the education mix of people with earnings, while the index uses the mix of all adults, including people who do not work.`);
     notes.push(`In ${LAST} the survey collected less data during a federal funding lapse and used a new population base; both can affect ${LAST} pay estimates.`);
   }
@@ -540,6 +551,9 @@ function renderTable() {
     if (m.key === "paymix") {
       head = `<th>${esc(L.label)}</th><th>${FIRST} index ($)</th><th>${LAST} index, ${FIRST} mix ($)</th><th>${LAST} index, own mix ($)</th><th>From the change in education mix (points a year)</th>`;
       body = rows.map(r => `<tr><td>${esc(r.a.n)}</td>` + (r.c ? `<td>${usd(r.c.then.v)}</td><td>${usd(r.c.held.v)}</td><td>${usd(r.c.now.v)}</td>` : "<td>–</td><td>–</td><td>–</td>") + `<td>${chg(r.c)}</td></tr>`);
+    } else if (m.key === "paytotal") {
+      head = `<th>${esc(L.label)}</th><th>${FIRST} index ($)</th><th>${LAST} index, own mix ($)</th><th>Yearly change (%)</th>`;
+      body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${r.c ? usd(r.c.then.v) : "–"}</td><td>${r.c ? usd(r.c.now.v) : "–"}</td><td>${chg(r.c)}</td></tr>`);
     } else {
       head = `<th>${esc(L.label)}</th><th>${FIRST} index, ${FIRST} mix ($)</th><th>${LAST} index, ${FIRST} mix ($)</th><th>Yearly change (%)</th>`;
       body = rows.map(r => `<tr><td>${esc(r.a.n)}</td><td>${r.c ? usd(r.c.then.v) : "–"}</td><td>${r.c ? usd(r.c.now.v) : "–"}</td><td>${chg(r.c)}</td></tr>`);
