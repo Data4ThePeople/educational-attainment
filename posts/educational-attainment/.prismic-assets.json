@@ -1,32 +1,4 @@
 {
-  "images/01-edu-rise-metros.png": {
-    "id": "6yTZjrMsFmULhPTm",
-    "width": 1560,
-    "height": 1230,
-    "url": "https://images.prismic.io/data4thepeople/6yTZjrMsFmULhPTm_01-edu-rise-metros.png?auto=format,compress",
-    "stamp": "266200:1793617951"
-  },
-  "images/02-coffee-bridge.png": {
-    "id": "kRNrojM1k1Hx6ZoI",
-    "width": 1560,
-    "height": 900,
-    "url": "https://images.prismic.io/data4thepeople/kRNrojM1k1Hx6ZoI_02-coffee-bridge.png?auto=format,compress",
-    "stamp": "90710:1793617951"
-  },
-  "images/03-pay-mix-nation.png": {
-    "id": "xHELLXie2f_tBSm8",
-    "width": 1560,
-    "height": 990,
-    "url": "https://images.prismic.io/data4thepeople/xHELLXie2f_tBSm8_03-pay-mix-nation.png?auto=format,compress",
-    "stamp": "174236:1793617951"
-  },
-  "images/04-pay-mix-metros.png": {
-    "id": "wu0rjQi_3vETueD-",
-    "width": 1560,
-    "height": 1185,
-    "url": "https://images.prismic.io/data4thepeople/wu0rjQi_3vETueD-_04-pay-mix-metros.png?auto=format,compress",
-    "stamp": "178429:1793617951"
-  },
   "images/05-map-tooltip-new-york.png": {
     "id": "3fQLTJ_2UH0HKYMr",
     "width": 890,
@@ -34,11 +6,39 @@
     "url": "https://images.prismic.io/data4thepeople/3fQLTJ_2UH0HKYMr_05-map-tooltip-new-york.png?auto=format,compress",
     "stamp": "212575:1793575186"
   },
+  "images/01-edu-rise-metros.png": {
+    "id": "0PKTmxU5mY5BwjJs",
+    "width": 1560,
+    "height": 1230,
+    "url": "https://images.prismic.io/data4thepeople/0PKTmxU5mY5BwjJs_01-edu-rise-metros.png?auto=format,compress",
+    "stamp": "266200:1793618827"
+  },
+  "images/02-coffee-bridge.png": {
+    "id": "j_keQ1aswRcYSxz0",
+    "width": 1560,
+    "height": 900,
+    "url": "https://images.prismic.io/data4thepeople/j_keQ1aswRcYSxz0_02-coffee-bridge.png?auto=format,compress",
+    "stamp": "90710:1793618827"
+  },
+  "images/03-pay-mix-nation.png": {
+    "id": "0wBzH6tMB4CVlV1k",
+    "width": 1560,
+    "height": 990,
+    "url": "https://images.prismic.io/data4thepeople/0wBzH6tMB4CVlV1k_03-pay-mix-nation.png?auto=format,compress",
+    "stamp": "174236:1793618827"
+  },
+  "images/04-pay-mix-metros.png": {
+    "id": "6lzX3odvqXHTiFhW",
+    "width": 1560,
+    "height": 1185,
+    "url": "https://images.prismic.io/data4thepeople/6lzX3odvqXHTiFhW_04-pay-mix-metros.png?auto=format,compress",
+    "stamp": "178429:1793618827"
+  },
   "images/educational-attainment-hero-1680x1080.png": {
-    "id": "aS9twPiudN-vYdOH",
+    "id": "awtj-VesaoGrOTk7",
     "width": 1680,
     "height": 1080,
-    "url": "https://images.prismic.io/data4thepeople/aS9twPiudN-vYdOH_educational-attainment-hero-1680x1080.png?auto=format,compress",
-    "stamp": "111892:1793617951"
+    "url": "https://images.prismic.io/data4thepeople/awtj-VesaoGrOTk7_educational-attainment-hero-1680x1080.png?auto=format,compress",
+    "stamp": "116630:1793618827"
   }
 }

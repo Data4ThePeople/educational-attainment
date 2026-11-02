@@ -246,36 +246,33 @@ def hero_chart(h1, h2, o2, first, last):
                 f"from the education mix {mix:+,.0f}."])
     assert abs(within + mix - (o2 - h1)) < 1e-6 and within > 0 and mix > 0
 
-    # Drawn at hero size (1680 x 1080) with a takeaway headline, so the type stays large.
+    # Drawn at hero size (1680 x 1080) with a takeaway headline. The site's post cards crop the hero to a
+    # narrow center strip, so every label and number sits in the middle half of the width.
     fig = plt.figure(figsize=(11.2, 7.2), dpi=150)
-    fig.text(0.06, 0.92, "About half of the rise in the U.S. pay index\nlines up with more education", fontsize=30,
-             fontweight="bold", va="top", linespacing=1.15)
-    fig.text(0.06, 0.765, f"Pay index after inflation, {first} to {last}, in {last} dollars", fontsize=17, color=INK2, va="top")
-    ax = fig.add_axes([0.06, 0.19, 0.88, 0.48])
-    for sp in ("top", "right", "left"):
-        ax.spines[sp].set_visible(False)
-    ax.spines["bottom"].set_color(GRID)
-    ax.tick_params(length=0)
+    fig.text(0.5, 0.94, "About half of the rise\nin the U.S. pay index lines up\nwith more education", fontsize=30,
+             fontweight="bold", ha="center", va="top", linespacing=1.15)
+    fig.text(0.5, 0.70, f"Pay index after inflation, {first} to {last}, in {last} dollars", fontsize=15, color=INK2,
+             ha="center", va="top")
+    ax = fig.add_axes([0.25, 0.14, 0.50, 0.48])
+    ax.axis("off")
     rise = o2 - h1
-    steps = [(f"{first}", 0, h1, C2025, f"\\${h1:,.0f}"),
-             ("Pay within\neducation groups", h1, within, C2016, f"+\\${within:,.0f} ({100 * within / rise:.0f}%)"),
+    steps = [(f"{first} pay index", 0, h1, C2025, f"\\${h1:,.0f}"),
+             ("Pay within education groups", h1, within, C2016, f"+\\${within:,.0f} ({100 * within / rise:.0f}%)"),
              ("Education mix", h2, mix, "#4f8fd9", f"+\\${mix:,.0f} ({100 * mix / rise:.0f}%)"),
-             (f"{last}", 0, o2, C2025, f"\\${o2:,.0f}")]
-    for x, (name, base, v, c, text) in enumerate(steps):
-        ax.bar(x, v, bottom=base, width=0.62, color=c, zorder=2)
-        top = base + v
-        ax.text(x, top + 1500, text, ha="center", va="bottom", fontsize=19, color=INK2,
+             (f"{last} pay index", 0, o2, C2025, f"\\${o2:,.0f}")]
+    for i, (name, base, v, c, text) in enumerate(steps):
+        y = len(steps) - 1 - i
+        ax.barh(y, v, left=base, height=0.42, color=c, zorder=2)
+        ax.text(o2 * 0.012, y + 0.27, f"{name}:  {text}", ha="left", va="bottom", fontsize=16, color=INK2,
                 fontweight="bold" if base == 0 else "normal")
-        if x < len(steps) - 1:
-            ax.plot([x + 0.31, x + 0.69], [top, top], color=MUTED, lw=1.2, zorder=1)
-    ax.set_xticks(range(len(steps)))
-    ax.set_xticklabels([n for n, *_ in steps], fontsize=17, color=INK2)
-    ax.set_yticks([])
-    ax.set_ylim(0, 66000)
-    ax.tick_params(axis="x", pad=10)
-    fig.text(0.06, 0.035, f"Source: U.S. Census Bureau, American Community Survey 1-year, tables B20004 and B15003. "
-             f"Adults 25 and over.", fontsize=11, color=MUTED, va="bottom")
-    fig.text(0.94, 0.035, "Data 4 The People", fontsize=13, color=INK2, fontweight="bold", ha="right", va="bottom")
+        if i < len(steps) - 1:
+            ax.plot([base + v, base + v], [y - 0.21, y - 1 + 0.21], color=MUTED, lw=1.2, zorder=1)
+    ax.axvline(0, color=INK2, lw=1, zorder=3)
+    ax.set_xlim(0, o2 * 1.01)
+    ax.set_ylim(-0.4, len(steps) - 0.25)
+    fig.text(0.5, 0.045, f"Source: U.S. Census Bureau, American Community Survey 1-year, tables B20004 and B15003. "
+             f"Adults 25 and over.", fontsize=10, color=MUTED, ha="center", va="bottom")
+    fig.text(0.5, 0.075, "Data 4 The People", fontsize=13, color=INK2, fontweight="bold", ha="center", va="bottom")
     fig.savefig(IMG / "educational-attainment-hero-source.png", facecolor="white")
     plt.close(fig)
 
